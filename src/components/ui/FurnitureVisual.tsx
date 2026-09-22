@@ -1,6 +1,6 @@
 import { furnitureVisuals, type FurnitureVisualType } from "./furnitureVisualRegistry";
 
-// Shared between AddFurniture.tsx's catalog grid and LayoutConfirm.tsx's
+// Shared between FurnitureCatalogPanel.tsx's type grid and LayoutConfirm.tsx's
 // shopping-list thumbnails. Each product owns a distinct SVG illustration in
 // FurnitureVisuals.tsx; `scale` is kept for compact thumbnail use sites.
 export default function FurnitureVisual({

@@ -11,6 +11,7 @@ import {
   type AgentContextRequest,
   type LayoutRecommendationResponse,
   type LayoutResponse,
+  type LayoutValidationResult,
 } from "../api/layouts";
 import {
   AgentContextRequestValidationError,
@@ -636,6 +637,13 @@ async function persistEditorLayoutNow(
 
   const saved = await api.updateLayout(owner.activeLayoutId, room);
   assertActiveDraftResponse(saved, owner.activeLayoutId, owner.backendRoomId);
+  // Only the "다음 단계"/확정 flush (persistMirror=true) blocks on a bad
+  // layout — every in-editor drag-end autosave (persistMirror=false) must
+  // still succeed even mid-collision, or the user couldn't drag a piece out
+  // of a bad spot in the first place.
+  if (persistMirror) {
+    assertLayoutIsConfirmable(saved.validationResult);
+  }
   if (!isEditorPersistenceOwnerCurrent(owner, storage, browserSession)) return null;
 
   const savedRoom = applyBackendFurnitureToLayout(room, saved.recommendedFurniture);
@@ -703,6 +711,59 @@ export async function confirmActiveLayout(
   }
 
   return layoutToConfirm;
+}
+
+// ERROR-severity issue types — these are what block moving past the editor.
+// ZONE_INTRUSION is WARNING-only (see ValidationService.java) and never
+// appears here.
+const BLOCKING_ISSUE_LABELS: Record<string, string> = {
+  BODY_COLLISION: "가구끼리 겹쳐 있어요",
+  OUT_OF_BOUNDS: "방 범위를 벗어난 가구가 있어요",
+  DOOR_CLEARANCE: "문 앞 공간을 가리고 있어요",
+  WINDOW_CLEARANCE: "창문 앞 공간을 가리고 있어요",
+  PATH_BLOCKED: "이동 동선을 막고 있어요",
+};
+
+export class LayoutValidationBlockedError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "LayoutValidationBlockedError";
+  }
+}
+
+/**
+ * 백엔드는 하드-invalid(충돌/경계/문/창/동선 중 하나라도 실패)한 레이아웃의
+ * confirm 자체를 이미 거부하지만(INVALID_FURNITURE_POSITION), 그 전에 "다음
+ * 단계"에서부터 왜 못 넘어가는지 구체적으로 알려주기 위한 선제 체크.
+ */
+function assertLayoutIsConfirmable(validationResult: LayoutValidationResult): void {
+  const reasons = describeBlockingIssues(validationResult);
+  if (reasons.length > 0) {
+    throw new LayoutValidationBlockedError(
+      `배치에 문제가 있어 다음 단계로 이동할 수 없어요: ${reasons.join(", ")}`,
+    );
+  }
+}
+
+function describeBlockingIssues(validationResult: LayoutValidationResult): string[] {
+  if (validationResult.issues) {
+    const errorTypes = new Set(
+      validationResult.issues
+        .filter((issue) => issue.severity === "ERROR")
+        .map((issue) => issue.type),
+    );
+    return [...errorTypes].map((type) => BLOCKING_ISSUE_LABELS[type] ?? type);
+  }
+
+  // Older/mocked responses may not carry `issues` — fall back to the 5
+  // summary booleans every LayoutValidationResult has always had.
+  const reasons: string[] = [];
+  if (!validationResult.collisionFree) reasons.push(BLOCKING_ISSUE_LABELS.BODY_COLLISION);
+  if (!validationResult.boundaryValid) reasons.push(BLOCKING_ISSUE_LABELS.OUT_OF_BOUNDS);
+  if (!validationResult.doorClearance) reasons.push(BLOCKING_ISSUE_LABELS.DOOR_CLEARANCE);
+  if (!validationResult.windowClearance) reasons.push(BLOCKING_ISSUE_LABELS.WINDOW_CLEARANCE);
+  if (!validationResult.pathSecured) reasons.push(BLOCKING_ISSUE_LABELS.PATH_BLOCKED);
+  return reasons;
 }
 
 function assertRecommendationCanBeConfirmed(

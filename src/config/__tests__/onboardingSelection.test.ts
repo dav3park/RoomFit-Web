@@ -2,7 +2,6 @@ import { describe, expect, it, vi } from "vitest";
 
 import {
   canAdvanceFromPath,
-  getFurnitureSelectionGuidanceMessage,
   getPreferenceGuidanceMessage,
   getReferenceStyleGuidanceMessage,
   isPreferenceSelectionComplete,
@@ -14,8 +13,6 @@ import {
   readInteriorStyleSelection,
   readPreferenceSelection,
   STYLE_STORAGE_KEY,
-  ADDITIONAL_FURNITURE_STORAGE_KEY,
-  readAdditionalFurnitureSelection,
 } from "../onboardingSelection";
 
 // 이 저장소에는 jsdom/RTL 설정이 없어(기존 .test.tsx도 DOM을 마운트하지 않고
@@ -171,28 +168,6 @@ describe("/reference-image required selection", () => {
   });
 });
 
-describe("/add-furniture required selection", () => {
-  it("does not advance or call recommendation work when no furniture is selected", () => {
-    const navigate = vi.fn();
-    const storage = createMemoryStorage();
-    expect(canAdvanceFromPath("/add-furniture", storage)).toBe(false);
-    expect(getFurnitureSelectionGuidanceMessage(readAdditionalFurnitureSelection(storage)))
-      .toBe("추천에 포함할 가구를 하나 이상 선택해 주세요.");
-    simulateGoNext("/add-furniture", storage, navigate);
-    expect(navigate).not.toHaveBeenCalled();
-  });
-
-  it("advances with a supported selection while preserving every selected id", () => {
-    const navigate = vi.fn();
-    const storage = createMemoryStorage({
-      [ADDITIONAL_FURNITURE_STORAGE_KEY]: '["desk","desk-chair"]',
-    });
-    expect(readAdditionalFurnitureSelection(storage)).toEqual(["desk", "desk-chair"]);
-    simulateGoNext("/add-furniture", storage, navigate);
-    expect(navigate).toHaveBeenCalledTimes(1);
-  });
-});
-
 describe("non-gated steps are unaffected", () => {
   it("게이트 대상이 아닌 경로는 선택과 무관하게 이동 가능", () => {
     const storage = createMemoryStorage();
@@ -201,5 +176,8 @@ describe("non-gated steps are unaffected", () => {
     expect(canAdvanceFromPath("/manage-furniture", storage)).toBe(true);
     expect(canAdvanceFromPath("/recommendation", storage)).toBe(true);
     expect(canAdvanceFromPath("/editor", storage)).toBe(true);
+    // /add-furniture is no longer a routed page (it's an in-editor sidebar
+    // widget now — see FurnitureCatalogPanel.tsx) so it's not gated either.
+    expect(canAdvanceFromPath("/add-furniture", storage)).toBe(true);
   });
 });

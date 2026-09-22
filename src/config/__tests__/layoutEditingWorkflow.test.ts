@@ -17,7 +17,9 @@ import {
   createRecommendationFingerprintFromRequest,
   flushEditorLayoutPersistence,
   flushManagedFurniturePersistence,
+  LayoutValidationBlockedError,
   loadManagedFurnitureLayout,
+  persistActiveEditorLayout,
   prepareAdditionalFurnitureForEditor,
   prepareFurnitureSelectionForRecommendation,
   prepareRecommendationTransitionForEditor,
@@ -1244,6 +1246,49 @@ describe("Draft layout editing workflow", () => {
     vi.mocked(api.updateLayout).mockResolvedValueOnce(response(31, false, 10));
     await expect(persistEditorLayoutSnapshot(room, storage, api)).resolves.not.toBeNull();
     await expect(flushEditorLayoutPersistence()).resolves.toBeUndefined();
+  });
+
+  it("blocks moving past the editor with a specific message when the layout has a collision, but never blocks a plain drag-end autosave", async () => {
+    const room = createRoom();
+    const storage = selectedRoomStorage(room);
+    saveDraftSession(storage, 31, 10);
+    const api = fakeApi();
+    const invalid = {
+      ...response(31, false, 10),
+      validationResult: {
+        collisionFree: false,
+        boundaryValid: true,
+        doorClearance: true,
+        windowClearance: true,
+        pathSecured: true,
+        warnings: ["가구 충돌이 감지되었습니다."],
+        issues: [{
+          furnitureId: "bed-1",
+          otherFurnitureId: "desk-1",
+          type: "BODY_COLLISION" as const,
+          severity: "ERROR" as const,
+          message: "가구가 서로 겹칩니다.",
+        }],
+      },
+    };
+
+    // A mid-drag autosave (persistEditorLayoutSnapshot) must still succeed —
+    // otherwise the user could never drag the offending piece to a safe spot.
+    vi.mocked(api.updateLayout).mockResolvedValueOnce(invalid);
+    await expect(persistEditorLayoutSnapshot(room, storage, api)).resolves.not.toBeNull();
+
+    // Moving past the editor ("다음 단계") is the one that must block, with a
+    // message naming the actual problem.
+    vi.mocked(api.updateLayout).mockResolvedValueOnce(invalid);
+    await expect(persistActiveEditorLayout(storage, api)).rejects.toThrow(LayoutValidationBlockedError);
+    vi.mocked(api.updateLayout).mockResolvedValueOnce(invalid);
+    await expect(persistActiveEditorLayout(storage, api)).rejects.toThrow("가구끼리 겹쳐 있어요");
+
+    // Confirming goes through the same persist step first, so it's blocked
+    // before the backend's own confirm endpoint is ever called.
+    vi.mocked(api.updateLayout).mockResolvedValueOnce(invalid);
+    await expect(confirmActiveLayout(room, storage, api)).rejects.toThrow(LayoutValidationBlockedError);
+    expect(api.confirmLayout).not.toHaveBeenCalled();
   });
 
   it("surfaces a reset save failure, preserves the Backend Draft, and allows a retry", async () => {

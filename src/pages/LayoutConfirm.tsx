@@ -21,7 +21,11 @@ import {
 } from "../config/roomPreferences";
 import { captureCanvasThumbnail, saveRoomThumbnail } from "../config/roomThumbnails";
 import { completeRoomSetupSession } from "../config/roomSetupSession";
-import { confirmActiveLayout, refreshActiveDraftNavigationState } from "../config/layoutEditingWorkflow";
+import {
+  confirmActiveLayout,
+  LayoutValidationBlockedError,
+  refreshActiveDraftNavigationState,
+} from "../config/layoutEditingWorkflow";
 import { getActiveRequestClientId } from "../config/clientScope";
 import { RecommendationFeasibilityError } from "../config/recommendationResult";
 import {
@@ -197,7 +201,9 @@ export default function LayoutConfirm() {
       setConfirmError(
         error instanceof RecommendationFeasibilityError
           ? "추천이 완료되지 않아 확정할 수 없습니다. 가구 선택으로 돌아가 다시 추천해 주세요."
-          : "배치를 확정하지 못했습니다. 저장 상태를 확인한 뒤 다시 시도해 주세요.",
+          : error instanceof LayoutValidationBlockedError
+            ? error.message
+            : "배치를 확정하지 못했습니다. 저장 상태를 확인한 뒤 다시 시도해 주세요.",
       );
     } finally {
       setIsConfirming(false);

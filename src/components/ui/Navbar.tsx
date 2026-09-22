@@ -23,10 +23,11 @@ interface NavigationStep {
 // The main onboarding/edit sequence. `/manage-furniture` is the dedicated
 // scan-correction step (room + existing-furniture dimensions), done once
 // right after picking a room, before anything else. `/preference`,
-// `/reference-image`, `/add-furniture` and `/recommendation` used to be
-// forced steps between `/manage-furniture` and `/editor` — they're now
-// editor-launched sub-flows (see preferenceFlowSteps/addFurnitureFlowSteps
-// below) so the editor itself is reachable right after scan correction.
+// `/reference-image` and `/recommendation` used to be forced steps between
+// `/manage-furniture` and `/editor` — they're now editor-launched sub-flows
+// (see preferenceFlowSteps below) so the editor itself is reachable right
+// after scan correction. Adding furniture directly is an in-editor sidebar
+// widget (FurnitureCatalogPanel), not a routed step at all.
 const mainFlowSteps: NavigationStep[] = [
   {
     path: "/",
@@ -72,21 +73,7 @@ const preferenceFlowSteps: NavigationStep[] = [
   },
 ];
 
-// Launched from the editor's "+ 가구 추가" button. A single real step whose
-// "다음" returns straight to /editor — /editor is listed here purely so the
-// existing index-based nextStep lookup resolves to it; landing on /editor
-// itself always resolves to mainFlowSteps instead (see resolveActiveFlow).
-const addFurnitureFlowSteps: NavigationStep[] = [
-  {
-    path: "/add-furniture",
-    label: "가구 선택",
-    beforeNext: async () => (await import("../../config/layoutEditingWorkflow")).prepareFurnitureSelectionForRecommendation(),
-    nextLabel: "완료하고 편집으로 돌아가기",
-  },
-  { path: "/editor", label: "편집" },
-];
-
-const allFlows = [mainFlowSteps, preferenceFlowSteps, addFurnitureFlowSteps];
+const allFlows = [mainFlowSteps, preferenceFlowSteps];
 
 function resolveActiveFlow(pathname: string): NavigationStep[] {
   return allFlows.find((steps) => steps.some((step) => step.path === pathname)) ?? mainFlowSteps;
@@ -107,7 +94,7 @@ export default function Navbar() {
   const [isFurnitureLimitDialogOpen, setIsFurnitureLimitDialogOpen] = useState(false);
   const navigationInFlightRef = useRef(false);
   useEffect(() => {
-    if (!["/preference", "/reference-image", "/add-furniture"].includes(location.pathname)) {
+    if (!["/preference", "/reference-image"].includes(location.pathname)) {
       return;
     }
 
@@ -161,15 +148,14 @@ export default function Navbar() {
       const furnitureAdditionMessage = getFurnitureAdditionErrorMessage(error);
       if (furnitureAdditionMessage) {
         setNavigationError(furnitureAdditionMessage);
-      } else if (error instanceof Error && error.name === "AgentContextRequestValidationError") {
+      } else if (error instanceof Error
+        && (error.name === "AgentContextRequestValidationError" || error.name === "LayoutValidationBlockedError")) {
         setNavigationError(error.message);
       } else if (!(error instanceof Error && error.name === "RecommendationFeasibilityError")) {
         setNavigationError(
           location.pathname === "/rooms"
             ? "새 방을 만들지 못했습니다. 현재 선택을 유지한 채 다시 시도해 주세요."
-            : location.pathname === "/add-furniture"
-              ? "추천 서버에 연결하지 못했습니다. 선택한 가구를 유지한 채 다시 시도해 주세요."
-              : "배치를 저장하지 못했습니다. 현재 화면에서 다시 시도해 주세요.",
+            : "배치를 저장하지 못했습니다. 현재 화면에서 다시 시도해 주세요.",
         );
       }
     } finally {

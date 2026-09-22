@@ -48,7 +48,7 @@ export default function Recommendation() {
         errorMessage={errorMessage}
         ready={preparation.ready}
         onGenerate={() => { void controllerRef.current?.run(); }}
-        onPrevious={() => navigate("/add-furniture", { state: location.state })}
+        onPrevious={() => navigate("/reference-image", { state: location.state })}
       />
     </main>
   );

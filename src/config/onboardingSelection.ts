@@ -131,7 +131,7 @@ export function getFurnitureSelectionGuidanceMessage(selectedIds: string[]): str
 }
 
 // 이 두 단계에서만 선택 검증으로 "다음 단계" 이동을 막는다. 그 외 단계는 영향 없음.
-export const ONBOARDING_GATED_PATHS = ["/preference", "/reference-image", "/add-furniture"] as const;
+export const ONBOARDING_GATED_PATHS = ["/preference", "/reference-image"] as const;
 
 /**
  * 현재 경로에서 다음 단계로 이동해도 되는지 계산한다 — 게이트 대상이 아닌
@@ -144,7 +144,6 @@ export function canAdvanceFromPath(
 ): boolean {
   if (pathname === "/preference") return isPreferenceSelectionComplete(storage);
   if (pathname === "/reference-image") return isReferenceStyleSelectionComplete(storage);
-  if (pathname === "/add-furniture") return readAdditionalFurnitureSelection(storage).length > 0;
   return true;
 }
 

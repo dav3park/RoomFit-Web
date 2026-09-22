@@ -8,6 +8,7 @@ import {
   getLayout,
   recommendLayout,
   type InterpretedIntent,
+  type LayoutResponse,
   type LayoutValidationResult,
   type ScoreSummary,
 } from "../api/layouts";
@@ -18,6 +19,7 @@ import {
 import { applyBackendFurnitureToLayout } from "../api/rooms";
 import { ensureCustomRoomBackendRoom } from "../api/customRoomBackend";
 import EditorFeedbackPanel from "../components/editor/EditorFeedbackPanel";
+import FurnitureCatalogPanel from "../components/editor/FurnitureCatalogPanel";
 import {
   beginFeedbackRequest,
   createEmptyFeedbackResult,
@@ -173,6 +175,7 @@ export default function EditorPlaceholder() {
   const [hideEntranceWalls, setHideEntranceWalls] = useState(false);
   const [isRecommending, setIsRecommending] = useState(false);
   const [isPreparingCatalog, setIsPreparingCatalog] = useState(false);
+  const [isCatalogOpen, setIsCatalogOpen] = useState(false);
   const [isApplyingFeedback, setIsApplyingFeedback] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [scoreSummary, setScoreSummary] = useState<ScoreSummary | null>(
@@ -334,17 +337,22 @@ export default function EditorPlaceholder() {
     dispatchEditorLayout({ type: "resetFurniture", scopeKey: editorScopeKey, furnitureId: id });
   };
 
-  // "+ 가구 추가"는 카탈로그에서 실제 제품을 골라 바로 배치하는 화면으로 이동한다.
-  // 스캔만 하고 AI 추천을 한 번도 돌리지 않은 방은 아직 layoutId가 없으므로
-  // (handleRecommend/handleFeedback을 통해서만 생긴다), 여기서 온디맨드로 빈
-  // Layout을 만들어 둔다 — ensureCustomRoomBackendRoom과 같은 패턴.
+  // "+ 가구 추가"는 왼쪽에 카탈로그 위젯을 열어 실제 제품을 골라 바로 배치한다
+  // (전체 화면 이동 없음). 스캔만 하고 AI 추천을 한 번도 돌리지 않은 방은 아직
+  // layoutId가 없으므로(handleRecommend/handleFeedback을 통해서만 생긴다),
+  // 여기서 온디맨드로 빈 Layout을 만들어 둔다 — ensureCustomRoomBackendRoom과
+  // 같은 패턴.
   const handleOpenCatalog = async () => {
+    if (isCatalogOpen) {
+      setIsCatalogOpen(false);
+      return;
+    }
     if (!roomLayout) {
       setErrorMessage("먼저 /rooms에서 샘플 방을 선택해 주세요.");
       return;
     }
     if (layoutId !== null) {
-      navigate("/add-furniture");
+      setIsCatalogOpen(true);
       return;
     }
 
@@ -382,14 +390,20 @@ export default function EditorPlaceholder() {
       setScoreSummary(response.scoreSummary);
       setValidationResult(response.validationResult);
       saveLayoutResponseSession(roomLayout.id, response, localStorage, "INITIAL_SETUP");
-      navigate("/add-furniture");
+      setIsCatalogOpen(true);
     } catch (error) {
       console.error(error);
-      setErrorMessage("가구 추가 화면을 여는 데 실패했습니다. 잠시 후 다시 시도해 주세요.");
+      setErrorMessage("가구 추가 패널을 여는 데 실패했습니다. 잠시 후 다시 시도해 주세요.");
     } finally {
       customRoomCreationRef.current = null;
       setIsPreparingCatalog(false);
     }
+  };
+
+  const handleFurniturePlaced = (updatedRoom: RoomLayout, response: LayoutResponse) => {
+    dispatchEditorLayout({ type: "replace", roomLayout: updatedRoom, scopeKey: editorScopeKey });
+    setScoreSummary(response.scoreSummary);
+    setValidationResult(response.validationResult);
   };
 
   const handleRecommend = async () => {
@@ -624,7 +638,20 @@ export default function EditorPlaceholder() {
 
   return (
     <main className="min-h-[calc(100vh-76px)] bg-[#fbfbfb] text-[#141414]">
-      <section className="grid min-h-[calc(100vh-76px)] grid-cols-1 lg:grid-cols-[minmax(0,1fr)_380px]">
+      <section
+        className={`grid min-h-[calc(100vh-76px)] grid-cols-1 ${
+          isCatalogOpen ? "lg:grid-cols-[300px_minmax(0,1fr)_380px]" : "lg:grid-cols-[minmax(0,1fr)_380px]"
+        }`}
+      >
+        {isCatalogOpen && layoutId !== null && (
+          <FurnitureCatalogPanel
+            layoutId={layoutId}
+            room={roomLayout}
+            onPlaced={handleFurniturePlaced}
+            onClose={() => setIsCatalogOpen(false)}
+          />
+        )}
+
         <section className="relative flex min-h-140 flex-col px-6 py-6 lg:px-8">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
             <div className="flex min-w-0 flex-wrap items-center gap-3">
@@ -653,9 +680,15 @@ export default function EditorPlaceholder() {
               type="button"
               onClick={() => void handleOpenCatalog()}
               disabled={isPreparingCatalog}
-              className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-[#e2e2e2] bg-white px-4 py-2 text-sm font-extrabold text-[#222222] transition-colors hover:bg-[#f2f2f2] disabled:cursor-wait disabled:opacity-60"
+              aria-pressed={isCatalogOpen}
+              className={`inline-flex min-h-10 items-center gap-2 rounded-lg border px-4 py-2 text-sm font-extrabold transition-colors disabled:cursor-wait disabled:opacity-60 ${
+                isCatalogOpen
+                  ? "border-[#111111] bg-[#111111] text-white hover:bg-[#333333]"
+                  : "border-[#e2e2e2] bg-white text-[#222222] hover:bg-[#f2f2f2]"
+              }`}
             >
-              <span aria-hidden="true">+</span> {isPreparingCatalog ? "준비 중..." : "가구 추가"}
+              <span aria-hidden="true">{isCatalogOpen ? "×" : "+"}</span>
+              {isPreparingCatalog ? "준비 중..." : isCatalogOpen ? "가구 추가 닫기" : "가구 추가"}
             </button>
             <button
               type="button"
@@ -709,7 +742,7 @@ export default function EditorPlaceholder() {
           {recommendationNotice && (
             <RecommendationResultPanel
               notice={recommendationNotice}
-              onReturnToFurniture={() => navigate("/add-furniture", { state: location.state })}
+              onReturnToFurniture={() => void handleOpenCatalog()}
             />
           )}
 

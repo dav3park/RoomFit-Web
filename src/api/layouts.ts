@@ -56,6 +56,22 @@ export interface ScoreSummary {
   totalScore: number;
 }
 
+export type LayoutValidationIssueType =
+  | "BODY_COLLISION"
+  | "OUT_OF_BOUNDS"
+  | "DOOR_CLEARANCE"
+  | "WINDOW_CLEARANCE"
+  | "PATH_BLOCKED"
+  | "ZONE_INTRUSION";
+
+export interface LayoutValidationIssue {
+  furnitureId: string;
+  otherFurnitureId: string | null;
+  type: LayoutValidationIssueType;
+  severity: "ERROR" | "WARNING";
+  message: string;
+}
+
 export interface LayoutValidationResult {
   collisionFree: boolean;
   boundaryValid: boolean;
@@ -63,6 +79,10 @@ export interface LayoutValidationResult {
   windowClearance: boolean;
   pathSecured: boolean;
   warnings: string[];
+  // Optional: absent on older/mocked responses. ERROR-severity entries are
+  // what block confirming (see layoutEditingWorkflow.ts's
+  // assertLayoutIsConfirmable); WARNING (ZONE_INTRUSION) never blocks.
+  issues?: LayoutValidationIssue[];
 }
 
 export interface InterpretedIntent {

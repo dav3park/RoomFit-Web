@@ -176,6 +176,8 @@ export default function EditorPlaceholder() {
   const [isRecommending, setIsRecommending] = useState(false);
   const [isPreparingCatalog, setIsPreparingCatalog] = useState(false);
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+  const [catalogPanelWidth, setCatalogPanelWidth] = useState(420);
+  const [isResizingCatalogPanel, setIsResizingCatalogPanel] = useState(false);
   const [isApplyingFeedback, setIsApplyingFeedback] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [scoreSummary, setScoreSummary] = useState<ScoreSummary | null>(
@@ -337,23 +339,15 @@ export default function EditorPlaceholder() {
     dispatchEditorLayout({ type: "resetFurniture", scopeKey: editorScopeKey, furnitureId: id });
   };
 
-  // "+ 가구 추가"는 왼쪽에 카탈로그 위젯을 열어 실제 제품을 골라 바로 배치한다
-  // (전체 화면 이동 없음). 스캔만 하고 AI 추천을 한 번도 돌리지 않은 방은 아직
-  // layoutId가 없으므로(handleRecommend/handleFeedback을 통해서만 생긴다),
-  // 여기서 온디맨드로 빈 Layout을 만들어 둔다 — ensureCustomRoomBackendRoom과
-  // 같은 패턴.
-  const handleOpenCatalog = async () => {
-    if (isCatalogOpen) {
-      setIsCatalogOpen(false);
-      return;
-    }
+  // 왼쪽 카탈로그 위젯이 뜨려면 layoutId가 있어야 한다. 스캔만 하고 AI 추천을
+  // 한 번도 돌리지 않은 방은 아직 layoutId가 없으므로(handleRecommend/
+  // handleFeedback을 통해서만 생긴다), 여기서 온디맨드로 빈 Layout을 만들어
+  // 둔다 — ensureCustomRoomBackendRoom과 같은 패턴. 이미 있으면 그대로 true.
+  const ensureLayoutExists = async (): Promise<boolean> => {
+    if (layoutId !== null) return true;
     if (!roomLayout) {
       setErrorMessage("먼저 /rooms에서 샘플 방을 선택해 주세요.");
-      return;
-    }
-    if (layoutId !== null) {
-      setIsCatalogOpen(true);
-      return;
+      return false;
     }
 
     setIsPreparingCatalog(true);
@@ -367,7 +361,7 @@ export default function EditorPlaceholder() {
       }
       if (roomId === null) {
         setErrorMessage("유효한 백엔드 방을 다시 선택해 주세요.");
-        return;
+        return false;
       }
 
       const response = await createBlankLayout(roomId);
@@ -390,15 +384,64 @@ export default function EditorPlaceholder() {
       setScoreSummary(response.scoreSummary);
       setValidationResult(response.validationResult);
       saveLayoutResponseSession(roomLayout.id, response, localStorage, "INITIAL_SETUP");
-      setIsCatalogOpen(true);
+      return true;
     } catch (error) {
       console.error(error);
       setErrorMessage("가구 추가 패널을 여는 데 실패했습니다. 잠시 후 다시 시도해 주세요.");
+      return false;
     } finally {
       customRoomCreationRef.current = null;
       setIsPreparingCatalog(false);
     }
   };
+
+  // "+ 가구 추가"는 왼쪽 카탈로그 위젯을 여닫는 토글이다(전체 화면 이동 없음).
+  const handleOpenCatalog = async () => {
+    if (isCatalogOpen) {
+      setIsCatalogOpen(false);
+      return;
+    }
+    if (await ensureLayoutExists()) {
+      setIsCatalogOpen(true);
+    }
+  };
+
+  // 가구 선택 인터랙션은 "+ 가구 추가"를 누르지 않아도 편집 화면에 들어오는
+  // 순간부터 바로 보여야 한다는 요청 — 처음 마운트될 때 한 번, layoutId가
+  // 없으면 만들어서라도 위젯을 기본으로 연다.
+  useEffect(() => {
+    if (!roomLayout) return;
+    // Async, guarded, runs once on mount — same operation the "+ 가구 추가"
+    // button itself triggers on click; this just fires it automatically.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    void ensureLayoutExists().then((ready) => {
+      if (ready) setIsCatalogOpen(true);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Drag-to-resize the catalog panel — mirrors ManageFurniture.tsx's right-side
+  // panel resizer, just measured from the left edge instead of the right.
+  useEffect(() => {
+    if (!isResizingCatalogPanel) return;
+
+    const handlePointerMove = (event: PointerEvent) => {
+      setCatalogPanelWidth(Math.min(640, Math.max(300, event.clientX)));
+    };
+    const stopResizing = () => setIsResizingCatalogPanel(false);
+
+    window.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener("pointerup", stopResizing);
+    document.body.style.cursor = "col-resize";
+    document.body.style.userSelect = "none";
+
+    return () => {
+      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("pointerup", stopResizing);
+      document.body.style.cursor = "";
+      document.body.style.userSelect = "";
+    };
+  }, [isResizingCatalogPanel]);
 
   const handleFurniturePlaced = (updatedRoom: RoomLayout, response: LayoutResponse) => {
     dispatchEditorLayout({ type: "replace", roomLayout: updatedRoom, scopeKey: editorScopeKey });
@@ -640,16 +683,28 @@ export default function EditorPlaceholder() {
     <main className="min-h-[calc(100vh-76px)] bg-[#fbfbfb] text-[#141414]">
       <section
         className={`grid min-h-[calc(100vh-76px)] grid-cols-1 ${
-          isCatalogOpen ? "lg:grid-cols-[300px_minmax(0,1fr)_380px]" : "lg:grid-cols-[minmax(0,1fr)_380px]"
+          isCatalogOpen
+            ? "lg:grid-cols-[var(--catalog-panel-width)_10px_minmax(0,1fr)_380px]"
+            : "lg:grid-cols-[minmax(0,1fr)_380px]"
         }`}
+        style={isCatalogOpen ? ({ "--catalog-panel-width": `${catalogPanelWidth}px` } as React.CSSProperties) : undefined}
       >
         {isCatalogOpen && layoutId !== null && (
-          <FurnitureCatalogPanel
-            layoutId={layoutId}
-            room={roomLayout}
-            onPlaced={handleFurniturePlaced}
-            onClose={() => setIsCatalogOpen(false)}
-          />
+          <>
+            <FurnitureCatalogPanel
+              layoutId={layoutId}
+              room={roomLayout}
+              onPlaced={handleFurniturePlaced}
+              onClose={() => setIsCatalogOpen(false)}
+            />
+            <div
+              role="separator"
+              aria-orientation="vertical"
+              aria-label="가구 추가 패널 크기 조절"
+              onPointerDown={() => setIsResizingCatalogPanel(true)}
+              className="hidden cursor-col-resize border-l border-[#eeeeee] bg-[#fbfbfb] transition-colors hover:bg-[#eeeeee] lg:block"
+            />
+          </>
         )}
 
         <section className="relative flex min-h-140 flex-col px-6 py-6 lg:px-8">

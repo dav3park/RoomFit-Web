@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { FiX } from "react-icons/fi";
 
 import { addFurnitureAt } from "../../api/layouts";
@@ -6,6 +6,12 @@ import { applyBackendFurnitureToLayout } from "../../api/rooms";
 import FurnitureVisual from "../ui/FurnitureVisual";
 import { CatalogProductPreview } from "../furniture/variants/CatalogProductPreview";
 import { getProductionFurnitureVariantRenderResources } from "../furniture/variants/furnitureVariantRouting";
+import {
+  hasLivePreviewSlot,
+  releaseLivePreviewSlot,
+  subscribeLivePreviewSlots,
+  tryClaimLivePreviewSlot,
+} from "../furniture/variants/livePreviewSlots";
 import { findFreePlacement } from "../../geometry/placement";
 import { FURNITURE_SELECTION_ITEMS } from "../../config/furnitureSelectionCatalog";
 import type { FurnitureVisualType } from "../ui/furnitureVisualRegistry";
@@ -218,6 +224,7 @@ interface FurnitureCatalogCardProps {
  */
 function FurnitureCatalogCard({ product, isPlacing, disabled, onSelect }: FurnitureCatalogCardProps) {
   const [containerRef, isVisible] = useInViewport<HTMLDivElement>();
+  const hasSlot = useLivePreviewSlot(product.productId, isVisible);
   const visual = TYPE_VISUALS[product.furnitureType];
 
   return (
@@ -228,7 +235,7 @@ function FurnitureCatalogCard({ product, isPlacing, disabled, onSelect }: Furnit
       className="rounded-lg border border-transparent bg-white p-2 text-left transition-colors hover:border-[#111111] disabled:cursor-wait disabled:opacity-60"
     >
       <div ref={containerRef} className="grid place-items-center overflow-hidden rounded-md bg-[#f6f3ef]" style={{ aspectRatio: "4 / 3" }}>
-        {isVisible ? (
+        {hasSlot ? (
           <CatalogProductPreview variantId={product.variantId} registry={registry} materialPresets={materialPresets} />
         ) : (
           visual && <FurnitureVisual type={visual} />
@@ -246,7 +253,7 @@ function FurnitureCatalogCard({ product, isPlacing, disabled, onSelect }: Furnit
 }
 
 /** True once `ref`'s element has scrolled into (or near) the viewport, false again once it scrolls back out. */
-function useInViewport<T extends Element>(rootMargin = "150px"): [React.RefObject<T | null>, boolean] {
+function useInViewport<T extends Element>(rootMargin = "80px"): [React.RefObject<T | null>, boolean] {
   const ref = useRef<T | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -265,6 +272,42 @@ function useInViewport<T extends Element>(rootMargin = "150px"): [React.RefObjec
   }, [rootMargin]);
 
   return [ref, isVisible];
+}
+
+/**
+ * Claims a shared, hard-capped live-preview slot (see livePreviewSlots.ts)
+ * whenever `wantsSlot` (in-viewport) is true, releasing it otherwise or on
+ * unmount. If the cap is already full, subscribes to be retried the moment
+ * any slot frees up (e.g. the user scrolled a different card out of view).
+ * This is the "the main room viewport must never be starved" safety net on
+ * top of IntersectionObserver alone.
+ */
+function useLivePreviewSlot(id: string, wantsSlot: boolean): boolean {
+  // The claim/release calls below are the imperative side effect (mutating
+  // the external livePreviewSlots store); useSyncExternalStore — not a
+  // mirrored useState — is what turns that store's current value into a
+  // render-safe boolean, so there's no setState-in-effect involved at all.
+  useEffect(() => {
+    if (!wantsSlot) {
+      releaseLivePreviewSlot(id);
+      return;
+    }
+    if (tryClaimLivePreviewSlot(id)) {
+      return () => releaseLivePreviewSlot(id);
+    }
+    // Cap already full — retry the moment any card releases a slot.
+    // Unsubscribing on cleanup fully removes this listener (synchronously),
+    // so a claim can never leak past that point.
+    const unsubscribe = subscribeLivePreviewSlots(() => {
+      if (tryClaimLivePreviewSlot(id)) unsubscribe();
+    });
+    return () => {
+      unsubscribe();
+      releaseLivePreviewSlot(id); // no-op if this card never actually held one
+    };
+  }, [id, wantsSlot]);
+
+  return useSyncExternalStore(subscribeLivePreviewSlots, () => wantsSlot && hasLivePreviewSlot(id));
 }
 
 function formatDimensionMm(dimensions: { width: number; depth: number; height: number }): string {

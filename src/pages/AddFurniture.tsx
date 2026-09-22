@@ -1,94 +1,91 @@
 import { useEffect, useState } from "react";
-import { FiCheck, FiPlus } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import { FiArrowLeft } from "react-icons/fi";
 
+import { addFurnitureAt } from "../api/layouts";
+import { applyBackendFurnitureToLayout } from "../api/rooms";
 import FurnitureVisual from "../components/ui/FurnitureVisual";
-import InlineSelectionValidation from "../components/ui/InlineSelectionValidation";
 import RecommendationResultPanel from "../components/editor/RecommendationResultPanel";
+import { CatalogProductPreview } from "../components/furniture/variants/CatalogProductPreview";
+import { getProductionFurnitureVariantRenderResources } from "../components/furniture/variants/furnitureVariantRouting";
 import {
   readRecommendationResult,
   subscribeRecommendationResult,
   type RecommendationResultNotice,
 } from "../config/recommendationResult";
-import { hasRoomPreferences } from "../config/roomPreferences";
 import { readRoomSetupSession } from "../config/roomSetupSession";
+import { normalizeBackendRoomId } from "../api/agentContextRequest";
+import {
+  isSessionForRoom,
+  readActiveLayoutEditingSession,
+  saveLayoutResponseSession,
+} from "../config/layoutEditingSession";
 import {
   FURNITURE_SELECTION_CATEGORIES,
   FURNITURE_SELECTION_ITEMS,
 } from "../config/furnitureSelectionCatalog";
-import {
-  getFurnitureSelectionBlockReason,
-  parseStoredRoomLayout,
-} from "../config/furnitureSelectionPolicy";
-import {
-  getFurnitureSelectionGuidanceMessage,
-  ONBOARDING_VALIDATION_EVENT,
-} from "../config/onboardingSelection";
-const addFurnitureVisitedKey = "roomfit:visited:add-furniture";
+import type { CanonicalFurnitureType } from "../config/canonicalFurnitureType";
+import catalogDocument from "../data/furniture/catalog.json";
+import type { RoomLayout } from "../types";
+
+type CatalogProduct = (typeof catalogDocument.products)[number];
+
+const { materialPresets, registry } = getProductionFurnitureVariantRenderResources();
 
 export default function AddFurniture() {
-  const [activeCategory, setActiveCategory] = useState("전체");
-  const [selectionNotice, setSelectionNotice] = useState<string | null>(null);
-  const [validationMessage, setValidationMessage] = useState("");
-  const [room] = useState(() => parseStoredRoomLayout(localStorage.getItem("roomfit:selectedRoomLayout")));
+  const navigate = useNavigate();
+  const [activeCategory, setActiveCategory] = useState<(typeof FURNITURE_SELECTION_CATEGORIES)[number]>("전체");
+  const [activeType, setActiveType] = useState<CanonicalFurnitureType | null>(null);
+  const [placingProductId, setPlacingProductId] = useState<string | null>(null);
+  const [placementError, setPlacementError] = useState("");
   const [recommendationNotice, setRecommendationNotice] = useState<RecommendationResultNotice | null>(
     readCurrentRecommendationNotice,
   );
-  const [selectedIds, setSelectedIds] = useState<string[]>(() => {
-    const selectedRoomId = localStorage.getItem("roomfit:selectedRoomId");
-    const hasRestoredPreferences = selectedRoomId ? hasRoomPreferences(selectedRoomId) : false;
-    if (!sessionStorage.getItem(addFurnitureVisitedKey) && !hasRestoredPreferences) {
-      localStorage.removeItem("roomfit:selectedAdditionalFurnitureIds");
-    }
-    sessionStorage.setItem(addFurnitureVisitedKey, "true");
-
-    const raw = localStorage.getItem("roomfit:selectedAdditionalFurnitureIds");
-
-    if (!raw) {
-      return [];
-    }
-
-    try {
-      const parsed = JSON.parse(raw);
-
-      return Array.isArray(parsed) ? parsed : [];
-    } catch {
-      return [];
-    }
-  });
-  const visibleItems =
-    activeCategory === "전체"
-      ? FURNITURE_SELECTION_ITEMS
-      : FURNITURE_SELECTION_ITEMS.filter((item) => item.category === activeCategory);
-
-  useEffect(() => {
-    localStorage.setItem("roomfit:selectedAdditionalFurnitureIds", JSON.stringify(selectedIds));
-  }, [selectedIds]);
 
   useEffect(() => subscribeRecommendationResult(() => {
     setRecommendationNotice(readCurrentRecommendationNotice());
   }), []);
 
-  useEffect(() => {
-    const showValidation = (event: Event) => {
-      const detail = (event as CustomEvent<{ pathname?: string }>).detail;
-      if (detail?.pathname !== "/add-furniture") return;
-      setValidationMessage(getFurnitureSelectionGuidanceMessage(selectedIds));
-    };
-    window.addEventListener(ONBOARDING_VALIDATION_EVENT, showValidation);
-    return () => window.removeEventListener(ONBOARDING_VALIDATION_EVENT, showValidation);
-  }, [selectedIds]);
+  const visibleTypeCards =
+    activeCategory === "전체"
+      ? FURNITURE_SELECTION_ITEMS
+      : FURNITURE_SELECTION_ITEMS.filter((item) => item.category === activeCategory);
 
-  const toggleFurniture = (id: string) => {
-    const isSelected = selectedIds.includes(id);
-    const reason = !isSelected ? getFurnitureSelectionBlockReason(id, selectedIds, room) : null;
-    if (reason) {
-      setSelectionNotice(reason);
+  const activeTypeCard = FURNITURE_SELECTION_ITEMS.find((item) => item.canonicalType === activeType) ?? null;
+  const products: CatalogProduct[] = activeType
+    ? catalogDocument.products.filter((product) => product.furnitureType === activeType)
+    : [];
+
+  const handlePlace = async (product: CatalogProduct) => {
+    if (placingProductId) return;
+
+    const room = loadSelectedRoomLayout();
+    const backendRoomId = normalizeBackendRoomId(localStorage.getItem("roomfit:backendRoomId"));
+    const session = readActiveLayoutEditingSession();
+    if (!room || backendRoomId === null || !isSessionForRoom(session, room.id, backendRoomId)) {
+      setPlacementError("먼저 에디터의 \"+ 가구 추가\" 버튼으로 다시 들어와 주세요.");
       return;
     }
-    setSelectedIds((current) =>
-      current.includes(id) ? current.filter((itemId) => itemId !== id) : [...current, id],
-    );
-    setValidationMessage("");
+
+    setPlacingProductId(product.productId);
+    setPlacementError("");
+    try {
+      const response = await addFurnitureAt(session.activeLayoutId, {
+        productId: product.productId,
+        // Room center — the user drags it into place afterward; the editor
+        // already shows a red/orange decal instantly if this overlaps
+        // something, so no "find an empty spot" search is needed here.
+        position: { x: 0, z: 0 },
+        rotation: 0,
+      });
+      const updatedRoom = applyBackendFurnitureToLayout(room, response.recommendedFurniture);
+      localStorage.setItem("roomfit:selectedRoomLayout", JSON.stringify(updatedRoom));
+      saveLayoutResponseSession(room.id, response, localStorage, session.editingMode);
+      navigate("/editor");
+    } catch {
+      setPlacementError("가구를 배치하지 못했습니다. 잠시 후 다시 시도해 주세요.");
+      setPlacingProductId(null);
+    }
   };
 
   return (
@@ -100,8 +97,12 @@ export default function AddFurniture() {
         </div>
 
         <header className="mb-10 text-center">
-          <h1 className="text-3xl font-extrabold tracking-normal sm:text-4xl">배치하고 싶은 가구와 소품을 선택하세요</h1>
-          <p className="mt-3 text-sm font-semibold text-[#777777]">원하는 아이템을 선택하면 추천에 반영됩니다.</p>
+          <h1 className="text-3xl font-extrabold tracking-normal sm:text-4xl">
+            {activeTypeCard ? `${activeTypeCard.name} 고르기` : "배치하고 싶은 가구와 소품을 선택하세요"}
+          </h1>
+          <p className="mt-3 text-sm font-semibold text-[#777777]">
+            {activeTypeCard ? "원하는 제품을 클릭하면 방에 바로 배치돼요." : "카테고리를 눌러 원하는 종류를 골라보세요."}
+          </p>
         </header>
 
         {recommendationNotice && (
@@ -109,13 +110,10 @@ export default function AddFurniture() {
             <RecommendationResultPanel notice={recommendationNotice} />
           </div>
         )}
-        <InlineSelectionValidation message={validationMessage} />
-        {selectionNotice && (
-          <div role="alert" className="mb-8 rounded-xl border border-[#d7b7b1] bg-[#fff8f6] px-5 py-4 text-sm font-semibold text-[#6f3329]">
-            <strong className="block">함께 배치할 수 없는 가구예요</strong>
-            <span>{selectionNotice}</span>
-            <button type="button" className="ml-3 underline" onClick={() => setSelectionNotice(null)}>가구 다시 선택하기</button>
-          </div>
+        {placementError && (
+          <p role="alert" className="mb-8 rounded-xl border border-[#d7b7b1] bg-[#fff8f6] px-5 py-4 text-sm font-semibold text-[#6f3329]">
+            {placementError}
+          </p>
         )}
 
         <div className="grid gap-8 lg:grid-cols-[128px_1fr]">
@@ -125,7 +123,10 @@ export default function AddFurniture() {
                 <button
                   key={category}
                   type="button"
-                  onClick={() => setActiveCategory(category)}
+                  onClick={() => {
+                    setActiveCategory(category);
+                    setActiveType(null);
+                  }}
                   className={`shrink-0 rounded-lg px-4 py-3 text-left text-sm font-extrabold transition-colors whitespace-nowrap ${
                     activeCategory === category ? "bg-white text-[#111111] shadow-sm" : "text-[#555555] hover:bg-white/70"
                   }`}
@@ -137,54 +138,75 @@ export default function AddFurniture() {
           </aside>
 
           <section>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {visibleItems.map((item) => {
-                const selected = selectedIds.includes(item.id);
-                const blockReason = !selected ? getFurnitureSelectionBlockReason(item.id, selectedIds, room) : null;
-
-                return (
+            {activeType ? (
+              <>
+                <button
+                  type="button"
+                  onClick={() => setActiveType(null)}
+                  className="mb-5 inline-flex items-center gap-2 text-sm font-extrabold text-[#555555] hover:text-[#111111]"
+                >
+                  <FiArrowLeft aria-hidden="true" /> 종류 다시 고르기
+                </button>
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {products.map((product) => (
+                    <button
+                      key={product.productId}
+                      type="button"
+                      onClick={() => void handlePlace(product)}
+                      disabled={placingProductId !== null}
+                      className="rounded-lg border border-transparent bg-white p-3 text-left transition-all hover:-translate-y-1 hover:border-[#111111] hover:shadow-[0_18px_35px_rgba(0,0,0,0.08)] disabled:cursor-wait disabled:opacity-60"
+                    >
+                      <div className="overflow-hidden rounded-md bg-[#f6f3ef]">
+                        <CatalogProductPreview variantId={product.variantId} registry={registry} materialPresets={materialPresets} />
+                      </div>
+                      <strong className="mt-3 block text-sm font-extrabold">{product.label}</strong>
+                      <span className="mt-1 block text-xs font-medium text-[#777777]">
+                        {formatDimensionMm(product.dimensions)}
+                      </span>
+                      {placingProductId === product.productId && (
+                        <span className="mt-1 block text-xs font-bold text-[#111111]">배치하는 중...</span>
+                      )}
+                    </button>
+                  ))}
+                  {products.length === 0 && (
+                    <p className="text-sm font-semibold text-[#888888]">이 종류의 제품이 아직 없어요.</p>
+                  )}
+                </div>
+              </>
+            ) : (
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                {visibleTypeCards.map((item) => (
                   <button
                     key={item.id}
                     type="button"
-                    onClick={() => toggleFurniture(item.id)}
-                    disabled={Boolean(blockReason)}
-                    title={blockReason ?? undefined}
-                    className={`relative rounded-lg border bg-white p-3 text-left transition-all hover:-translate-y-1 hover:shadow-[0_18px_35px_rgba(0,0,0,0.08)] ${
-                      selected ? "border-[#111111]" : "border-transparent"
-                    } ${blockReason ? "cursor-not-allowed opacity-45 hover:translate-y-0 hover:shadow-none" : ""
-                    }`}
+                    onClick={() => setActiveType(item.canonicalType)}
+                    className="rounded-lg border border-transparent bg-white p-3 text-left transition-all hover:-translate-y-1 hover:shadow-[0_18px_35px_rgba(0,0,0,0.08)]"
                   >
-                    <span
-                      className={`absolute right-3 top-3 z-10 grid h-6 w-6 place-items-center rounded-full border ${
-                        selected ? "border-[#111111] bg-[#111111] text-white" : "border-[#d8d8d8] bg-white text-transparent"
-                      }`}
-                    >
-                      <FiCheck className="h-4 w-4" />
-                    </span>
                     <FurnitureVisual type={item.visual} />
                     <strong className="mt-4 block text-sm font-extrabold">{item.name}</strong>
                   </button>
-                );
-              })}
-            </div>
-
-            <button
-              type="button"
-              className="mt-12 flex w-full items-center justify-center gap-4 rounded-xl border border-[#e4e4e4] bg-white px-6 py-5 text-left transition-colors hover:bg-[#f6f6f6]"
-            >
-              <span className="grid h-10 w-10 place-items-center rounded-full border border-[#d8d8d8]">
-                <FiPlus className="h-5 w-5" />
-              </span>
-              <span>
-                <strong className="block text-base font-extrabold">직접 추가하기</strong>
-                <span className="mt-1 block text-sm font-medium text-[#777777]">보유 중인 가구나 소품을 추가할 수 있어요.</span>
-              </span>
-            </button>
+                ))}
+              </div>
+            )}
           </section>
         </div>
       </section>
     </main>
   );
+}
+
+function formatDimensionMm(dimensions: { width: number; depth: number; height: number }): string {
+  return `W${Math.round(dimensions.width * 1000)} D${Math.round(dimensions.depth * 1000)} H${Math.round(dimensions.height * 1000)}`;
+}
+
+function loadSelectedRoomLayout(): RoomLayout | null {
+  const raw = localStorage.getItem("roomfit:selectedRoomLayout");
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw) as RoomLayout;
+  } catch {
+    return null;
+  }
 }
 
 function readCurrentRecommendationNotice(): RecommendationResultNotice | null {

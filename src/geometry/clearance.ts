@@ -38,8 +38,20 @@ function buildByCanonicalType(): Record<string, readonly [number, number]> {
   return byType;
 }
 
-function frontSide(rawType: string | null | undefined): readonly [number, number] {
+// Wardrobes swing a hinged door open rather than needing a fixed clearance
+// constant — approximated as half the wardrobe's own width (one door of a
+// typical two-door wardrobe), mirroring the backend's FurnitureClearance.
+// drawer_chest is excluded: a drawer pulls straight out by its own depth,
+// not a swinging door, so the catalog's fixed front value stays better there.
+const WARDROBE_TYPE = "wardrobe";
+
+function frontSide(furniture: Furniture): readonly [number, number] {
+  const rawType = furniture.sourceType ?? furniture.category;
   const canonical = normalizeCanonicalFurnitureType(rawType);
+  if (canonical === WARDROBE_TYPE) {
+    const catalogValue = BY_CANONICAL_TYPE[canonical] ?? DEFAULT_CLEARANCE;
+    return [furniture.dimensions.width / 2, catalogValue[1]];
+  }
   if (canonical && BY_CANONICAL_TYPE[canonical]) {
     return BY_CANONICAL_TYPE[canonical];
   }
@@ -62,7 +74,7 @@ export interface LocalClearanceRect {
  * `FootprintDecal`) doesn't need to re-apply rotation itself.
  */
 export function localClearanceRects(furniture: Furniture): LocalClearanceRect[] {
-  const [front, side] = frontSide(furniture.sourceType ?? furniture.category);
+  const [front, side] = frontSide(furniture);
   if (front <= 1e-6 && side <= 1e-6) {
     return [];
   }

@@ -225,6 +225,10 @@ export async function recommendLayout(roomId: number, contextId: number): Promis
   const response = await apiClient.post<ApiResponse<unknown>>("/api/layouts/recommend", {
     roomId,
     contextId,
+    // "AI 추천 받기" always starts over: whatever is currently placed
+    // (scanned or user-placed) is discarded server-side before the
+    // placement engine runs, rather than layering new items on top of it.
+    discardExisting: true,
   });
 
   return normalizeRecommendationResponse(response.data.data);
@@ -279,6 +283,41 @@ export async function updateLayout(layoutId: number, room: RoomLayout): Promise<
   const response = await apiClient.put<ApiResponse<LayoutResponse>>(`/api/layouts/${layoutId}`, {
     furniture: room.furniture.map((item) => toFurniturePositionRequest(room, item)),
   });
+  return normalizeLayoutResponse(response.data.data);
+}
+
+/**
+ * Creates a Layout with no AgentContext, seeded from the room's existing
+ * furniture — the starting point for placing catalog products directly,
+ * without going through an AI recommendation first (backend:
+ * `POST /api/layouts`, `LayoutService#createBlankLayout`).
+ */
+export async function createBlankLayout(roomId: number): Promise<LayoutResponse> {
+  const response = await apiClient.post<ApiResponse<LayoutResponse>>("/api/layouts", { roomId });
+  return normalizeLayoutResponse(response.data.data);
+}
+
+export interface AddFurnitureAtRequest {
+  productId: string;
+  position: { x: number; z: number };
+  rotation: number;
+}
+
+/**
+ * Adds a specific catalog product at the given position/rotation, exactly as
+ * given — the server does not move or clamp it (backend:
+ * `POST /api/layouts/{id}/furniture`, `LayoutService#addFurnitureDirect`).
+ * Any resulting overlap/out-of-bounds issue is reported through
+ * `validationResult.issues`, not rejected.
+ */
+export async function addFurnitureAt(
+  layoutId: number,
+  request: AddFurnitureAtRequest,
+): Promise<LayoutResponse> {
+  const response = await apiClient.post<ApiResponse<LayoutResponse>>(
+    `/api/layouts/${layoutId}/furniture`,
+    request,
+  );
   return normalizeLayoutResponse(response.data.data);
 }
 

@@ -20,19 +20,18 @@ import {
 import { captureCanvasThumbnail, saveRoomThumbnail } from "../config/roomThumbnails";
 import { sampleRoomLayouts } from "../mock/interiorPlacementMock";
 import { sampleRoom } from "../mock/sampleRoom";
-import type { Furniture, FurnitureCategory, RoomLayout, Vector2D } from "../types";
-
-const specs: Record<FurnitureCategory, string> = {
-  bed: "W2000 D1250 H450",
-  desk: "W1000 D580 H350",
-  chair: "W1650 D820 H720",
-  cabinet: "W1200 D380 H900",
-  rug: "W1650 D1200",
-  lighting: "W350 D350 H1550",
-  unsupported: "크기 정보 없음",
-};
+import type { Furniture, RoomLayout, Size3D, Vector2D } from "../types";
 
 const MANAGED_FURNITURE_SAVE_ERROR = "가구 배치를 저장하지 못했습니다. 편집 내용은 이 브라우저에 유지됩니다.";
+
+// Millimeters, rounded to the nearest whole mm — matches the ±0.05m (50mm)
+// step size below, so this never shows a fractional mm from a step press.
+function formatDimensionMm(dimensions: Size3D): string {
+  const w = Math.round(dimensions.width * 1000);
+  const d = Math.round(dimensions.depth * 1000);
+  const h = Math.round(dimensions.height * 1000);
+  return `W${w} D${d} H${h}`;
+}
 
 // This page is the one place RoomPlan measurement error gets corrected, once,
 // right after scanning — not a general resize tool. Bounding every correction
@@ -464,10 +463,9 @@ export function FurnitureRow({
     <div className={`rounded-lg border p-2 transition-colors ${selected ? "border-[#111111] bg-[#fafafa]" : "border-transparent"}`}>
       <div className="flex items-center gap-3">
       <button type="button" onClick={onSelect} className="flex min-w-0 flex-1 items-center gap-3 text-left">
-        <FurnitureThumb category={item.category} color={item.color} />
         <span className="min-w-0">
           <strong className="block truncate text-sm font-extrabold">{item.name.replace("기존 ", "")}</strong>
-          <span className="mt-1 block truncate text-xs font-medium text-[#666666]">{specs[item.category]}</span>
+          <span className="mt-1 block truncate text-xs font-medium text-[#666666]">{formatDimensionMm(item.dimensions)}</span>
         </span>
       </button>
       <button
@@ -525,7 +523,7 @@ function DimensionStepper({
       >
         <FiMinus aria-hidden="true" />
       </button>
-      <span className="w-12 text-center tabular-nums">{value.toFixed(2)}m</span>
+      <span className="w-14 text-center tabular-nums">{Math.round(value * 1000)}mm</span>
       <button
         type="button"
         aria-label={`${label} 늘리기`}
@@ -592,14 +590,6 @@ function ToolButton({
     >
       {icon}
     </button>
-  );
-}
-
-function FurnitureThumb({ category, color }: { category: FurnitureCategory; color: string }) {
-  return (
-    <span className="grid h-12 w-14 shrink-0 place-items-center rounded-lg bg-[#f6f3ef]">
-      <span className={`furniture-thumb furniture-thumb-${category}`} style={{ backgroundColor: color }} />
-    </span>
   );
 }
 

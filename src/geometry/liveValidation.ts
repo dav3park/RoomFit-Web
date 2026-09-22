@@ -58,7 +58,7 @@ export function computeLocalValidationIssues(
     for (let j = i + 1; j < physical.length; j++) {
       const a = physical[i];
       const b = physical[j];
-      if (isStrictStack(a, b)) continue;
+      if (isStrictStack(a, b) || isCollisionExempt(a, b)) continue;
       if (obbOverlap(bodyCorners.get(a.id)!, bodyCorners.get(b.id)!)) {
         issues.push({
           furnitureId: a.id,
@@ -96,7 +96,7 @@ export function computeLocalValidationIssues(
     const itemCorners = bodyCorners.get(item.id)!;
     for (const other of physical) {
       if (other.id === item.id) continue;
-      if (isStrictStack(item, other)) continue;
+      if (isStrictStack(item, other) || isCollisionExempt(item, other)) continue;
       const otherCorners = bodyCorners.get(other.id)!;
       if (obbOverlap(itemCorners, otherCorners)) continue; // already a BODY_COLLISION
       const hitZone = zones.find((zone) => obbOverlap(zone.corners, otherCorners));
@@ -134,6 +134,19 @@ function isStrictStack(first: Furniture, second: Furniture): boolean {
   const localZ = dependent.position.z - supporter.position.z;
   return localX >= footprint.minX - BOUNDARY_EPSILON && localX <= footprint.maxX + BOUNDARY_EPSILON
     && localZ >= footprint.minZ - BOUNDARY_EPSILON && localZ <= footprint.maxZ + BOUNDARY_EPSILON;
+}
+
+/**
+ * Full exemption (backend mirror: `FurnitureSupportPolicy#isCollisionExempt`)
+ * for a desk/desk_chair pair — a chair pushed under a desk usually only
+ * partially overlaps it (unlike `isStrictStack`'s center-in-footprint test),
+ * so any overlap between the pair, body or zone, is ignored entirely.
+ */
+function isCollisionExempt(first: Furniture, second: Furniture): boolean {
+  const firstType = normalizeCanonicalFurnitureType(first.sourceType ?? first.category);
+  const secondType = normalizeCanonicalFurnitureType(second.sourceType ?? second.category);
+  return (firstType === "desk" && secondType === "desk_chair")
+    || (firstType === "desk_chair" && secondType === "desk");
 }
 
 function resolveSupportPair(supporter: Furniture, dependent: Furniture): [Furniture, Furniture] | null {

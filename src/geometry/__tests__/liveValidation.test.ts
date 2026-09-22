@@ -79,6 +79,41 @@ describe("computeLocalValidationIssues", () => {
     expect(issues.some((issue) => issue.type === "BODY_COLLISION")).toBe(true);
   });
 
+  it("never flags a chair pushed under a desk, even when their bodies fully overlap", () => {
+    const desk = furniture({
+      id: "desk-1", sourceType: "desk", dimensions: { width: 1.2, depth: 0.7, height: 0.72 },
+      position: { x: 1.0, z: 1.0 },
+    });
+    const chair = furniture({
+      id: "chair-1", sourceType: "desk_chair", dimensions: { width: 0.5, depth: 0.5, height: 0.8 },
+      position: { x: 1.0, z: 1.05 },
+    });
+
+    const issues = computeLocalValidationIssues([desk, chair], room);
+
+    expect(issues.some((issue) => issue.type === "BODY_COLLISION" || issue.type === "ZONE_INTRUSION")).toBe(false);
+  });
+
+  it("computes a wardrobe's front clearance depth from its own width, not a fixed constant", () => {
+    // Width 1.6m → half-width 0.8m, distinct from the catalog's flat 0.5m
+    // wardrobe front value — proves it's actually width-derived.
+    const wideWardrobe = furniture({
+      id: "wardrobe-1", sourceType: "wardrobe", dimensions: { width: 1.6, depth: 0.6, height: 2.0 },
+      position: { x: 0, z: 0 },
+    });
+    // Wardrobe front edge at z=0.3. Chair body spans z:[0.8,1.2] — clear of
+    // the old fixed 0.5m zone (z:[0.3,0.8], only touches at 0.8) but inside
+    // the new 0.8m half-width zone (z:[0.3,1.1]).
+    const chair = furniture({
+      id: "chair-1", sourceType: "desk_chair", dimensions: { width: 0.4, depth: 0.4, height: 0.8 },
+      position: { x: 0, z: 1.0 },
+    });
+
+    const issues = computeLocalValidationIssues([wideWardrobe, chair], room);
+
+    expect(issues.some((issue) => issue.type === "ZONE_INTRUSION" && issue.furnitureId === "wardrobe-1")).toBe(true);
+  });
+
   it("excludes deleted furniture from every check", () => {
     const bed = furniture({
       id: "bed-1", sourceType: "bed", dimensions: { width: 1.5, depth: 1.5, height: 0.5 },

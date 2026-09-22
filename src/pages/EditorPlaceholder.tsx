@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import {
   applyLayoutFeedback,
+  createBlankLayout,
   createDefaultAgentContext,
   getLayout,
   recommendLayout,
@@ -171,6 +172,7 @@ export default function EditorPlaceholder() {
   const [feedback, setFeedback] = useState("");
   const [hideEntranceWalls, setHideEntranceWalls] = useState(false);
   const [isRecommending, setIsRecommending] = useState(false);
+  const [isPreparingCatalog, setIsPreparingCatalog] = useState(false);
   const [isApplyingFeedback, setIsApplyingFeedback] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [scoreSummary, setScoreSummary] = useState<ScoreSummary | null>(
@@ -332,9 +334,74 @@ export default function EditorPlaceholder() {
     dispatchEditorLayout({ type: "resetFurniture", scopeKey: editorScopeKey, furnitureId: id });
   };
 
+  // "+ 가구 추가"는 카탈로그에서 실제 제품을 골라 바로 배치하는 화면으로 이동한다.
+  // 스캔만 하고 AI 추천을 한 번도 돌리지 않은 방은 아직 layoutId가 없으므로
+  // (handleRecommend/handleFeedback을 통해서만 생긴다), 여기서 온디맨드로 빈
+  // Layout을 만들어 둔다 — ensureCustomRoomBackendRoom과 같은 패턴.
+  const handleOpenCatalog = async () => {
+    if (!roomLayout) {
+      setErrorMessage("먼저 /rooms에서 샘플 방을 선택해 주세요.");
+      return;
+    }
+    if (layoutId !== null) {
+      navigate("/add-furniture");
+      return;
+    }
+
+    setIsPreparingCatalog(true);
+    setErrorMessage("");
+    try {
+      let roomId = loadBackendRoomId();
+      if (roomLayout.source === "CUSTOM") {
+        const customRoomSnapshot = loadSelectedRoomLayout() ?? roomLayout;
+        customRoomCreationRef.current ??= ensureCustomRoomBackendRoom({ room: customRoomSnapshot });
+        roomId = await customRoomCreationRef.current;
+      }
+      if (roomId === null) {
+        setErrorMessage("유효한 백엔드 방을 다시 선택해 주세요.");
+        return;
+      }
+
+      const response = await createBlankLayout(roomId);
+      const blankLayout = applyBackendFurnitureToLayout(roomLayout, response.recommendedFurniture);
+      dispatchEditorLayout({
+        type: "replace",
+        roomLayout: blankLayout,
+        scopeKey: createEditorLayoutScopeKey({
+          roomLayoutId: roomLayout.id,
+          backendRoomId: roomId,
+          activeLayoutId: response.layoutId,
+          clientMode: activeClientScope?.mode ?? null,
+          clientId: activeClientScope?.clientId ?? null,
+          setupSessionId: activeClientScope?.setupSessionId ?? null,
+          scopedRoomLayoutId: activeClientScope?.roomLayoutId ?? null,
+          scopedBackendRoomId: activeClientScope?.backendRoomId ?? null,
+        }),
+      });
+      setLayoutId(response.layoutId);
+      setScoreSummary(response.scoreSummary);
+      setValidationResult(response.validationResult);
+      saveLayoutResponseSession(roomLayout.id, response, localStorage, "INITIAL_SETUP");
+      navigate("/add-furniture");
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("가구 추가 화면을 여는 데 실패했습니다. 잠시 후 다시 시도해 주세요.");
+    } finally {
+      customRoomCreationRef.current = null;
+      setIsPreparingCatalog(false);
+    }
+  };
+
   const handleRecommend = async () => {
     if (!roomLayout) {
       setErrorMessage("먼저 /rooms에서 샘플 방을 선택해 주세요.");
+      return;
+    }
+
+    // AI 추천은 항상 빈 방에서 새로 시작한다 (기존 배치를 지우고 재생성) — 되돌릴
+    // 수 없는 동작이므로, 지울 것이 실제로 있을 때만 한 번 확인한다.
+    const hasExistingFurniture = roomLayout.furniture.some((item) => item.status !== "deleted");
+    if (hasExistingFurniture && !window.confirm("기존 배치를 지우고 AI가 새로 추천하게 할까요?")) {
       return;
     }
 
@@ -584,10 +651,11 @@ export default function EditorPlaceholder() {
           <div className="mb-3 flex flex-wrap items-center gap-2">
             <button
               type="button"
-              onClick={() => navigate("/add-furniture")}
-              className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-[#e2e2e2] bg-white px-4 py-2 text-sm font-extrabold text-[#222222] transition-colors hover:bg-[#f2f2f2]"
+              onClick={() => void handleOpenCatalog()}
+              disabled={isPreparingCatalog}
+              className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-[#e2e2e2] bg-white px-4 py-2 text-sm font-extrabold text-[#222222] transition-colors hover:bg-[#f2f2f2] disabled:cursor-wait disabled:opacity-60"
             >
-              <span aria-hidden="true">+</span> 가구 추가
+              <span aria-hidden="true">+</span> {isPreparingCatalog ? "준비 중..." : "가구 추가"}
             </button>
             <button
               type="button"

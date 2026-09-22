@@ -1,12 +1,14 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FiX } from "react-icons/fi";
 
 import { addFurnitureAt } from "../../api/layouts";
 import { applyBackendFurnitureToLayout } from "../../api/rooms";
+import FurnitureVisual from "../ui/FurnitureVisual";
 import { CatalogProductPreview } from "../furniture/variants/CatalogProductPreview";
 import { getProductionFurnitureVariantRenderResources } from "../furniture/variants/furnitureVariantRouting";
 import { findFreePlacement } from "../../geometry/placement";
 import { FURNITURE_SELECTION_ITEMS } from "../../config/furnitureSelectionCatalog";
+import type { FurnitureVisualType } from "../ui/furnitureVisualRegistry";
 import type { CanonicalFurnitureType } from "../../config/canonicalFurnitureType";
 import catalogDocument from "../../data/furniture/catalog.json";
 import type { LayoutResponse } from "../../api/layouts";
@@ -26,6 +28,7 @@ interface CategoryGroup {
 }
 
 const CATEGORY_GROUPS: readonly CategoryGroup[] = buildCategoryGroups();
+const DEFAULT_CATEGORY = CATEGORY_GROUPS[0]?.label ?? OTHER_CATEGORY_LABEL;
 
 function buildCategoryGroups(): CategoryGroup[] {
   const byCategory = new Map<string, CanonicalFurnitureType[]>();
@@ -53,6 +56,9 @@ function buildCategoryGroups(): CategoryGroup[] {
 const TYPE_LABELS: Readonly<Record<string, string>> = Object.freeze(
   Object.fromEntries(FURNITURE_SELECTION_ITEMS.map((item) => [item.canonicalType, item.name])),
 );
+const TYPE_VISUALS: Readonly<Record<string, FurnitureVisualType>> = Object.freeze(
+  Object.fromEntries(FURNITURE_SELECTION_ITEMS.map((item) => [item.canonicalType, item.visual])),
+);
 
 interface FurnitureCatalogPanelProps {
   layoutId: number;
@@ -66,22 +72,22 @@ interface FurnitureCatalogPanelProps {
  * catalog products, click one to drop it into the room immediately. A
  * category shows every product of every type inside it right away; the
  * "종류" chips underneath only narrow that further (never a required extra
- * screen). Was previously a full-page route — see git history of
- * AddFurniture.tsx.
+ * screen). No "전체" tab — showing every product's live 3D preview at once
+ * (all ~93) blows the browser's WebGL context budget (see
+ * FurnitureCatalogCard's lazy mount below, which caps this per-category too).
+ * Was previously a full-page route — see git history of AddFurniture.tsx.
  */
 export default function FurnitureCatalogPanel({ layoutId, room, onPlaced, onClose }: FurnitureCatalogPanelProps) {
-  const [activeCategory, setActiveCategory] = useState<string>("전체");
+  const [activeCategory, setActiveCategory] = useState<string>(DEFAULT_CATEGORY);
   const [activeSubType, setActiveSubType] = useState<CanonicalFurnitureType | null>(null);
   const [placingProductId, setPlacingProductId] = useState<string | null>(null);
   const [placementError, setPlacementError] = useState("");
 
-  const activeGroup = CATEGORY_GROUPS.find((group) => group.label === activeCategory) ?? null;
+  const activeGroup = CATEGORY_GROUPS.find((group) => group.label === activeCategory) ?? CATEGORY_GROUPS[0] ?? null;
 
   const products: CatalogProduct[] = useMemo(() => {
-    const effectiveTypes = activeSubType ? [activeSubType] : activeGroup?.types ?? null;
-    return effectiveTypes
-      ? catalogDocument.products.filter((product) => effectiveTypes.includes(product.furnitureType as CanonicalFurnitureType))
-      : catalogDocument.products;
+    const effectiveTypes = activeSubType ? [activeSubType] : activeGroup?.types ?? [];
+    return catalogDocument.products.filter((product) => effectiveTypes.includes(product.furnitureType as CanonicalFurnitureType));
   }, [activeGroup, activeSubType]);
 
   const handleSelectCategory = (label: string) => {
@@ -136,15 +142,6 @@ export default function FurnitureCatalogPanel({ layoutId, room, onPlaced, onClos
       )}
 
       <nav className="flex gap-2 overflow-x-auto border-b border-[#eeeeee] px-4 py-3">
-        <button
-          type="button"
-          onClick={() => handleSelectCategory("전체")}
-          className={`shrink-0 rounded-full px-3 py-1.5 text-xs font-extrabold transition-colors whitespace-nowrap ${
-            activeCategory === "전체" ? "bg-[#111111] text-white" : "bg-[#f2f2f2] text-[#555555] hover:bg-[#e6e6e6]"
-          }`}
-        >
-          전체
-        </button>
         {CATEGORY_GROUPS.map((group) => (
           <button
             key={group.label}
@@ -187,24 +184,13 @@ export default function FurnitureCatalogPanel({ layoutId, room, onPlaced, onClos
 
       <div className="grid min-h-0 flex-1 grid-cols-2 gap-3 overflow-y-auto px-4 py-3 content-start">
         {products.map((product) => (
-          <button
+          <FurnitureCatalogCard
             key={product.productId}
-            type="button"
-            onClick={() => void handlePlace(product)}
+            product={product}
+            isPlacing={placingProductId === product.productId}
             disabled={placingProductId !== null}
-            className="rounded-lg border border-transparent bg-white p-2 text-left transition-colors hover:border-[#111111] disabled:cursor-wait disabled:opacity-60"
-          >
-            <div className="overflow-hidden rounded-md bg-[#f6f3ef]">
-              <CatalogProductPreview variantId={product.variantId} registry={registry} materialPresets={materialPresets} />
-            </div>
-            <strong className="mt-2 block text-xs font-extrabold">{product.label}</strong>
-            <span className="mt-0.5 block text-[11px] font-medium text-[#777777]">
-              {formatDimensionMm(product.dimensions)}
-            </span>
-            {placingProductId === product.productId && (
-              <span className="mt-0.5 block text-[11px] font-bold text-[#111111]">배치하는 중...</span>
-            )}
-          </button>
+            onSelect={() => void handlePlace(product)}
+          />
         ))}
         {products.length === 0 && (
           <p className="col-span-2 text-xs font-semibold text-[#888888]">이 종류의 제품이 아직 없어요.</p>
@@ -212,6 +198,73 @@ export default function FurnitureCatalogPanel({ layoutId, room, onPlaced, onClos
       </div>
     </aside>
   );
+}
+
+interface FurnitureCatalogCardProps {
+  product: CatalogProduct;
+  isPlacing: boolean;
+  disabled: boolean;
+  onSelect: () => void;
+}
+
+/**
+ * Each card only mounts its live 3D `CatalogProductPreview` (a full WebGL
+ * `<Canvas>`) once it actually scrolls into view — every browser hard-caps
+ * simultaneous WebGL contexts (Chrome: 16), and a scrollable grid can hold
+ * far more product cards than that (a "기타" category alone has 24). Mounting
+ * every card's canvas eagerly blows that budget and breaks WebGL rendering
+ * app-wide, including the main room viewport. Off-screen cards show a cheap
+ * static icon instead.
+ */
+function FurnitureCatalogCard({ product, isPlacing, disabled, onSelect }: FurnitureCatalogCardProps) {
+  const [containerRef, isVisible] = useInViewport<HTMLDivElement>();
+  const visual = TYPE_VISUALS[product.furnitureType];
+
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      disabled={disabled}
+      className="rounded-lg border border-transparent bg-white p-2 text-left transition-colors hover:border-[#111111] disabled:cursor-wait disabled:opacity-60"
+    >
+      <div ref={containerRef} className="grid place-items-center overflow-hidden rounded-md bg-[#f6f3ef]" style={{ aspectRatio: "4 / 3" }}>
+        {isVisible ? (
+          <CatalogProductPreview variantId={product.variantId} registry={registry} materialPresets={materialPresets} />
+        ) : (
+          visual && <FurnitureVisual type={visual} />
+        )}
+      </div>
+      <strong className="mt-2 block text-xs font-extrabold">{product.label}</strong>
+      <span className="mt-0.5 block text-[11px] font-medium text-[#777777]">
+        {formatDimensionMm(product.dimensions)}
+      </span>
+      {isPlacing && (
+        <span className="mt-0.5 block text-[11px] font-bold text-[#111111]">배치하는 중...</span>
+      )}
+    </button>
+  );
+}
+
+/** True once `ref`'s element has scrolled into (or near) the viewport, false again once it scrolls back out. */
+function useInViewport<T extends Element>(rootMargin = "150px"): [React.RefObject<T | null>, boolean] {
+  const ref = useRef<T | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || typeof IntersectionObserver === "undefined") {
+      setIsVisible(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry?.isIntersecting ?? false),
+      { rootMargin },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [rootMargin]);
+
+  return [ref, isVisible];
 }
 
 function formatDimensionMm(dimensions: { width: number; depth: number; height: number }): string {

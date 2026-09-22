@@ -320,13 +320,13 @@ export default function ManageFurniture() {
   }, []);
 
   return (
-    <main className="min-h-[calc(100vh-76px)] bg-[#fbfbfb] text-[#141414]">
+    <main className="min-h-[calc(100vh-76px)] bg-[#fbfbfb] text-[#141414] lg:h-[calc(100vh-76px)] lg:overflow-hidden">
       <div
-        className="grid min-h-[calc(100vh-76px)] grid-cols-1 lg:grid-cols-[minmax(0,1fr)_10px_var(--furniture-panel-width)]"
+        className="grid min-h-[calc(100vh-76px)] grid-cols-1 lg:h-full lg:min-h-0 lg:grid-cols-[minmax(0,1fr)_10px_var(--furniture-panel-width)]"
         style={{ "--furniture-panel-width": `${panelWidth}px` } as React.CSSProperties}
       >
-        <section className="relative flex min-h-140 flex-col px-6 py-6 lg:px-8">
-          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <section className="relative flex min-h-140 flex-col overflow-hidden px-6 py-6 lg:h-full lg:min-h-0 lg:px-8">
+          <div className="mb-4 flex shrink-0 flex-wrap items-center justify-between gap-3">
             <div className="flex min-w-0 items-center gap-3">
               <h1 className="ml-2 text-2xl font-extrabold">{selectedRoomMeta.title}</h1>
               <span className="rounded-full bg-[#eeeeee] px-3 py-1 text-xs font-bold text-[#777777]">{selectedRoomMeta.type}</span>
@@ -344,18 +344,20 @@ export default function ManageFurniture() {
             </label>
           </div>
 
-          <RoomDimensionCorrectionPanel
-            room={selectedRoom}
-            onAdjust={adjustRoomDimension}
-          />
+          <div className="shrink-0">
+            <RoomDimensionCorrectionPanel
+              room={selectedRoom}
+              onAdjust={adjustRoomDimension}
+            />
+          </div>
 
           {layoutError && (
-            <p role="alert" className="mb-4 rounded-lg bg-[#fff1f1] px-4 py-3 text-sm font-bold text-[#b42318]">
+            <p role="alert" className="mb-4 shrink-0 rounded-lg bg-[#fff1f1] px-4 py-3 text-sm font-bold text-[#b42318]">
               {layoutError}
             </p>
           )}
 
-          <div className="manage-room flex-1" ref={viewerContainerRef}>
+          <div className="manage-room min-h-0 flex-1" ref={viewerContainerRef}>
             <RoomViewer
               room={selectedRoom}
               furniture={visibleFurniture}
@@ -391,7 +393,7 @@ export default function ManageFurniture() {
           className="hidden cursor-col-resize border-l border-[#eeeeee] bg-[#fbfbfb] transition-colors hover:bg-[#eeeeee] lg:block"
         />
 
-        <aside className="border-t border-[#eeeeee] bg-[#fbfbfb] p-5 lg:border-l-0 lg:border-t-0">
+        <aside className="border-t border-[#eeeeee] bg-[#fbfbfb] p-5 lg:h-full lg:min-h-0 lg:overflow-hidden lg:border-l-0 lg:border-t-0">
           <FurnitureStatusPanel
             items={visibleFurniture}
             selectedFurnitureId={selectedFurnitureId}
@@ -419,12 +421,12 @@ export function FurnitureStatusPanel({
   onResize?: (id: string, axis: "width" | "depth", delta: number) => void;
 }) {
   return (
-    <div className="rounded-xl border border-[#e8e8e8] bg-white p-4">
-      <h2 className="mb-5 text-base font-extrabold">가구 현황</h2>
-      <p className="mb-4 text-xs font-semibold leading-5 text-[#888888]">
+    <div className="flex h-full min-h-0 flex-col rounded-xl border border-[#e8e8e8] bg-white p-4">
+      <h2 className="mb-5 shrink-0 text-base font-extrabold">가구 현황</h2>
+      <p className="mb-4 shrink-0 text-xs font-semibold leading-5 text-[#888888]">
         스캔 오차가 있다면 여기서 한 번에 보정하세요. 가로/세로는 스캔값의 ±15% 안에서만 조정할 수 있어요.
       </p>
-      <div className="max-h-[calc(100vh-320px)] space-y-4 overflow-y-auto pr-1">
+      <div className="min-h-0 flex-1 space-y-4 overflow-y-auto pr-1">
         {items.map((item) => (
           <FurnitureRow
             key={item.id}

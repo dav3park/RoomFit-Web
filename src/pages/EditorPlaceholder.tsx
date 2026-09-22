@@ -680,9 +680,9 @@ export default function EditorPlaceholder() {
     && canResetEditorFurniture(editorLayout, editorScopeKey, selectedFurniture?.id ?? null);
 
   return (
-    <main className="min-h-[calc(100vh-76px)] bg-[#fbfbfb] text-[#141414]">
+    <main className="min-h-[calc(100vh-76px)] bg-[#fbfbfb] text-[#141414] lg:h-[calc(100vh-76px)] lg:overflow-hidden">
       <section
-        className={`grid min-h-[calc(100vh-76px)] grid-cols-1 ${
+        className={`grid min-h-[calc(100vh-76px)] grid-cols-1 lg:h-full lg:min-h-0 ${
           isCatalogOpen
             ? "lg:grid-cols-[var(--catalog-panel-width)_10px_minmax(0,1fr)_380px]"
             : "lg:grid-cols-[minmax(0,1fr)_380px]"
@@ -707,8 +707,8 @@ export default function EditorPlaceholder() {
           </>
         )}
 
-        <section className="relative flex min-h-140 flex-col px-6 py-6 lg:px-8">
-          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+        <section className="relative flex min-h-140 flex-col overflow-hidden px-6 py-6 lg:h-full lg:min-h-0 lg:px-8">
+          <div className="mb-4 flex shrink-0 flex-wrap items-center justify-between gap-3">
             <div className="flex min-w-0 flex-wrap items-center gap-3">
               <h1 className="min-w-0 truncate text-2xl font-extrabold ml-2">{roomLayout.name}</h1>
               <span className="rounded-full bg-[#eeeeee] px-3 py-1 text-xs font-bold text-[#777777]">
@@ -730,7 +730,7 @@ export default function EditorPlaceholder() {
             </label>
           </div>
 
-          <div className="mb-3 flex flex-wrap items-center gap-2">
+          <div className="mb-3 flex shrink-0 flex-wrap items-center gap-2">
             <button
               type="button"
               onClick={() => void handleOpenCatalog()}
@@ -754,17 +754,24 @@ export default function EditorPlaceholder() {
             </button>
           </div>
 
-          <SelectedFurnitureActions
-            selectedFurnitureId={selectedFurniture?.id ?? null}
-            selectedFurnitureName={selectedFurniture?.name}
-            canEditSelection={selectedFurniture?.status !== "deleted"}
-            onRotate={handleRotateFurniture}
-            onDelete={handleDeleteFurniture}
-            onReset={handleResetFurniture}
-            canReset={canResetSelectedFurniture}
-          />
+          <div className="shrink-0">
+            <SelectedFurnitureActions
+              selectedFurnitureId={selectedFurniture?.id ?? null}
+              selectedFurnitureName={selectedFurniture?.name}
+              canEditSelection={selectedFurniture?.status !== "deleted"}
+              onRotate={handleRotateFurniture}
+              onDelete={handleDeleteFurniture}
+              onReset={handleResetFurniture}
+              canReset={canResetSelectedFurniture}
+            />
+          </div>
 
-          <div className="manage-room flex-1">
+          {/* "editor-page" (not "manage-room") matches index.css's
+              `.editor-page .viewer-shell { height: 100% }` — it must fill
+              this flex-1 parent exactly, not a magic-number calc(100vh-Npx)
+              tuned for ManageFurniture's different layout, which used to
+              leave the 3D viewport mis-sized here. */}
+          <div className="editor-page min-h-0 flex-1">
             <RoomViewer
               room={roomLayout}
               furniture={roomLayout.furniture.filter((item) => item.status !== "deleted")}
@@ -781,7 +788,7 @@ export default function EditorPlaceholder() {
           </div>
         </section>
 
-        <aside className="space-y-5 border-t border-[#eeeeee] bg-[#fbfbfb] p-5 lg:border-l lg:border-t-0">
+        <aside className="space-y-5 overflow-y-auto border-t border-[#eeeeee] bg-[#fbfbfb] p-5 lg:h-full lg:min-h-0 lg:border-l lg:border-t-0">
           <EditorFeedbackPanel
             layoutReady={Boolean(layoutId)}
             feedback={feedback}

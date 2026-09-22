@@ -229,7 +229,7 @@ export function resizeRoomInsideBounds(
   };
 }
 
-function nominalLocalFootprint(
+export function nominalLocalFootprint(
   dimensions: Pick<Size3D, "width" | "depth">,
 ): FurnitureLocalFootprint {
   return {

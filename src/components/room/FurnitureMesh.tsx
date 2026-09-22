@@ -11,6 +11,12 @@ import {
   clampFurniturePositionToRoom,
   resolveFurnitureLocalFootprint,
 } from "./furnitureBoundary";
+import { localClearanceRects } from "../../geometry/clearance";
+import { FootprintDecal } from "./FootprintDecal";
+import type { LiveIssueSeverity } from "../../geometry/liveValidation";
+
+const ERROR_DECAL_COLOR = "#ef4444";
+const WARNING_DECAL_COLOR = "#f97316";
 
 interface FurnitureMeshProps {
   item: Furniture;
@@ -26,6 +32,10 @@ interface FurnitureMeshProps {
   layoutPosition?: Vector3Tuple;
   layoutRotationY?: number;
   visualScale?: Vector3Tuple;
+  /** Red floor decal on this item's own footprint — a body collision or out-of-bounds placement. */
+  bodySeverity?: LiveIssueSeverity | null;
+  /** Orange floor decals on the specific clearance zone(s) (front/left/right) another item is blocking. */
+  warningZoneSides?: readonly ("front" | "left" | "right")[];
 }
 
 export function FurnitureMesh({
@@ -42,6 +52,8 @@ export function FurnitureMesh({
   layoutPosition,
   layoutRotationY,
   visualScale,
+  bodySeverity,
+  warningZoneSides,
 }: FurnitureMeshProps) {
   const groupRef = useRef<THREE.Group>(null!);
   const floorOverlayOffset = resolveFurnitureCollisionMode(item.variantId, item.category) === "FLOOR_OVERLAY"
@@ -84,6 +96,14 @@ export function FurnitureMesh({
     onMove(item.id, position);
   };
 
+  // Rendered as children of this already-rotated group, in the item's own
+  // local (unrotated) frame — see FootprintDecal's doc comment.
+  const floorDecalY = -heightOffset + 0.008;
+  const localFootprint = resolveFurnitureLocalFootprint(item);
+  const activeWarningZones = warningZoneSides && warningZoneSides.length > 0
+    ? localClearanceRects(item).filter((rect) => warningZoneSides.includes(rect.side))
+    : [];
+
   const meshGroup = (
     <group
       ref={groupRef}
@@ -98,6 +118,29 @@ export function FurnitureMesh({
           <meshStandardMaterial color="#111111" transparent opacity={0.16} />
         </mesh>
       )}
+      {bodySeverity === "ERROR" && (
+        <FootprintDecal
+          minX={localFootprint.minX}
+          maxX={localFootprint.maxX}
+          minZ={localFootprint.minZ}
+          maxZ={localFootprint.maxZ}
+          y={floorDecalY}
+          color={ERROR_DECAL_COLOR}
+          opacity={0.4}
+        />
+      )}
+      {activeWarningZones.map((zone) => (
+        <FootprintDecal
+          key={zone.side}
+          minX={zone.minX}
+          maxX={zone.maxX}
+          minZ={zone.minZ}
+          maxZ={zone.maxZ}
+          y={floorDecalY}
+          color={WARNING_DECAL_COLOR}
+          opacity={0.25}
+        />
+      ))}
     </group>
   );
 

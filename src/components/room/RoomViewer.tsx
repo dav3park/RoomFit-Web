@@ -10,6 +10,7 @@ import Window from "./Window";
 import { entranceViewCamera, interiorViewWallIds } from "./roomViewGeometry";
 import { resolveFurnitureSupportPositions } from "./furnitureSupportPlacement";
 import { isWindowAnchoredFurniture, resolveWindowBlindPlacements } from "./windowBlindPlacement";
+import { computeLocalValidationIssues } from "../../geometry/liveValidation";
 import type { Furniture, RoomLayout, Vector2D, WallSegment } from "../../types";
 import type { PreferredColorToneId } from "../../config/preferredColorTone";
 
@@ -53,6 +54,10 @@ export function RoomViewer({
   const visibleFurniture = furniture.filter((item) => item.status !== "deleted");
   const blindPlacements = resolveWindowBlindPlacements(room, visibleFurniture);
   const supportPositions = resolveFurnitureSupportPositions(visibleFurniture);
+  // Recomputed from the furniture list alone on every render — including
+  // every drag tick — so a collision/clearance problem shows up as a
+  // red/orange floor decal instantly, before any server round-trip.
+  const liveIssues = computeLocalValidationIssues(furniture, room);
 
   return (
     <div className="viewer-shell">
@@ -100,6 +105,11 @@ export function RoomViewer({
             // A blind has no free-standing fallback: a room without a window,
             // or with no remaining unused window, cannot render one mid-room.
             if (isWindowAnchoredFurniture(item) && !blindPlacement) return null;
+            const itemIssues = liveIssues.filter((issue) => issue.furnitureId === item.id);
+            const bodySeverity = itemIssues.some((issue) => issue.severity === "ERROR") ? "ERROR" : null;
+            const warningZoneSides = itemIssues
+              .map((issue) => issue.zoneSide)
+              .filter((side): side is "front" | "left" | "right" => side !== undefined);
             return (
               <FurnitureMesh
                 key={item.id}
@@ -116,6 +126,8 @@ export function RoomViewer({
                 layoutPosition={blindPlacement?.position ?? supportPosition}
                 layoutRotationY={blindPlacement?.rotationY}
                 visualScale={blindPlacement?.scale}
+                bodySeverity={bodySeverity}
+                warningZoneSides={warningZoneSides}
               />
             );
           })}

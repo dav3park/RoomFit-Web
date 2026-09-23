@@ -1,6 +1,6 @@
-import { ContactShadows, OrbitControls, OrthographicCamera } from "@react-three/drei";
+import { ContactShadows, OrbitControls } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
-import { useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import * as THREE from "three";
 import { FurnitureMesh } from "./FurnitureMesh";
 import Door from "./Door";
@@ -87,7 +87,10 @@ export function RoomViewer({
           <FitOrthographicCamera
             key={`camera-${cameraMode}`}
             position={activeCamera.position}
-            zoom={activeCamera.zoom}
+            target={activeCamera.target}
+            roomWidth={room.width}
+            roomDepth={room.depth}
+            roomHeight={room.height ?? 2.4}
           />
           <Lighting room={room} />
 
@@ -165,37 +168,92 @@ export function RoomViewer({
 
 export default RoomViewer;
 
-// `activeCamera.zoom` is baked in (backend default, or a fixed fallback)
-// for whatever pixel size the viewport happened to be when the camera was
-// created — it has no idea the editor's catalog sidebar can be dragged
-// wider/narrower. Since the sidebar resize only changes CSS layout (not
-// `cameraMode`), the <OrthographicCamera> here never remounts during a
-// drag, so its frustum needs to be rescaled live or the room stays pinned
-// at its first-rendered size while the viewport around it grows/shrinks —
-// which reads as the room getting shoved into a corner instead of filling
-// the newly available space. Rescaling zoom by how much the canvas has
-// grown/shrunk since this camera first mounted keeps the room centered and
-// fully framed at any panel width.
+// `activeCamera.zoom` (backend-provided or the fixed fallback) is just a
+// magnitude tuned once for whatever pixel size someone happened to view it
+// at — it has no idea the editor's catalog sidebar can be dragged wider or
+// that the browser window itself can be resized. A naive fix that rescales
+// that fixed zoom relative to a "size when this camera first mounted"
+// baseline breaks the moment the layout changes shape *after* mount (e.g.
+// the catalog panel auto-opens right after the page loads, shrinking the
+// viewport out from under an already-captured baseline) — it also has no
+// way to know the fixed zoom was ever a good fit in the first place.
+//
+// Instead, on every resize (and every room/camera-pose change) this
+// recomputes zoom from scratch: project the room's actual bounding box
+// (its footprint extruded up to ceiling height) into the camera's current
+// view space, and pick the zoom that fits the more constraining axis into
+// the current canvas — so the room is always fully visible and centered,
+// regardless of viewport size or aspect ratio, with no dependency on
+// historical state.
 function FitOrthographicCamera({
   position,
-  zoom,
+  target,
+  roomWidth,
+  roomDepth,
+  roomHeight,
 }: {
   position: { x: number; y: number; z: number };
-  zoom: number;
+  target: { x: number; y: number; z: number };
+  roomWidth: number;
+  roomDepth: number;
+  roomHeight: number;
 }) {
   const size = useThree((state) => state.size);
-  const [baseline] = useState(() => ({ width: size.width, height: size.height }));
-  const scale = Math.min(size.width / baseline.width, size.height / baseline.height);
+  const set = useThree((state) => state.set);
+  const cameraRef = useRef<THREE.OrthographicCamera>(null);
 
-  return (
-    <OrthographicCamera
-      makeDefault
-      position={[position.x, position.y, position.z]}
-      zoom={zoom * scale}
-      near={0.1}
-      far={100}
-    />
-  );
+  useLayoutEffect(() => {
+    const camera = cameraRef.current;
+    if (camera) set({ camera });
+  }, [set]);
+
+  useLayoutEffect(() => {
+    const camera = cameraRef.current;
+    if (!camera || size.width <= 0 || size.height <= 0) return;
+
+    camera.position.set(position.x, position.y, position.z);
+    camera.up.set(0, 1, 0);
+    camera.lookAt(target.x, target.y, target.z);
+    camera.updateMatrixWorld(true);
+
+    const halfWidth = roomWidth / 2;
+    const halfDepth = roomDepth / 2;
+    const corners: Array<[number, number, number]> = [
+      [-halfWidth, 0, -halfDepth],
+      [halfWidth, 0, -halfDepth],
+      [halfWidth, 0, halfDepth],
+      [-halfWidth, 0, halfDepth],
+      [-halfWidth, roomHeight, -halfDepth],
+      [halfWidth, roomHeight, -halfDepth],
+      [halfWidth, roomHeight, halfDepth],
+      [-halfWidth, roomHeight, halfDepth],
+    ];
+
+    let maxAbsX = 0.01;
+    let maxAbsY = 0.01;
+    const point = new THREE.Vector3();
+    for (const [x, y, z] of corners) {
+      point.set(x, y, z).applyMatrix4(camera.matrixWorldInverse);
+      maxAbsX = Math.max(maxAbsX, Math.abs(point.x));
+      maxAbsY = Math.max(maxAbsY, Math.abs(point.y));
+    }
+
+    camera.left = -size.width / 2;
+    camera.right = size.width / 2;
+    camera.top = size.height / 2;
+    camera.bottom = -size.height / 2;
+
+    // 12% breathing room so the room's outer walls aren't flush with the
+    // canvas edge.
+    const framePadding = 1.12;
+    const zoomForWidth = size.width / (2 * maxAbsX * framePadding);
+    const zoomForHeight = size.height / (2 * maxAbsY * framePadding);
+    const nextZoom = Math.min(zoomForWidth, zoomForHeight);
+    camera.zoom = Number.isFinite(nextZoom) && nextZoom > 0 ? nextZoom : 1;
+    camera.updateProjectionMatrix();
+  }, [size.width, size.height, position.x, position.y, position.z, target.x, target.y, target.z, roomWidth, roomDepth, roomHeight]);
+
+  return <orthographicCamera ref={cameraRef} near={0.1} far={100} />;
 }
 
 function RoomShell({

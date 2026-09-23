@@ -1,5 +1,6 @@
 import { ContactShadows, OrbitControls, OrthographicCamera } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
+import { useState } from "react";
 import * as THREE from "three";
 import { FurnitureMesh } from "./FurnitureMesh";
 import Door from "./Door";
@@ -83,13 +84,10 @@ export function RoomViewer({
           {/* A warmer, clearly-distinct ivory — the walls are already a near-white
               "#f4f1ec", so a near-identical background made the room blend into
               its own backdrop instead of standing apart from it. */}
-          <OrthographicCamera
+          <FitOrthographicCamera
             key={`camera-${cameraMode}`}
-            makeDefault
-            position={[activeCamera.position.x, activeCamera.position.y, activeCamera.position.z]}
+            position={activeCamera.position}
             zoom={activeCamera.zoom}
-            near={0.1}
-            far={100}
           />
           <Lighting room={room} />
 
@@ -166,6 +164,39 @@ export function RoomViewer({
 }
 
 export default RoomViewer;
+
+// `activeCamera.zoom` is baked in (backend default, or a fixed fallback)
+// for whatever pixel size the viewport happened to be when the camera was
+// created — it has no idea the editor's catalog sidebar can be dragged
+// wider/narrower. Since the sidebar resize only changes CSS layout (not
+// `cameraMode`), the <OrthographicCamera> here never remounts during a
+// drag, so its frustum needs to be rescaled live or the room stays pinned
+// at its first-rendered size while the viewport around it grows/shrinks —
+// which reads as the room getting shoved into a corner instead of filling
+// the newly available space. Rescaling zoom by how much the canvas has
+// grown/shrunk since this camera first mounted keeps the room centered and
+// fully framed at any panel width.
+function FitOrthographicCamera({
+  position,
+  zoom,
+}: {
+  position: { x: number; y: number; z: number };
+  zoom: number;
+}) {
+  const size = useThree((state) => state.size);
+  const [baseline] = useState(() => ({ width: size.width, height: size.height }));
+  const scale = Math.min(size.width / baseline.width, size.height / baseline.height);
+
+  return (
+    <OrthographicCamera
+      makeDefault
+      position={[position.x, position.y, position.z]}
+      zoom={zoom * scale}
+      near={0.1}
+      far={100}
+    />
+  );
+}
 
 function RoomShell({
   room,

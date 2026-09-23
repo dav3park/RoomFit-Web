@@ -117,6 +117,29 @@ function clearCurrentRecommendationNotice(): void {
   if (owner) clearRecommendationResult(sessionStorage, owner);
 }
 
+// The catalog panel, the resize handle, and the right feedback sidebar are
+// all fixed/explicit grid tracks (`var(--catalog-panel-width) 10px
+// minmax(0,1fr) 380px`) — only the 3D viewport column is allowed to flex.
+// A plain `Math.min(640, Math.max(300, event.clientX))` clamp ignores the
+// other two fixed tracks entirely, so on a window barely past the `lg`
+// breakpoint (1024px — easy to hit with DevTools docked open) dragging the
+// panel toward its 640px max makes the fixed tracks alone (640+10+380=1030)
+// exceed the window width, squeezing the 3D viewport to ~0 and clipping the
+// sidebar off-screen. This keeps the panel's max width small enough that a
+// usable viewport width always remains.
+const CATALOG_PANEL_MIN_WIDTH = 300;
+const CATALOG_PANEL_MAX_WIDTH = 640;
+const CATALOG_RESIZE_HANDLE_WIDTH = 10;
+const CATALOG_ASIDE_WIDTH = 380;
+const CATALOG_MIN_VIEWPORT_WIDTH = 280;
+
+function clampCatalogPanelWidth(desiredWidth: number): number {
+  const reserved = CATALOG_RESIZE_HANDLE_WIDTH + CATALOG_ASIDE_WIDTH + CATALOG_MIN_VIEWPORT_WIDTH;
+  const availableMax = window.innerWidth - reserved;
+  const upperBound = Math.max(CATALOG_PANEL_MIN_WIDTH, Math.min(CATALOG_PANEL_MAX_WIDTH, availableMax));
+  return Math.min(upperBound, Math.max(CATALOG_PANEL_MIN_WIDTH, desiredWidth));
+}
+
 export default function EditorPlaceholder() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -426,7 +449,7 @@ export default function EditorPlaceholder() {
     if (!isResizingCatalogPanel) return;
 
     const handlePointerMove = (event: PointerEvent) => {
-      setCatalogPanelWidth(Math.min(640, Math.max(300, event.clientX)));
+      setCatalogPanelWidth(clampCatalogPanelWidth(event.clientX));
     };
     const stopResizing = () => setIsResizingCatalogPanel(false);
 
@@ -442,6 +465,16 @@ export default function EditorPlaceholder() {
       document.body.style.userSelect = "";
     };
   }, [isResizingCatalogPanel]);
+
+  // Re-clamp on window resize too — a previously-dragged width can outgrow
+  // the window on its own (e.g. docking/undocking DevTools) without the
+  // resize handle ever being touched again.
+  useEffect(() => {
+    const handleWindowResize = () => setCatalogPanelWidth((current) => clampCatalogPanelWidth(current));
+    handleWindowResize();
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
 
   const handleFurniturePlaced = (updatedRoom: RoomLayout, response: LayoutResponse) => {
     dispatchEditorLayout({ type: "replace", roomLayout: updatedRoom, scopeKey: editorScopeKey });

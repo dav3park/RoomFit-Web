@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FiCheck, FiChevronDown, FiChevronUp, FiHome, FiInfo, FiShoppingBag } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { getLatestConfirmedLayout, type LayoutResponse } from "../api/layouts";
 import { fetchMockProducts, type MockProductApiItem } from "../api/products";
@@ -46,6 +46,12 @@ export function resolveLatestConfirmedRoom(
 
 export default function LayoutConfirm() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [workspaceRoom] = useState<RoomLayout | null>(() => {
+    const next = location.state?.workspaceRoom as RoomLayout | undefined;
+    return next?.id === localStorage.getItem("roomfit:selectedRoomId")
+      && Array.isArray(next?.furniture) && Array.isArray(next?.walls) ? next : null;
+  });
   const [fallbackRoom] = useState(resolveCurrentRoomLayout);
   const [confirmedMirror] = useState(getLiveMirrorForSelectedRoom);
   const rawBackendRoomId = Number(localStorage.getItem("roomfit:backendRoomId"));
@@ -57,11 +63,11 @@ export default function LayoutConfirm() {
     && backendRoomId !== null
     && isSessionForRoom(activeSession, fallbackRoom.id, backendRoomId)
     && !activeSession.confirmed;
-  const [roomLayout, setRoomLayout] = useState(() => (hasMatchingDraft ? null : confirmedMirror));
+  const [roomLayout, setRoomLayout] = useState(() => workspaceRoom ?? (hasMatchingDraft ? null : confirmedMirror));
   const [loadError, setLoadError] = useState(() => (
     fallbackRoom ? "" : "확정할 배치를 찾지 못했습니다. 방을 다시 선택해 주세요."
   ));
-  const [justConfirmed, setJustConfirmed] = useState(Boolean(confirmedMirror && !hasMatchingDraft));
+  const [justConfirmed, setJustConfirmed] = useState(Boolean(!workspaceRoom && confirmedMirror && !hasMatchingDraft));
   const [showShoppingList, setShowShoppingList] = useState(false);
   const [isConfirming, setIsConfirming] = useState(false);
   const [confirmError, setConfirmError] = useState("");
@@ -90,7 +96,7 @@ export default function LayoutConfirm() {
   }, [productRequestVersion, roomLayout]);
 
   useEffect(() => {
-    if (!fallbackRoom || backendRoomId === null) return;
+    if (workspaceRoom || !fallbackRoom || backendRoomId === null) return;
     let cancelled = false;
     const requestClientId = readRequestClientId();
     const request = activeLayoutId !== null
@@ -126,7 +132,7 @@ export default function LayoutConfirm() {
     return () => {
       cancelled = true;
     };
-  }, [activeLayoutId, backendRoomId, fallbackRoom]);
+  }, [activeLayoutId, backendRoomId, fallbackRoom, workspaceRoom]);
 
   if (!roomLayout) {
     return (
@@ -164,6 +170,18 @@ export default function LayoutConfirm() {
     setConfirmError("");
 
     try {
+      if (workspaceRoom) {
+        if (localStorage.getItem("roomfit:selectedRoomId") !== roomLayout.id) {
+          throw new Error("선택한 방이 변경되었습니다.");
+        }
+        localStorage.setItem(`roomfit:workspaceDraft:${roomLayout.id}`, JSON.stringify(roomLayout));
+        localStorage.setItem("roomfit:selectedRoomLayout", JSON.stringify(roomLayout));
+        const container = roomViewerContainerRef.current;
+        const thumbnail = container && captureCanvasThumbnail(container);
+        if (thumbnail) saveRoomThumbnail(roomLayout.id, thumbnail);
+        setJustConfirmed(true);
+        return;
+      }
       const layoutToConfirm = await confirmActiveLayout(roomLayout);
 
       setRoomLayout(layoutToConfirm);
@@ -277,6 +295,7 @@ export default function LayoutConfirm() {
               <SummaryItem label="가구 / 소품" value={`${furnitureCount}개`} />
             </dl>
 
+            {workspaceRoom && <p className="mt-5 text-sm font-semibold leading-6 text-[#777777]">배치는 이 브라우저에 저장됩니다. 서버 저장은 연결 예정입니다.</p>}
             <div className="mt-6 border-t border-[#eeeeee] pt-6">
               {!justConfirmed ? (
                 <button
@@ -291,7 +310,7 @@ export default function LayoutConfirm() {
                 <>
                   <div className="flex items-center gap-2.5 rounded-lg bg-[#eefbf1] px-5 py-4 text-sm font-bold text-[#16803a]">
                     <FiCheck className="h-5 w-5 shrink-0" />
-                    이 방에 배치가 저장되었어요. 다시 열어도 이 결과가 보여요.
+                    {workspaceRoom ? "현재 브라우저에 최종 배치를 저장했습니다." : "이 방에 배치가 저장되었어요. 다시 열어도 이 결과가 보여요."}
                   </div>
 
                   <button

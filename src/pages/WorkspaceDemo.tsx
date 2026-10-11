@@ -30,6 +30,7 @@ const axes = [{ id: 'width', label: '가로' }, { id: 'depth', label: '세로' }
 interface WorkspaceService {
   initialRoom: RoomLayout;
   onSave: (room: RoomLayout) => Promise<RoomLayout>;
+  onNext: (room: RoomLayout) => Promise<void>;
   onChooseRoom: (room: RoomLayout) => Promise<void>;
 }
 
@@ -135,7 +136,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
     cancelPlacement(); setCandidate(createDemoRecommendation(room, requested)); setSelectedId(null);
     setNotice('샘플 추천 미리보기입니다. 적용 전까지 현재 편집 배치는 보존됩니다.');
   }
-  async function serviceAction(action: 'save' | 'choose') {
+  async function serviceAction(action: 'save' | 'choose' | 'next') {
     if (!service || operationRef.current) return;
     operationRef.current = true; setBusy(true); cancelPlacement();
     try {
@@ -143,17 +144,11 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
       if (action === 'save') {
         const saved = await service.onSave(snapshot);
         setRoom(saved); setSavedRoom(copyDemoRoom(saved)); setNotice(service ? '현재 브라우저에 배치를 저장했습니다. 서버 저장은 연결 예정입니다.' : '배치를 저장했습니다.');
-      } else await service.onChooseRoom(snapshot);
+      } else if (action === 'next') await service.onNext(snapshot);
+      else await service.onChooseRoom(snapshot);
     } catch (error) {
       setNotice(error instanceof Error ? error.message : '저장하지 못했습니다. 현재 편집 내용을 유지합니다. 다시 시도해 주세요.');
     } finally { operationRef.current = false; setBusy(false); }
-  }
-  function continueInWorkspace() {
-    cancelPlacement();
-    setSelectedId(null);
-    setTool('results');
-    setPanelOpen(true);
-    setNotice('검증과 다음 단계 UI를 열었습니다. 이 메뉴에서 계속 편집할 수 있습니다.');
   }
   const saved = savedRoom !== null && JSON.stringify(savedRoom) === JSON.stringify(room);
 
@@ -184,7 +179,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
     <header className="demo-header">
       <a href="/" className="demo-logo">ROOMFIT</a>
       <span className="demo-name">배치 작업실 {!service && <span className="demo-badge">UI 데모</span>}</span>
-      {service ? <div className="demo-header-actions"><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('choose')}>이전 단계</button><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('save')}>{busy ? '처리 중…' : '저장'}</button><Button disabled={busy} onClick={continueInWorkspace}>다음 단계</Button></div> : <>      <div className="demo-header-actions"><button className="demo-outline" onClick={() => { setSavedRoom(copyDemoRoom(room)); setNotice('현재 배치를 메모리에 데모 저장했습니다. 새로고침하면 사라집니다.'); }} disabled={!!candidate}>데모 저장</button><Button onClick={() => { setConfirmed(true); setNotice('확정 화면 예시입니다. 실제 배치는 저장·확정되지 않았습니다.'); }} disabled={!!candidate || issues.some(item => item.severity === 'ERROR')}>데모 확정</Button></div></> }
+      {service ? <div className="demo-header-actions"><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('choose')}>이전 단계</button><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('save')}>{busy ? '처리 중…' : '저장'}</button><Button disabled={busy || !!candidate} onClick={() => void serviceAction('next')}>다음 단계</Button></div> : <>      <div className="demo-header-actions"><button className="demo-outline" onClick={() => { setSavedRoom(copyDemoRoom(room)); setNotice('현재 배치를 메모리에 데모 저장했습니다. 새로고침하면 사라집니다.'); }} disabled={!!candidate}>데모 저장</button><Button onClick={() => { setConfirmed(true); setNotice('확정 화면 예시입니다. 실제 배치는 저장·확정되지 않았습니다.'); }} disabled={!!candidate || issues.some(item => item.severity === 'ERROR')}>데모 확정</Button></div></> }
     </header>
     {!service && <div className="demo-disclaimer">구조 검토용 화면입니다. AI 호출 · 업로드 · 서버 저장 없이 로컬 샘플로 작동합니다.</div>}
     <div className={`demo-workspace ${panelOpen ? '' : 'demo-panel-collapsed'} ${selected && !candidate ? 'demo-has-selection' : ''}`}>
@@ -233,13 +228,11 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
               <p className="demo-help">AI 연결 후 결과가 이 메뉴에 표시됩니다.</p>
             </section>
             {service ? <section className="demo-inspector-section">
-              <h2>저장 · 다음 단계</h2>
+              <h2>배치 저장</h2>
               <p className="demo-save-state">{saved ? '현재 배치 저장됨' : savedRoom ? '저장 이후 변경됨' : '저장 전'}</p>
-              <p className="demo-help">작업 내용은 이 브라우저에 저장됩니다. 서버 저장과 최종 확정은 연결 예정입니다.</p>
+              <p className="demo-help">작업 내용은 이 브라우저에 저장됩니다. 상단 다음 단계에서 최종 배치를 확인할 수 있습니다.</p>
               <Button disabled={busy} onClick={() => void serviceAction('save')}>배치 저장</Button>
               <button className="demo-outline" onClick={() => { setTool('furniture'); setPanelOpen(true); setNotice('가구 탐색 메뉴에서 배치를 계속 편집할 수 있습니다.'); }}>가구 편집으로 돌아가기</button>
-              <button className="demo-outline" disabled={busy} onClick={() => { setConfirmed(true); setNotice('다음 단계 UI를 확인했습니다. 최종 확정 API는 연결 예정입니다.'); }}>다음 단계 확인</button>
-              {confirmed && <p className="demo-save-state">다음 단계 확인됨</p>}
             </section> : <section className="demo-inspector-section">
               <h2>저장 · 최종 확정</h2>
               <p className="demo-save-state">{confirmed ? '데모 확정 화면 예시' : saved ? '현재 배치 데모 저장됨' : savedRoom ? '저장 이후 변경됨' : '데모 미저장'}</p>

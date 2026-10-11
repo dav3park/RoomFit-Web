@@ -54,6 +54,38 @@ describe("Layout confirm scoped recovery", () => {
     expect(html).not.toContain("확정하기");
   });
 
+  it("shows the workspace snapshot instead of an older confirmed mirror", () => {
+    const current = room("새 작업실에서 편집한 방");
+    const older = room("이전 확정 배치");
+    vi.stubGlobal("localStorage", memoryStorage({
+      "roomfit:selectedRoomId": current.id,
+      "roomfit:selectedRoomLayout": JSON.stringify(older),
+      "roomfit:backendRoomId": "15",
+    }));
+    vi.stubGlobal("sessionStorage", memoryStorage());
+    const html = renderToStaticMarkup(
+      <MemoryRouter initialEntries={[{ pathname: "/layout-confirm", state: { workspaceRoom: current } }]}>
+        <LayoutConfirm />
+      </MemoryRouter>,
+    );
+    expect(html).toContain("새 작업실에서 편집한 방");
+    expect(html).not.toContain("이전 확정 배치");
+    expect(html).toContain("확정하기");
+    expect(html).toContain("배치는 이 브라우저에 저장됩니다");
+  });
+
+  it("does not show a workspace snapshot for a different selected room", () => {
+    vi.stubGlobal("localStorage", memoryStorage({ "roomfit:selectedRoomId": "api-room-16" }));
+    vi.stubGlobal("sessionStorage", memoryStorage());
+    const html = renderToStaticMarkup(
+      <MemoryRouter initialEntries={[{ pathname: "/layout-confirm", state: { workspaceRoom: room("다른 방") } }]}>
+        <LayoutConfirm />
+      </MemoryRouter>,
+    );
+    expect(html).not.toContain("다른 방");
+    expect(html).not.toContain("확정하기");
+  });
+
   it("accepts only the current room's confirmed latest response", () => {
     const fallback = room("현재 방");
     const matching = { roomId: 15, confirmed: true, recommendedFurniture: [] };

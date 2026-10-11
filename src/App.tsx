@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/ui/Navbar";
 
 const Home = lazy(() => import("./pages/Home").then((module) => ({ default: module.Home })));
@@ -18,7 +18,7 @@ export default function App() {
 }
 
 function AppRoutes() {
-  const isDemo = ["/workspace-demo", "/manage-furniture"].includes(useLocation().pathname.replace(/\/+$/, ""));
+  const isDemo = ["/workspace-demo", "/manage-furniture", "/workspace"].includes(useLocation().pathname.replace(/\/+$/, ""));
   return (
     <>
       {!isDemo && <Navbar />}
@@ -29,7 +29,8 @@ function AppRoutes() {
             <Route path="/workspace-demo" element={<WorkspaceDemo />} />
             <Route path="/" element={<Home />} />
             <Route path="/rooms" element={<Rooms />} />
-            <Route path="/manage-furniture" element={<Workspace />} />
+            <Route path="/manage-furniture" element={<Navigate to="/workspace" replace />} />
+            <Route path="/workspace" element={<Workspace />} />
             <Route path="/preference" element={<Preference />} />
             <Route path="/reference-image" element={<ReferenceImage />} />
             <Route path="/recommendation" element={<Recommendation />} />

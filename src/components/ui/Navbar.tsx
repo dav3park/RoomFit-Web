@@ -20,14 +20,7 @@ interface NavigationStep {
   nextLabel?: string;
 }
 
-// The main onboarding/edit sequence. `/manage-furniture` is the dedicated
-// scan-correction step (room + existing-furniture dimensions), done once
-// right after picking a room, before anything else. `/preference`,
-// `/reference-image` and `/recommendation` used to be forced steps between
-// `/manage-furniture` and `/editor` — they're now editor-launched sub-flows
-// (see preferenceFlowSteps below) so the editor itself is reachable right
-// after scan correction. Adding furniture directly is an in-editor sidebar
-// widget (FurnitureCatalogPanel), not a routed step at all.
+// Room selection opens the workspace; its own header advances to confirmation.
 const mainFlowSteps: NavigationStep[] = [
   {
     path: "/",
@@ -40,14 +33,8 @@ const mainFlowSteps: NavigationStep[] = [
     beforeNext: async () => (await import("../../config/roomSetupSession")).prepareSelectedRoomForManagement(),
   },
   {
-    path: "/manage-furniture",
-    label: "스캔 보정",
-    beforeNext: async () => (await import("../../config/layoutEditingWorkflow")).prepareManagedFurnitureDraft(),
-  },
-  {
-    path: "/editor",
-    label: "편집",
-    beforeNext: async () => (await import("../../config/layoutEditingWorkflow")).persistActiveEditorLayout(),
+    path: "/workspace",
+    label: "배치 작업실",
   },
   { path: "/layout-confirm", label: "결과 확인" },
 ];
@@ -73,7 +60,17 @@ const preferenceFlowSteps: NavigationStep[] = [
   },
 ];
 
-const allFlows = [mainFlowSteps, preferenceFlowSteps];
+const legacyEditorFlow: NavigationStep[] = [
+  { path: "/workspace", label: "배치 작업실" },
+  {
+    path: "/editor",
+    label: "편집",
+    beforeNext: async () => (await import("../../config/layoutEditingWorkflow")).persistActiveEditorLayout(),
+  },
+  { path: "/layout-confirm", label: "결과 확인" },
+];
+
+const allFlows = [mainFlowSteps, preferenceFlowSteps, legacyEditorFlow];
 
 function resolveActiveFlow(pathname: string): NavigationStep[] {
   return allFlows.find((steps) => steps.some((step) => step.path === pathname)) ?? mainFlowSteps;
@@ -138,7 +135,12 @@ export default function Navbar() {
       const nextState = await currentStep.beforeNext?.();
 
       if (nextStep) {
-        navigate(nextStep.path, { state: nextState ?? location.state });
+        if (location.pathname === "/rooms") {
+          // Reload the document so an open Rooms tab cannot reuse an older workspace bundle.
+          window.location.assign(`/workspace?v=${Date.now()}`);
+        } else {
+          navigate(nextStep.path, { state: nextState ?? location.state });
+        }
       }
     } catch (error) {
       if (isFurnitureAdditionLimitError(error)) {

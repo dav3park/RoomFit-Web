@@ -43,6 +43,10 @@ export default function Workspace() {
   return <WorkspaceDemo service={{
     initialRoom: room,
     onSave: async next => save(next),
+    onNext: async next => {
+      await save(next);
+      navigate('/layout-confirm', {state: {workspaceRoom: next}});
+    },
     onChooseRoom: async next => { await save(next); navigate('/rooms'); },
   }} />;
 }

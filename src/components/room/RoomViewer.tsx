@@ -280,7 +280,8 @@ function RoomShell({
   const hiddenWallIds = hideEntranceWalls
     ? interiorViewWallIds(room, cameraPosition)
     : new Set<string>();
-  const visibleDoors = room.doors.filter((opening) => !opening.wallId || !hiddenWallIds.has(opening.wallId));
+  // Keep the door leaf visible in interior mode even when its entrance wall is hidden.
+  const visibleDoors = room.doors;
   const visibleWindows = room.windows.filter((opening) => !opening.wallId || !hiddenWallIds.has(opening.wallId));
 
   return (

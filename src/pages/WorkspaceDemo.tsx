@@ -234,7 +234,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
             </section>
             {service ? <section className="demo-inspector-section">
               <h2>저장 · 다음 단계</h2>
-              <p className="demo-save-state">{savedRoom ? '현재 배치 저장됨' : '저장 전'}</p>
+              <p className="demo-save-state">{saved ? '현재 배치 저장됨' : savedRoom ? '저장 이후 변경됨' : '저장 전'}</p>
               <p className="demo-help">작업 내용은 이 브라우저에 저장됩니다. 서버 저장과 최종 확정은 연결 예정입니다.</p>
               <Button disabled={busy} onClick={() => void serviceAction('save')}>배치 저장</Button>
               <button className="demo-outline" onClick={() => { setTool('furniture'); setPanelOpen(true); setNotice('가구 탐색 메뉴에서 배치를 계속 편집할 수 있습니다.'); }}>가구 편집으로 돌아가기</button>
@@ -254,6 +254,14 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
             <section className="demo-section"><h3>인테리어 스타일 · 참고 이미지</h3><p className="demo-help">이미지 선택이 추천 스타일 선택으로 연결됩니다.</p><div className="demo-style-grid">{styles.map(item => <button key={item.id} aria-label={item.title} aria-pressed={style === item.id} onClick={() => updateInput(() => setStyle(item.id))}><img src={item.image} alt={item.title} /><span>{item.title}</span>{style === item.id && <FiCheck aria-hidden="true" />}</button>)}</div></section>
             <section className="demo-section"><h3>추천에 포함할 상품</h3><p className="demo-help">선택 상품과 필수 가구 입력을 로컬로 표현합니다.</p><div className="demo-requested">{recommendationProducts.map(item => <label key={item.productId}><input type="checkbox" checked={requested.includes(item.productId)} onChange={() => updateInput(() => setRequested(current => current.includes(item.productId) ? current.filter(id => id !== item.productId) : [...current, item.productId]))} />{item.label}</label>)}</div></section>
             <Button onClick={generate} disabled={!requested.length || busy} className="w-full">{service ? 'AI 추천 생성' : '샘플 추천 미리보기'}</Button><p className="demo-help">{service ? 'AI 연결 전에는 선택한 상품을 바탕으로 샘플 배치 미리보기를 생성합니다.' : 'AI 미호출. 상품·색감만 샘플 결과에 반영하며 생활 목적·스타일 최적화는 수행하지 않습니다.'}</p>
+            {candidate && <section className="demo-section">
+              <h3>추천 미리보기</h3>
+              <p className="demo-help">현재 배치는 아직 바뀌지 않았어요.</p>
+              <p className="demo-help">적용하면 기존 가구를 선택 상품 {candidate.furniture.length}개로 교체합니다.</p>
+              <button className="demo-outline" onClick={() => { setCandidate(null); setNotice('미리보기를 닫았습니다. 현재 배치를 유지합니다.'); }}>현재 배치로 돌아가기</button>
+              <Button onClick={() => { changeRoom(candidate); setAppliedPalette(palette); setSelectedId(null); setNotice('샘플 추천을 배치에 적용했습니다. 이어서 직접 편집할 수 있습니다.'); }}>샘플 배치 적용</Button>
+            </section>}
+
           </>}
         </div>
       </aside>}
@@ -268,7 +276,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
         <div className="demo-clearance-controls"><label><input type="checkbox" checked={showAllClearance} onChange={event => setShowAllClearance(event.target.checked)} />가구 사용 여유 공간 전체 표시</label><span><i className="demo-blue" />여유 확보 <i className="demo-orange" />접근 주의 <i className="demo-red" />충돌·개폐 침범</span></div>
         <p className="demo-clearance-note">파랑: 침범 없음 · 주황: 권장 접근 공간 침범 · 빨강: 본체 충돌·경계 이탈 또는 개폐 공간 침범. 옷장은 가로의 ½, 서랍장은 기존 전면 여유 값으로 근사합니다. 문은 문 폭을 반지름으로 안쪽 90° 열림을 가정합니다. 상품별 개폐 방식·경첩·서랍 인출량은 미확인입니다.</p>
 
-        {candidate ? <div className="demo-preview-actions"><div><strong>현재 배치는 아직 바뀌지 않았어요.</strong><p>적용하면 기존 가구를 선택 상품 {candidate.furniture.length}개로 교체합니다.</p></div><button className="demo-outline" onClick={() => { setCandidate(null); setNotice('미리보기를 닫았습니다. 현재 배치를 유지합니다.'); }}>현재 배치로 돌아가기</button><Button onClick={() => { changeRoom(candidate); setAppliedPalette(palette); setSelectedId(null); setNotice('샘플 추천을 로컬 배치에 적용했습니다. 이어서 직접 편집할 수 있습니다.'); }}>샘플 배치 적용</Button></div> : <div className="demo-viewer-footer"><span>가구를 선택해 드래그 · 배경을 드래그해 둘러보기</span><button className="demo-outline" onClick={() => setCameraKey(key => key + 1)}>중앙 보기</button></div>}
+        <div className="demo-viewer-footer"><span>{candidate ? 'AI 추천 메뉴에서 미리보기를 적용하거나 현재 배치로 돌아갈 수 있습니다.' : '가구를 선택해 드래그 · 배경을 드래그해 둘러보기'}</span><button className="demo-outline" onClick={() => setCameraKey(key => key + 1)}>중앙 보기</button></div>
         <p className="demo-notice" role="status" aria-live="polite">{notice}</p>
       </section>
     </div>

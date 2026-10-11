@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FiList, FiBox, FiCheck, FiHome, FiRotateCw, FiTrash2, FiSliders, FiX } from 'react-icons/fi';
 import Button from '../components/ui/Button';
 import DemoFurnitureCard from './DemoFurnitureCard';
@@ -177,7 +178,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
 
   return <main className={`workspace-demo ${service ? 'workspace-service' : ''}`} aria-busy={busy}>
     <header className="demo-header">
-      <a href="/" className="demo-logo">ROOMFIT</a>
+      <Link to="/" className="demo-logo">ROOMFIT</Link>
       <span className="demo-name">배치 작업실 {!service && <span className="demo-badge">UI 데모</span>}</span>
       {service ? <div className="demo-header-actions"><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('choose')}>이전 단계</button><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('save')}>{busy ? '처리 중…' : '저장'}</button><Button disabled={busy || !!candidate} onClick={() => void serviceAction('next')}>다음 단계</Button></div> : <>      <div className="demo-header-actions"><button className="demo-outline" onClick={() => { setSavedRoom(copyDemoRoom(room)); setNotice('현재 배치를 메모리에 데모 저장했습니다. 새로고침하면 사라집니다.'); }} disabled={!!candidate}>데모 저장</button><Button onClick={() => { setConfirmed(true); setNotice('확정 화면 예시입니다. 실제 배치는 저장·확정되지 않았습니다.'); }} disabled={!!candidate || issues.some(item => item.severity === 'ERROR')}>데모 확정</Button></div></> }
     </header>

@@ -33,3 +33,48 @@ jobs:
           source: "dist/*"
           target: "/home/ubuntu/roomfit-web-dist"
           strip_components: 1
+
+      - name: Prevent stale HTML on room navigation
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            set -eu
+            config=/etc/nginx/conf.d/roomfit-html-cache.conf
+            backup=$(mktemp)
+            had_config=false
+            if sudo test -f "$config"; then
+              sudo cp "$config" "$backup"
+              had_config=true
+            fi
+            rollback() {
+              if [ "$had_config" = true ]; then
+                sudo cp "$backup" "$config"
+              else
+                sudo rm -f "$config"
+              fi
+              sudo nginx -t && sudo systemctl reload nginx
+            }
+            # Only RoomFit HTML changes; model files and hashed JS retain their caching.
+            sudo tee "$config" >/dev/null <<'NGINX'
+            map "$host:$sent_http_content_type" $roomfit_html_cache_control {
+                default "";
+                "~^roomfit-khu\.kro\.kr:text/html" "no-store, no-cache, must-revalidate";
+            }
+            add_header Cache-Control $roomfit_html_cache_control always;
+            NGINX
+            if ! sudo nginx -t || ! sudo systemctl reload nginx; then
+              rollback
+              rm -f "$backup"
+              exit 1
+            fi
+            for path in / /rooms /workspace /manage-furniture; do
+              if ! curl -fsSI "https://roomfit-khu.kro.kr$path" | tr -d '\r' | grep -qi '^cache-control:.*no-store'; then
+                rollback
+                rm -f "$backup"
+                exit 1
+              fi
+            done
+            rm -f "$backup"

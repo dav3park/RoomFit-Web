@@ -135,12 +135,7 @@ export default function Navbar() {
       const nextState = await currentStep.beforeNext?.();
 
       if (nextStep) {
-        if (location.pathname === "/rooms") {
-          // Reload the document so an open Rooms tab cannot reuse an older workspace bundle.
-          window.location.assign(`/workspace?v=${Date.now()}`);
-        } else {
-          navigate(nextStep.path, { state: nextState ?? location.state });
-        }
+        navigate(nextStep.path, { state: nextState ?? location.state });
       }
     } catch (error) {
       if (isFurnitureAdditionLimitError(error)) {

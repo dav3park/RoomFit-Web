@@ -1,4 +1,5 @@
 import { FiArrowRight, FiCpu, FiEdit3, FiHome } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 import Button from "../components/ui/Button";
 import { sampleRoom } from "../mock/sampleRoom";
@@ -44,6 +45,7 @@ const homePreviewRoom = {
 };
 
 export function Home() {
+  const navigate = useNavigate();
   return (
     <main className="min-h-screen bg-[#fbfbfb] text-[#141414]">
 
@@ -63,7 +65,7 @@ export function Home() {
           <Button
             onClick={() => {
               beginNewRoomSetup();
-              window.location.href = "/rooms";
+              navigate("/rooms");
             }}
             className="mt-9 px-8 py-3.5 text-lg"
           >

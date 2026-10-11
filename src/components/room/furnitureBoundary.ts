@@ -31,7 +31,8 @@ export function resolveFurnitureLocalFootprint(furniture: Furniture): FurnitureL
   if (furniture.variantId) {
     const visualFootprint = getProductionFurnitureVisualFootprint(furniture.variantId);
     if (visualFootprint) {
-      return visualFootprint;
+      const [x, , z] = furniture.demoVisualScale ?? [1, 1, 1];
+      return {minX:visualFootprint.minX*x,maxX:visualFootprint.maxX*x,minZ:visualFootprint.minZ*z,maxZ:visualFootprint.maxZ*z};
     }
   }
 

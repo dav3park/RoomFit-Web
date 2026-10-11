@@ -36,7 +36,7 @@ export default function FurnitureRenderer({
 
   if (variant) {
     const { materialPresets, registry } = getProductionFurnitureVariantRenderResources();
-    warnFurnitureVariantDimensionMismatch(variant.variantId, item.dimensions, variant.dimensions);
+    if (!visualScale) warnFurnitureVariantDimensionMismatch(variant.variantId, item.dimensions, variant.dimensions);
 
     return (
       <FurnitureVariantRenderer

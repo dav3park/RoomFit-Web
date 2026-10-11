@@ -1,6 +1,6 @@
 import { ContactShadows, OrbitControls } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
 import * as THREE from "three";
 import { FurnitureMesh } from "./FurnitureMesh";
 import Door from "./Door";
@@ -16,6 +16,10 @@ import type { Furniture, RoomLayout, Vector2D, WallSegment } from "../../types";
 import type { PreferredColorToneId } from "../../config/preferredColorTone";
 
 interface RoomViewerProps {
+  directDrag?: boolean;
+  selectOnClick?: boolean;
+  children?: ReactNode;
+  disableOrbit?: boolean;
   room: RoomLayout;
   furniture: Furniture[];
   selectedFurnitureId: string | null;
@@ -43,6 +47,10 @@ export function RoomViewer({
   alignCameraToEntrance = false,
   showEditingHelpers = false,
   preferredColorTone,
+  children,
+  selectOnClick = false,
+  directDrag = false,
+  disableOrbit = false,
 }: RoomViewerProps) {
   const camera = room.camera ?? {
     type: "orthographic" as const,
@@ -114,6 +122,8 @@ export function RoomViewer({
             return (
               <FurnitureMesh
                 key={item.id}
+                selectOnClick={selectOnClick}
+                directDrag={directDrag}
                 item={item}
                 room={room}
                 isSelected={selectedFurnitureId === item.id}
@@ -133,10 +143,12 @@ export function RoomViewer({
             );
           })}
 
+          {children}
           <ContactShadows opacity={0.24} scale={8} blur={3.2} far={5} position={[0, 0.015, 0]} />
           <OrbitControls
             key={`controls-${cameraMode}`}
             makeDefault
+            enabled={!disableOrbit}
             enableDamping
             target={[activeCamera.target.x, activeCamera.target.y, activeCamera.target.z]}
             minDistance={4.2}

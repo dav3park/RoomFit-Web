@@ -1,0 +1,50 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import WorkspaceDemo from './WorkspaceDemo';
+import { loadManagedFurnitureLayout, prepareManagedFurnitureDraft } from '../config/layoutEditingWorkflow';
+import type { RoomLayout } from '../types';
+
+export default function Workspace() {
+  const navigate = useNavigate();
+  const [room, setRoom] = useState<RoomLayout | null>(null);
+  const [error, setError] = useState('');
+  const [retry, setRetry] = useState(0);
+  useEffect(() => {
+    let cancelled = false;
+    const load = async () => {
+      const raw = localStorage.getItem('roomfit:selectedRoomLayout');
+      const backendId = Number(localStorage.getItem('roomfit:backendRoomId'));
+      const selected = raw ? JSON.parse(raw) as RoomLayout : null;
+      if (!selected || selected.id !== localStorage.getItem('roomfit:selectedRoomId')
+        || !Array.isArray(selected.furniture) || !Array.isArray(selected.walls)
+        || !Number.isInteger(backendId) || backendId <= 0) {
+        if (!cancelled) navigate('/rooms', {replace: true});
+        return;
+      }
+      const restored = await loadManagedFurnitureLayout(selected, backendId);
+      if (!cancelled) setRoom(restored ?? selected);
+    };
+    void load().catch(() => {
+      if (!cancelled) setError('선택한 방을 불러오지 못했습니다. 다시 시도해 주세요.');
+    });
+    return () => { cancelled = true; };
+  }, [navigate, retry]);
+
+  async function save(next: RoomLayout) {
+    // Use the existing workflow: confirmed layouts become drafts; initial setup
+    // saves the room snapshot. Never substitute a local sample for the selected owner.
+    if (localStorage.getItem('roomfit:selectedRoomId') !== next.id) throw new Error('선택한 방이 변경되었습니다. 방을 다시 선택해 주세요.');
+    localStorage.setItem('roomfit:selectedRoomLayout', JSON.stringify(next));
+    const state = await prepareManagedFurnitureDraft();
+    if (!state) throw new Error('저장할 방을 찾지 못했습니다. 방을 다시 선택해 주세요.');
+    return state;
+  }
+  if (!room) return <main className="workspace-demo"><header className="demo-header"><a href="/" className="demo-logo">ROOMFIT</a></header><div className="p-8" role={error ? 'alert' : 'status'}>{error || '선택한 공간을 불러오는 중…'}{error && <button className="demo-outline" onClick={() => { setError(''); setRetry(value => value + 1); }}>다시 시도</button>}</div></main>;
+  return <WorkspaceDemo service={{
+    initialRoom: room,
+    onSave: async next => (await save(next)).roomLayout ?? next,
+    onNext: async next => navigate('/editor', {state: await save(next)}),
+    onRecommend: async next => navigate('/preference', {state: await save(next)}),
+    onChooseRoom: async next => { await save(next); navigate('/rooms'); },
+  }} />;
+}

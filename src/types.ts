@@ -30,6 +30,8 @@ export interface Size3D {
 }
 
 export interface Furniture {
+  /** Explicit local demo scaling; absent in production layouts. */
+  demoVisualScale?: [number, number, number];
   id: string;
   name: string;
   category: FurnitureCategory;

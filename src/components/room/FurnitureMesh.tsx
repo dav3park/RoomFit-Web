@@ -1,5 +1,5 @@
 import { TransformControls } from "@react-three/drei";
-import type { ThreeEvent } from "@react-three/fiber";
+import { useThree, type ThreeEvent } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import FurnitureRenderer from "../furniture/FurnitureRenderer";
@@ -19,6 +19,8 @@ const ERROR_DECAL_COLOR = "#ef4444";
 const WARNING_DECAL_COLOR = "#f97316";
 
 interface FurnitureMeshProps {
+  directDrag?: boolean;
+  selectOnClick?: boolean;
   item: Furniture;
   room: Pick<RoomLayout, "width" | "depth" | "walls">;
   isSelected: boolean;
@@ -40,6 +42,8 @@ interface FurnitureMeshProps {
 
 export function FurnitureMesh({
   item,
+  selectOnClick = false,
+  directDrag = false,
   room,
   isSelected,
   canTransform,
@@ -55,6 +59,20 @@ export function FurnitureMesh({
   bodySeverity,
   warningZoneSides,
 }: FurnitureMeshProps) {
+  const get = useThree(state => state.get);
+  const orbitControls = () => get().controls as unknown as {enabled:boolean} | undefined;
+  const enableOrbit = (enabled:boolean) => { const control=orbitControls(); if(control) control.enabled=enabled; };
+  const dragging = useRef<{x:number;y:number;offset:Vector2D; moved:boolean; enabled:boolean} | null>(null);
+  const floorPoint = (event: ThreeEvent<PointerEvent>) => event.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0,1,0),1),new THREE.Vector3());
+  const finishDrag = (event: ThreeEvent<PointerEvent>) => {
+    if (!dragging.current) return;
+    event.stopPropagation();
+    enableOrbit(dragging.current.enabled);
+    dragging.current=null;
+    (event.target as unknown as HTMLElement).releasePointerCapture(event.pointerId);
+    onMoveEnd?.(item.id);
+  };
+  useEffect(() => () => { const control=get().controls as unknown as {enabled:boolean} | undefined; if(dragging.current && control) control.enabled=dragging.current.enabled; }, [get]);
   const groupRef = useRef<THREE.Group>(null!);
   const floorOverlayOffset = resolveFurnitureCollisionMode(item.variantId, item.category) === "FLOOR_OVERLAY"
     ? 0.006
@@ -75,7 +93,15 @@ export function FurnitureMesh({
 
   const handlePointerDown = (event: ThreeEvent<PointerEvent>) => {
     event.stopPropagation();
-    onSelect(item.id);
+    if (directDrag && event.button === 0) {
+      const point=floorPoint(event);
+      if (point) {
+        dragging.current={x:event.clientX,y:event.clientY,offset:{x:item.position.x-point.x,z:item.position.z-point.z},moved:false,enabled:orbitControls()?.enabled ?? true};
+        enableOrbit(false);
+        (event.target as unknown as HTMLElement).setPointerCapture(event.pointerId);
+      }
+    }
+    if (!selectOnClick) onSelect(item.id);
   };
 
   const commitPosition = () => {
@@ -110,8 +136,21 @@ export function FurnitureMesh({
       position={[positionX, heightOffset, positionZ]}
       rotation={[0, rotationY, 0]}
       onPointerDown={handlePointerDown}
+      onPointerMove={directDrag ? event => {
+        const drag=dragging.current;
+        if (!drag) return;
+        event.stopPropagation();
+        if (!drag.moved && Math.hypot(event.clientX-drag.x,event.clientY-drag.y)<4) return;
+        const point=floorPoint(event);
+        if (!point) return;
+        if (!drag.moved) { drag.moved=true; onSelect(item.id); onMoveStart?.(item.id); }
+        onMove(item.id,{x:point.x+drag.offset.x,z:point.z+drag.offset.z});
+      } : undefined}
+      onPointerUp={directDrag ? finishDrag : undefined}
+      onPointerCancel={directDrag ? finishDrag : undefined}
+      onClick={selectOnClick ? event => { event.stopPropagation(); onSelect(item.id); } : undefined}
     >
-      <FurnitureRenderer item={item} preferredColorTone={preferredColorTone} visualScale={visualScale} />
+      <FurnitureRenderer item={item} preferredColorTone={preferredColorTone} visualScale={visualScale ?? item.demoVisualScale} />
       {isSelected && showSelectionIndicator && (
         <mesh position={[0, item.dimensions.height / 2 + 0.045, 0]}>
           <boxGeometry args={[item.dimensions.width + 0.1, 0.035, item.dimensions.depth + 0.1]} />
@@ -144,7 +183,7 @@ export function FurnitureMesh({
     </group>
   );
 
-  if (isSelected && canTransform) {
+  if (isSelected && canTransform && !directDrag) {
     // `meshGroup` is rendered as a *sibling*, not nested inside
     // <TransformControls>, and `object={groupRef}` points it straight at our
     // own group. Nesting it as `children` used to cause two compounding bugs:

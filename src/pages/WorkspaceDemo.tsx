@@ -24,7 +24,7 @@ import { getLayoutAppliedPreferredColorTone, resolveRoomLayoutPreferredColorTone
 
 const tools = [{ id: 'room', label: '방 · 스캔 보정', icon: FiHome }, { id: 'furniture', label: '가구 탐색', icon: FiBox }, { id: 'ai', label: 'AI 추천', icon: FiSliders }, { id: 'results', label: '검증 · 결과', icon: FiList }] as const;
 const styles = [{ id: 'minimal', title: '미니멀', image: minimal }, { id: 'natural', title: '내추럴', image: natural }, { id: 'modern', title: '모던', image: modern }, { id: 'classic', title: '클래식', image: classic }, { id: 'midcentury', title: '미드센추리', image: midcentury }];
-const recommendationProducts = DEMO_PRODUCTS.filter(item => ['bed', 'desk', 'wardrobe', 'desk_chair', 'mood_lamp', 'plant'].includes(item.furnitureType)).filter((item, index, all) => all.findIndex(other => other.furnitureType === item.furnitureType) === index);
+const recommendationProductIds = DEMO_PRODUCTS.filter(item => ['bed', 'desk'].includes(item.furnitureType)).filter((item, index, all) => all.findIndex(other => other.furnitureType === item.furnitureType) === index).map(item => item.productId);
 const purposes = ['휴식', '업무 / 공부', '취미 / 여가', '수납'];
 const axes = [{ id: 'width', label: '가로' }, { id: 'depth', label: '세로' }] as const;
 
@@ -52,7 +52,6 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   const [purpose, setPurpose] = useState('휴식');
   const [palette, setPalette] = useState<PreferredColorToneId>('brown');
   const [style, setStyle] = useState('natural');
-  const [requested, setRequested] = useState<string[]>(() => recommendationProducts.filter(item => ['bed', 'desk'].includes(item.furnitureType)).map(item => item.productId));
   const [candidate, setCandidate] = useState<RoomLayout | null>(null);
   const [appliedPalette, setAppliedPalette] = useState<PreferredColorToneId | null>(() => service ? resolveRoomLayoutPreferredColorTone(service.initialRoom) : getLayoutAppliedPreferredColorTone(room));
   const [notice, setNotice] = useState(service ? '가구를 끌어 배치하거나 선택해 공간을 편집하세요.' : '샘플 방에서 자유롭게 배치를 편집해 보세요.');
@@ -151,7 +150,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   function closePanel() { setPanelOpen(false); panelToggle.current?.focus(); }
   function updateInput(action: () => void) { action(); setCandidate(null); }
   function generate() {
-    cancelPlacement(); setCandidate(createDemoRecommendation(room, requested)); setSelectedId(null);
+    cancelPlacement(); setCandidate(createDemoRecommendation(room, recommendationProductIds)); setSelectedId(null);
     setNotice('샘플 추천 미리보기입니다. 적용 전까지 현재 편집 배치는 보존됩니다.');
   }
   async function serviceAction(action: 'choose' | 'next') {
@@ -260,13 +259,12 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
             {!service && <p className="demo-help">취향을 바꿔 샘플 추천을 미리본 뒤 적용하세요. 추천 적용은 현재 배치를 교체합니다.</p>}
             <section className="demo-section"><h3>라이프스타일</h3><div className="demo-choice-grid">{purposes.map(item => <button key={item} className="demo-choice" aria-pressed={purpose === item} onClick={() => updateInput(() => setPurpose(item))}>{item}</button>)}</div></section>
             <section className="demo-section"><h3>선호하는 색감</h3><div className="demo-palette">{PREFERRED_COLOR_TONE_OPTIONS.map(item => <button key={item.id} aria-label={item.label} aria-pressed={palette === item.id} onClick={() => updateInput(() => setPalette(item.id))}><span style={{ background: item.colors.length > 1 ? `linear-gradient(135deg, ${item.colors[0]} 50%, ${item.colors[1]} 50%)` : item.colors[0] }} />{item.label}</button>)}</div></section>
-            <section className="demo-section"><h3>인테리어 스타일 · 참고 이미지</h3><p className="demo-help">이미지 선택이 추천 스타일 선택으로 연결됩니다.</p><div className="demo-style-grid">{styles.map(item => <button key={item.id} aria-label={item.title} aria-pressed={style === item.id} onClick={() => updateInput(() => setStyle(item.id))}><img src={item.image} alt={item.title} /><span>{item.title}</span>{style === item.id && <FiCheck aria-hidden="true" />}</button>)}</div></section>
-            <section className="demo-section"><h3>추천에 포함할 상품</h3><p className="demo-help">선택 상품과 필수 가구 입력을 로컬로 표현합니다.</p><div className="demo-requested">{recommendationProducts.map(item => <label key={item.productId}><input type="checkbox" checked={requested.includes(item.productId)} onChange={() => updateInput(() => setRequested(current => current.includes(item.productId) ? current.filter(id => id !== item.productId) : [...current, item.productId]))} />{item.label}</label>)}</div></section>
-            <Button onClick={generate} disabled={!requested.length || busy} className="w-full">{service ? 'AI 추천 생성' : '샘플 추천 미리보기'}</Button><p className="demo-help">{service ? 'AI 연결 전에는 선택한 상품을 바탕으로 샘플 배치 미리보기를 생성합니다.' : 'AI 미호출. 상품·색감만 샘플 결과에 반영하며 생활 목적·스타일 최적화는 수행하지 않습니다.'}</p>
+            <section className="demo-section"><h3>인테리어 스타일</h3><p className="demo-help">이미지 선택이 추천 스타일 선택으로 연결됩니다.</p><div className="demo-style-grid">{styles.map(item => <button key={item.id} aria-label={item.title} aria-pressed={style === item.id} onClick={() => updateInput(() => setStyle(item.id))}><img src={item.image} alt={item.title} /><span>{item.title}</span>{style === item.id && <FiCheck aria-hidden="true" />}</button>)}</div></section>
+            <Button onClick={generate} disabled={!recommendationProductIds.length || busy} className="w-full">{service ? 'AI 추천 생성' : '샘플 추천 미리보기'}</Button><p className="demo-help">{service ? 'AI 연결 전에는 샘플 배치 미리보기를 생성합니다.' : 'AI 미호출. 상품·색감만 샘플 결과에 반영하며 생활 목적·스타일 최적화는 수행하지 않습니다.'}</p>
             {candidate && <section className="demo-section">
               <h3>추천 미리보기</h3>
               <p className="demo-help">현재 배치는 아직 바뀌지 않았어요.</p>
-              <p className="demo-help">적용하면 기존 가구를 선택 상품 {candidate.furniture.length}개로 교체합니다.</p>
+              <p className="demo-help">적용하면 기존 가구를 샘플 가구 {candidate.furniture.length}개로 교체합니다.</p>
               <button className="demo-outline" onClick={() => { setCandidate(null); setNotice('미리보기를 닫았습니다. 현재 배치를 유지합니다.'); }}>현재 배치로 돌아가기</button>
               <Button onClick={() => { changeRoom(withAppliedPreferredColorTone(candidate, palette)); setAppliedPalette(palette); setSelectedId(null); setNotice('샘플 추천을 배치에 적용했습니다. 이어서 직접 편집할 수 있습니다.'); }}>샘플 배치 적용</Button>
             </section>}

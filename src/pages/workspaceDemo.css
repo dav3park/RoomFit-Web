@@ -65,8 +65,6 @@
 .demo-style-grid span { display: block; margin-top: 8px; }
 .demo-style-grid button[aria-pressed=true] img { outline: 2px solid #111111; outline-offset: 2px; }
 .demo-style-grid svg { position: absolute; right: 5px; top: 5px; background: #111111; color: white; border-radius: 999px; padding: 3px; width: 20px; height: 20px; }
-.demo-requested { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
-.demo-requested label { display: flex; gap: 8px; font-size: 12px; align-items: center; }
 .demo-stage { grid-column: 2; grid-row: 2; min-width: 0; min-height: 0; display: flex; flex-direction: column; padding: 24px 24px 16px; }
 .demo-stage-heading { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
 .demo-stage-heading p { font-size: 12px; color: #666666; margin-top: 8px; }

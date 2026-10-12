@@ -49,13 +49,15 @@ describe("FurnitureRenderer variant adapter", () => {
     expect(element.props.preferredColorTone).toBe("blue");
   });
 
-  it("keeps legacy furniture's original material without per-part policy metadata", () => {
+  it("passes part-specific palette colors to legacy furniture without changing scan data", () => {
     const element = FurnitureRenderer({
       item: createDesk({ variantId: null }),
       preferredColorTone: "brown",
-    }) as ReactElement<{ item: Furniture }>;
+    }) as ReactElement<{ item: Furniture; colors?: {primary:readonly string[]; wood:readonly string[]} }>;
 
     expect(element.type).toBe(Table);
+    expect(element.props.colors?.primary[0]).not.toBe(element.props.colors?.wood[0]);
+    expect(element.props.colors).toBeDefined();
     expect(element.props.item.color).toBe("#ffffff");
     expect(element.props.item.productId).toBe("desk-compact-01");
     expect(element.props.item.variantId).toBeNull();

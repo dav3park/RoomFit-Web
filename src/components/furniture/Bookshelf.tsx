@@ -1,7 +1,7 @@
 import { RoundedBox } from "@react-three/drei";
 import Material from "../materials/Material";
 import { materialFromConfig } from "../materials/materialConfig";
-import type { Furniture } from "../../types";
+import type { FurnitureRenderProps } from "./furnitureTheme";
 
 // RoundedBoxGeometry errors if radius exceeds half of any edge, so this caps
 // a desired radius to whatever the box's own thinnest dimension allows.
@@ -23,7 +23,7 @@ const BOOK_COLORS_GRAY = ["#7d8ba1", "#8a9a86", "#a89684", "#5a5a5a", "#b6ac9a",
 // a few thin decorative strips glued to its front face, which read as a
 // plain block rather than a bookshelf. Each resulting compartment holds
 // either a cluster of upright "books" or a small decor object.
-export default function Bookshelf({ item }: { item: Furniture }) {
+export default function Bookshelf({ item, colors }: FurnitureRenderProps) {
   const material = materialFromConfig(item.material, item.color);
   const theme = item.theme;
   // "wood" (네츄럴 톤) gets the same bright light-oak tone as the carcass
@@ -31,8 +31,8 @@ export default function Bookshelf({ item }: { item: Furniture }) {
   // component's own much-darker default board color — otherwise the shelf
   // boards/dividers stood out as a separate, dingier wood tone even after
   // the carcass around them was brightened.
-  const shelfBoardColor = theme === "gray" ? "#e2e2e2" : theme === "wood" ? "#c9a874" : "#5d3f25";
-  const bookColors = theme === "gray" ? BOOK_COLORS_GRAY : BOOK_COLORS;
+  const shelfBoardColor = colors?.primary[0] ?? (theme === "gray" ? "#e2e2e2" : theme === "wood" ? "#c9a874" : "#5d3f25");
+  const bookColors = colors ? [...colors.secondary, ...colors.neutral, ...colors.accent] : theme === "gray" ? BOOK_COLORS_GRAY : BOOK_COLORS;
   const { width, depth, height } = item.dimensions;
   const boardThickness = Math.min(0.025, depth * 0.2);
   const sideThickness = Math.min(0.03, width * 0.04);
@@ -58,7 +58,7 @@ export default function Bookshelf({ item }: { item: Furniture }) {
         receiveShadow
         position={[0, 0, -depth / 2 + backThickness / 2]}
       >
-        <Material {...material} />
+        <Material {...material} color={colors?.neutral[0] ?? material.color} />
       </RoundedBox>
 
       {/* Side panels */}
@@ -72,7 +72,7 @@ export default function Bookshelf({ item }: { item: Furniture }) {
           receiveShadow
           position={[side * (width / 2 - sideThickness / 2), 0, 0]}
         >
-          <Material {...material} />
+          <Material {...material} color={colors?.wood[0] ?? material.color} />
         </RoundedBox>
       ))}
 
@@ -112,7 +112,7 @@ export default function Bookshelf({ item }: { item: Furniture }) {
             return (
               <mesh key={`${row}-${col}`} castShadow position={[cellCenterX, cellBottomY + decorHeight / 2, 0]}>
                 <cylinderGeometry args={[decorRadius, decorRadius * 1.25, decorHeight, 16]} />
-                <Material type="accent" color={theme === "gray" ? (row % 2 ? "#7d8ba1" : "#5a5a5a") : row % 2 ? "#6f7d54" : "#8a6542"} roughness={0.75} />
+                <Material type="accent" color={colors?.secondary[row % 2] ?? (theme === "gray" ? (row % 2 ? "#7d8ba1" : "#5a5a5a") : row % 2 ? "#6f7d54" : "#8a6542")} roughness={0.75} />
               </mesh>
             );
           }

@@ -1,7 +1,7 @@
 import { RoundedBox } from "@react-three/drei";
 import Material from "../materials/Material";
 import { materialFromConfig } from "../materials/materialConfig";
-import type { Furniture } from "../../types";
+import type { FurnitureRenderProps } from "./furnitureTheme";
 
 // RoundedBoxGeometry errors if radius exceeds half of any edge, so this caps
 // a desired radius to whatever the box's own thinnest dimension allows.
@@ -9,7 +9,7 @@ function safeRadius(dims: number[], desired: number): number {
   return Math.min(desired, Math.min(...dims) * 0.35);
 }
 
-export default function Table({ item }: { item: Furniture }) {
+export default function Table({ item, colors }: FurnitureRenderProps) {
   const material = materialFromConfig(item.material, item.color);
   const radius = Math.min(item.dimensions.width, item.dimensions.depth) / 2;
   // item.theme (set only by a demo scenario restyle — see
@@ -18,7 +18,7 @@ export default function Table({ item }: { item: Furniture }) {
   // own (often near-white, scan-derived) color — deriving the leg color from
   // that made an unstyled desk's legs turn accidentally gray before any
   // scenario was ever applied.
-  const legColor = item.theme === "gray" ? "#9a9a9a" : item.theme === "wood" ? "#6b4a2c" : "#8d6037";
+  const legColor = colors?.wood[1] ?? (item.theme === "gray" ? "#9a9a9a" : item.theme === "wood" ? "#6b4a2c" : "#8d6037");
 
   // Rectangular desks (the common case for a scanned desk) — a tabletop on
   // four legs instead of a solid block.
@@ -43,7 +43,7 @@ export default function Table({ item }: { item: Furniture }) {
           receiveShadow
           position={[0, height / 2 - topThickness / 2, 0]}
         >
-          <Material {...material} />
+          <Material {...material} color={material.type === "glass" ? material.color : colors?.secondary[0] ?? material.color} />
         </RoundedBox>
         {[
           [legX, legZ],
@@ -64,7 +64,7 @@ export default function Table({ item }: { item: Furniture }) {
     <group>
       <mesh castShadow receiveShadow position={[0, item.dimensions.height / 2 - 0.04, 0]}>
         <cylinderGeometry args={[radius, radius, 0.08, 48]} />
-        <Material {...material} />
+        <Material {...material} color={material.type === "glass" ? material.color : colors?.secondary[0] ?? material.color} />
       </mesh>
       <mesh castShadow receiveShadow>
         <cylinderGeometry args={[0.08, 0.11, item.dimensions.height, 32]} />

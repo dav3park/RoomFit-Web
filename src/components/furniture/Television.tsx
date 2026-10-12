@@ -1,5 +1,5 @@
 import Material from "../materials/Material";
-import type { Furniture } from "../../types";
+import type { FurnitureRenderProps } from "./furnitureTheme";
 
 // A flat panel resting on a TV console (not wall-mounted): thin matte bezel,
 // an inset glossy screen with a soft diagonal reflection highlight, and a
@@ -19,7 +19,7 @@ import type { Furniture } from "../../types";
 // landed barely above the stand with almost no gap, which didn't read as
 // "resting on top of it." Clamped so a much shorter TV item still keeps a
 // usable screen instead of the clearance eating most of its height.
-export default function Television({ item }: { item: Furniture }) {
+export default function Television({ item, colors }: FurnitureRenderProps) {
   const { width, height, depth } = item.dimensions;
   const bezelDepth = Math.max(0.025, depth * 0.5);
   const screenInset = 0.05;
@@ -33,7 +33,7 @@ export default function Television({ item }: { item: Furniture }) {
           as a distinct frame instead of merging with the screen. */}
       <mesh castShadow receiveShadow position={[0, panelCenterY, 0]}>
         <boxGeometry args={[width, panelHeight, bezelDepth]} />
-        <Material type="glass" color="#232323" roughness={0.4} metalness={0.15} />
+        <Material type="glass" color={colors?.accent[0] ?? "#232323"} roughness={0.4} metalness={0.15} />
       </mesh>
 
       {/* Screen — a cooler, glossier dark blue-black so it visibly separates
@@ -53,7 +53,7 @@ export default function Television({ item }: { item: Furniture }) {
           it rather than being wall-mounted. */}
       <mesh castShadow receiveShadow position={[0, panelCenterY - panelHeight / 2 - 0.008, bezelDepth * 0.2]}>
         <boxGeometry args={[width * 0.55, 0.016, bezelDepth * 1.6]} />
-        <Material type="metal" color="#1c1c1c" roughness={0.4} metalness={0.6} />
+        <Material type="metal" color={colors?.accent[1] ?? "#1c1c1c"} roughness={0.4} metalness={0.6} />
       </mesh>
     </group>
   );

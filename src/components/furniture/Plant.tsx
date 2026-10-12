@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import * as THREE from "three";
 
 import Material from "../materials/Material";
-import type { Furniture } from "../../types";
+import type { FurnitureRenderProps } from "./furnitureTheme";
 
 type Leaf = {
   curve: THREE.CatmullRomCurve3;
@@ -23,7 +23,7 @@ function createLeafShape() {
 // A compact broad-leaf plant: tapered pot, gently curved stems, and shaped
 // double-sided leaves. The plant stays within the size specified by the
 // furniture data instead of scaling a fixed tiny vase into an oversized prop.
-export default function Plant({ item }: { item: Furniture }) {
+export default function Plant({ item, colors }: FurnitureRenderProps) {
   // "몬스테라" pieces (see config/scenarios.ts's sofa-corner extra) are
   // placed directly on the floor, same as "바닥"/"플로어" — without it here
   // too, this branch's tabletop restHeight (0.4) would float the pot in
@@ -75,7 +75,7 @@ export default function Plant({ item }: { item: Furniture }) {
     <group>
       <mesh castShadow receiveShadow position={[0, baseY + potHeight / 2, 0]}>
         <cylinderGeometry args={[potRadius * 0.82, potRadius, potHeight, 32]} />
-        <Material type="wood" color="#907052" roughness={0.78} />
+        <Material type="wood" color={colors?.secondary[0] ?? "#907052"} roughness={0.78} />
       </mesh>
       <mesh receiveShadow position={[0, baseY + potHeight + 0.008, 0]}>
         <cylinderGeometry args={[potRadius * 0.82, potRadius * 0.82, 0.016, 24]} />

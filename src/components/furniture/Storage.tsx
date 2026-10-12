@@ -1,7 +1,7 @@
 import { RoundedBox } from "@react-three/drei";
 import Material from "../materials/Material";
 import { materialFromConfig } from "../materials/materialConfig";
-import type { Furniture } from "../../types";
+import type { FurnitureRenderProps } from "./furnitureTheme";
 
 // RoundedBoxGeometry errors if radius exceeds half of any edge, so this caps
 // a desired radius to whatever the box's own thinnest dimension allows.
@@ -13,7 +13,7 @@ function safeRadius(dims: number[], desired: number): number {
 // dresser to a tall wardrobe). Taller pieces get door panel(s); shorter ones
 // get stacked drawer fronts — either way it reads as storage rather than a
 // plain block.
-export default function Storage({ item }: { item: Furniture }) {
+export default function Storage({ item, colors }: FurnitureRenderProps) {
   const { width, depth, height } = item.dimensions;
   const material = materialFromConfig(item.material, item.color);
   const theme = item.theme;
@@ -36,7 +36,7 @@ export default function Storage({ item }: { item: Furniture }) {
   return (
     <group>
       <RoundedBox args={bodyDims} radius={safeRadius(bodyDims, 0.025)} smoothness={4} castShadow receiveShadow>
-        <Material {...material} />
+        <Material {...material} color={colors?.neutral[0] ?? material.color} />
       </RoundedBox>
 
       {isTall
@@ -49,7 +49,7 @@ export default function Storage({ item }: { item: Furniture }) {
               <group key={index} position={[x, 0, depth / 2 + 0.007]}>
                 <mesh receiveShadow>
                   <boxGeometry args={[doorWidth, height - 0.06, 0.014]} />
-                  <Material type="wood" color={material.color} roughness={0.5} />
+                  <Material type="wood" color={colors?.primary[index % 2] ?? material.color} roughness={0.5} />
                 </mesh>
                 {showHandles && (
                   <mesh position={[handleX, 0, 0.014]} castShadow>
@@ -65,7 +65,7 @@ export default function Storage({ item }: { item: Furniture }) {
                       receiveShadow
                     >
                       <boxGeometry args={[doorWidth * 0.78, 0.018, 0.012]} />
-                      <meshStandardMaterial color="#a87743" roughness={0.62} />
+                      <meshStandardMaterial color={colors?.wood[0] ?? "#a87743"} roughness={0.62} />
                     </mesh>
                   ))}
               </group>
@@ -79,7 +79,7 @@ export default function Storage({ item }: { item: Furniture }) {
               <group key={index} position={[0, y, depth / 2 + 0.007]}>
                 <mesh receiveShadow>
                   <boxGeometry args={[width - 0.05, drawerHeight, 0.014]} />
-                  <Material type="wood" color={material.color} roughness={0.5} />
+                  <Material type="wood" color={colors?.primary[index % 2] ?? material.color} roughness={0.5} />
                 </mesh>
                 {showHandles && (
                   <mesh position={[0, 0, 0.014]} castShadow>

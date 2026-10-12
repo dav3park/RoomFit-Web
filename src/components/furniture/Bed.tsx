@@ -1,7 +1,7 @@
 import { RoundedBox } from "@react-three/drei";
 import Material from "../materials/Material";
 import { materialFromConfig } from "../materials/materialConfig";
-import type { Furniture } from "../../types";
+import type { FurnitureRenderProps } from "./furnitureTheme";
 
 // RoundedBoxGeometry errors if radius exceeds half of any edge, so this caps
 // a desired radius to whatever the box's own thinnest dimension allows.
@@ -17,13 +17,13 @@ function safeRadius(dims: number[], desired: number): number {
 // fabric's own (often near-white, scan-derived) color — frame/duvet used to
 // derive from that color, which made an unstyled bed with pale linens look
 // accidentally gray/"모던" before any scenario was ever applied.
-export default function Bed({ item }: { item: Furniture }) {
+export default function Bed({ item, colors }: FurnitureRenderProps) {
   const { width, depth, height } = item.dimensions;
   const material = materialFromConfig(item.material, item.color);
   const theme = item.theme;
 
-  const frameColor = theme === "gray" ? "#b3b3b3" : theme === "wood" ? "#c9a874" : "#c8a877";
-  const duvetColor = theme === "gray" ? "#eaeaea" : theme === "wood" ? "#f0e8d8" : "#d8c9ad";
+  const frameColor = colors?.wood[0] ?? (theme === "gray" ? "#b3b3b3" : theme === "wood" ? "#c9a874" : "#c8a877");
+  const duvetColor = colors?.primary[0] ?? (theme === "gray" ? "#eaeaea" : theme === "wood" ? "#f0e8d8" : "#d8c9ad");
   // 미니멀/그레이: a low, headboard-less floating platform. 네추럴/우드: a
   // slightly chunkier frame and taller headboard. 기본: the original
   // proportions.
@@ -64,7 +64,7 @@ export default function Bed({ item }: { item: Furniture }) {
         receiveShadow
         position={[0, -height / 2 + frameHeight + mattressHeight / 2, 0]}
       >
-        <Material {...material} roughness={material.roughness ?? 0.85} />
+        <Material {...material} color={colors?.neutral[0] ?? material.color} roughness={material.roughness ?? 0.85} />
       </RoundedBox>
 
       {/* Headboard — inset within the bed's own depth footprint (not beyond
@@ -79,7 +79,7 @@ export default function Bed({ item }: { item: Furniture }) {
           receiveShadow
           position={[0, height * 0.35, -depth / 2 + 0.025]}
         >
-          <Material type="wood" color={frameColor} roughness={0.55} />
+          <Material type="wood" color={colors?.primary[1] ?? frameColor} roughness={0.55} />
         </RoundedBox>
       )}
 
@@ -105,7 +105,7 @@ export default function Bed({ item }: { item: Furniture }) {
         receiveShadow
         position={[0, mattressTop + 0.06, -depth / 2 + depth * 0.12]}
       >
-        <Material type="fabric" color="#aebccb" roughness={0.9} />
+        <Material type="fabric" color={colors?.secondary[0] ?? "#aebccb"} roughness={0.9} />
       </RoundedBox>
     </group>
   );

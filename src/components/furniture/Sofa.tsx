@@ -1,7 +1,7 @@
 import { RoundedBox } from "@react-three/drei";
 import Material from "../materials/Material";
 import { materialFromConfig } from "../materials/materialConfig";
-import type { Furniture } from "../../types";
+import type { FurnitureRenderProps } from "./furnitureTheme";
 
 // RoundedBoxGeometry errors if radius exceeds half of any edge, so this caps
 // a desired radius to whatever the box's own thinnest dimension allows.
@@ -28,12 +28,12 @@ function mixToAccent(hex: string, t: number): string {
   return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
 }
 
-export default function Sofa({ item }: { item: Furniture }) {
+export default function Sofa({ item, colors }: FurnitureRenderProps) {
   const { width, depth, height } = item.dimensions;
   const material = materialFromConfig(item.material, item.color);
   const cushionCount = width > 2 ? 3 : 1;
-  const cushionColor = mixToAccent(material.color, 0.5);
-  const pillowColor = mixToAccent(material.color, 0.75);
+  const cushionColor = colors?.primary[0] ?? mixToAccent(material.color, 0.5);
+  const pillowColor = colors?.secondary[0] ?? mixToAccent(material.color, 0.75);
   const legHeight = Math.min(0.1, height * 0.14);
 
   const bodyDims: [number, number, number] = [width, height * 0.34, depth];
@@ -52,7 +52,7 @@ export default function Sofa({ item }: { item: Furniture }) {
         receiveShadow
         position={[0, -height * 0.22, 0]}
       >
-        <Material {...material} />
+        <Material {...material} color={colors?.primary[1] ?? material.color} />
       </RoundedBox>
       <RoundedBox
         args={backDims}
@@ -62,7 +62,7 @@ export default function Sofa({ item }: { item: Furniture }) {
         receiveShadow
         position={[0, height * 0.12, -depth * 0.42]}
       >
-        <Material {...material} />
+        <Material {...material} color={colors?.primary[1] ?? material.color} />
       </RoundedBox>
       <RoundedBox
         args={armDims}
@@ -72,7 +72,7 @@ export default function Sofa({ item }: { item: Furniture }) {
         receiveShadow
         position={[-width * 0.48, height * 0.02, 0]}
       >
-        <Material {...material} />
+        <Material {...material} color={colors?.primary[1] ?? material.color} />
       </RoundedBox>
       <RoundedBox
         args={armDims}
@@ -82,7 +82,7 @@ export default function Sofa({ item }: { item: Furniture }) {
         receiveShadow
         position={[width * 0.48, height * 0.02, 0]}
       >
-        <Material {...material} />
+        <Material {...material} color={colors?.primary[1] ?? material.color} />
       </RoundedBox>
       {Array.from({ length: cushionCount }, (_, index) => (
         <RoundedBox

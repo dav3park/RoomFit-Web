@@ -1,7 +1,7 @@
 import { RoundedBox } from "@react-three/drei";
 import Material from "../materials/Material";
 import { materialFromConfig } from "../materials/materialConfig";
-import type { Furniture } from "../../types";
+import type { FurnitureRenderProps } from "./furnitureTheme";
 
 // RoundedBoxGeometry errors if radius exceeds half of any edge, so this caps
 // a desired radius to whatever the box's own thinnest dimension allows.
@@ -16,7 +16,7 @@ function safeRadius(dims: number[], desired: number): number {
 // cushioned leather office-chair silhouette: a thicker rounded seat/back and
 // a center pedestal + star base instead of 4 legs, since a desk chair in a
 // "modern" room reads as an actual computer chair, not a dining chair.
-export default function Chair({ item }: { item: Furniture }) {
+export default function Chair({ item, colors }: FurnitureRenderProps) {
   const { width, depth, height } = item.dimensions;
   const material = materialFromConfig(item.material, item.color);
   const isOfficeChair = item.theme === "gray";
@@ -24,7 +24,7 @@ export default function Chair({ item }: { item: Furniture }) {
   // config/scenarios.ts) picks the leg tone explicitly. Undefined ("기본")
   // always keeps the original wood-brown legs regardless of the seat's own
   // (often near-white, scan-derived) color.
-  const legColor = item.theme === "gray" ? "#2b2b2b" : item.theme === "wood" ? "#6b4a2c" : "#8d6037";
+  const legColor = (colors ? (isOfficeChair ? colors.accent[0] : colors.wood[1]) : undefined) ?? (item.theme === "gray" ? "#2b2b2b" : item.theme === "wood" ? "#6b4a2c" : "#8d6037");
 
   const seatThickness = isOfficeChair ? height * 0.16 : Math.min(0.04, height * 0.08);
   const seatHeightFromFloor = height * 0.52;
@@ -56,7 +56,7 @@ export default function Chair({ item }: { item: Furniture }) {
         receiveShadow
         position={[0, toLocalY(seatHeightFromFloor - seatThickness / 2), 0]}
       >
-        <Material {...material} />
+        <Material {...material} color={colors?.primary[0] ?? material.color} />
       </RoundedBox>
 
       {/* Backrest */}
@@ -68,7 +68,7 @@ export default function Chair({ item }: { item: Furniture }) {
         receiveShadow
         position={[0, toLocalY(seatHeightFromFloor + backHeight / 2), -depth / 2 + backThickness / 2]}
       >
-        <Material {...material} />
+        <Material {...material} color={colors?.secondary[0] ?? material.color} />
       </RoundedBox>
 
       {isOfficeChair ? (

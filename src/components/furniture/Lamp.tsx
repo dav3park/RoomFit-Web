@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import * as THREE from "three";
 import Material from "../materials/Material";
-import type { Furniture } from "../../types";
+import type { FurnitureRenderProps } from "./furnitureTheme";
 
-export default function Lamp({ item }: { item: Furniture }) {
+export default function Lamp({ item, colors }: FurnitureRenderProps) {
   const height = item.dimensions.height;
   const theme = item.theme;
 
@@ -61,7 +61,7 @@ export default function Lamp({ item }: { item: Furniture }) {
                 radiusBottom the thin one (near the pole), or the leg reads
                 as flared at the pole and pinched at the floor instead. */}
             <cylinderGeometry args={[0.02, 0.013, leg.length, 10]} />
-            <Material type="wood" color="#a9764c" roughness={0.55} />
+            <Material type="wood" color={colors?.wood[0] ?? "#a9764c"} roughness={0.55} />
           </mesh>
         ))}
 
@@ -70,13 +70,13 @@ export default function Lamp({ item }: { item: Furniture }) {
             poleCenterY above. */}
         <mesh castShadow receiveShadow position={[0, poleCenterY, 0]}>
           <cylinderGeometry args={[0.018, 0.022, poleLength, 16]} />
-          <Material type="wood" color="#a9764c" roughness={0.55} />
+          <Material type="wood" color={colors?.wood[0] ?? "#a9764c"} roughness={0.55} />
         </mesh>
 
         {/* Fabric drum shade */}
         <mesh castShadow position={[0, height * 0.38, 0]}>
           <cylinderGeometry args={[0.13, 0.18, shadeHeight, 32]} />
-          <meshStandardMaterial color="#f2e9d8" roughness={0.88} />
+          <meshStandardMaterial color={colors?.neutral[1] ?? "#f2e9d8"} roughness={0.88} />
         </mesh>
         <mesh position={[0, height * 0.38, 0]}>
           <cylinderGeometry args={[0.12, 0.17, shadeHeight * 0.94, 32]} />
@@ -90,11 +90,11 @@ export default function Lamp({ item }: { item: Furniture }) {
     <group>
       <mesh castShadow receiveShadow position={[0, -height / 2 + 0.035, 0]}>
         <cylinderGeometry args={[0.17, 0.17, 0.07, 32]} />
-        <Material type="metal" color="#211d19" roughness={0.42} metalness={0.45} />
+        <Material type="metal" color={colors?.accent[0] ?? "#211d19"} roughness={0.42} metalness={0.45} />
       </mesh>
       <mesh castShadow position={[0, -0.05, 0]} rotation={[0, 0, -0.18]}>
         <cylinderGeometry args={[0.025, 0.025, height * 0.92, 24]} />
-        <Material type="metal" color="#211d19" roughness={0.42} metalness={0.45} />
+        <Material type="metal" color={colors?.accent[0] ?? "#211d19"} roughness={0.42} metalness={0.45} />
       </mesh>
       <mesh castShadow position={[0.18, height * 0.38, -0.02]}>
         <sphereGeometry args={[0.13, 24, 16]} />

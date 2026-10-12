@@ -1,9 +1,9 @@
 import { RoundedBox } from "@react-three/drei";
 
 import Material from "../materials/Material";
-import type { Furniture } from "../../types";
+import type { FurnitureRenderProps } from "./furnitureTheme";
 
-const COLORS = {
+const DEFAULT_COLORS = {
   cream: "#F7F1E8",
   walnut: "#5A3422",
   wood: "#8C5632",
@@ -16,40 +16,46 @@ const COLORS = {
   black: "#151515",
 };
 
-export default function MidCenturyCollectorFurniture({ item }: { item: Furniture }) {
+function collectorColors(colors: FurnitureRenderProps['colors']) {
+  return colors ? {...DEFAULT_COLORS, cream:colors.neutral[0], walnut:colors.wood[1], wood:colors.wood[0],
+    coral:colors.secondary[0], red:colors.primary[1], blue:colors.primary[0], mustard:colors.secondary[1], black:colors.accent[0]} : DEFAULT_COLORS;
+}
+
+export default function MidCenturyCollectorFurniture({ item, colors }: FurnitureRenderProps) {
   const templateId = item.id.replace(/^studio-/, "collector-");
 
   switch (templateId) {
     case "collector-bed":
-      return <CollectorBed item={item} />;
+      return <CollectorBed item={item} colors={colors} />;
     case "collector-bedside":
-      return <CoralBedside item={item} />;
+      return <CoralBedside item={item} colors={colors} />;
     case "collector-desk":
-      return <CollectorDesk item={item} />;
+      return <CollectorDesk item={item} colors={colors} />;
     case "collector-desk-chair":
-      return <DeskChair item={item} />;
+      return <DeskChair item={item} colors={colors} />;
     case "collector-blue-cabinet":
-      return <BlueCabinet item={item} />;
+      return <BlueCabinet item={item} colors={colors} />;
     case "collector-glass-shelf":
-      return <GlassShelf item={item} />;
+      return <GlassShelf item={item} colors={colors} />;
     case "collector-console":
-      return <CollectorConsole item={item} />;
+      return <CollectorConsole item={item} colors={colors} />;
     case "collector-red-shelf":
-      return <RedWallShelf item={item} />;
+      return <RedWallShelf item={item} colors={colors} />;
     case "collector-lounge-chair":
-      return <LoungeChair item={item} />;
+      return <LoungeChair item={item} colors={colors} />;
     case "collector-cane-chair":
-      return <CaneChair item={item} />;
+      return <CaneChair item={item} colors={colors} />;
     case "collector-rug":
-      return <CollectorRug item={item} />;
+      return <CollectorRug item={item} colors={colors} />;
     case "collector-coffee-table":
-      return <GlassCoffeeTable item={item} />;
+      return <GlassCoffeeTable item={item} colors={colors} />;
     default:
       return null;
   }
 }
 
-function CollectorBed({ item }: { item: Furniture }) {
+function CollectorBed({ item, colors }: FurnitureRenderProps) {
+  const COLORS = collectorColors(colors);
   const { width, depth, height } = item.dimensions;
   const floor = -height / 2;
 
@@ -89,7 +95,8 @@ function CollectorBed({ item }: { item: Furniture }) {
   );
 }
 
-function CoralBedside({ item }: { item: Furniture }) {
+function CoralBedside({ item, colors }: FurnitureRenderProps) {
+  const COLORS = collectorColors(colors);
   const { width, depth, height } = item.dimensions;
   const floor = -height / 2;
 
@@ -122,7 +129,8 @@ function CoralBedside({ item }: { item: Furniture }) {
   );
 }
 
-function CollectorDesk({ item }: { item: Furniture }) {
+function CollectorDesk({ item, colors }: FurnitureRenderProps) {
+  const COLORS = collectorColors(colors);
   const { width, depth, height } = item.dimensions;
   const floor = -height / 2;
   const legHeight = height - 0.06;
@@ -154,7 +162,8 @@ function CollectorDesk({ item }: { item: Furniture }) {
   );
 }
 
-function DeskChair({ item }: { item: Furniture }) {
+function DeskChair({ item, colors }: FurnitureRenderProps) {
+  const COLORS = collectorColors(colors);
   const { width, depth, height } = item.dimensions;
   const floor = -height / 2;
 
@@ -176,7 +185,8 @@ function DeskChair({ item }: { item: Furniture }) {
   );
 }
 
-function BlueCabinet({ item }: { item: Furniture }) {
+function BlueCabinet({ item, colors }: FurnitureRenderProps) {
+  const COLORS = collectorColors(colors);
   const { width, depth, height } = item.dimensions;
   const floor = -height / 2;
 
@@ -190,7 +200,7 @@ function BlueCabinet({ item }: { item: Furniture }) {
           </mesh>
           <mesh position={[0, 0, depth / 2 + 0.008]} receiveShadow>
             <boxGeometry args={[width * 0.86, height * 0.37, 0.016]} />
-            <Material type="wood" color="#174E98" roughness={0.38} />
+            <Material type="wood" color={colors?.accent[0] ?? "#174E98"} roughness={0.38} />
           </mesh>
           <mesh position={[width * 0.29, 0, depth / 2 + 0.022]} castShadow>
             <sphereGeometry args={[0.026, 16, 16]} />
@@ -208,7 +218,8 @@ function BlueCabinet({ item }: { item: Furniture }) {
   );
 }
 
-function GlassShelf({ item }: { item: Furniture }) {
+function GlassShelf({ item, colors }: FurnitureRenderProps) {
+  const COLORS = collectorColors(colors);
   const { width, depth, height } = item.dimensions;
   const floor = -height / 2;
 
@@ -238,7 +249,8 @@ function GlassShelf({ item }: { item: Furniture }) {
   );
 }
 
-function CollectorConsole({ item }: { item: Furniture }) {
+function CollectorConsole({ item, colors }: FurnitureRenderProps) {
+  const COLORS = collectorColors(colors);
   const { width, depth, height } = item.dimensions;
   const floor = -height / 2;
 
@@ -261,7 +273,7 @@ function CollectorConsole({ item }: { item: Furniture }) {
       ))}
       <mesh castShadow position={[-width * 0.24, floor + height * 0.92, 0]}>
         <boxGeometry args={[0.42, 0.04, depth * 0.66]} />
-        <Material type="white" color="#F0E9DB" roughness={0.55} />
+        <Material type="white" color={colors?.neutral[1] ?? "#F0E9DB"} roughness={0.55} />
       </mesh>
       <mesh castShadow position={[-width * 0.24, floor + height * 0.95, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.14, 0.14, 0.014, 36]} />
@@ -273,7 +285,7 @@ function CollectorConsole({ item }: { item: Furniture }) {
       </mesh>
       <mesh position={[width * 0.02, floor + height * 1.4, -depth * 0.42]} receiveShadow>
         <boxGeometry args={[width * 0.28, height * 0.5, 0.018]} />
-        <Material type="white" color="#F8F2E9" roughness={0.65} />
+        <Material type="white" color={colors?.neutral[0] ?? "#F8F2E9"} roughness={0.65} />
       </mesh>
       <mesh position={[width * 0.02, floor + height * 1.4, -depth * 0.43]}>
         <circleGeometry args={[height * 0.14, 20]} />
@@ -283,7 +295,8 @@ function CollectorConsole({ item }: { item: Furniture }) {
   );
 }
 
-function RedWallShelf({ item }: { item: Furniture }) {
+function RedWallShelf({ item, colors }: FurnitureRenderProps) {
+  const COLORS = collectorColors(colors);
   const { width, depth, height } = item.dimensions;
   const mountY = 1.25 - height / 2;
 
@@ -297,7 +310,7 @@ function RedWallShelf({ item }: { item: Furniture }) {
           </mesh>
           {row < 2 && <mesh position={[-width * 0.38, 0.19, -depth * 0.3]} castShadow>
             <cylinderGeometry args={[0.06, 0.08, 0.16, 16]} />
-            <Material type="accent" color={COLORS.green} roughness={0.78} />
+            <Material type="accent" color={colors?.secondary[1] ?? COLORS.green} roughness={0.78} />
           </mesh>}
           <mesh position={[width * 0.2, 0.09, 0]} castShadow>
             <boxGeometry args={[0.16, 0.16, depth * 0.52]} />
@@ -309,7 +322,8 @@ function RedWallShelf({ item }: { item: Furniture }) {
   );
 }
 
-function LoungeChair({ item }: { item: Furniture }) {
+function LoungeChair({ item, colors }: FurnitureRenderProps) {
+  const COLORS = collectorColors(colors);
   const { width, depth, height } = item.dimensions;
   const floor = -height / 2;
 
@@ -321,7 +335,7 @@ function LoungeChair({ item }: { item: Furniture }) {
       </mesh>
       <mesh castShadow receiveShadow position={[0, floor + height * 0.57, -depth * 0.26]} scale={[width * 0.56, height * 0.52, depth * 0.3]}>
         <sphereGeometry args={[1, 32, 24]} />
-        <Material type="fabric" color="#C96350" roughness={0.8} />
+        <Material type="fabric" color={colors?.primary[1] ?? "#C96350"} roughness={0.8} />
       </mesh>
       {[-1, 1].map((x) => (
         <mesh key={x} castShadow position={[x * width * 0.38, floor + 0.1, depth * 0.22]}>
@@ -333,7 +347,8 @@ function LoungeChair({ item }: { item: Furniture }) {
   );
 }
 
-function CaneChair({ item }: { item: Furniture }) {
+function CaneChair({ item, colors }: FurnitureRenderProps) {
+  const COLORS = collectorColors(colors);
   const { width, depth, height } = item.dimensions;
   const floor = -height / 2;
 
@@ -341,11 +356,11 @@ function CaneChair({ item }: { item: Furniture }) {
     <group>
       <mesh castShadow receiveShadow position={[0, floor + height * 0.47, 0]}>
         <boxGeometry args={[width * 0.82, 0.05, depth * 0.72]} />
-        <Material type="wood" color="#D9B87A" roughness={0.7} />
+        <Material type="wood" color={colors?.wood[0] ?? "#D9B87A"} roughness={0.7} />
       </mesh>
       <mesh castShadow receiveShadow position={[0, floor + height * 0.68, -depth * 0.32]} rotation={[0.14, 0, 0]}>
         <boxGeometry args={[width * 0.82, height * 0.36, 0.04]} />
-        <Material type="wood" color="#D9B87A" roughness={0.7} />
+        <Material type="wood" color={colors?.wood[0] ?? "#D9B87A"} roughness={0.7} />
       </mesh>
       {[-1, 1].flatMap((x) => [-1, 1].map((z) => [x, z])).map(([x, z], index) => (
         <mesh key={index} castShadow position={[Number(x) * width * 0.39, floor + height * 0.23, Number(z) * depth * 0.3]}>
@@ -357,7 +372,8 @@ function CaneChair({ item }: { item: Furniture }) {
   );
 }
 
-function CollectorRug({ item }: { item: Furniture }) {
+function CollectorRug({ item, colors }: FurnitureRenderProps) {
+  const COLORS = collectorColors(colors);
   const radius = item.dimensions.width / 2;
   const floor = -item.dimensions.height / 2;
 
@@ -369,13 +385,14 @@ function CollectorRug({ item }: { item: Furniture }) {
       </mesh>
       <mesh receiveShadow position={[0, floor + 0.027, 0]} rotation={[Math.PI / 2, 0, 0]}>
         <torusGeometry args={[radius * 0.88, 0.012, 8, 64]} />
-        <Material type="fabric" color="#E7D3BD" roughness={0.9} />
+        <Material type="fabric" color={colors?.secondary[0] ?? "#E7D3BD"} roughness={0.9} />
       </mesh>
     </group>
   );
 }
 
-function GlassCoffeeTable({ item }: { item: Furniture }) {
+function GlassCoffeeTable({ item, colors }: FurnitureRenderProps) {
+  const COLORS = collectorColors(colors);
   const { width, height } = item.dimensions;
   const radius = width / 2;
   const floor = -height / 2;

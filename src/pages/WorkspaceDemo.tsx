@@ -52,7 +52,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   const [interior, setInterior] = useState(true);
   const [cameraKey, setCameraKey] = useState(0);
   const [purpose, setPurpose] = useState<RecommendationPurpose>('휴식');
-  const [palette, setPalette] = useState<PreferredColorToneId>('brown');
+  const [palette, setPalette] = useState<PreferredColorToneId>(() => (service ? resolveRoomLayoutPreferredColorTone(service.initialRoom) : getLayoutAppliedPreferredColorTone(room)) ?? 'brown');
   const [style, setStyle] = useState<RecommendationStyle>('natural');
   const [mode, setMode] = useState<RecommendationMode>('preserve');
   const [keepTypes, setKeepTypes] = useState(true);

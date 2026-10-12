@@ -3,6 +3,7 @@ import { calculateRotatedFootprint, resolveFurnitureLocalFootprint } from '../co
 import { normalizeCanonicalFurnitureType } from '../config/canonicalFurnitureType';
 import { clearanceZonesWorld } from '../geometry/clearance';
 import { obbOverlap, worldCorners } from '../geometry/obb';
+import { windowCenterY } from '../components/room/openingLayout';
 import { demoDoorSwing, demoFloorContains, demoOverlapHighlights, demoPlacementReason, demoZoneIsOpening, crossesRoomWall } from '../pages/demoPlacement';
 
 export const MIN_PASSAGE_WIDTH = .6;
@@ -41,6 +42,7 @@ export function createPlacementCheck(room: RoomLayout) {
     if (Object.values(item.dimensions).some(value=>!Number.isFinite(value)||value<=0) || item.dimensions.height>(room.height ?? 3)) return false;
     if (entry.type==='curtain_blind') return room.windows.length>0;
     if (demoPlacementReason(room,item)) return false;
+    if (blockedWindows(room, entry, placed).length) return false;
     if (entry.type!=='rug' && swings.some(swing=>obbOverlap(swing,entry.body))) return false;
     if (entry.openings.some(zone=>zone.some(point=>!demoFloorContains(room,point))
       ||crossesRoomWall(room,zone)||swings.some(swing=>obbOverlap(swing,zone)))) return false;
@@ -52,6 +54,26 @@ export function createPlacementCheck(room: RoomLayout) {
     }
     return true;
   };
+}
+
+/** Conservative envelope near the pane, not a fabricated casement swing. */
+export function blockedWindows(room: RoomLayout, entry: PreparedFurniture, placed?: readonly PreparedFurniture[]): Opening[] {
+  if (['curtain_blind','rug'].includes(entry.type)) return [];
+  // The legacy bed renderer's headboard extends above its scan height.
+  const height=entry.type==='bed'&&!entry.item.variantId&&entry.item.theme!=='gray'
+    ? entry.item.dimensions.height*(entry.item.theme==='wood'?1.55:1.5) : entry.item.dimensions.height;
+  let bottom=entry.item.mountHeight??0;
+  if(['monitor','tv'].includes(entry.type)) {
+    const supports=placed??room.furniture.filter(item=>item.id!==entry.item.id).map(prepareFurniture);
+    for(const other of supports) if(supported(entry,other)) bottom=Math.max(bottom,other.item.dimensions.height);
+  }
+  return room.windows.filter(window=>{
+    const sill=windowCenterY(window.dimensions.height,room.height??2.4,window.sillHeight)-window.dimensions.height/2;
+    if (bottom+height<=sill+.05||bottom>=sill+window.dimensions.height) return false;
+    const {along,inward}=doorFrame(room,window),half=window.dimensions.width/2+.06;
+    const point=(x:number,z:number)=>({x:window.position.x+along.x*x+inward.x*z,z:window.position.z+along.z*x+inward.z*z});
+    return obbOverlap(entry.body,[point(-half,0),point(half,0),point(half,.6),point(-half,.6)]);
+  });
 }
 
 export function doorFrame(room: RoomLayout, door: Opening) {
@@ -87,25 +109,35 @@ function accessPoints(entry: PreparedFurniture, offset: number): Vector2D[] {
   return points;
 }
 
-/** Conservative 2D clearance grid: erode free space by a person's radius,
- * then flood-fill from the entrance to each furniture's use position. */
-export function validateCirculation(room: RoomLayout): LayoutValidation {
+export interface CirculationGrid {
+  step: number; radius: number; cols: number; rows: number;
+  points: Vector2D[]; floor: Uint8Array;
+}
+/** Reuse wall/floor erosion across all proposals for the same room. */
+export function createCirculationGrid(room: RoomLayout): CirculationGrid {
+  const step=Math.max(.15,room.width/100,room.depth/100),radius=MIN_PASSAGE_WIDTH/2+step/Math.SQRT2;
+  const cols=Math.ceil(room.width/step),rows=Math.ceil(room.depth/step),floor=new Uint8Array(cols*rows);
+  const directions=Array.from({length:8},(_,i)=>({x:Math.cos(i*Math.PI/4)*radius,z:Math.sin(i*Math.PI/4)*radius}));
+  const points=Array.from({length:floor.length},(_,id)=>({x:-room.width/2+(id%cols+.5)*step,z:-room.depth/2+(Math.floor(id/cols)+.5)*step}));
+  for(let id=0;id<floor.length;id++) {
+    const p=points[id];
+    if(demoFloorContains(room,p)&&directions.every(d=>demoFloorContains(room,{x:p.x+d.x,z:p.z+d.z}))
+      &&room.walls.every(wall=>pointSegmentDistance(p,wall.start,wall.end)>=radius)) floor[id]=1;
+  }
+  return {step,radius,cols,rows,points,floor};
+}
+/** Conservative person-radius grid, flood-filled from the entrance. */
+export function validateCirculation(room: RoomLayout, grid?: CirculationGrid): LayoutValidation {
   const warnings: string[]=[],reasons: string[]=[];
   if(!Number.isFinite(room.width)||!Number.isFinite(room.depth)||room.width<=0||room.depth<=0) return {valid:false,reasons:['방 치수가 올바르지 않습니다.'],warnings,freeArea:0,reachableCount:0};
-  const step=Math.max(.15,room.width/100,room.depth/100),radius=MIN_PASSAGE_WIDTH/2+step/Math.SQRT2;
-  const cols=Math.ceil(room.width/step),rows=Math.ceil(room.depth/step);
+  const {step,radius,cols,rows,points,floor}=grid??createCirculationGrid(room);
   const entries=room.furniture.filter(item=>item.status!=='deleted').map(prepareFurniture);
   const physical=entries.filter(entry=>entry.type!=='rug'&&entry.type!=='curtain_blind'&&!entries.some(other=>supported(entry,other)&&['monitor','tv'].includes(entry.type)));
-  const free=new Uint8Array(cols*rows), visited=new Uint8Array(free.length);
-  const point=(id:number)=>({x:-room.width/2+(id%cols+.5)*step,z:-room.depth/2+(Math.floor(id/cols)+.5)*step});
-  const directions=Array.from({length:8},(_,i)=>({x:Math.cos(i*Math.PI/4)*radius,z:Math.sin(i*Math.PI/4)*radius}));
+  const free=new Uint8Array(floor.length), visited=new Uint8Array(free.length);
+  const point=(id:number)=>points[id];
   let freeCount=0;
-  for(let id=0;id<free.length;id++) {
-    const p=point(id);
-    if(!demoFloorContains(room,p)||directions.some(d=>!demoFloorContains(room,{x:p.x+d.x,z:p.z+d.z}))
-      ||room.walls.some(wall=>pointSegmentDistance(p,wall.start,wall.end)<radius)) continue;
-    if(physical.some(entry=>distanceToBody(p,entry.item)<radius)) continue;
-    free[id]=1; freeCount++;
+  for(let id=0;id<free.length;id++) if(floor[id]&&!physical.some(entry=>distanceToBody(points[id],entry.item)<radius)) {
+    free[id]=1;freeCount++;
   }
   const flood=(start:number,marks:Uint8Array)=>{
     const queue=[start];marks[start]=1;
@@ -156,17 +188,19 @@ export function validateCirculation(room: RoomLayout): LayoutValidation {
   if(!freeCount) reasons.push('60 cm 통로를 확보할 수 있는 공간이 없습니다.');
   return {valid:reasons.length===0,reasons,warnings,freeArea:freeCount*step*step,reachableCount};
 }
-export function validateRecommendationLayout(room: RoomLayout): LayoutValidation {
+export function validateRecommendationLayout(room: RoomLayout, grid?: CirculationGrid): LayoutValidation {
   const check=createPlacementCheck(room),placed:PreparedFurniture[]=[],reasons:string[]=[];
   for(const item of room.furniture.filter(item=>item.status!=='deleted')) {
     const entry=prepareFurniture(item);
+    for (const window of blockedWindows(room,entry)) reasons.push(`${item.name}: ${window.label} 앞의 채광 공간을 가립니다.`);
     if(!check(entry,placed)) reasons.push(`${item.name}: 본체 충돌·경계·문 또는 수납 개폐 공간을 확인해 주세요.`);
     placed.push(entry);
   }
   const highlights=demoOverlapHighlights(room);
   if(highlights.doors.size) reasons.push('문이 열리는 공간을 가구가 막고 있습니다.');
-  const circulation=validateCirculation(room);
+  const circulation=validateCirculation(room,grid);
   const warnings=[...circulation.warnings];
+  if(room.windows.some(window=>window.sillHeight==null)) warnings.push('창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다.');
   if(room.doors.some(door=>demoDoorSwing(room,door).length<3)) warnings.push('문과 벽의 연결 정보가 부족해 일부 문 개폐 영역을 확인하지 못했습니다.');
   if([...highlights.status.values()].includes('warning')) warnings.push('일부 권장 접근 공간은 주의가 필요합니다.');
   return {...circulation,valid:reasons.length===0&&circulation.valid,reasons:[...reasons,...circulation.reasons],warnings};

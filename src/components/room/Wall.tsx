@@ -137,7 +137,7 @@ export default function Wall({ wall, doors = [], windows = [], hidden = false, o
     dirX,
     dirZ,
     windows,
-    (opening) => windowCenterY(opening.dimensions.height, height) - opening.dimensions.height / 2,
+    (opening) => windowCenterY(opening.dimensions.height, height, opening.sillHeight) - opening.dimensions.height / 2,
     WINDOW_FRAME_MARGIN,
   );
 

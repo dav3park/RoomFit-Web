@@ -1,25 +1,30 @@
 # Rule-based workspace recommendations
 
-The workspace uses `src/recommendation/engine.ts` in a Web Worker. It consumes the current browser draft, never calls an AI endpoint, and returns up to three distinct validated proposals. Preview is separate from autosave; only applying a proposal changes the edited layout. Editing the draft or changing preferences cancels stale calculations. Final confirmation remains the existing next step.
+The browser Web Worker consumes the edited draft and returns up to three validated alternatives. Preview never saves over the draft; Apply does. Preference edits or cancellation terminate stale calculations. No AI/API call or backend change is involved.
 
-## Selection and preservation
+## Mode contract
 
-- Preserve: retain types/count, dimensions, positions and rotations. Replace only with catalog products of the same dimensions (1 mm tolerance); keep originals and explain when no replacement exists.
-- Rearrange: retain types/count; optionally retain dimensions. Products use their real catalog dimensions.
-- New design: derive required functional furniture from lifestyle (rest, study, hobby, storage), retain sleeping furniture for studios, and add optional pieces only when feasible. Type/count and size preservation can also be selected.
-- Locked furniture keeps its product, dimensions, position and rotation in every mode. The chosen room color palette still applies. Window-mounted blinds retain their existing anchor and model.
-- Product candidates rank style tags, lifestyle tags and material compatibility. Color uses the existing renderer's palette system. These are catalog matches, not an AI model's judgment.
+- **현재 배치 유지 / preserve:** keep each ID, type, count, position and rotation. Select style/lifestyle-matching products with their real catalog dimensions. Different sizes are permitted only after validation; optional size preservation still requires an exact dimensional match. Fall back to the original with an explanation when replacement is not feasible.
+- **가구 재배치 / rearrange:** clone each existing model, variant, dimensions and metadata. Move/rotate it; never replace/add/delete it. Lifestyle informs zoning and the chosen palette applies to the models. Style does not cause a product swap in this mode. The engine enforces this even if a caller sends unchecked preservation flags.
+- **새로운 디자인 / new:** derive required/optional functional furniture from lifestyle. Type/count and size preservation remain optional. Sleeping furniture is included for studio rooms. An optional item can be omitted with a reason.
+- Locks preserve model, size, position and rotation in every mode. Palette may change. Window-mounted blinds keep their model/anchor.
 
-## Search and validation
+## Feasibility and design are separate
 
-A bounded beam search tries orthogonal rotations and wall/interior grid positions, with nine searches weighted toward circulation, lifestyle matching or balance. Include smaller alternatives so a large matching product does not exhaust the search. Optional pieces may be omitted with a reason. Diversity considers products, positions and rotations; duplicate solutions are not advertised as three choices.
+Hard checks retain actual rendered footprints, body collision, floor/wall/ceiling bounds, door swing, storage opening zones and connected 60 cm walking access to use positions. The grid is eroded by a 30 cm radius plus discretization margin and flood-filled from the entrance. Floor/wall erosion is computed once and reused across a generation request.
 
-Hard checks use actual rendered footprints: body collisions, floor/wall boundaries, ceiling height, assumed door swing and cabinet opening rectangles. Existing rug/stacked monitor/TV and functional desk/chair exceptions remain. Door swing assumes inward 90° with radius equal to door width; wardrobe front opening uses half its width; drawers reuse catalog clearance. No product hinge/drawer-travel metadata is available.
+Windows now retain API `sillHeight`, including upload round trips. Wall cuts, panes, blind anchors and checks use the same clamped vertical position. A body taller than the sill plus 5 cm is rejected if its envelope intersects a strip 60 cm into the room, with 6 cm frame margin at each end. Low furniture can fit below a pane. The legacy bed's raised headboard is accounted for. Older drafts without sill data use the renderer's existing estimated height and disclose that limitation. This is conservative pane protection, not a measured casement swing or a daylight simulation.
 
-Movement uses a grid eroded by a 30 cm person radius plus discretization margin. Flood fill starts at the entrance and must reach each furniture's use side and all other doors. The working rule is a minimum 60 cm passage; it is not a building-code/accessibility certification. Missing door data produces a warning and uses the largest connected free component. Concave floors and wall crossings are checked. Partial layouts are also checked before extending the beam.
+`designGuidelines.ts` scores accessible approach areas, desk/chair pairing, bed/nightstand and sofa/table relationships, sofa/screen direction, wall alignment, distributed visual mass, quiet sleeping placement, separation of work/sleep areas, and desks with window light to the side. Bed headboards and storage backs prefer nearby walls; balance has a tolerance so it does not drag beds into the middle of the room. Weights are RoomFit heuristics, not legal standards or a professionally calibrated beauty score.
 
-The finite search does not prove global infeasibility or find a global optimum. If fewer than three valid distinct proposals are found, return only those. If none are found, preserve the draft and ask the user to loosen constraints. Catalog tags and assumed opening geometry may differ from real products; caution messages stay visible with each proposal.
+## Search and diversity
 
-## Verification
+Selection and spatial placement use different paths. Rearrangement has exactly one model candidate per slot. Restyling considers catalog replacements at the original poses. New designs consider tagged products and smaller real alternatives. Anchors are tried along actual wall segments and on a bounded grid; related pieces also get function-specific poses. A beam retains up to eight partial layouts, with hard/circulation checks before expansion. Six seed searches vary wall anchors and design emphasis; preserve mode uses three fixed-pose searches.
 
-`npm run test:run` includes recommendation fixtures for valid catalog proposals, all four lifestyles, source immutability, preserved sizes/poses, locked items in new designs, connected walking access, missing-door warnings and invalid/tiny rooms. Browser verification covers the worker, comparison, keyboard activation, preview versus autosave, application, reload and final confirmation at desktop and mobile sizes. Existing backend API functions are unchanged.
+Final candidates share a comparable quality score. Selection balances quality with pose distance (MMR-inspired). For moving layouts, product IDs are excluded from diversity. A main furniture item must change wall with at least 75 cm movement, move more than 1.2 m, or turn about 90 degrees; the aggregate distance must also exceed 0.16. Decoration-only changes and tiny shifts do not count. Fixed-pose restyles instead compare product combinations, which is intentional for that mode. Fewer than three is an honest result; identical layouts are never padded into three choices.
+
+This is bounded heuristic search, not the research paper's GPU MCMC implementation. It cannot prove global infeasibility or guarantee a designer's preferred composition. Door hinges, window operation, exact drawer travel, sightlines above model envelopes and solar orientation remain unmeasured. Missing door metadata also produces a warning.
+
+## Evidence and checks
+
+See [furniture-layout references](../design-references/furniture-layout/README.md) for sources and adaptations. Regression coverage includes the deployed sample with two beds, desk, chair and wardrobe; unchanged rearranged identities/sizes; changed-size fixed-pose swaps; real spatial diversity; sill/rotated-wall window protection; chair direction; balance; failed locked layouts; all lifestyles; concave floors; connected paths; locks and source immutability. Browser checks exercise the worker, comparison, keyboard preview, Apply/autosave/reload and the final step at desktop/mobile sizes.

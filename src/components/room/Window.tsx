@@ -9,7 +9,7 @@ import type { Opening } from "../../types";
 export default function Window({ opening, wallHeight = 2.4 }: { opening: Opening; wallHeight?: number }) {
   const width = opening.dimensions.width;
   const height = opening.dimensions.height;
-  const centerY = windowCenterY(height, wallHeight);
+  const centerY = windowCenterY(height, wallHeight, opening.sillHeight);
   const paneWidth = width - 0.06;
   const paneHeight = height - 0.06;
   const outerWidth = width + 0.12;

@@ -330,7 +330,7 @@ function toRoomUploadOpening(
       offset: offsetAlongWall(wall, opening.position, opening.dimensions.width),
       width: opening.dimensions.width,
       height: opening.dimensions.height,
-      sillHeight: type === "window" ? 0.9 : null,
+      sillHeight: type === "window" ? opening.sillHeight ?? 0.9 : null,
     };
   }
 
@@ -347,7 +347,7 @@ function toRoomUploadOpening(
     offset: Math.min(Math.max(rawOffset, opening.dimensions.width / 2), wallLength - opening.dimensions.width / 2),
     width: opening.dimensions.width,
     height: opening.dimensions.height,
-    sillHeight: type === "window" ? 0.9 : null,
+    sillHeight: type === "window" ? opening.sillHeight ?? 0.9 : null,
   };
 }
 
@@ -678,6 +678,7 @@ function toOpening(
     },
     rotationY: snapped.rotationY,
     wallId: snapped.wallId,
+    sillHeight: opening.sillHeight,
     frame: {
       color: "#8a623d",
     },

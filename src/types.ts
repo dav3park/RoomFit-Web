@@ -80,6 +80,8 @@ export interface Opening {
   position: Vector2D;
   dimensions: Size3D;
   rotationY: number;
+  /** Measured window bottom above the floor; absent in older browser drafts. */
+  sillHeight?: number | null;
   // Which WallSegment.id this opening was snapped to (see snapToWall in
   // api/rooms.ts). When set, Wall.tsx trusts it instead of re-deriving the
   // match with its own distance threshold — two independent geometric checks

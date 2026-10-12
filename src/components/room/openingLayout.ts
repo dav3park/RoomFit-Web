@@ -9,12 +9,10 @@ export const WINDOW_FRAME_MARGIN = { width: 0.12, height: 0.12 };
 // Shared between Wall.tsx (cutting the hole) and Window.tsx (placing the mesh)
 // so the two always agree on where a window sits vertically.
 //
-// Windows don't carry a real sill height from our data yet, so this prefers a
-// normal eye-ish center height (1.45m) but clamps it to stay fully inside the
-// wall — a tall window on a short wall was previously poking out above the
-// wall's top edge since 1.45 was used unconditionally.
-export function windowCenterY(windowHeight: number, wallHeight: number): number {
-  const preferred = 1.45;
+// Older drafts lack sill height. Retain their rendered height as a fallback;
+// rendering and recommendation checks must use the same vertical placement.
+export function windowCenterY(windowHeight: number, wallHeight: number, sillHeight?: number | null): number {
+  const preferred = typeof sillHeight === 'number' && Number.isFinite(sillHeight) && sillHeight >= 0 ? sillHeight + windowHeight / 2 : 1.45;
   const margin = 0.05;
   const maxCenter = wallHeight - windowHeight / 2 - margin;
   const minCenter = windowHeight / 2 + margin;

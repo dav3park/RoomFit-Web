@@ -425,6 +425,9 @@ describe("toRoomUploadRequest", () => {
             width: 0.8,
             height: 2.1,
             sillHeight: null,
+          }, {
+            id: "window-height", type: "window", wall: "wall-a", offset: 1.5,
+            width: 1.2, height: 1.4, sillHeight: 0.7,
           }],
           furniture: [],
           source: "ROOMPLAN",
@@ -442,6 +445,8 @@ describe("toRoomUploadRequest", () => {
       expect(layout.doors[0].wallId).toBe("wall-b");
       expect(layout.doors[0].position.x).toBeCloseTo(2);
       expect(layout.doors[0].position.z).toBeCloseTo(0.4);
+      expect(layout.windows[0].sillHeight).toBe(0.7);
+      expect(toRoomUploadRequest(layout).openings.find(opening=>opening.id==='window-height')?.sillHeight).toBe(0.7);
     } finally {
       get.mockRestore();
     }

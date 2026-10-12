@@ -27,7 +27,7 @@ import { getLayoutAppliedPreferredColorTone, resolveRoomLayoutPreferredColorTone
 const tools = [{ id: 'room', label: '방 · 스캔 보정', icon: FiHome }, { id: 'furniture', label: '가구 탐색', icon: FiBox }, { id: 'ai', label: '추천', icon: FiSliders }, { id: 'results', label: '검증 · 결과', icon: FiList }] as const;
 const styles = [{ id: 'minimal', title: '미니멀', image: minimal }, { id: 'natural', title: '내추럴', image: natural }, { id: 'modern', title: '모던', image: modern }, { id: 'classic', title: '클래식', image: classic }, { id: 'midcentury', title: '미드센추리', image: midcentury }] as const;
 const purposes = ['휴식', '업무 / 공부', '취미 / 여가', '수납'] as const;
-const modes = [{id:'preserve',label:'현재 배치 유지',description:'종류·개수·위치·방향·크기를 유지하고 상품과 색감을 바꿉니다.'},{id:'rearrange',label:'가구 재배치',description:'종류와 개수를 유지하며 상품과 배치를 새롭게 구성합니다.'},{id:'new',label:'새로운 디자인',description:'생활 목적에 필요한 가구를 새로 고르고 배치합니다.'}] as const;
+const modes = [{id:'preserve',label:'현재 배치 유지',description:'종류·개수·위치·방향을 유지하고 취향에 맞는 상품과 색감으로 바꿉니다. 크기가 달라지면 다시 검증합니다.'},{id:'rearrange',label:'가구 재배치',description:'기존 모델·크기·개수를 유지하며 위치와 방향만 바꿉니다. 라이프스타일은 공간 구성에, 색감은 가구에 적용됩니다. 스타일에 따른 상품 교체는 하지 않습니다.'},{id:'new',label:'새로운 디자인',description:'생활 목적에 필요한 가구를 새로 고르고 배치합니다.'}] as const;
 const axes = [{ id: 'width', label: '가로' }, { id: 'depth', label: '세로' }] as const;
 
 interface WorkspaceService {
@@ -56,7 +56,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   const [style, setStyle] = useState<RecommendationStyle>('natural');
   const [mode, setMode] = useState<RecommendationMode>('preserve');
   const [keepTypes, setKeepTypes] = useState(true);
-  const [keepSizes, setKeepSizes] = useState(true);
+  const [keepSizes, setKeepSizes] = useState(false);
   const [generating, setGenerating] = useState(false);
   const [recommendations, setRecommendations] = useState<RecommendationResult | null>(null);
   const workerRef = useRef<Worker | null>(null);
@@ -286,9 +286,9 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
           </>}
           {tool === 'ai' && <>
             <p className="demo-help">취향과 유지할 조건을 골라 최대 3개의 배치를 비교하세요. 적용하기 전에는 현재 배치를 바꾸지 않습니다.</p>
-            <section className="demo-section"><h3>추천 방식</h3><div className="recommendation-modes">{modes.map(item=><button key={item.id} className="demo-choice" aria-pressed={mode===item.id} onClick={()=>updateInput(()=>{setMode(item.id);setKeepTypes(item.id!=='new');setKeepSizes(item.id==='preserve');})}>{item.label}</button>)}</div><p className="demo-help">{modes.find(item=>item.id===mode)!.description}</p>
+            <section className="demo-section"><h3>추천 방식</h3><div className="recommendation-modes">{modes.map(item=><button key={item.id} className="demo-choice" aria-pressed={mode===item.id} onClick={()=>updateInput(()=>{setMode(item.id);setKeepTypes(item.id!=='new');setKeepSizes(item.id==='rearrange');})}>{item.label}</button>)}</div><p className="demo-help">{modes.find(item=>item.id===mode)!.description}</p>
               <label className="recommendation-condition"><input type="checkbox" checked={keepTypes} disabled={mode!=='new'} onChange={event=>updateInput(()=>{setKeepTypes(event.target.checked);if(!event.target.checked)setKeepSizes(false);})} />기존 가구 종류·개수 유지</label>
-              <label className="recommendation-condition"><input type="checkbox" checked={keepSizes} disabled={mode==='preserve'||!keepTypes} onChange={event=>updateInput(()=>setKeepSizes(event.target.checked))} />기존 가구 크기 유지</label>
+              <label className="recommendation-condition"><input type="checkbox" checked={keepSizes} disabled={mode==='rearrange'||!keepTypes} onChange={event=>updateInput(()=>setKeepSizes(event.target.checked))} />기존 가구 크기 유지</label>
               <p className="demo-help">가구 도구막대의 자물쇠로 상품·위치·크기를 고정할 수 있어요. 선택한 색감은 고정 가구에도 적용됩니다.</p>
             </section>
             <section className="demo-section"><h3>라이프스타일</h3><div className="demo-choice-grid">{purposes.map(item => <button key={item} className="demo-choice" aria-pressed={purpose === item} onClick={() => updateInput(() => setPurpose(item))}>{item}</button>)}</div></section>
@@ -296,7 +296,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
             <section className="demo-section"><h3>인테리어 스타일</h3><p className="demo-help">이미지 선택이 추천 스타일 선택으로 연결됩니다.</p><div className="demo-style-grid">{styles.map(item => <button key={item.id} aria-label={item.title} aria-pressed={style === item.id} onClick={() => updateInput(() => setStyle(item.id))}><img src={item.image} alt={item.title} /><span>{item.title}</span>{style === item.id && <FiCheck aria-hidden="true" />}</button>)}</div></section>
             <Button onClick={generate} disabled={generating || busy} className="w-full">{generating ? '배치 계산 중…' : '추천 생성'}</Button>
             {generating && <button className="demo-outline" onClick={()=>{stopGeneration();setNotice('추천 생성을 취소했습니다. 현재 배치는 유지됩니다.');}}>계산 취소</button>}
-            <p className="demo-help">가구 태그와 실제 상품 치수를 사용합니다. 문은 안쪽 90° 열림, 통로는 폭 60 cm 기준으로 검증하며 실제 개폐 방식은 다를 수 있습니다.</p>
+            <p className="demo-help">창문 가림·문과 수납 개폐·60 cm 통로를 확인하고, 가구 묶음·채광·균형을 비교합니다. 창턱 높이가 없으면 화면의 추정 높이를 사용하며 실제 개폐 방식은 다를 수 있습니다.</p>
             {recommendations && <section ref={recommendationResults} tabIndex={-1} className="demo-section" aria-label="추천안 비교">
               <h3>추천안 비교</h3>
               {recommendations.messages.map(message=><p className="demo-help" key={message} role="status">{message}</p>)}

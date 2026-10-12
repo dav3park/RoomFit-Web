@@ -31,7 +31,7 @@ export function resolveWindowBlindPlacements(
     const targetHeight = opening.dimensions.height;
     const scaleX = opening.dimensions.width / item.dimensions.width;
     const scaleY = targetHeight / item.dimensions.height;
-    const bottom = windowCenterY(targetHeight, wallHeight) - targetHeight / 2;
+    const bottom = windowCenterY(targetHeight, wallHeight, opening.sillHeight) - targetHeight / 2;
 
     placements.set(item.id, {
       opening,

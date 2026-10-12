@@ -1,7 +1,7 @@
 import { MeshStandardMaterial } from "three";
 import type { MeshStandardMaterialParameters } from "three";
 import { applyPreferredColorToneToMaterialPreset } from "../materialPalette";
-import type { PreferredColorToneId } from "../../../config/preferredColorTone";
+import type { FurnitureColorThemeId } from "../../../config/furnitureBehaviorPolicy";
 import { getThemeColor, type ThemeTarget } from "../../../config/furnitureBehaviorPolicy";
 
 export interface MaterialPreset {
@@ -58,9 +58,10 @@ export function parseMaterialPresetCatalog(input: unknown): MaterialPresetCatalo
 export function resolveMaterialPreset(
   presetId: string,
   catalog: Readonly<MaterialPresetCatalog>,
-  preferredColorTone?: PreferredColorToneId | null,
+  preferredColorTone?: FurnitureColorThemeId | null,
   themeTarget?: ThemeTarget | null,
   themeKey = presetId,
+  furnitureType?: string,
 ): MeshStandardMaterialParameters {
   if (!Object.hasOwn(catalog, presetId)) {
     throw new Error(`Unknown material preset "${presetId}"`);
@@ -70,7 +71,7 @@ export function resolveMaterialPreset(
   // as `fabric` or `wood`. Only an explicitly declared variant part receives
   // a palette slot; every other PBR preset remains untouched.
   const paletteColor = preferredColorTone && themeTarget
-    ? getThemeColor(preferredColorTone, themeTarget, themeKey)
+    ? getThemeColor(preferredColorTone, themeTarget, themeKey, furnitureType)
     : null;
   // The omitted-argument branch retains the public utility's historical
   // behaviour for callers outside the renderer. Renderer callers always pass
@@ -93,7 +94,7 @@ export function resolveMaterialPreset(
 export function createMaterialFromPreset(
   presetId: string,
   catalog: Readonly<MaterialPresetCatalog>,
-  preferredColorTone?: PreferredColorToneId | null,
+  preferredColorTone?: FurnitureColorThemeId | null,
   themeTarget?: ThemeTarget | null,
   themeKey?: string,
 ): MeshStandardMaterial {

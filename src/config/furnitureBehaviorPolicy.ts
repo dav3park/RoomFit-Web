@@ -1,4 +1,5 @@
-import type { PreferredColorToneId } from "./preferredColorTone";
+import { normalizePreferredColorToneId, type PreferredColorToneId } from "./preferredColorTone";
+import { automaticFurniturePalette, getAutomaticColorScheme, type AutomaticColorSchemeId } from './automaticColorSchemes';
 import { FURNITURE_THEME_TARGETS } from "./furnitureThemeTargets";
 
 export type ThemeColorSlot = "primary" | "secondary" | "accent" | "neutral" | "wood" | "emissive" | "preserve";
@@ -13,6 +14,7 @@ export interface ThemePalette {
   wood: readonly string[];
   emissive: readonly string[];
 }
+export type FurnitureColorThemeId = PreferredColorToneId | AutomaticColorSchemeId;
 
 export interface ThemeTarget {
   slot: ThemeColorSlot;
@@ -95,18 +97,27 @@ export function getThemeTarget(variantId: string, partId: string): ThemeTarget |
 }
 
 export function getThemeColor(
-  tone: PreferredColorToneId,
+  tone: FurnitureColorThemeId,
   target: ThemeTarget,
   stableKey: string,
+  furnitureType?: string,
 ): string | null {
   if (target.slot === "preserve") return null;
-  const palette = THEME_PALETTES[tone];
+  const palette = getFurnitureThemePalette(tone,furnitureType);
+  if (!palette) return null;
   const colors = target.slot === "emissive"
     ? palette.emissive
     : palette[target.slot];
   if (!colors?.length) return null;
   const index = target.index ?? stableIndex(stableKey, colors.length);
   return colors[index % colors.length];
+}
+
+export function getFurnitureThemePalette(tone: unknown, furnitureType?: string): ThemePalette | undefined {
+  const scheme=getAutomaticColorScheme(tone);
+  if(scheme) return automaticFurniturePalette(scheme.id,furnitureType);
+  const normalized=normalizePreferredColorToneId(tone);
+  return normalized?THEME_PALETTES[normalized]:undefined;
 }
 
 export function resolveFurnitureCollisionMode(variantId: string | null | undefined, category?: string): FurnitureCollisionMode {

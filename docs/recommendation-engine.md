@@ -28,3 +28,7 @@ This is bounded heuristic search, not the research paper's GPU MCMC implementati
 ## Evidence and checks
 
 See [furniture-layout references](../design-references/furniture-layout/README.md) for sources and adaptations. Regression coverage includes the deployed sample with two beds, desk, chair and wardrobe; unchanged rearranged identities/sizes; changed-size fixed-pose swaps; real spatial diversity; sill/rotated-wall window protection; chair direction; balance; failed locked layouts; all lifestyles; concave floors; connected paths; locks and source immutability. Browser checks exercise the worker, comparison, keyboard preview, Apply/autosave/reload and the final step at desktop/mobile sizes.
+
+## Automatic colour choice
+
+`palette: 'auto'` does not change the furniture preservation/placement contract. After feasible spatial candidates are chosen, the engine ranks curated schemes by style, lifestyle and floor undertone and assigns a different resolved scheme to each recommendation. In preserve mode only, colour-only alternatives are legitimate when inventory/poses are fixed; moving modes continue to reject geometry duplicates regardless of colour. The stored scheme ID drives the same material roles across preview, Apply/autosave, reload and final preview. See `docs/furniture-colour-rules.md` for scheme/part rules and API boundaries.

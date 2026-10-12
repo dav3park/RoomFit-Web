@@ -4,15 +4,16 @@ import { createFurniturePartGeometry } from "./geometryFactory";
 import { resolveMaterialPreset } from "./materialResolver";
 import type { MaterialPresetCatalog } from "./materialResolver";
 import type { ValidatedFurniturePart } from "./types";
-import type { PreferredColorToneId } from "../../../config/preferredColorTone";
+import type { FurnitureColorThemeId } from "../../../config/furnitureBehaviorPolicy";
 import type { ThemeTarget } from "../../../config/furnitureBehaviorPolicy";
 
 interface FurniturePartRendererProps {
   part: ValidatedFurniturePart;
   materialPresets: Readonly<MaterialPresetCatalog>;
-  preferredColorTone?: PreferredColorToneId | null;
+  preferredColorTone?: FurnitureColorThemeId | null;
   themeTarget?: ThemeTarget | null;
   themeKey?: string;
+  furnitureType?: string;
 }
 
 export function FurniturePartRenderer({
@@ -21,11 +22,12 @@ export function FurniturePartRenderer({
   preferredColorTone,
   themeTarget,
   themeKey,
+  furnitureType,
 }: FurniturePartRendererProps) {
   const geometry = useMemo(() => createFurniturePartGeometry(part), [part]);
   const material = useMemo(
-    () => resolveMaterialPreset(part.material, materialPresets, preferredColorTone, themeTarget, themeKey),
-    [materialPresets, part.material, preferredColorTone, themeKey, themeTarget],
+    () => resolveMaterialPreset(part.material, materialPresets, preferredColorTone, themeTarget, themeKey, furnitureType),
+    [furnitureType, materialPresets, part.material, preferredColorTone, themeKey, themeTarget],
   );
 
   useEffect(() => () => geometry.dispose(), [geometry]);

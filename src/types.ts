@@ -1,3 +1,5 @@
+import type { AutomaticColorSchemeId } from './config/automaticColorSchemes';
+
 export type FurnitureCategory =
   | "bed"
   | "desk"
@@ -108,6 +110,8 @@ export interface Opening {
 }
 
 export interface RoomLayout {
+  /** Resolved automatic palette; retained through preview, autosave and confirm. */
+  appliedColorSchemeId?: AutomaticColorSchemeId;
   id: string;
   name: string;
   description?: string;

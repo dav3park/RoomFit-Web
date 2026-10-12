@@ -1,3 +1,4 @@
+import { getAutomaticColorScheme } from '../config/automaticColorSchemes';
 import { useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiList, FiBox, FiCheck, FiHome, FiRotateCw, FiTrash2, FiSliders, FiLock, FiUnlock, FiX } from 'react-icons/fi';
@@ -18,11 +19,11 @@ import modern from '../assets/styles/modern.png';
 import classic from '../assets/styles/classic.png';
 import midcentury from '../assets/styles/midcentury.png';
 import './workspaceDemo.css';
-import type { RecommendationMode, RecommendationPurpose, RecommendationStyle, RecommendationResult } from '../recommendation/engine';
+import type { RecommendationPalette, RecommendationMode, RecommendationPurpose, RecommendationStyle, RecommendationResult } from '../recommendation/engine';
 import RecommendationThumbnail from '../recommendation/RecommendationThumbnail';
 import { MAX_ACTIVE_FURNITURE } from '../config/furnitureAdditionPolicy';
 import { getFurnitureSelectionBlockReason } from '../config/furnitureSelectionPolicy';
-import { getLayoutAppliedPreferredColorTone, resolveRoomLayoutPreferredColorTone } from '../config/appliedColorTone';
+import { getLayoutAppliedColorScheme, getLayoutAppliedPreferredColorTone, resolveRoomLayoutPreferredColorTone } from '../config/appliedColorTone';
 
 const tools = [{ id: 'room', label: '방 · 스캔 보정', icon: FiHome }, { id: 'furniture', label: '가구 탐색', icon: FiBox }, { id: 'ai', label: '추천', icon: FiSliders }, { id: 'results', label: '검증 · 결과', icon: FiList }] as const;
 const styles = [{ id: 'minimal', title: '미니멀', image: minimal }, { id: 'natural', title: '내추럴', image: natural }, { id: 'modern', title: '모던', image: modern }, { id: 'classic', title: '클래식', image: classic }, { id: 'midcentury', title: '미드센추리', image: midcentury }] as const;
@@ -52,7 +53,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   const [interior, setInterior] = useState(true);
   const [cameraKey, setCameraKey] = useState(0);
   const [purpose, setPurpose] = useState<RecommendationPurpose>('휴식');
-  const [palette, setPalette] = useState<PreferredColorToneId>(() => (service ? resolveRoomLayoutPreferredColorTone(service.initialRoom) : getLayoutAppliedPreferredColorTone(room)) ?? 'brown');
+  const [palette, setPalette] = useState<RecommendationPalette>(() => getLayoutAppliedColorScheme(service?.initialRoom??room)?'auto':(service ? resolveRoomLayoutPreferredColorTone(service.initialRoom) : getLayoutAppliedPreferredColorTone(room)) ?? 'auto');
   const [style, setStyle] = useState<RecommendationStyle>('natural');
   const [mode, setMode] = useState<RecommendationMode>('preserve');
   const [keepTypes, setKeepTypes] = useState(true);
@@ -292,7 +293,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
               <p className="demo-help">가구 도구막대의 자물쇠로 상품·위치·크기를 고정할 수 있어요. 선택한 색감은 고정 가구에도 적용됩니다.</p>
             </section>
             <section className="demo-section"><h3>라이프스타일</h3><div className="demo-choice-grid">{purposes.map(item => <button key={item} className="demo-choice" aria-pressed={purpose === item} onClick={() => updateInput(() => setPurpose(item))}>{item}</button>)}</div></section>
-            <section className="demo-section"><h3>선호하는 색감</h3><div className="demo-palette">{PREFERRED_COLOR_TONE_OPTIONS.map(item => <button key={item.id} aria-label={item.label} aria-pressed={palette === item.id} onClick={() => updateInput(() => setPalette(item.id))}><span style={{ background: item.colors.length > 1 ? `linear-gradient(135deg, ${item.colors[0]} 50%, ${item.colors[1]} 50%)` : item.colors[0] }} />{item.label}</button>)}</div></section>
+            <section className="demo-section"><h3>선호하는 색감</h3><div className="demo-palette"><button aria-label="선택 안 함 · 자동 색 조합" aria-pressed={palette==='auto'} onClick={()=>updateInput(()=>setPalette('auto'))}><span className="demo-palette-auto">자동</span>선택 안 함</button>{PREFERRED_COLOR_TONE_OPTIONS.map(item => <button key={item.id} aria-label={item.label} aria-pressed={palette === item.id} onClick={() => updateInput(() => setPalette(item.id))}><span style={{ background: item.colors.length > 1 ? `linear-gradient(135deg, ${item.colors[0]} 50%, ${item.colors[1]} 50%)` : item.colors[0] }} />{item.label}</button>)}</div><p className="demo-help">{palette==='auto'?'스타일·라이프스타일·바닥색에 맞는 색 조합을 추천안마다 제안합니다.':'선택한 색감을 가구의 재질과 부위에 나눠 적용합니다.'}</p></section>
             <section className="demo-section"><h3>인테리어 스타일</h3><p className="demo-help">이미지 선택이 추천 스타일 선택으로 연결됩니다.</p><div className="demo-style-grid">{styles.map(item => <button key={item.id} aria-label={item.title} aria-pressed={style === item.id} onClick={() => updateInput(() => setStyle(item.id))}><img src={item.image} alt={item.title} /><span>{item.title}</span>{style === item.id && <FiCheck aria-hidden="true" />}</button>)}</div></section>
             <Button onClick={generate} disabled={generating || busy} className="w-full">{generating ? '배치 계산 중…' : '추천 생성'}</Button>
             {generating && <button className="demo-outline" onClick={()=>{stopGeneration();setNotice('추천 생성을 취소했습니다. 현재 배치는 유지됩니다.');}}>계산 취소</button>}
@@ -302,12 +303,12 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
               {recommendations.messages.map(message=><p className="demo-help" key={message} role="status">{message}</p>)}
               {recommendations.proposals.map((proposal,index)=><div key={proposal.id} className="recommendation-proposal">
                 <button className="recommendation-preview" aria-pressed={candidate===proposal.room} onClick={()=>setCandidate(proposal.room)}>
-                  <RecommendationThumbnail room={proposal.room} /><strong>{index+1}. {proposal.title}</strong>
+                  <RecommendationThumbnail room={proposal.room} /><RecommendationColourSwatches schemeId={proposal.room.appliedColorSchemeId} /><strong>{index+1}. {proposal.title}</strong>
                   {proposal.features.map(feature=><span key={feature}>{feature}</span>)}<span>사용 위치까지 통로 연결 확인</span>
                 </button>
                 {!!proposal.validation.warnings.length && <details><summary>주의사항 {proposal.validation.warnings.length}개</summary><ul className="demo-issues">{proposal.validation.warnings.map(warning=><li key={warning}>{warning}</li>)}</ul></details>}
               </div>)}
-              {candidate && <><p className="demo-help">미리보기 중입니다. 적용하면 현재 배치가 자동 저장됩니다.</p><Button className="w-full" onClick={()=>{const next=copyDemoRoom(candidate);changeRoom(next);setAppliedPalette(palette);setSelectedId(null);setNotice('선택한 추천안을 적용하고 자동 저장했습니다. 이어서 직접 편집할 수 있습니다.');}}>이 추천안 적용</Button><button className="demo-outline" onClick={()=>{setCandidate(null);setNotice('현재 편집 배치로 돌아왔습니다. 추천안을 다시 눌러 비교할 수 있습니다.');}}>현재 배치로 돌아가기</button></>}
+              {candidate && <><p className="demo-help">미리보기 중입니다. 적용하면 현재 배치가 자동 저장됩니다.</p><Button className="w-full" onClick={()=>{const next=copyDemoRoom(candidate);changeRoom(next);setAppliedPalette(getLayoutAppliedPreferredColorTone(next));setSelectedId(null);setNotice('선택한 추천안을 적용하고 자동 저장했습니다. 이어서 직접 편집할 수 있습니다.');}}>이 추천안 적용</Button><button className="demo-outline" onClick={()=>{setCandidate(null);setNotice('현재 편집 배치로 돌아왔습니다. 추천안을 다시 눌러 비교할 수 있습니다.');}}>현재 배치로 돌아가기</button></>}
             </section>}
 
           </>}
@@ -320,7 +321,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
           const direction=({ArrowLeft:{x:-.1,z:0},ArrowRight:{x:.1,z:0},ArrowUp:{x:0,z:-.1},ArrowDown:{x:0,z:.1}} as Record<string,Vector2D>)[event.key];
           if (busy || !direction || !editing || event.target!==event.currentTarget) return;
           event.preventDefault(); const position={x:editing.position.x+direction.x,z:editing.position.z+direction.z}; if(pending) pointPlacement(position);else move(editing.id,position);
-        }}><RoomViewer key={`${room.id}-${cameraKey}`} room={displayedRoom} furniture={displayedRoom.furniture} selectedFurnitureId={candidate ? null : selectedId} onSelectFurniture={id => { if (!candidate && !pending) { setSelectedId(id); if (id) setPanelOpen(false); } }} onMoveFurniture={move} onBeginMoveFurniture={() => { moving.current = true; }} onEndMoveFurniture={() => { moving.current = false; persistRoom(latestRoom.current); }} onRotateFurniture={rotate} hideEntranceWalls={interior} alignCameraToEntrance showEditingHelpers={!candidate && !pending} selectOnClick directDrag preferredColorTone={candidate ? palette : appliedPalette}><DemoSceneTools room={displayedRoom} pending={pending} selectedId={selectedId} all={showAllClearance} toolbar={candidate || draggingProduct ? undefined : editToolbar} onPoint={pointPlacement} onDrop={commitPlacement} /></RoomViewer></div>
+        }}><RoomViewer key={`${room.id}-${cameraKey}`} room={displayedRoom} furniture={displayedRoom.furniture} selectedFurnitureId={candidate ? null : selectedId} onSelectFurniture={id => { if (!candidate && !pending) { setSelectedId(id); if (id) setPanelOpen(false); } }} onMoveFurniture={move} onBeginMoveFurniture={() => { moving.current = true; }} onEndMoveFurniture={() => { moving.current = false; persistRoom(latestRoom.current); }} onRotateFurniture={rotate} hideEntranceWalls={interior} alignCameraToEntrance showEditingHelpers={!candidate && !pending} selectOnClick directDrag preferredColorTone={candidate ? getLayoutAppliedPreferredColorTone(candidate) : appliedPalette}><DemoSceneTools room={displayedRoom} pending={pending} selectedId={selectedId} all={showAllClearance} toolbar={candidate || draggingProduct ? undefined : editToolbar} onPoint={pointPlacement} onDrop={commitPlacement} /></RoomViewer></div>
         <div className="demo-clearance-controls"><label><input type="checkbox" checked={showAllClearance} onChange={event => setShowAllClearance(event.target.checked)} />가구 사용 여유 공간 전체 표시</label><span><i className="demo-blue" />여유 확보 <i className="demo-orange" />접근 주의 <i className="demo-red" />충돌·개폐 침범</span></div>
         <p className="demo-clearance-note">파랑: 침범 없음 · 주황: 권장 접근 공간 침범 · 빨강: 본체 충돌·경계 이탈 또는 개폐 공간 침범. 옷장은 가로의 ½, 서랍장은 기존 전면 여유 값으로 근사합니다. 문은 문 폭을 반지름으로 안쪽 90° 열림을 가정합니다. 상품별 개폐 방식·경첩·서랍 인출량은 미확인입니다.</p>
 
@@ -360,4 +361,11 @@ function DimensionControl({ label, displayLabel = label, value, base, disabled =
     <button aria-label={`${label} 늘리기`} disabled={disabled || mm >= max} onClick={() => { setError(''); onChange(.05); }}>+</button>
     {error && <span id={errorId} className="demo-dimension-error" role="alert">{error}</span>}
   </div>;
+}
+
+function RecommendationColourSwatches({schemeId}:{schemeId:unknown}) {
+  const scheme=getAutomaticColorScheme(schemeId);
+  if(!scheme) return null;
+  const colors=[scheme.palette.primary[0],scheme.palette.secondary[0],scheme.palette.accent[0],scheme.palette.wood[0]];
+  return <span className="recommendation-colour-swatches" aria-label={`추천 색 조합: ${scheme.label}`}>{colors.map(color=><i key={color} style={{background:color}} />)}</span>;
 }

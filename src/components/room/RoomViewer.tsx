@@ -1,3 +1,4 @@
+import { getLayoutAppliedColorScheme } from '../../config/appliedColorTone';
 import { ContactShadows, OrbitControls } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
 import { useLayoutEffect, useRef, type ReactNode } from "react";
@@ -13,7 +14,7 @@ import { resolveFurnitureSupportPositions } from "./furnitureSupportPlacement";
 import { isWindowAnchoredFurniture, resolveWindowBlindPlacements } from "./windowBlindPlacement";
 import { computeLocalValidationIssues } from "../../geometry/liveValidation";
 import type { Furniture, RoomLayout, Vector2D, WallSegment } from "../../types";
-import type { PreferredColorToneId } from "../../config/preferredColorTone";
+import type { FurnitureColorThemeId } from "../../config/furnitureBehaviorPolicy";
 
 interface RoomViewerProps {
   directDrag?: boolean;
@@ -31,7 +32,7 @@ interface RoomViewerProps {
   hideEntranceWalls?: boolean;
   alignCameraToEntrance?: boolean;
   showEditingHelpers?: boolean;
-  preferredColorTone?: PreferredColorToneId | null;
+  preferredColorTone?: FurnitureColorThemeId | null;
 }
 
 export function RoomViewer({
@@ -133,7 +134,7 @@ export function RoomViewer({
                 onMove={onMoveFurniture}
                 onMoveStart={onBeginMoveFurniture}
                 onMoveEnd={onEndMoveFurniture}
-                preferredColorTone={preferredColorTone}
+                preferredColorTone={getLayoutAppliedColorScheme(room)??preferredColorTone}
                 layoutPosition={blindPlacement?.position ?? supportPosition}
                 layoutRotationY={blindPlacement?.rotationY}
                 visualScale={blindPlacement?.scale}

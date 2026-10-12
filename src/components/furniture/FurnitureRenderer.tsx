@@ -21,7 +21,7 @@ import {
   warnFurnitureVariantDimensionMismatch,
 } from "./variants/furnitureVariantRouting";
 import type { Furniture } from "../../types";
-import type { PreferredColorToneId } from "../../config/preferredColorTone";
+import type { FurnitureColorThemeId } from "../../config/furnitureBehaviorPolicy";
 import type { Vector3Tuple } from "./variants/types";
 
 export default function FurnitureRenderer({
@@ -30,7 +30,7 @@ export default function FurnitureRenderer({
   visualScale,
 }: {
   item: Furniture;
-  preferredColorTone?: PreferredColorToneId | null;
+  preferredColorTone?: FurnitureColorThemeId | null;
   visualScale?: Vector3Tuple;
 }) {
   const variant = resolveFurnitureVariant(item.variantId);
@@ -53,7 +53,7 @@ export default function FurnitureRenderer({
 
   // Legacy renderers receive the same part roles without changing scan geometry.
   const renderedItem = item;
-  const colors = furnitureThemeColors(preferredColorTone);
+  const colors = furnitureThemeColors(preferredColorTone, renderedItem.sourceType??renderedItem.category);
   const name = `${renderedItem.id} ${renderedItem.name}`.toLowerCase();
   const material = materialFromConfig(renderedItem.material, renderedItem.color);
 

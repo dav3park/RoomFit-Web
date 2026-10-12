@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import FurnitureRenderer from "../furniture/FurnitureRenderer";
 import type { Furniture, RoomLayout, Vector2D } from "../../types";
-import type { PreferredColorToneId } from "../../config/preferredColorTone";
+import type { FurnitureColorThemeId } from "../../config/furnitureBehaviorPolicy";
 import type { Vector3Tuple } from "../furniture/variants/types";
 import { resolveFurnitureCollisionMode } from "../../config/furnitureBehaviorPolicy";
 import {
@@ -30,7 +30,7 @@ interface FurnitureMeshProps {
   onMove: (id: string, position: Vector2D) => void;
   onMoveStart?: (id: string) => void;
   onMoveEnd?: (id: string) => void;
-  preferredColorTone?: PreferredColorToneId | null;
+  preferredColorTone?: FurnitureColorThemeId | null;
   layoutPosition?: Vector3Tuple;
   layoutRotationY?: number;
   visualScale?: Vector3Tuple;

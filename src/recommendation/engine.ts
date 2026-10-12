@@ -1,7 +1,7 @@
 import catalog from '../data/furniture/catalog.json';
 import type { Furniture, RoomLayout } from '../types';
 import { PREFERRED_COLOR_TONE_OPTIONS, type PreferredColorToneId } from '../config/preferredColorTone';
-import { withAppliedPreferredColorTone } from '../config/appliedColorTone';
+import { withAppliedPreferredColorTone, withAppliedColorScheme } from '../config/appliedColorTone';
 import { getFurnitureSelectionBlockReason } from '../config/furnitureSelectionPolicy';
 import { MAX_ACTIVE_FURNITURE } from '../config/furnitureAdditionPolicy';
 import { calculateRotatedFootprint, resolveFurnitureLocalFootprint } from '../components/room/furnitureBoundary';
@@ -9,13 +9,16 @@ import { designScore, designFeatures, functionalPlacement, layoutDistance, neare
 import { demoFloorContains } from '../pages/demoPlacement';
 import { createPlacementCheck, furnitureType, prepareFurniture, validateRecommendationLayout, validateCirculation, createCirculationGrid, type CirculationGrid, type LayoutValidation, type PreparedFurniture } from './layoutValidation';
 
+import { rankAutomaticColorSchemes } from '../config/automaticColorSchemes';
+
+export type RecommendationPalette = PreferredColorToneId | 'auto';
 export type RecommendationMode = 'preserve' | 'rearrange' | 'new';
 export type RecommendationPurpose = '휴식' | '업무 / 공부' | '취미 / 여가' | '수납';
 export type RecommendationStyle = 'minimal' | 'natural' | 'modern' | 'classic' | 'midcentury';
 export interface RecommendationOptions {
   purpose: RecommendationPurpose;
   style: RecommendationStyle;
-  palette: PreferredColorToneId;
+  palette: RecommendationPalette;
   mode: RecommendationMode;
   keepTypes: boolean;
   keepSizes: boolean;
@@ -55,7 +58,7 @@ function productFurniture(product:Product,id:string):Furniture {
     position:{x:0,z:0},rotationY:0,color:'#c7b299',material:'wood',status:'recommended',removable:true};
 }
 function tagScore(product:Product,options:RecommendationOptions) {
-  const preferredMaterial=['brown','beige'].includes(options.palette)?/wood|oak|walnut|rattan/i:
+  const preferredMaterial=(options.palette==='auto'&&['natural','classic','midcentury'].includes(options.style))||['brown','beige'].includes(options.palette)?/wood|oak|walnut|rattan/i:
     ['black','gray'].includes(options.palette)?/metal|black|gray/i:/fabric|white|paint/i;
   return (product.styleTags.includes(options.style)?3:0)+(product.lifestyleTags.includes(lifestyle[options.purpose])?2:0)
     +(product.materials.some(material=>preferredMaterial.test(material))?.5:0);
@@ -184,7 +187,7 @@ function solve(room:RoomLayout,slots:Slot[],locked:Furniture[],options:Recommend
 export function generateRecommendations(input:RoomLayout,requested:RecommendationOptions):RecommendationResult {
   const room=structuredClone(input);
   const options={...requested,keepTypes:requested.mode!=='new'||requested.keepTypes,keepSizes:requested.mode==='rearrange'||requested.keepSizes};
-  if(!PREFERRED_COLOR_TONE_OPTIONS.some(tone=>tone.id===options.palette)||!Object.keys(lifestyle).includes(options.purpose)||!['minimal','natural','modern','classic','midcentury'].includes(options.style)
+  if((options.palette!=='auto'&&!PREFERRED_COLOR_TONE_OPTIONS.some(tone=>tone.id===options.palette))||!Object.keys(lifestyle).includes(options.purpose)||!['minimal','natural','modern','classic','midcentury'].includes(options.style)
     || !['preserve','rearrange','new'].includes(options.mode)||!Number.isFinite(room.width)||!Number.isFinite(room.depth)||room.width<=0||room.depth<=0
     || room.width>50||room.depth>50) return {proposals:[],messages:['방 치수 또는 추천 조건을 확인해 주세요. 최대 50 m 공간까지 지원합니다.']};
   const active=room.furniture.filter(item=>item.status!=='deleted');
@@ -226,6 +229,18 @@ export function generateRecommendations(input:RoomLayout,requested:Recommendatio
     if(!choices.length) break;
     const chosen=choices[0];ranked.splice(ranked.indexOf(chosen),1);
     proposals.push({...chosen,title:options.mode==='preserve'?`취향에 맞춘 상품 구성 ${proposals.length+1}`:`배치 ${proposals.length+1} · ${chosen.title}`});
+  }
+  if(options.palette==='auto'&&proposals.length) {
+    const schemes=rankAutomaticColorSchemes(room,options.style,options.purpose);
+    // Fixed-pose mode can legitimately compare colour-only alternatives;
+    // moving modes still require different spatial structures.
+    if(options.mode==='preserve') while(proposals.length<3) proposals.push({...proposals[0],id:`colour-${proposals.length}`});
+    proposals.forEach((proposal,index)=>{
+      const scheme=schemes[index];
+      proposal.room=withAppliedColorScheme(proposal.room,scheme.id);
+      proposal.features=[...proposal.features,`색 조합: ${scheme.label}`];
+      if(options.mode==='preserve') proposal.title=`색 조합 ${index+1} · ${scheme.label}`;
+    });
   }
   const messages=proposals.length===0?['조건을 만족하는 배치를 찾지 못했습니다. 가구 고정·크기 유지 조건을 줄이거나 새로운 디자인을 선택해 주세요.',...[...failures].slice(0,3)]:
     proposals.length<3?[`현재 조건에서 서로 다른 추천안 ${proposals.length}개를 찾았습니다. 조건을 임의로 해제하지 않았습니다.`]:[];

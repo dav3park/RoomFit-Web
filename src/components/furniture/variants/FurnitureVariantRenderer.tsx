@@ -2,7 +2,7 @@ import { FurniturePartRenderer } from "./FurniturePartRenderer";
 import type { FurnitureVariantRegistry } from "./FurnitureVariantRegistry";
 import type { MaterialPresetCatalog } from "./materialResolver";
 import type { Vector3Tuple } from "./types";
-import type { PreferredColorToneId } from "../../../config/preferredColorTone";
+import type { FurnitureColorThemeId } from "../../../config/furnitureBehaviorPolicy";
 import { getThemeTarget } from "../../../config/furnitureBehaviorPolicy";
 
 interface FurnitureVariantRendererProps {
@@ -11,7 +11,7 @@ interface FurnitureVariantRendererProps {
   materialPresets: Readonly<MaterialPresetCatalog>;
   layoutPosition?: Vector3Tuple;
   layoutRotation?: Vector3Tuple;
-  preferredColorTone?: PreferredColorToneId | null;
+  preferredColorTone?: FurnitureColorThemeId | null;
   visualScale?: Vector3Tuple;
 }
 
@@ -38,6 +38,7 @@ export function FurnitureVariantRenderer({
           materialPresets={materialPresets}
           preferredColorTone={preferredColorTone}
           themeTarget={getThemeTarget(variantId, part.id)}
+          furnitureType={variant.furnitureType}
           themeKey={`${variantId}:${part.id}`}
         />
       ))}

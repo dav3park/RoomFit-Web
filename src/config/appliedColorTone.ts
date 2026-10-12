@@ -5,6 +5,7 @@ import {
   type PreferredColorToneId,
 } from "./preferredColorTone";
 import { getRoomPreferredColorTone } from "./roomPreferences";
+import { getAutomaticColorScheme, type AutomaticColorSchemeId } from './automaticColorSchemes';
 
 type PaletteStorage = Pick<Storage, "getItem" | "setItem" | "removeItem">;
 type PaletteAwareRoomLayout = RoomLayout & {
@@ -25,6 +26,7 @@ export function withAppliedPreferredColorTone(
 ): RoomLayout {
   const normalized = normalizePreferredColorToneId(preferredColorTone);
   const nextLayout: PaletteAwareRoomLayout = { ...layout };
+  delete nextLayout.appliedColorSchemeId;
 
   if (normalized) {
     nextLayout.appliedPreferredColorTone = normalized;
@@ -33,6 +35,14 @@ export function withAppliedPreferredColorTone(
   }
 
   return nextLayout;
+}
+
+export function getLayoutAppliedColorScheme(layout: RoomLayout): AutomaticColorSchemeId | null {
+  return getAutomaticColorScheme(layout.appliedColorSchemeId)?.id??null;
+}
+
+export function withAppliedColorScheme(layout: RoomLayout, scheme: AutomaticColorSchemeId): RoomLayout {
+  return {...withAppliedPreferredColorTone(layout,null),appliedColorSchemeId:scheme};
 }
 
 export function resolveRoomLayoutPreferredColorTone(

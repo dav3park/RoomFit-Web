@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiList, FiBox, FiCheck, FiHome, FiRotateCw, FiTrash2, FiSliders, FiX } from 'react-icons/fi';
 import Button from '../components/ui/Button';
@@ -11,7 +11,7 @@ import { FURNITURE_SELECTION_ITEMS, FURNITURE_SELECTION_CATEGORIES } from '../co
 import { PREFERRED_COLOR_TONE_OPTIONS, type PreferredColorToneId } from '../config/preferredColorTone';
 import { computeLocalValidationIssues } from '../geometry/liveValidation';
 import type { Furniture, RoomLayout, Vector2D } from '../types';
-import { addDemoProduct, resizeDemoFurniture, copyDemoRoom, correctDemoRoom, createDemoRecommendation, DEMO_PRODUCTS, DEMO_ROOMS, type DemoProduct } from './workspaceDemoState';
+import { addDemoProduct, resizeDemoFurniture, furnitureDimensionRangeMm, readDemoDraft, copyDemoRoom, createDemoRecommendation, DEMO_PRODUCTS, DEMO_ROOMS, type DemoProduct } from './workspaceDemoState';
 import minimal from '../assets/styles/minimal.png';
 import natural from '../assets/styles/natural.png';
 import modern from '../assets/styles/modern.png';
@@ -20,26 +20,26 @@ import midcentury from '../assets/styles/midcentury.png';
 import './workspaceDemo.css';
 import { MAX_ACTIVE_FURNITURE } from '../config/furnitureAdditionPolicy';
 import { getFurnitureSelectionBlockReason } from '../config/furnitureSelectionPolicy';
-import { resolveRoomLayoutPreferredColorTone } from '../config/appliedColorTone';
+import { getLayoutAppliedPreferredColorTone, resolveRoomLayoutPreferredColorTone, withAppliedPreferredColorTone } from '../config/appliedColorTone';
 
 const tools = [{ id: 'room', label: '방 · 스캔 보정', icon: FiHome }, { id: 'furniture', label: '가구 탐색', icon: FiBox }, { id: 'ai', label: 'AI 추천', icon: FiSliders }, { id: 'results', label: '검증 · 결과', icon: FiList }] as const;
 const styles = [{ id: 'minimal', title: '미니멀', image: minimal }, { id: 'natural', title: '내추럴', image: natural }, { id: 'modern', title: '모던', image: modern }, { id: 'classic', title: '클래식', image: classic }, { id: 'midcentury', title: '미드센추리', image: midcentury }];
 const recommendationProducts = DEMO_PRODUCTS.filter(item => ['bed', 'desk', 'wardrobe', 'desk_chair', 'mood_lamp', 'plant'].includes(item.furnitureType)).filter((item, index, all) => all.findIndex(other => other.furnitureType === item.furnitureType) === index);
 const purposes = ['휴식', '업무 / 공부', '취미 / 여가', '수납'];
-const axes = [{ id: 'width', label: '가로' }, { id: 'depth', label: '세로' }, { id: 'height', label: '높이' }] as const;
+const axes = [{ id: 'width', label: '가로' }, { id: 'depth', label: '세로' }] as const;
 
 interface WorkspaceService {
   initialRoom: RoomLayout;
-  onSave: (room: RoomLayout) => Promise<RoomLayout>;
+  onSave: (room: RoomLayout) => RoomLayout;
   onNext: (room: RoomLayout) => Promise<void>;
   onChooseRoom: (room: RoomLayout) => Promise<void>;
 }
 
 export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
-  const [room, setRoom] = useState(() => copyDemoRoom(service?.initialRoom ?? DEMO_ROOMS[0]));
-  const [baseline, setBaseline] = useState(() => copyDemoRoom(service?.initialRoom ?? DEMO_ROOMS[0]));
-  const [tool, setTool] = useState<(typeof tools)[number]['id']>('furniture');
-  const [panelOpen, setPanelOpen] = useState(false);
+  const [room, setRoom] = useState(() => copyDemoRoom(service?.initialRoom ?? readDemoDraft() ?? DEMO_ROOMS[0]));
+  const [baseline, setBaseline] = useState(() => copyDemoRoom(service?.initialRoom ?? readDemoDraft() ?? DEMO_ROOMS[0]));
+  const [tool, setTool] = useState<(typeof tools)[number]['id']>('room');
+  const [panelOpen, setPanelOpen] = useState(true);
   const [roomChoice, setRoomChoice] = useState(room.id);
   const [roomSource, setRoomSource] = useState(service ? '선택한 공간' : '로컬 샘플');
   const [busy, setBusy] = useState(false);
@@ -54,9 +54,12 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   const [style, setStyle] = useState('natural');
   const [requested, setRequested] = useState<string[]>(() => recommendationProducts.filter(item => ['bed', 'desk'].includes(item.furnitureType)).map(item => item.productId));
   const [candidate, setCandidate] = useState<RoomLayout | null>(null);
-  const [appliedPalette, setAppliedPalette] = useState<PreferredColorToneId | null>(() => service ? resolveRoomLayoutPreferredColorTone(service.initialRoom) : null);
+  const [appliedPalette, setAppliedPalette] = useState<PreferredColorToneId | null>(() => service ? resolveRoomLayoutPreferredColorTone(service.initialRoom) : getLayoutAppliedPreferredColorTone(room));
   const [notice, setNotice] = useState(service ? '가구를 끌어 배치하거나 선택해 공간을 편집하세요.' : '샘플 방에서 자유롭게 배치를 편집해 보세요.');
-  const [savedRoom, setSavedRoom] = useState<RoomLayout | null>(null);
+  const [saveError, setSaveError] = useState('');
+  // The 3D toolbar renders in a separate root; rapid edits must use the latest layout.
+  const latestRoom = useRef(room);
+  const moving = useRef(false);
   const [confirmed, setConfirmed] = useState(false);
   const [feedback, setFeedback] = useState('');
   const stage = useRef<HTMLElement>(null);
@@ -81,21 +84,35 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
     return (category === '전체' || meta?.category === category) && product.label.includes(search.trim());
   });
 
+  function persistRoom(next: RoomLayout) {
+    try {
+      if (service) service.onSave(next);
+      else localStorage.setItem('roomfit:workspaceDemoDraft', JSON.stringify(next));
+      setSaveError('');
+    } catch {
+      setSaveError('자동 저장하지 못했습니다. 현재 편집은 유지됩니다. 브라우저 저장 공간을 확인한 뒤 다시 변경하거나 다음 단계에서 재시도해 주세요.');
+    }
+  }
   function changeRoom(next: RoomLayout) {
+    latestRoom.current = next;
     setRoom(next); setCandidate(null); setConfirmed(false);
-    setNotice(service ? '배치를 변경했습니다. 저장하거나 다음 단계로 진행하세요.' : '배치를 변경했습니다. 데모 저장 상태는 현재 배치와 구분됩니다.');
+    if (!moving.current) persistRoom(next);
+    setNotice('배치를 변경했습니다. 현재 상태는 이 브라우저에 자동 저장됩니다.');
   }
   function transformSelected(update: (item: Furniture) => Furniture) {
     if (!selected || candidate) return;
-    changeRoom({ ...room, furniture: room.furniture.map(item => item.id === selected.id ? { ...update(item), status: 'user_modified' } : item) });
+    const current = latestRoom.current;
+    changeRoom({ ...current, furniture: current.furniture.map(item => item.id === selected.id ? { ...update(item), status: 'user_modified' } : item) });
   }
   function move(id: string, position: Vector2D) {
     if (candidate) return;
-    changeRoom({ ...room, furniture: room.furniture.map(item => item.id === id ? { ...moveFurnitureInsideRoom(room, item, position), status: 'user_modified' } : item) });
+    const current = latestRoom.current;
+    changeRoom({ ...current, furniture: current.furniture.map(item => item.id === id ? { ...moveFurnitureInsideRoom(current, item, position), status: 'user_modified' } : item) });
   }
   function rotate(id: string) {
     if (candidate) return;
-    changeRoom({ ...room, furniture: room.furniture.map(item => item.id === id ? { ...rotateFurnitureInsideRoom(room, item, item.rotationY + Math.PI / 2), status: 'user_modified' } : item) });
+    const current = latestRoom.current;
+    changeRoom({ ...current, furniture: current.furniture.map(item => item.id === id ? { ...rotateFurnitureInsideRoom(current, item, item.rotationY + Math.PI / 2), status: 'user_modified' } : item) });
   }
   function place(product: DemoProduct, drag = false) {
     if (candidate || busy) return;
@@ -121,13 +138,13 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
     const item = position ? { ...current, position } : current;
     const reason = demoPlacementReason(room, item);
     if (reason) { dragRejection.current = reason; pointPlacement(item.position); setNotice(`배치할 수 없습니다: ${reason}`); return; }
-    cancelPlacement(); changeRoom({ ...room, furniture: [...room.furniture, item] }); setSelectedId(item.id); setPanelOpen(false);
+    cancelPlacement(); changeRoom({ ...latestRoom.current, furniture: [...latestRoom.current.furniture, item] }); setSelectedId(item.id); setPanelOpen(false);
     setNotice(demoPlacementIssues(room,item).some(issue=>issue.type==='BODY_COLLISION') ? '가구를 추가했습니다. 다른 가구와 겹친 부분은 빨간색으로 표시됩니다.' : service ? '지정한 위치에 가구를 추가했습니다.' : '지정한 위치에 가구를 한 번 추가했습니다. 로컬 데모 배치입니다.');
   }
   function loadRoom(uploadSample = false) {
     cancelPlacement();
     const next = copyDemoRoom(DEMO_ROOMS.find(item => item.id === roomChoice) ?? DEMO_ROOMS[0]);
-    setBaseline(copyDemoRoom(next)); changeRoom(next); setSelectedId(null); setSavedRoom(null); setAppliedPalette(null);
+    setBaseline(copyDemoRoom(next)); changeRoom(next); setSelectedId(null); setAppliedPalette(null);
     setRoomSource(uploadSample ? '불러오기 예시 · 실제 업로드 없음' : '로컬 샘플');
     setNotice('선택한 로컬 샘플을 불러왔습니다. 이전 데모 편집은 초기화되었습니다.');
   }
@@ -137,36 +154,36 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
     cancelPlacement(); setCandidate(createDemoRecommendation(room, requested)); setSelectedId(null);
     setNotice('샘플 추천 미리보기입니다. 적용 전까지 현재 편집 배치는 보존됩니다.');
   }
-  async function serviceAction(action: 'save' | 'choose' | 'next') {
+  async function serviceAction(action: 'choose' | 'next') {
     if (!service || operationRef.current) return;
     operationRef.current = true; setBusy(true); cancelPlacement();
     try {
-      const snapshot = copyDemoRoom(room);
-      if (action === 'save') {
-        const saved = await service.onSave(snapshot);
-        setRoom(saved); setSavedRoom(copyDemoRoom(saved)); setNotice(service ? '현재 브라우저에 배치를 저장했습니다. 서버 저장은 연결 예정입니다.' : '배치를 저장했습니다.');
-      } else if (action === 'next') await service.onNext(snapshot);
+      const snapshot = copyDemoRoom(latestRoom.current);
+      if (action === 'next') await service.onNext(snapshot);
       else await service.onChooseRoom(snapshot);
     } catch (error) {
       setNotice(error instanceof Error ? error.message : '저장하지 못했습니다. 현재 편집 내용을 유지합니다. 다시 시도해 주세요.');
     } finally { operationRef.current = false; setBusy(false); }
   }
-  const saved = savedRoom !== null && JSON.stringify(savedRoom) === JSON.stringify(room);
 
   const editing = pending ?? selected;
   const editingRules = pending ? demoOverlapHighlights({...room,furniture:[...room.furniture,pending]}) : spaceRules;
-  const originalDimensions = editing && (baseline.furniture.find(item => item.id === editing.id)?.dimensions ?? DEMO_PRODUCTS.find(product => product.productId === editing.productId)?.dimensions ?? editing.dimensions);
-  function resizeEditing(axis: 'width' | 'depth', delta: number) {
+  const originalDimensions = editing && (editing.resizeBaseDimensions ?? DEMO_PRODUCTS.find(product => product.productId === editing.productId)?.dimensions ?? baseline.furniture.find(item => item.id === editing.id)?.dimensions ?? editing.dimensions);
+  function resizeEditing(axis: 'width' | 'depth', value: number, absolute = false) {
     if (!editing || !originalDimensions) return;
-    const next=resizeDemoFurniture(room,editing,originalDimensions,axis,delta);
-    if(pending) {pendingRef.current=next;setPending(next);} else transformSelected(()=>next);
+    const current = pendingRef.current ?? latestRoom.current.furniture.find(item => item.id === editing.id);
+    if (!current) return;
+    const delta = absolute ? value - current.dimensions[axis] : value;
+    const next = resizeDemoFurniture(latestRoom.current, current, originalDimensions, axis, delta);
+    if (pendingRef.current) { pendingRef.current = next; setPending(next); }
+    else transformSelected(() => next);
   }
   const editToolbar = editing && <div className="demo-floating-toolbar" role="group" aria-label={pending ? '가구 배치 미리보기' : '선택 가구 편집'} onPointerDown={event => event.stopPropagation()} onClick={event => event.stopPropagation()}>
     <div className="demo-toolbar-title"><strong>{editing.name}{pending ? ' · 미리보기' : ''}</strong><button className="demo-icon-button" aria-label={pending ? '배치 취소' : '가구 선택 해제'} onClick={() => { cancelPlacement(); setSelectedId(null); }}><FiX /></button></div>
     <div className="demo-toolbar-actions">
       <button className="demo-outline" aria-label="90° 회전" title="90° 회전" onClick={() => { if (pending) { const next={...pending,rotationY:pending.rotationY+Math.PI/2}; pendingRef.current=next; setPending(next); } else rotate(editing.id); }}><FiRotateCw /></button>
-      <button className="demo-outline" aria-label={pending ? '배치 취소' : '가구 삭제'} title={pending ? '배치 취소' : '가구 삭제'} onClick={() => { if (pending) cancelPlacement(); else { changeRoom({...room,furniture:room.furniture.filter(item=>item.id!==editing.id)}); setSelectedId(null); } }}><FiTrash2 /></button>
-      <div className="demo-toolbar-sizes">{axes.slice(0,2).map(axis => <DimensionControl key={axis.id} label={`가구 ${axis.label}`} displayLabel={axis.label} base={originalDimensions![axis.id]} value={editing.dimensions[axis.id]} onChange={delta => resizeEditing(axis.id as 'width'|'depth',delta)} />)}</div>
+      <button className="demo-outline" aria-label={pending ? '배치 취소' : '가구 삭제'} title={pending ? '배치 취소' : '가구 삭제'} onClick={() => { if (pending) cancelPlacement(); else { changeRoom({...latestRoom.current,furniture:latestRoom.current.furniture.filter(item=>item.id!==editing.id)}); setSelectedId(null); } }}><FiTrash2 /></button>
+      <div className="demo-toolbar-sizes">{axes.map(axis => <DimensionControl key={`${editing.id}-${axis.id}`} label={`가구 ${axis.label}`} displayLabel={axis.label} base={originalDimensions![axis.id]} value={editing.dimensions[axis.id]} onChange={delta => resizeEditing(axis.id,delta)} onSet={value => resizeEditing(axis.id,value,true)} />)}</div>
       {pending && <button className="demo-outline" disabled={!!demoPlacementReason(room,pending)} onClick={() => commitPlacement()}>이 위치에 추가</button>}
     </div>
     <p className="demo-toolbar-note" role="status" title={editingRules.reasons.get(editing.id)?.join(' · ')}>{
@@ -180,7 +197,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
     <header className="demo-header">
       <Link to="/" className="demo-logo">ROOMFIT</Link>
       <span className="demo-name">배치 작업실 {!service && <span className="demo-badge">UI 데모</span>}</span>
-      {service ? <div className="demo-header-actions"><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('choose')}>이전 단계</button><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('save')}>{busy ? '처리 중…' : '저장'}</button><Button disabled={busy || !!candidate} onClick={() => void serviceAction('next')}>다음 단계</Button></div> : <>      <div className="demo-header-actions"><button className="demo-outline" onClick={() => { setSavedRoom(copyDemoRoom(room)); setNotice('현재 배치를 메모리에 데모 저장했습니다. 새로고침하면 사라집니다.'); }} disabled={!!candidate}>데모 저장</button><Button onClick={() => { setConfirmed(true); setNotice('확정 화면 예시입니다. 실제 배치는 저장·확정되지 않았습니다.'); }} disabled={!!candidate || issues.some(item => item.severity === 'ERROR')}>데모 확정</Button></div></> }
+      {service ? <div className="demo-header-actions"><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('choose')}>이전 단계</button><Button disabled={busy || !!candidate} onClick={() => void serviceAction('next')}>다음 단계</Button></div> : <>      <div className="demo-header-actions"><Button onClick={() => { setConfirmed(true); setNotice('확정 화면 예시입니다. 실제 배치는 저장·확정되지 않았습니다.'); }} disabled={!!candidate || issues.some(item => item.severity === 'ERROR')}>데모 확정</Button></div></> }
     </header>
     {!service && <div className="demo-disclaimer">구조 검토용 화면입니다. AI 호출 · 업로드 · 서버 저장 없이 로컬 샘플로 작동합니다.</div>}
     <div className={`demo-workspace ${panelOpen ? '' : 'demo-panel-collapsed'} ${selected && !candidate ? 'demo-has-selection' : ''}`}>
@@ -197,7 +214,6 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
             <Button onClick={() => loadRoom()} className="w-full">선택한 샘플 불러오기</Button>
             <details className="demo-section"><summary>스캔한 방 불러오기</summary><p className="demo-help">실제 서비스는 RoomPlan 업로드와 앱 페어링을 지원합니다. 여기서는 선택한 샘플로 불러오기 흐름만 확인합니다.</p><button className="demo-outline" onClick={() => loadRoom(true)}>샘플로 불러오기 체험</button><p className="demo-help">파일 전송 및 앱 연결은 실행하지 않습니다.</p></details>
 </>}
-            <section className="demo-section"><h3>방 크기 보정</h3><p className="demo-help">원본 샘플 치수의 ±15% 범위</p>{axes.map(axis => <DimensionControl key={axis.id} label={`방 ${axis.label}`} value={room[axis.id] ?? 2.4} base={baseline[axis.id] ?? 2.4} disabled={!!candidate} onChange={delta => changeRoom(correctDemoRoom(room, baseline, axis.id, delta))} />)}</section>
             <section className="demo-section"><h3>가구 스캔 보정</h3><p className="demo-help">가구를 선택하면 작은 도구막대에서 가로·세로를 보정할 수 있어요.</p>{room.furniture.map(item => <button key={item.id} className="demo-list-row" aria-pressed={selectedId === item.id} disabled={!!candidate} onClick={() => { setSelectedId(item.id); setPanelOpen(false); }}>{item.name}<span>{Math.round(item.dimensions.width * 1000)} mm</span></button>)}</section>
           </>}
           {tool === 'room' && <>          <details className="demo-furniture-list"><summary>배치된 가구 ({room.furniture.length})</summary>{room.furniture.map(item => <button key={item.id} disabled={!!candidate} aria-pressed={selectedId === item.id} className="demo-list-row" onClick={() => { setSelectedId(item.id); setPanelOpen(false); }}>{item.name}{selectedId === item.id && <FiCheck />}</button>)}{!room.furniture.length && <p className="demo-help">가구 탐색에서 상품을 추가해 주세요.</p>}</details></>}
@@ -229,15 +245,14 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
               <p className="demo-help">AI 연결 후 결과가 이 메뉴에 표시됩니다.</p>
             </section>
             {service ? <section className="demo-inspector-section">
-              <h2>배치 저장</h2>
-              <p className="demo-save-state">{saved ? '현재 배치 저장됨' : savedRoom ? '저장 이후 변경됨' : '저장 전'}</p>
-              <p className="demo-help">작업 내용은 이 브라우저에 저장됩니다. 상단 다음 단계에서 최종 배치를 확인할 수 있습니다.</p>
-              <Button disabled={busy} onClick={() => void serviceAction('save')}>배치 저장</Button>
+              <h2>자동 저장</h2>
+              <p className="demo-save-state">{saveError ? '자동 저장 실패' : '현재 배치 자동 저장'}</p>
+              <p className="demo-help">가구를 변경할 때마다 현재 배치가 이 브라우저에 자동 저장됩니다. 상단 다음 단계에서 최종 배치를 확인할 수 있습니다.</p>
               <button className="demo-outline" onClick={() => { setTool('furniture'); setPanelOpen(true); setNotice('가구 탐색 메뉴에서 배치를 계속 편집할 수 있습니다.'); }}>가구 편집으로 돌아가기</button>
             </section> : <section className="demo-inspector-section">
               <h2>저장 · 최종 확정</h2>
-              <p className="demo-save-state">{confirmed ? '데모 확정 화면 예시' : saved ? '현재 배치 데모 저장됨' : savedRoom ? '저장 이후 변경됨' : '데모 미저장'}</p>
-              <p className="demo-help">모든 변경은 이 화면의 메모리에만 유지됩니다. 새로고침하면 초기화됩니다.</p>
+              <p className="demo-save-state">{confirmed ? '데모 확정 화면 예시' : saveError ? '자동 저장 실패' : '현재 배치 자동 저장'}</p>
+              <p className="demo-help">가구 변경은 이 브라우저에 자동 저장됩니다. 실제 서버 저장·확정은 실행하지 않습니다.</p>
               <details><summary>쇼핑 리스트 ({room.furniture.filter(item => item.productId).length})</summary>{room.furniture.filter(item => item.productId).map(item => <p className="demo-help" key={item.id}>{item.name}</p>)}{!room.furniture.some(item => item.productId) && <p className="demo-help">추가한 카탈로그 상품이 없습니다.</p>}</details>
             </section>}
           </>}
@@ -253,7 +268,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
               <p className="demo-help">현재 배치는 아직 바뀌지 않았어요.</p>
               <p className="demo-help">적용하면 기존 가구를 선택 상품 {candidate.furniture.length}개로 교체합니다.</p>
               <button className="demo-outline" onClick={() => { setCandidate(null); setNotice('미리보기를 닫았습니다. 현재 배치를 유지합니다.'); }}>현재 배치로 돌아가기</button>
-              <Button onClick={() => { changeRoom(candidate); setAppliedPalette(palette); setSelectedId(null); setNotice('샘플 추천을 배치에 적용했습니다. 이어서 직접 편집할 수 있습니다.'); }}>샘플 배치 적용</Button>
+              <Button onClick={() => { changeRoom(withAppliedPreferredColorTone(candidate, palette)); setAppliedPalette(palette); setSelectedId(null); setNotice('샘플 추천을 배치에 적용했습니다. 이어서 직접 편집할 수 있습니다.'); }}>샘플 배치 적용</Button>
             </section>}
 
           </>}
@@ -266,17 +281,44 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
           const direction=({ArrowLeft:{x:-.1,z:0},ArrowRight:{x:.1,z:0},ArrowUp:{x:0,z:-.1},ArrowDown:{x:0,z:.1}} as Record<string,Vector2D>)[event.key];
           if (busy || !direction || !editing || event.target!==event.currentTarget) return;
           event.preventDefault(); const position={x:editing.position.x+direction.x,z:editing.position.z+direction.z}; if(pending) pointPlacement(position);else move(editing.id,position);
-        }}><RoomViewer key={`${room.id}-${cameraKey}`} room={displayedRoom} furniture={displayedRoom.furniture} selectedFurnitureId={candidate ? null : selectedId} onSelectFurniture={id => { if (!candidate && !pending) { setSelectedId(id); if (id) setPanelOpen(false); } }} onMoveFurniture={move} onRotateFurniture={rotate} hideEntranceWalls={interior} alignCameraToEntrance showEditingHelpers={!candidate && !pending} selectOnClick directDrag preferredColorTone={candidate ? palette : appliedPalette}><DemoSceneTools room={displayedRoom} pending={pending} selectedId={selectedId} all={showAllClearance} toolbar={candidate || draggingProduct ? undefined : editToolbar} onPoint={pointPlacement} onDrop={commitPlacement} /></RoomViewer></div>
+        }}><RoomViewer key={`${room.id}-${cameraKey}`} room={displayedRoom} furniture={displayedRoom.furniture} selectedFurnitureId={candidate ? null : selectedId} onSelectFurniture={id => { if (!candidate && !pending) { setSelectedId(id); if (id) setPanelOpen(false); } }} onMoveFurniture={move} onBeginMoveFurniture={() => { moving.current = true; }} onEndMoveFurniture={() => { moving.current = false; persistRoom(latestRoom.current); }} onRotateFurniture={rotate} hideEntranceWalls={interior} alignCameraToEntrance showEditingHelpers={!candidate && !pending} selectOnClick directDrag preferredColorTone={candidate ? palette : appliedPalette}><DemoSceneTools room={displayedRoom} pending={pending} selectedId={selectedId} all={showAllClearance} toolbar={candidate || draggingProduct ? undefined : editToolbar} onPoint={pointPlacement} onDrop={commitPlacement} /></RoomViewer></div>
         <div className="demo-clearance-controls"><label><input type="checkbox" checked={showAllClearance} onChange={event => setShowAllClearance(event.target.checked)} />가구 사용 여유 공간 전체 표시</label><span><i className="demo-blue" />여유 확보 <i className="demo-orange" />접근 주의 <i className="demo-red" />충돌·개폐 침범</span></div>
         <p className="demo-clearance-note">파랑: 침범 없음 · 주황: 권장 접근 공간 침범 · 빨강: 본체 충돌·경계 이탈 또는 개폐 공간 침범. 옷장은 가로의 ½, 서랍장은 기존 전면 여유 값으로 근사합니다. 문은 문 폭을 반지름으로 안쪽 90° 열림을 가정합니다. 상품별 개폐 방식·경첩·서랍 인출량은 미확인입니다.</p>
 
         <div className="demo-viewer-footer"><span>{candidate ? 'AI 추천 메뉴에서 미리보기를 적용하거나 현재 배치로 돌아갈 수 있습니다.' : '가구를 선택해 드래그 · 배경을 드래그해 둘러보기'}</span><button className="demo-outline" onClick={() => setCameraKey(key => key + 1)}>중앙 보기</button></div>
+        {saveError && <p className="demo-save-error" role="alert">{saveError}</p>}
         <p className="demo-notice" role="status" aria-live="polite">{notice}</p>
       </section>
     </div>
   </main>;
 }
 
-function DimensionControl({ label, displayLabel = label, value, base, disabled = false, onChange }: { label: string; displayLabel?: string; value: number; base: number; disabled?: boolean; onChange: (delta: number) => void }) {
-  return <div className="demo-dimension"><span>{displayLabel}</span><button aria-label={`${label} 줄이기`} disabled={disabled || value <= base * .85 + .0001} onClick={() => onChange(-.05)}>−</button><output aria-label={label}>{Math.round(value * 1000)} mm</output><button aria-label={`${label} 늘리기`} disabled={disabled || value >= base * 1.15 - .0001} onClick={() => onChange(.05)}>+</button></div>;
+function DimensionControl({ label, displayLabel = label, value, base, disabled = false, onChange, onSet }: { label: string; displayLabel?: string; value: number; base: number; disabled?: boolean; onChange: (delta: number) => void; onSet: (value: number) => void }) {
+  const [draft, setDraft] = useState<string | null>(null);
+  const [error, setError] = useState('');
+  const input = useRef<HTMLInputElement>(null);
+  const errorId = useId();
+  const { min, max } = furnitureDimensionRangeMm(base);
+  const mm = Math.round(value * 1000);
+  function commit() {
+    if (draft === null) return;
+    const next = Number(draft);
+    if (!/^\d+$/.test(draft.trim()) || !Number.isSafeInteger(next) || next < min || next > max) {
+      setError(`${min}~${max} mm의 정수를 입력하세요. 기존 크기를 유지합니다.`);
+      setDraft(null);
+      return;
+    }
+    setDraft(null); setError('');
+    onSet(next / 1000);
+  }
+  return <div className="demo-dimension"><span>{displayLabel}</span>
+    <button aria-label={`${label} 줄이기`} disabled={disabled || mm <= min} onClick={() => { setError(''); onChange(-.05); }}>−</button>
+    <span className="demo-dimension-value"><input ref={input} aria-label={label} aria-invalid={!!error} aria-describedby={error ? errorId : undefined} inputMode="numeric" value={draft ?? mm} disabled={disabled} onFocus={event => { setDraft(String(mm)); event.target.select(); }} onChange={event => { setDraft(event.target.value); setError(''); }} onBlur={commit} onKeyDown={event => {
+      event.stopPropagation();
+      if (event.key === 'Enter') { event.preventDefault(); input.current?.blur(); }
+      if (event.key === 'Escape') { event.preventDefault(); setDraft(null); setError(''); }
+    }} /><span>mm</span></span>
+    <button aria-label={`${label} 늘리기`} disabled={disabled || mm >= max} onClick={() => { setError(''); onChange(.05); }}>+</button>
+    {error && <span id={errorId} className="demo-dimension-error" role="alert">{error}</span>}
+  </div>;
 }

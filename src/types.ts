@@ -30,8 +30,10 @@ export interface Size3D {
 }
 
 export interface Furniture {
-  /** Explicit local demo scaling; absent in production layouts. */
+  /** Local catalog variant scaling, persisted with workspace drafts. */
   demoVisualScale?: [number, number, number];
+  /** Original size retained for local correction limits across autosave/reload. */
+  resizeBaseDimensions?: Size3D;
   id: string;
   name: string;
   category: FurnitureCategory;

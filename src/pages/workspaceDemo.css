@@ -203,3 +203,14 @@
 @media (max-width: 760px) {
   .workspace-service .demo-workspace { height: calc(100dvh - 112px); }
 }
+
+.demo-dimension { position: relative; }
+.demo-dimension-value { display: inline-flex; align-items: center; gap: 2px; }
+.demo-dimension-value input { width: 5ch; min-width: 0; padding: 3px 0; border: 0; border-bottom: 1px solid #e5e5e5; border-radius: 0; background: transparent; color: #111111; font: inherit; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
+.demo-dimension-value input:focus-visible { outline: 2px solid #111111; outline-offset: 2px; }
+.demo-dimension-value input[aria-invalid="true"] { border-color: #ef4444; }
+.demo-dimension-error { position: absolute; top: calc(100% + 4px); left: 0; z-index: 1; width: 180px; padding: 6px 8px; border: 1px solid #ef4444; border-radius: 8px; background: white; color: #b42318; font-size: 12px; line-height: 1.5; }
+.demo-toolbar-sizes .demo-dimension-error { font-size: 12px; }
+.demo-save-error { color: #b42318; font-size: 12px; line-height: 1.5; }
+.demo-toolbar-sizes .demo-dimension-value input { font-size: 11px; }
+.demo-toolbar-sizes .demo-dimension:last-child .demo-dimension-error { left: auto; right: 0; }

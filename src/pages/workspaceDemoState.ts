@@ -2,7 +2,7 @@ import catalog from '../data/furniture/catalog.json';
 import { sampleRoom } from '../mock/sampleRoom';
 import { sampleRoomLayouts } from '../mock/interiorPlacementMock';
 import { findFreePlacement } from '../geometry/placement';
-import { resizeFurnitureInsideRoom, resizeRoomInsideBounds } from '../components/room/furnitureBoundary';
+import { resizeFurnitureInsideRoom } from '../components/room/furnitureBoundary';
 import type { Furniture, RoomLayout, Size3D } from '../types';
 
 export const DEMO_ROOMS = [...sampleRoomLayouts, sampleRoom];
@@ -28,10 +28,17 @@ export function addDemoProduct(room: RoomLayout, product: DemoProduct): RoomLayo
   return { ...room, furniture: [...room.furniture, item] };
 }
 
-export function correctDemoRoom(room: RoomLayout, baseline: RoomLayout, axis: 'width' | 'depth' | 'height', delta: number): RoomLayout {
-  const original = baseline[axis] ?? 2.4;
-  const value = Math.min(original * 1.15, Math.max(original * .85, (room[axis] ?? 2.4) + delta));
-  return resizeRoomInsideBounds(room, { [axis]: value });
+export function readDemoDraft(): RoomLayout | null {
+  try {
+    const raw = localStorage.getItem('roomfit:workspaceDemoDraft');
+    const room = raw ? JSON.parse(raw) as RoomLayout : null;
+    return room && Array.isArray(room.furniture) && Array.isArray(room.walls) && DEMO_ROOMS.some(sample => sample.id === room.id) ? room : null;
+  } catch { return null; }
+}
+
+export function furnitureDimensionRangeMm(base: number) {
+  const min = Math.max(1, Math.ceil(base * 850 - 1e-7));
+  return { min, max: Math.max(min, Math.floor(base * 1150 + 1e-7)) };
 }
 
 // shortcut: this is a local sample composition, replace with the recommendation contract only when real integration is authorized.
@@ -46,7 +53,10 @@ export function createDemoRecommendation(room: RoomLayout, productIds: readonly 
 
 // Local-only resizing; keep rendered variants and validation footprints in the same scale.
 export function resizeDemoFurniture(room: RoomLayout, item: Furniture, base: Size3D, axis: 'width'|'depth', delta: number): Furniture {
-  const dimensions={...item.dimensions,[axis]:Math.min(base[axis]*1.15,Math.max(base[axis]*.85,item.dimensions[axis]+delta))};
-  const scaled={...item,dimensions,demoVisualScale:item.variantId ? [dimensions.width/base.width,1,dimensions.depth/base.depth] as [number,number,number] : undefined};
+  if (!Number.isFinite(delta)) return item;
+  const original = item.resizeBaseDimensions ?? base;
+  const { min, max } = furnitureDimensionRangeMm(original[axis]);
+  const dimensions={...item.dimensions,[axis]:Math.min(max,Math.max(min,Math.round((item.dimensions[axis]+delta)*1000)))/1000};
+  const scaled={...item,dimensions,resizeBaseDimensions:{...original},demoVisualScale:item.variantId ? [dimensions.width/original.width,1,dimensions.depth/original.depth] as [number,number,number] : undefined};
   return resizeFurnitureInsideRoom(room,scaled,dimensions);
 }

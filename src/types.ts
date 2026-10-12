@@ -34,6 +34,8 @@ export interface Furniture {
   demoVisualScale?: [number, number, number];
   /** Original size retained for local correction limits across autosave/reload. */
   resizeBaseDimensions?: Size3D;
+  /** Kept unchanged by all recommendation modes. */
+  recommendationLocked?: boolean;
   id: string;
   name: string;
   category: FurnitureCategory;

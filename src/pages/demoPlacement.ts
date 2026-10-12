@@ -59,7 +59,7 @@ export function demoDoorZone(room: RoomLayout, door: RoomLayout['doors'][number]
 }
 
 // Illustrative inward 90-degree swing; hinge side is not present in room data.
-// This display does not participate in collision validation or drop rejection.
+// Manual drops remain allowed; the recommendation engine also checks this assumed swing.
 export function demoDoorSwing(room: RoomLayout, door: RoomLayout['doors'][number]): Vector2D[] {
   const wall = room.walls.find(wall => wall.id === door.wallId) ?? room.walls.reduce<RoomLayout['walls'][number] | undefined>((closest, wall) => {
     const distance = (w: RoomLayout['walls'][number]) => {
@@ -83,7 +83,7 @@ export function demoDoorSwing(room: RoomLayout, door: RoomLayout['doors'][number
   })];
 }
 
-function crossesRoomWall(room: RoomLayout, corners: Vector2D[]): boolean {
+export function crossesRoomWall(room: RoomLayout, corners: Vector2D[]): boolean {
   const cross = (a: Vector2D, b: Vector2D, c: Vector2D) => (b.x-a.x)*(c.z-a.z)-(b.z-a.z)*(c.x-a.x);
   return corners.some((a,index) => {
     const b = corners[(index+1)%corners.length];

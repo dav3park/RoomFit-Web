@@ -15,4 +15,12 @@ describe('workspace feedback API',()=>{
     vi.spyOn(apiClient,'post').mockResolvedValue({data:{success:true,data:{revision:'current',source:'LLM',status:'SUCCESS',summary:'후보',furniture:[],operationResults:[],...change}}});
     await expect(previewWorkspaceFeedback(request,new AbortController().signal)).rejects.toThrow('피드백 응답');
   });
+  it.each(['FAILED','NEEDS_CLARIFICATION'])('accepts input-guard %s without pretending it is an LLM candidate',async status=>{
+    vi.spyOn(apiClient,'post').mockResolvedValue({data:{success:true,data:{revision:'current',source:'INPUT_GUARD',status,summary:'원문 조건 확인',furniture:[],operationResults:[]}}});
+    expect((await previewWorkspaceFeedback(request,new AbortController().signal)).source).toBe('INPUT_GUARD');
+  });
+  it('rejects a successful candidate attributed to an input guard',async()=>{
+    vi.spyOn(apiClient,'post').mockResolvedValue({data:{success:true,data:{revision:'current',source:'INPUT_GUARD',status:'SUCCESS',summary:'후보',furniture:[],operationResults:[]}}});
+    await expect(previewWorkspaceFeedback(request,new AbortController().signal)).rejects.toThrow();
+  });
 });

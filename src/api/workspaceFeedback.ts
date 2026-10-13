@@ -31,7 +31,7 @@ export interface WorkspaceFeedbackRequest {
 export interface WorkspaceFeedbackResponse {
   revision: string;
   status: 'SUCCESS' | 'FAILED' | 'NEEDS_CLARIFICATION';
-  source: 'LLM';
+  source: 'LLM' | 'INPUT_GUARD';
   reasonCode: string | null;
   summary: string;
   furniture: BackendFurnitureApiItem[];
@@ -45,7 +45,8 @@ export async function previewWorkspaceFeedback(request: WorkspaceFeedbackRequest
     '/api/layouts/feedback/preview', request, { signal },
   );
   const data = response.data.data;
-  if (!response.data.success || !data || data.revision !== request.revision || data.source !== 'LLM'
+  if (!response.data.success || !data || data.revision !== request.revision || !['LLM', 'INPUT_GUARD'].includes(data.source)
+      || (data.source === 'INPUT_GUARD' && data.status === 'SUCCESS')
       || !['SUCCESS', 'FAILED', 'NEEDS_CLARIFICATION'].includes(data.status)
       || typeof data.summary !== 'string' || !Array.isArray(data.furniture) || !Array.isArray(data.operationResults)) {
     throw new Error('피드백 응답을 확인하지 못했습니다. 현재 배치는 유지됩니다. 다시 요청해 주세요.');

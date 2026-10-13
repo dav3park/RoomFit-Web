@@ -7,6 +7,7 @@ import type { RoomLayout } from '../types';
 export default function Workspace() {
   const navigate = useNavigate();
   const [room, setRoom] = useState<RoomLayout | null>(null);
+  const [backendRoomId, setBackendRoomId] = useState<number | null>(null);
   const [error, setError] = useState('');
   const [retry, setRetry] = useState(0);
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function Workspace() {
       const draft = draftRaw ? JSON.parse(draftRaw) as RoomLayout : null;
       const draftForRoom = draft?.id === selected.id && Array.isArray(draft.furniture) && Array.isArray(draft.walls) ? draft : null;
       const restored = draftForRoom ?? await loadManagedFurnitureLayout(selected, backendId);
-      if (!cancelled) setRoom(restored ?? selected);
+      if (!cancelled) { setRoom(restored ?? selected); setBackendRoomId(backendId); }
     };
     void load().catch(() => {
       if (!cancelled) setError('선택한 방을 불러오지 못했습니다. 다시 시도해 주세요.');
@@ -39,9 +40,10 @@ export default function Workspace() {
     localStorage.setItem('roomfit:selectedRoomLayout', JSON.stringify(next));
     return next;
   }
-  if (!room) return <main className="workspace-demo"><header className="demo-header"><a href="/" className="demo-logo">ROOMFIT</a></header><div className="p-8" role={error ? 'alert' : 'status'}>{error || '선택한 공간을 불러오는 중…'}{error && <button className="demo-outline" onClick={() => { setError(''); setRetry(value => value + 1); }}>다시 시도</button>}</div></main>;
-  return <WorkspaceDemo service={{
+  if (!room || !backendRoomId) return <main className="workspace-demo"><header className="demo-header"><a href="/" className="demo-logo">ROOMFIT</a></header><div className="p-8" role={error ? 'alert' : 'status'}>{error || '선택한 공간을 불러오는 중…'}{error && <button className="demo-outline" onClick={() => { setError(''); setRetry(value => value + 1); }}>다시 시도</button>}</div></main>;
+  return <WorkspaceDemo key={room.id} service={{
     initialRoom: room,
+    backendRoomId,
     onSave: next => save(next),
     onNext: async next => {
       await save(next);

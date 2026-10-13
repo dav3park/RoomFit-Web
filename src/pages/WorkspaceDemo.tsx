@@ -24,6 +24,8 @@ import RecommendationThumbnail from '../recommendation/RecommendationThumbnail';
 import { MAX_ACTIVE_FURNITURE } from '../config/furnitureAdditionPolicy';
 import { getFurnitureSelectionBlockReason } from '../config/furnitureSelectionPolicy';
 import { getLayoutAppliedColorScheme, getLayoutAppliedPreferredColorTone, resolveRoomLayoutPreferredColorTone } from '../config/appliedColorTone';
+import WorkspaceFeedbackPanel from '../components/editor/WorkspaceFeedbackPanel';
+import { useWorkspaceFeedback } from '../components/editor/useWorkspaceFeedback';
 
 const tools = [{ id: 'room', label: '방 · 스캔 보정', icon: FiHome }, { id: 'furniture', label: '가구 탐색', icon: FiBox }, { id: 'ai', label: '추천', icon: FiSliders }, { id: 'results', label: '검증 · 결과', icon: FiList }] as const;
 const styles = [{ id: 'minimal', title: '미니멀', image: minimal }, { id: 'natural', title: '내추럴', image: natural }, { id: 'modern', title: '모던', image: modern }, { id: 'classic', title: '클래식', image: classic }, { id: 'midcentury', title: '미드센추리', image: midcentury }] as const;
@@ -33,6 +35,7 @@ const axes = [{ id: 'width', label: '가로' }, { id: 'depth', label: '세로' }
 
 interface WorkspaceService {
   initialRoom: RoomLayout;
+  backendRoomId: number;
   onSave: (room: RoomLayout) => RoomLayout;
   onNext: (room: RoomLayout) => Promise<void>;
   onChooseRoom: (room: RoomLayout) => Promise<void>;
@@ -64,7 +67,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   const recommendationResults = useRef<HTMLElement>(null);
   useEffect(() => { if(recommendations) recommendationResults.current?.focus(); }, [recommendations]);
   useEffect(() => () => workerRef.current?.terminate(), []);
-  const [candidate, setCandidate] = useState<RoomLayout | null>(null);
+  const [recommendationCandidate, setCandidate] = useState<RoomLayout | null>(null);
   const [appliedPalette, setAppliedPalette] = useState<PreferredColorToneId | null>(() => service ? resolveRoomLayoutPreferredColorTone(service.initialRoom) : getLayoutAppliedPreferredColorTone(room));
   const [notice, setNotice] = useState(service ? '가구를 끌어 배치하거나 선택해 공간을 편집하세요.' : '샘플 방에서 자유롭게 배치를 편집해 보세요.');
   const [saveError, setSaveError] = useState('');
@@ -80,12 +83,23 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   const dragRejection = useRef<string | null>(null);
   const pendingRef = useRef<Furniture | null>(null);
   const [showAllClearance, setShowAllClearance] = useState(false);
+  const feedbackFlow = useWorkspaceFeedback({
+    backendRoomId: service?.backendRoomId,
+    getRoom: () => latestRoom.current,
+    preferences: { purpose, style, palette }, selectedFurnitureId: selectedId,
+    onRequest: () => { stopGeneration(); setRecommendations(null); setCandidate(null); cancelPlacement(); },
+    onApply: next => { changeRoom(next); setSelectedId(null); setNotice('AI 피드백을 적용했습니다. 현재 상태는 자동 저장됩니다.'); },
+  });
+  const cancelFeedback = feedbackFlow.invalidate;
+  const candidate = feedbackFlow.state.preview?.room ?? recommendationCandidate;
+  const feedbackPending = feedbackFlow.state.phase === 'pending';
+  const feedbackPreview = !!feedbackFlow.state.preview;
   function cancelPlacement() { pendingRef.current = null; setPending(null); setDraggingProduct(false); }
   useEffect(() => {
-    const escape = (event: KeyboardEvent) => { if (event.key === 'Escape') { cancelPlacement(); setSelectedId(null); setNotice('가구 선택과 배치 미리보기를 해제했습니다.'); } };
+    const escape = (event: KeyboardEvent) => { if (event.key === 'Escape') { cancelFeedback(); cancelPlacement(); setSelectedId(null); setNotice('가구 선택과 배치 미리보기를 해제했습니다.'); } };
     window.addEventListener('keydown', escape);
     return () => window.removeEventListener('keydown', escape);
-  }, []);
+  }, [cancelFeedback]);
   const displayedRoom = candidate ?? room;
   const selected = room.furniture.find(item => item.id === selectedId);
   const issues = computeLocalValidationIssues(displayedRoom.furniture, displayedRoom);
@@ -105,6 +119,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
     }
   }
   function changeRoom(next: RoomLayout) {
+    cancelFeedback();
     invalidateRecommendations();
     latestRoom.current = next;
     setRoom(next); setCandidate(null); setConfirmed(false);
@@ -163,8 +178,9 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   function closePanel() { setPanelOpen(false); panelToggle.current?.focus(); }
   function stopGeneration() { workerRef.current?.terminate(); workerRef.current = null; setGenerating(false); }
   function invalidateRecommendations() { stopGeneration(); setRecommendations(null); setCandidate(null); }
-  function updateInput(action: () => void) { invalidateRecommendations(); action(); }
+  function updateInput(action: () => void) { cancelFeedback(); invalidateRecommendations(); action(); }
   function generate() {
+    cancelFeedback();
     stopGeneration(); cancelPlacement(); setCandidate(null); setRecommendations(null); setSelectedId(null); setGenerating(true);
     setNotice('상품 태그를 비교하고, 문·수납 개폐와 60 cm 이동 통로를 확인하고 있습니다.');
     try {
@@ -185,6 +201,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   }
   async function serviceAction(action: 'choose' | 'next') {
     if (!service || operationRef.current) return;
+    cancelFeedback();
     operationRef.current = true; setBusy(true); cancelPlacement();
     try {
       const snapshot = copyDemoRoom(latestRoom.current);
@@ -223,11 +240,11 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
 
   </div>;
 
-  return <main className={`workspace-demo ${service ? 'workspace-service' : ''}`} aria-busy={busy || generating} data-saving={busy}>
+  return <main className={`workspace-demo ${service ? 'workspace-service' : ''}`} aria-busy={busy || generating || feedbackPending} data-saving={busy}>
     <header className="demo-header">
       <Link to="/" className="demo-logo">ROOMFIT</Link>
       <span className="demo-name">배치 작업실 {!service && <span className="demo-badge">UI 데모</span>}</span>
-      {service ? <div className="demo-header-actions"><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('choose')}>이전 단계</button><Button disabled={busy || generating || !!candidate} onClick={() => void serviceAction('next')}>다음 단계</Button></div> : <>      <div className="demo-header-actions"><Button onClick={() => { setConfirmed(true); setNotice('확정 화면 예시입니다. 실제 배치는 저장·확정되지 않았습니다.'); }} disabled={!!candidate || issues.some(item => item.severity === 'ERROR')}>데모 확정</Button></div></> }
+      {service ? <div className="demo-header-actions"><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('choose')}>이전 단계</button><Button disabled={busy || generating || feedbackPending || !!candidate} onClick={() => void serviceAction('next')}>다음 단계</Button></div> : <>      <div className="demo-header-actions"><Button onClick={() => { setConfirmed(true); setNotice('확정 화면 예시입니다. 실제 배치는 저장·확정되지 않았습니다.'); }} disabled={!!candidate || issues.some(item => item.severity === 'ERROR')}>데모 확정</Button></div></> }
     </header>
     {!service && <div className="demo-disclaimer">구조 검토용 화면입니다. AI 호출 · 업로드 · 서버 저장 없이 로컬 샘플로 작동합니다.</div>}
     <div className={`demo-workspace ${panelOpen ? '' : 'demo-panel-collapsed'} ${selected && !candidate ? 'demo-has-selection' : ''}`}>
@@ -267,12 +284,9 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
               <ul className="demo-issues">{[...spaceRules.reasons].map(([id, reasons]) => <li key={id}>{displayedRoom.furniture.find(item => item.id === id)?.name}: {reasons.join(' · ')}</li>)}</ul>
               <p className="demo-help">문·수납 개폐는 근사치로 판정합니다. 실제 개폐 방식·통로 연결·배치 점수는 미검증입니다.</p>
             </section>
-            <section className="demo-inspector-section">
-              <h2>AI 피드백</h2>
-              <label className="demo-field">자연어 요청<textarea value={feedback} onChange={event => setFeedback(event.target.value)} placeholder="예: 책상을 조금 더 넓게 쓰고 싶어" /></label>
-              <button className="demo-outline" disabled={!feedback.trim() || !!candidate} onClick={() => setNotice(`피드백 입력을 확인했습니다: “${feedback.trim()}”. AI 연결 후 이 메뉴에서 결과를 표시합니다.`)}>피드백 결과 미리보기</button>
-              <p className="demo-help">AI 연결 후 결과가 이 메뉴에 표시됩니다.</p>
-            </section>
+            <WorkspaceFeedbackPanel flow={feedbackFlow} feedback={feedback}
+              onChange={value => { cancelFeedback(); setFeedback(value); }} room={room} selectedId={selectedId}
+              enabled={!!service} blocked={!!recommendationCandidate || generating || busy} />
             {service ? <section className="demo-inspector-section">
               <h2>자동 저장</h2>
               <p className="demo-save-state">{saveError ? '자동 저장 실패' : '현재 배치 자동 저장'}</p>
@@ -316,7 +330,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
       </aside>}
       <section ref={stage} className="demo-stage" aria-label="3D 배치 작업 영역">
         <div className="demo-stage-heading"><div><h1>{room.name}</h1><p>{room.width.toFixed(1)} m × {room.depth.toFixed(1)} m · 가구 {displayedRoom.furniture.length}개</p></div><label className="demo-interior"><input type="checkbox" checked={interior} onChange={event => setInterior(event.target.checked)} />내부 보기</label></div>
-        <div className="demo-stage-state"><span>{candidate ? '추천 미리보기 · 미적용' : '직접 편집'}</span><span>{roomSource}</span></div>
+        <div className="demo-stage-state"><span>{feedbackPreview ? 'AI 피드백 미리보기 · 미적용' : candidate ? '추천 미리보기 · 미적용' : '직접 편집'}</span><span>{roomSource}</span></div>
         <div className="demo-viewer" tabIndex={0} aria-label="가구 직접 이동: 선택 후 방향키 또는 드래그" onKeyDown={event => {
           const direction=({ArrowLeft:{x:-.1,z:0},ArrowRight:{x:.1,z:0},ArrowUp:{x:0,z:-.1},ArrowDown:{x:0,z:.1}} as Record<string,Vector2D>)[event.key];
           if (busy || !direction || !editing || event.target!==event.currentTarget) return;
@@ -325,7 +339,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
         <div className="demo-clearance-controls"><label><input type="checkbox" checked={showAllClearance} onChange={event => setShowAllClearance(event.target.checked)} />가구 사용 여유 공간 전체 표시</label><span><i className="demo-blue" />여유 확보 <i className="demo-orange" />접근 주의 <i className="demo-red" />충돌·개폐 침범</span></div>
         <p className="demo-clearance-note">파랑: 침범 없음 · 주황: 권장 접근 공간 침범 · 빨강: 본체 충돌·경계 이탈 또는 개폐 공간 침범. 옷장은 가로의 ½, 서랍장은 기존 전면 여유 값으로 근사합니다. 문은 문 폭을 반지름으로 안쪽 90° 열림을 가정합니다. 상품별 개폐 방식·경첩·서랍 인출량은 미확인입니다.</p>
 
-        <div className="demo-viewer-footer"><span>{candidate ? '추천 메뉴에서 미리보기를 적용하거나 현재 배치로 돌아갈 수 있습니다.' : '가구를 선택해 드래그 · 배경을 드래그해 둘러보기'}</span><button className="demo-outline" onClick={() => setCameraKey(key => key + 1)}>중앙 보기</button></div>
+        <div className="demo-viewer-footer"><span>{feedbackPreview ? '검증 · 결과 메뉴에서 피드백을 적용하거나 현재 배치로 돌아갈 수 있습니다.' : candidate ? '추천 메뉴에서 미리보기를 적용하거나 현재 배치로 돌아갈 수 있습니다.' : '가구를 선택해 드래그 · 배경을 드래그해 둘러보기'}</span><button className="demo-outline" onClick={() => setCameraKey(key => key + 1)}>중앙 보기</button></div>
         {saveError && <p className="demo-save-error" role="alert">{saveError}</p>}
         <p className="demo-notice" role="status" aria-live="polite">{notice}</p>
       </section>

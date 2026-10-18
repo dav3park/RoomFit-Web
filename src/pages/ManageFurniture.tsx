@@ -21,6 +21,7 @@ import { captureCanvasThumbnail, saveRoomThumbnail } from "../config/roomThumbna
 import { sampleRoomLayouts } from "../mock/interiorPlacementMock";
 import { sampleRoom } from "../mock/sampleRoom";
 import type { Furniture, RoomLayout, Size3D, Vector2D } from "../types";
+import { isFixtureFurniture } from "../config/fixtureType";
 
 const MANAGED_FURNITURE_SAVE_ERROR = "가구 배치를 저장하지 못했습니다. 편집 내용은 이 브라우저에 유지됩니다.";
 
@@ -459,7 +460,8 @@ export function FurnitureRow({
   // product concept) — this only ever hides the stepper in the rare case an
   // item does resolve to one, as a safety net, not something the common case
   // should need.
-  const canResize = Boolean(onResize) && !resolveFurnitureVariant(item.variantId);
+  const fixed = isFixtureFurniture(item);
+  const canResize = Boolean(onResize) && !fixed && !resolveFurnitureVariant(item.variantId);
 
   return (
     <div className={`rounded-lg border p-2 transition-colors ${selected ? "border-[#111111] bg-[#fafafa]" : "border-transparent"}`}>
@@ -467,17 +469,21 @@ export function FurnitureRow({
       <button type="button" onClick={onSelect} className="flex min-w-0 flex-1 items-center gap-3 text-left">
         <span className="min-w-0">
           <strong className="block truncate text-sm font-extrabold">{item.name.replace("기존 ", "")}</strong>
-          <span className="mt-1 block truncate text-xs font-medium text-[#666666]">{formatDimensionMm(item.dimensions)}</span>
+          <span className="mt-1 block truncate text-xs font-medium text-[#666666]">
+            {formatDimensionMm(item.dimensions)}{fixed ? " · 고정설비" : ""}
+          </span>
         </span>
       </button>
-      <button
-        type="button"
-        onClick={onRemove}
-        aria-label={`${item.name} 삭제`}
-        className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-[#888888] hover:bg-[#f1f1f1] hover:text-[#111111]"
-      >
-        <FiTrash2 className="h-4 w-4" />
-      </button>
+      {!fixed && (
+        <button
+          type="button"
+          onClick={onRemove}
+          aria-label={`${item.name} 삭제`}
+          className="grid h-8 w-8 shrink-0 place-items-center rounded-full text-[#888888] hover:bg-[#f1f1f1] hover:text-[#111111]"
+        >
+          <FiTrash2 className="h-4 w-4" />
+        </button>
+      )}
       </div>
 
       {canResize && (

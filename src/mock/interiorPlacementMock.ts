@@ -16,6 +16,7 @@ export const categoryLabels: Record<Furniture["category"], string> = {
   cabinet: "수납장",
   rug: "러그",
   lighting: "조명",
+  fixture: "고정설비",
   unsupported: "지원되지 않는 가구",
 };
 

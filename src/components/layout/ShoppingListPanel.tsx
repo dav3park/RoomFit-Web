@@ -11,6 +11,7 @@ import {
 import type { MockProductApiItem } from "../../api/products";
 import { buildShoppingListEntries } from "../../config/shoppingList";
 import type { Furniture, FurnitureCategory } from "../../types";
+import { isFixtureFurniture } from "../../config/fixtureType";
 
 export type ShoppingListLoadStatus = "loading" | "success" | "error";
 
@@ -28,6 +29,7 @@ const ICONS: Record<FurnitureCategory, typeof MdOutlineBed> = {
   cabinet: MdOutlineLibraryBooks,
   rug: FaRug,
   lighting: MdOutlineLightbulb,
+  fixture: FiShoppingBag,
   unsupported: FiShoppingBag,
 };
 
@@ -38,6 +40,7 @@ const CATEGORY_LABELS: Record<FurnitureCategory, string> = {
   cabinet: "수납 가구",
   rug: "러그",
   lighting: "조명",
+  fixture: "고정설비",
   unsupported: "가구",
 };
 
@@ -60,7 +63,8 @@ export default function ShoppingListPanel({
     );
   }
 
-  const activeFurniture = furniture.filter((item) => item.status !== "deleted");
+  // 고정설비(싱크대·냉장고 등)는 방의 일부라 살 물건이 아니다.
+  const activeFurniture = furniture.filter((item) => item.status !== "deleted" && !isFixtureFurniture(item));
   if (activeFurniture.length === 0) {
     return <p className="text-sm font-semibold leading-6 text-[#777777]">현재 배치에 쇼핑할 가구가 없습니다.</p>;
   }

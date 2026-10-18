@@ -72,6 +72,15 @@ const recommendedCatalog: Record<FurnitureCategory, Omit<Furniture, "id" | "stat
     color: "#111827",
     material: "metal",
   },
+  fixture: {
+    name: "고정설비",
+    category: "fixture",
+    dimensions: { width: 0.6, depth: 0.6, height: 0.9 },
+    position: { x: 0, z: 0 },
+    rotationY: 0,
+    color: "#d9dcdf",
+    material: "white",
+  },
   unsupported: {
     name: "지원되지 않는 가구",
     category: "unsupported",

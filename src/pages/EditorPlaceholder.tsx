@@ -73,6 +73,7 @@ import {
 } from "../config/recommendationResult";
 import { readRoomSetupSession } from "../config/roomSetupSession";
 import type { Furniture, RoomLayout, Vector2D } from "../types";
+import { isFixtureFurniture } from "../config/fixtureType";
 
 // The latest room mirror saved by the setup/editor workflow.
 function loadSelectedRoomLayout(): RoomLayout | null {
@@ -791,7 +792,7 @@ export default function EditorPlaceholder() {
             <SelectedFurnitureActions
               selectedFurnitureId={selectedFurniture?.id ?? null}
               selectedFurnitureName={selectedFurniture?.name}
-              canEditSelection={selectedFurniture?.status !== "deleted"}
+              canEditSelection={selectedFurniture?.status !== "deleted" && !(selectedFurniture && isFixtureFurniture(selectedFurniture))}
               onRotate={handleRotateFurniture}
               onDelete={handleDeleteFurniture}
               onReset={handleResetFurniture}

@@ -31,6 +31,7 @@ import { getFurnitureSelectionBlockReason } from '../config/furnitureSelectionPo
 import { getLayoutAppliedColorScheme, getLayoutAppliedPreferredColorTone, resolveRoomLayoutPreferredColorTone } from '../config/appliedColorTone';
 import DesignConsultationPanel from '../components/editor/DesignConsultationPanel';
 import { useDesignConsultationDraft } from '../components/editor/useDesignConsultationDraft';
+import { isFixtureFurniture } from "../config/fixtureType";
 
 const tools = [{ id: 'room', label: '방 · 스캔 보정', icon: FiHome }, { id: 'furniture', label: '가구 탐색', icon: FiBox }, { id: 'ai', label: '추천', icon: FiSliders }, { id: 'consultation', label: 'AI 디자인 상담', icon: FiMessageSquare }, { id: 'results', label: '검증 · 결과', icon: FiList }] as const;
 const styles = [{ id: 'minimal', title: '미니멀', image: minimal }, { id: 'natural', title: '내추럴', image: natural }, { id: 'modern', title: '모던', image: modern }, { id: 'classic', title: '클래식', image: classic }, { id: 'midcentury', title: '미드센추리', image: midcentury }] as const;
@@ -255,13 +256,13 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   }
   const editToolbar = editing && <div className="demo-floating-toolbar" role="group" aria-label={pending ? '가구 배치 미리보기' : '선택 가구 편집'} onPointerDown={event => event.stopPropagation()} onClick={event => event.stopPropagation()}>
     <div className="demo-toolbar-title"><strong>{editing.name}{pending ? ' · 미리보기' : ''}</strong><button className="demo-icon-button" aria-label={pending ? '배치 취소' : '가구 선택 해제'} onClick={() => { cancelPlacement(); setSelectedId(null); }}><FiX /></button></div>
-    <div className="demo-toolbar-actions">
+    {!pending && isFixtureFurniture(editing) ? <p className="demo-toolbar-note" role="status">고정설비라 이동·삭제할 수 없습니다.</p> : <div className="demo-toolbar-actions">
       <button className="demo-outline" aria-label="90° 회전" title="90° 회전" onClick={() => { if (pending) { const next={...pending,rotationY:pending.rotationY+Math.PI/2}; pendingRef.current=next; setPending(next); } else rotate(editing.id); }}><FiRotateCw /></button>
       <button className="demo-outline" aria-label={pending ? '배치 취소' : '가구 삭제'} title={pending ? '배치 취소' : '가구 삭제'} onClick={() => { if (pending) cancelPlacement(); else { changeRoom({...latestRoom.current,furniture:latestRoom.current.furniture.filter(item=>item.id!==editing.id)}); setSelectedId(null); } }}><FiTrash2 /></button>
       {!pending && <button className="demo-outline" aria-label="추천에서 가구 고정" aria-pressed={!!editing.recommendationLocked} title="추천에서 상품·위치·크기 고정" onClick={()=>transformSelected(item=>({...item,recommendationLocked:!item.recommendationLocked}))}>{editing.recommendationLocked ? <FiLock /> : <FiUnlock />}</button>}
       <div className="demo-toolbar-sizes">{axes.map(axis => <DimensionControl key={`${editing.id}-${axis.id}`} label={`가구 ${axis.label}`} displayLabel={axis.label} base={originalDimensions![axis.id]} value={editing.dimensions[axis.id]} onChange={delta => resizeEditing(axis.id,delta)} onSet={value => resizeEditing(axis.id,value,true)} />)}</div>
       {pending && <button className="demo-outline" disabled={!!demoPlacementReason(room,pending)} onClick={() => commitPlacement()}>이 위치에 추가</button>}
-    </div>
+    </div>}
     <p className="demo-toolbar-note" role="status" title={editingRules.reasons.get(editing.id)?.join(' · ')}>{
       (pending && demoPlacementReason(room,pending)) ||
       (editingRules.status.get(editing.id) === 'blocked' ? '충돌·개폐 공간 침범' : editingRules.status.get(editing.id) === 'warning' ? '권장 접근 공간 주의' : '여유 공간 확보')

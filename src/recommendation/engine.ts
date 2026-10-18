@@ -17,6 +17,7 @@ import { createPlacementCheck, furnitureType, prepareFurniture, validateRecommen
 
 import { recommendationRandom, sampleWeighted } from './sampling';
 import { rankAutomaticColorSchemes } from '../config/automaticColorSchemes';
+import { isFixtureFurniture } from '../config/fixtureType';
 
 export type RecommendationPalette = PreferredColorToneId | 'auto';
 export type RecommendationMode = 'preserve' | 'rearrange' | 'new';
@@ -121,7 +122,8 @@ function baseSlots(room:RoomLayout,options:RecommendationOptions,random:()=>numb
   const available=[...new Set([...contextual,...optionalTypes,...(layered?['rug','plant','mood_lamp','nightstand','bookshelf','full_length_mirror']:[])])]
     .filter(type=>!types.includes(type)&&!lockedTypes.includes(type)&&catalog.products.some(product=>product.furnitureType===type&&product.styleTags.includes(options.style)));
   const priorityTypes=contextual.filter(type=>available.includes(type));
-  const count=Math.max(0,target-types.length-active.filter(item=>isLocked(item,options)).length);
+  // 고정설비(싱크대 등)는 방의 일부라 추천 가구 수 계산에 넣지 않는다.
+  const count=Math.max(0,target-types.length-active.filter(item=>isLocked(item,options)&&!isFixtureFurniture(item)).length);
   const optional=[...priorityTypes.slice(0,count),...sampleWeighted(available.filter(type=>!priorityTypes.includes(type)),Math.max(0,count-priorityTypes.length),
     type=>1+Number(catalog.products.some(product=>product.furnitureType===type&&product.lifestyleTags.includes(lifestyle[options.purpose]))),random)];
   return [...types.map(type=>({type,required:true})),...optional.map(type=>({type,required:false}))]
@@ -286,7 +288,7 @@ export function generateRecommendations(input:RoomLayout,requested:Recommendatio
   const slots=makeSlots(room,options,random);
   const windowCount=slots.filter(slot=>slot.required&&slot.type==='curtain_blind').length+locked.filter(item=>furnitureType(item)==='curtain_blind').length;
   if(windowCount>room.windows.length)return {proposals:[],messages:[`창문 ${room.windows.length}개에 요청한 커튼·블라인드 ${windowCount}개를 모두 설치할 수 없습니다. 창문마다 한 개씩 설치할 수 있으므로 개수 또는 창문 정보를 확인해 주세요.`]};
-  if(slots.filter(slot=>slot.required).length+locked.length>MAX_ACTIVE_FURNITURE||slots.some(slot=>options.constraints?.excludedTypes.includes(slot.type)))return {proposals:[],messages:['필요한 가구 개수가 한도를 넘거나 가구의 받침 역할을 하는 가구가 제외되어 있습니다. 조건을 확인해 주세요.']};
+  if(slots.filter(slot=>slot.required).length+locked.filter(item=>!isFixtureFurniture(item)).length>MAX_ACTIVE_FURNITURE||slots.some(slot=>options.constraints?.excludedTypes.includes(slot.type)))return {proposals:[],messages:['필요한 가구 개수가 한도를 넘거나 가구의 받침 역할을 하는 가구가 제외되어 있습니다. 조건을 확인해 주세요.']};
   if(!slots.length&&!locked.length) return {proposals:[],messages:['유지할 가구가 없습니다. 새로운 디자인을 선택해 주세요.']};
   const proposals:RecommendationProposal[]=[],pool:RecommendationProposal[]=[],failures=new Set<string>();
   for(let strategy=0;strategy<strategies.length;strategy++) {

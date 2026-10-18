@@ -3,6 +3,7 @@ import { isAxiosError } from "axios";
 import { apiClient } from "./client";
 import type { Furniture, FurnitureCategory, FurnitureStatus, Opening, RoomLayout, Vector2D, WallSegment } from "../types";
 import { normalizeCanonicalFurnitureType } from "../config/canonicalFurnitureType";
+import { FIXTURE_LABELS, normalizeFixtureType } from "../config/fixtureType";
 import {
   clampFurniturePositionToRoom,
   resolveFurnitureLocalFootprint,
@@ -53,6 +54,9 @@ export interface SampleRoomApiItem {
     productId: string | null;
     variantId: string | null;
     styleTags: string[];
+    // 벽걸이(상부장·TV 등)면 "WALL" + 바닥에서 밑면까지 높이. 없거나 null이면 바닥 가구.
+    mount?: "FLOOR" | "WALL" | null;
+    elevation?: number | null;
   }>;
   source: string;
   createdAt: string;
@@ -126,6 +130,8 @@ export interface RoomUploadApiRequest {
     position: { x: number; z: number };
     rotation: number;
     status: "EXISTING" | "RECOMMENDED";
+    mount?: "WALL";
+    elevation?: number;
   }>;
 }
 
@@ -223,6 +229,13 @@ export async function uploadRoomLayout(room: RoomLayout): Promise<number> {
   return response.data.data.roomId;
 }
 
+// 벽걸이 정보를 빠뜨리면 저장 왕복 후 상부장이 바닥으로 내려앉고 아래 싱크대와 충돌로 판정된다.
+function wallMountFields(item: Furniture): { mount: "WALL"; elevation: number } | Record<string, never> {
+  return item.mount === "WALL" && item.elevation !== undefined
+    ? { mount: "WALL", elevation: item.elevation }
+    : {};
+}
+
 function toFurnitureStatusApiValue(status: FurnitureStatus) {
   const values = {
     existing: "EXISTING",
@@ -248,6 +261,7 @@ export function toRoomFurnitureReplaceRequest(room: RoomLayout) {
       },
       rotation: normalizeDegrees((-item.rotationY * 180) / Math.PI),
       status: toFurnitureStatusApiValue(item.status),
+      ...wallMountFields(item),
     })),
   };
 }
@@ -294,7 +308,8 @@ export function toRoomUploadRequest(room: RoomLayout): RoomUploadApiRequest {
     ],
     furniture: room.furniture.map((item) => ({
       id: item.id,
-      type: item.category,
+      // category는 렌더러용 묶음(cabinet/fixture 등)이라 백엔드 타입이 아니다.
+      type: item.sourceType ?? item.category,
       label: item.name,
       width: item.dimensions.width,
       depth: item.dimensions.depth,
@@ -305,6 +320,7 @@ export function toRoomUploadRequest(room: RoomLayout): RoomUploadApiRequest {
       },
       rotation: normalizeDegrees((-item.rotationY * 180) / Math.PI),
       status: item.status === "recommended" ? "RECOMMENDED" : "EXISTING",
+      ...wallMountFields(item),
     })),
   };
 }
@@ -744,7 +760,8 @@ function toFurniture(
 ): Furniture {
   const normalizedItem = normalizeBackendFurnitureApiItem(item);
   const category = toFurnitureCategory(normalizedItem.type);
-  const canonicalType = normalizeCanonicalFurnitureType(normalizedItem.type);
+  const fixtureType = normalizeFixtureType(normalizedItem.type);
+  const canonicalType = fixtureType ?? normalizeCanonicalFurnitureType(normalizedItem.type);
   // `storage` is the one legacy Backend type that is intentionally accepted
   // outside the generated canonical catalog. Keep it as the persistence type:
   // falling back to the renderer category (`cabinet`) makes a no-op Room
@@ -756,9 +773,10 @@ function toFurniture(
   const rotationY = normalizeRotation(item.rotation);
   const rawPosition = { x: item.position.x - roomWidth / 2, z: item.position.z - roomDepth / 2 };
 
+  const wallMounted = item.mount === "WALL" && typeof item.elevation === "number" && Number.isFinite(item.elevation);
   const furniture: Furniture = {
     id: normalizedItem.id,
-    name: normalizedItem.label,
+    name: normalizedItem.label || (fixtureType ? FIXTURE_LABELS[fixtureType] : normalizedItem.type),
     category,
     ...(sourceType ? { sourceType } : {}),
     productId: normalizedItem.productId,
@@ -780,8 +798,13 @@ function toFurniture(
       metalness: materialType === "metal" ? 0.8 : 0,
     },
     status: toFurnitureStatus(item.status),
-    removable: true,
+    // 고정설비는 지울 수 없고, 추천 엔진도 위치·크기를 바꾸지 않는다.
+    removable: fixtureType === null,
+    ...(fixtureType ? { recommendationLocked: true } : {}),
+    ...(wallMounted ? { mount: "WALL" as const, elevation: item.elevation as number } : {}),
   };
+  // 고정설비는 스캔 위치가 사실이라 화면 쪽에서 다시 clamp하지 않는다.
+  if (fixtureType) return furniture;
   const position = clampFurniturePositionToRoom(
     { width: roomWidth, depth: roomDepth, walls },
     furniture.dimensions,
@@ -793,6 +816,10 @@ function toFurniture(
 }
 
 function toFurnitureCategory(type: string): FurnitureCategory {
+  if (normalizeFixtureType(type)) {
+    return "fixture";
+  }
+
   if (type === "desk" || type === "bed" || type === "chair" || type === "cabinet" || type === "rug" || type === "lighting") {
     return type;
   }
@@ -884,6 +911,7 @@ function colorByCategory(category: FurnitureCategory): string {
     cabinet: "#8a6542",
     rug: "#d8c7ad",
     lighting: "#26211d",
+    fixture: "#d9dcdf",
     unsupported: "#8b8b86",
   };
 

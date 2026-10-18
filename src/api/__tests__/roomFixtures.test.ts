@@ -93,4 +93,16 @@ describe("RoomPlan fixtures", () => {
       .filter((issue) => issue.type === "BODY_COLLISION");
     expect(collisions).toHaveLength(1);
   });
+
+  it("does not flag a chair tucked under a table", () => {
+    const layout = applyBackendFurnitureToLayout(room, [
+      scanned({ id: "table-1", type: "multi_table", label: "테이블", width: 0.8, depth: 0.8, height: 0.45,
+        position: { x: 2.0, z: 2.0 } }),
+      scanned({ id: "chair-1", type: "desk_chair", label: "의자", width: 0.45, depth: 0.5, height: 0.75,
+        position: { x: 2.0, z: 2.4 } }),
+    ]);
+    const collisions = computeLocalValidationIssues(layout.furniture, layout, "render")
+      .filter((issue) => issue.type === "BODY_COLLISION" || issue.type === "ZONE_INTRUSION");
+    expect(collisions).toEqual([]);
+  });
 });

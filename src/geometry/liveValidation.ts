@@ -166,8 +166,10 @@ function isCollisionExempt(first: Furniture, second: Furniture): boolean {
   if (isImmovableFixture(first) && isImmovableFixture(second)) return true;
   const firstType = normalizeCanonicalFurnitureType(first.sourceType ?? first.category);
   const secondType = normalizeCanonicalFurnitureType(second.sourceType ?? second.category);
-  return (firstType === "desk" && secondType === "desk_chair")
-    || (firstType === "desk_chair" && secondType === "desk");
+  // 의자는 책상·테이블 아래로 밀어 넣어 두는 게 보통이라 일부 겹쳐도 충돌이 아니다(백엔드와 동일).
+  const tuckSurfaces: ReadonlySet<string> = new Set(["desk", "multi_table"]);
+  return (secondType === "desk_chair" && tuckSurfaces.has(firstType ?? ""))
+    || (firstType === "desk_chair" && tuckSurfaces.has(secondType ?? ""));
 }
 
 function resolveSupportPair(supporter: Furniture, dependent: Furniture): [Furniture, Furniture] | null {

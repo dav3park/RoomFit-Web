@@ -1,3 +1,4 @@
+import type { PreparedConsultation } from '../recommendation/consultation';
 import { apiClient } from './client';
 import { isAxiosError } from 'axios';
 import type { DesignReferenceImage } from '../config/designConsultationImages';
@@ -105,4 +106,13 @@ export function consultationErrorMessage(error: unknown): string {
     return (messages[code] ?? '취향 분석을 완료하지 못했습니다. 입력은 유지됩니다. 서버 연결을 확인하거나 잠시 후 다시 시도해 주세요.') + suffix;
   }
   return error instanceof Error ? error.message : '취향 분석을 완료하지 못했습니다. 다시 시도해 주세요.';
+}
+
+export async function prepareDesignConsultation(selections:readonly ConsultationSelection[],furniture:ReturnType<typeof consultationFurniture>,signal:AbortSignal):Promise<PreparedConsultation> {
+  signal.throwIfAborted();
+  const revision=crypto.randomUUID();
+  const conditions=selections.flatMap((item,index)=>item.included?[{id:String(index),description:item.description,priority:item.priority}]:[]);
+  const response=await apiClient.post<{success:boolean;data:PreparedConsultation}>('/api/design-consultation/prepare',{revision,conditions,furniture},{signal,timeout:70_000});
+  if(!response.data.success||response.data.data?.revision!==revision)throw new Error('조건을 추천 설정으로 정리하지 못했습니다. 다시 시도해 주세요.');
+  return response.data.data;
 }

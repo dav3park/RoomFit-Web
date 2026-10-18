@@ -1,3 +1,6 @@
+import { getActiveRequestClientId } from '../config/clientScope';
+import { compileConsultation, type CompiledConsultation } from '../recommendation/consultation';
+import { consultationErrorMessage, consultationFurniture, prepareDesignConsultation } from '../api/designConsultation';
 import { getAutomaticColorScheme } from '../config/automaticColorSchemes';
 import { useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -19,7 +22,7 @@ import modern from '../assets/styles/modern.png';
 import classic from '../assets/styles/classic.png';
 import midcentury from '../assets/styles/midcentury.png';
 import './workspaceDemo.css';
-import type { RecommendationPalette, RecommendationPurpose, RecommendationStyle, RecommendationResult } from '../recommendation/engine';
+import type { RecommendationPalette, RecommendationPurpose, RecommendationStyle, RecommendationResult, RecommendationOptions } from '../recommendation/engine';
 import RecommendationThumbnail from '../recommendation/RecommendationThumbnail';
 import { MAX_ACTIVE_FURNITURE } from '../config/furnitureAdditionPolicy';
 import { getFurnitureSelectionBlockReason } from '../config/furnitureSelectionPolicy';
@@ -61,9 +64,14 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   const [generating, setGenerating] = useState(false);
   const [recommendations, setRecommendations] = useState<RecommendationResult | null>(null);
   const workerRef = useRef<Worker | null>(null);
+  const preparationRef = useRef<AbortController | null>(null);
+  const recommendationSource = useRef<'manual' | 'consultation'>('manual');
+  const [preparing, setPreparing] = useState(false);
+  const [consultationReport, setConsultationReport] = useState<CompiledConsultation | null>(null);
+  const [consultationError, setConsultationError] = useState('');
   const recommendationResults = useRef<HTMLElement>(null);
   useEffect(() => { if(recommendations) recommendationResults.current?.focus(); }, [recommendations]);
-  useEffect(() => () => workerRef.current?.terminate(), []);
+  useEffect(() => () => {workerRef.current?.terminate();preparationRef.current?.abort();}, []);
   const [candidate, setCandidate] = useState<RoomLayout | null>(null);
   const [appliedPalette, setAppliedPalette] = useState<PreferredColorToneId | null>(() => service ? resolveRoomLayoutPreferredColorTone(service.initialRoom) : getLayoutAppliedPreferredColorTone(room));
   const [notice, setNotice] = useState(service ? '가구를 끌어 배치하거나 선택해 공간을 편집하세요.' : '샘플 방에서 자유롭게 배치를 편집해 보세요.');
@@ -72,7 +80,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   const latestRoom = useRef(room);
   const moving = useRef(false);
   const [confirmed, setConfirmed] = useState(false);
-  const consultationDraft = useDesignConsultationDraft(() => latestRoom.current);
+  const consultationDraft = useDesignConsultationDraft(() => latestRoom.current, invalidateConsultationRecommendations);
   const stage = useRef<HTMLElement>(null);
   const panelToggle = useRef<HTMLButtonElement>(null);
   const [draggingProduct, setDraggingProduct] = useState(false);
@@ -163,10 +171,34 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
     setNotice('선택한 로컬 샘플을 불러왔습니다. 이전 데모 편집은 초기화되었습니다.');
   }
   function closePanel() { setPanelOpen(false); panelToggle.current?.focus(); }
-  function stopGeneration() { workerRef.current?.terminate(); workerRef.current = null; setGenerating(false); }
+  function stopGeneration() { preparationRef.current?.abort(); preparationRef.current = null; setPreparing(false); workerRef.current?.terminate(); workerRef.current = null; setGenerating(false); }
   function invalidateRecommendations() { stopGeneration(); setRecommendations(null); setCandidate(null); }
   function updateInput(action: () => void) { invalidateRecommendations(); action(); }
+  function invalidateConsultationRecommendations() {
+    setConsultationReport(null);setConsultationError('');
+    if(recommendationSource.current==='consultation')invalidateRecommendations();
+  }
   function generate() {
+    recommendationSource.current='manual';setConsultationReport(null);setConsultationError('');
+    runGeneration({purpose,style,palette,mode:'new',keepTypes,keepSizes});
+  }
+  async function generateConsultation() {
+    if(!consultationDraft.confirmed||busy||preparationRef.current||workerRef.current)return;
+    invalidateRecommendations();recommendationSource.current='consultation';setConsultationReport(null);setConsultationError('');
+    const abort=new AbortController(),base=latestRoom.current,clientId=getActiveRequestClientId();
+    preparationRef.current=abort;setPreparing(true);
+    const current=()=>preparationRef.current===abort&&!abort.signal.aborted&&latestRoom.current===base&&getActiveRequestClientId()===clientId;
+    try {
+      const prepared=await prepareDesignConsultation(consultationDraft.selections,consultationFurniture(base),abort.signal);
+      if(!current())return;
+      const compiled=compileConsultation(consultationDraft.selections,prepared,base);
+      setConsultationReport(compiled);
+      preparationRef.current=null;setPreparing(false);
+      if(compiled.options)runGeneration(compiled.options);
+    } catch(error) {if(current())setConsultationError(consultationErrorMessage(error));}
+    finally {if(preparationRef.current===abort){preparationRef.current=null;setPreparing(false);}}
+  }
+  function runGeneration(options:RecommendationOptions) {
     stopGeneration(); cancelPlacement(); setCandidate(null); setRecommendations(null); setSelectedId(null); setGenerating(true);
     setNotice('상품 태그를 비교하고, 문·수납 개폐와 60 cm 이동 통로를 확인하고 있습니다.');
     try {
@@ -182,7 +214,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
         } else setNotice(event.data.error ?? '추천을 생성하지 못했습니다. 현재 배치는 유지됩니다.');
       };
       worker.onerror = () => { if(workerRef.current === worker) {stopGeneration(); setNotice('추천 생성에 실패했습니다. 현재 배치는 유지됩니다. 다시 시도해 주세요.');} };
-      worker.postMessage({room:copyDemoRoom(latestRoom.current),options:{purpose,style,palette,mode:'new',keepTypes,keepSizes,seed:crypto.getRandomValues(new Uint32Array(1))[0]}});
+      worker.postMessage({room:copyDemoRoom(latestRoom.current),options:{...options,seed:crypto.getRandomValues(new Uint32Array(1))[0]}});
     } catch {stopGeneration(); setNotice('추천 계산을 시작하지 못했습니다. 현재 배치는 유지됩니다. 다시 시도해 주세요.');}
   }
   async function serviceAction(action: 'choose' | 'next') {
@@ -225,11 +257,11 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
 
   </div>;
 
-  return <main className={`workspace-demo ${service ? 'workspace-service' : ''}`} aria-busy={busy || generating} data-saving={busy}>
+  return <main className={`workspace-demo ${service ? 'workspace-service' : ''}`} aria-busy={busy || generating || preparing} data-saving={busy}>
     <header className="demo-header">
       <Link to="/" className="demo-logo">ROOMFIT</Link>
       <span className="demo-name">배치 작업실 {!service && <span className="demo-badge">UI 데모</span>}</span>
-      {service ? <div className="demo-header-actions"><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('choose')}>이전 단계</button><Button disabled={busy || generating || !!candidate} onClick={() => void serviceAction('next')}>다음 단계</Button></div> : <>      <div className="demo-header-actions"><Button onClick={() => { setConfirmed(true); setNotice('확정 화면 예시입니다. 실제 배치는 저장·확정되지 않았습니다.'); }} disabled={!!candidate || issues.some(item => item.severity === 'ERROR')}>데모 확정</Button></div></> }
+      {service ? <div className="demo-header-actions"><button className="demo-outline" disabled={busy} onClick={() => void serviceAction('choose')}>이전 단계</button><Button disabled={busy || generating || preparing || !!candidate} onClick={() => void serviceAction('next')}>다음 단계</Button></div> : <>      <div className="demo-header-actions"><Button onClick={() => { setConfirmed(true); setNotice('확정 화면 예시입니다. 실제 배치는 저장·확정되지 않았습니다.'); }} disabled={!!candidate || issues.some(item => item.severity === 'ERROR')}>데모 확정</Button></div></> }
     </header>
     {!service && <div className="demo-disclaimer">로컬 샘플 배치입니다. AI 디자인 상담에서 분석을 요청할 때만 사진·설명을 전송하며, 배치는 서버에 저장하지 않습니다.</div>}
     <div className={`demo-workspace ${panelOpen ? '' : 'demo-panel-collapsed'} ${selected && !candidate ? 'demo-has-selection' : ''}`}>
@@ -256,7 +288,8 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
             <div className="demo-catalog">{products.map(product => <DemoFurnitureCard key={product.productId} product={product} disabled={!!candidate} onAdd={() => place(product)} onDragStart={() => { setDraggingProduct(true); place(product, true); }} onDragEnd={() => { if (pendingRef.current) setNotice(dragRejection.current ? `배치할 수 없습니다: ${dragRejection.current}` : '드래그 배치를 취소했습니다. 가구는 추가되지 않았습니다.'); cancelPlacement(); }} />)}</div>
             {!products.length && <p className="demo-help">일치하는 상품이 없습니다. 검색어를 바꿔 주세요.</p>}
           </>}
-          {tool === 'consultation' && <DesignConsultationPanel draft={consultationDraft} />}
+          {tool === 'consultation' && <DesignConsultationPanel draft={consultationDraft} onGenerate={()=>void generateConsultation()} preparing={preparing} generating={generating&&!!consultationReport} busy={busy}
+            report={consultationReport} preparationError={consultationError} onCancel={()=>{stopGeneration();setNotice('추천 생성을 취소했습니다. 현재 배치는 유지됩니다.');}} />}
           {tool === 'results' && <>
             <section className="demo-inspector-section">
               <h2>배치 검증 <span className="demo-badge">현재 배치</span></h2>
@@ -309,8 +342,11 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
               {generating && <button className="demo-outline" onClick={()=>{stopGeneration();setNotice('추천 생성을 취소했습니다. 현재 배치는 유지됩니다.');}}>계산 취소</button>}
             </div>
             <p className="demo-help">창문 가림·문과 수납 개폐·60 cm 통로를 확인하고, 가구 묶음·채광·균형을 비교합니다. 창턱 높이가 없으면 화면의 추정 높이를 사용하며 실제 개폐 방식은 다를 수 있습니다.</p>
-            {recommendations && <section ref={recommendationResults} tabIndex={-1} className="demo-section" aria-label="추천안 비교">
+
+          </>}
+            {(tool==='ai'||tool==='consultation') && recommendations && <section ref={recommendationResults} tabIndex={-1} className="demo-section" aria-label="추천안 비교">
               <h3>추천안 비교</h3>
+              {!!recommendations.proposals.length&&consultationReport&&<details><summary>추천 기준으로 사용한 요청</summary><ul className="demo-issues">{consultationReport.reflected.map((text,index)=><li key={index}>{text}</li>)}</ul></details>}
               {recommendations.messages.map(message=><p className="demo-help" key={message} role="status">{message}</p>)}
               {recommendations.proposals.map((proposal,index)=><div key={proposal.id} className="recommendation-proposal">
                 <button className="recommendation-preview" aria-pressed={candidate===proposal.room} onClick={()=>setCandidate(proposal.room)}>
@@ -322,7 +358,6 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
               {candidate && <><p className="demo-help">미리보기 중입니다. 적용하면 현재 배치가 자동 저장됩니다.</p><div className="recommendation-actions"><Button className="w-full" onClick={()=>{const next=copyDemoRoom(candidate);changeRoom(next);setAppliedPalette(getLayoutAppliedPreferredColorTone(next));setSelectedId(null);setNotice('선택한 추천안을 적용하고 자동 저장했습니다. 이어서 직접 편집할 수 있습니다.');}}>이 추천안 적용</Button><button className="demo-outline" onClick={()=>{setCandidate(null);setNotice('현재 편집 배치로 돌아왔습니다. 추천안을 다시 눌러 비교할 수 있습니다.');}}>현재 배치로 돌아가기</button></div></>}
             </section>}
 
-          </>}
         </div>
       </aside>}
       <section ref={stage} className="demo-stage" aria-label="3D 배치 작업 영역">

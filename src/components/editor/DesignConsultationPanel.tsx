@@ -1,10 +1,16 @@
+import { PREFERRED_COLOR_TONE_OPTIONS } from '../../config/preferredColorTone';
+import type { CompiledConsultation } from '../../recommendation/consultation';
 import { useEffect, useId, useRef } from 'react';
 import { FiImage, FiX } from 'react-icons/fi';
 import Button from '../ui/Button';
 import { DESIGN_DESCRIPTION_LIMIT, DESIGN_IMAGE_ACCEPT } from '../../config/designConsultationImages';
 import type { useDesignConsultationDraft } from './useDesignConsultationDraft';
 
-export default function DesignConsultationPanel({ draft }: { draft: ReturnType<typeof useDesignConsultationDraft> }) {
+export default function DesignConsultationPanel({ draft, onGenerate, onCancel, preparing, generating, busy, report, preparationError }: {
+  draft: ReturnType<typeof useDesignConsultationDraft>;
+  onGenerate: () => void; onCancel: () => void; preparing: boolean; generating: boolean; busy: boolean;
+  report: CompiledConsultation | null; preparationError: string;
+}) {
   const inputId = useId();
   const fileInput = useRef<HTMLInputElement>(null);
   const attachButton = useRef<HTMLButtonElement>(null);
@@ -12,7 +18,7 @@ export default function DesignConsultationPanel({ draft }: { draft: ReturnType<t
   const reviewHeading = useRef<HTMLHeadingElement>(null);
   useEffect(() => { if (draft.analysis) reviewHeading.current?.focus(); }, [draft.analysis]);
 
-  const supportLabels = { SUPPORTED: '추천 조건 연결 가능', NEEDS_ENGINE_SUPPORT: '추가 연결 필요', NEEDS_CLARIFICATION: '추가 확인 필요', NEEDS_REVIEW: '수정 내용 재검토 필요' };
+  const styleLabels = {minimal:'미니멀',natural:'내추럴',modern:'모던',classic:'클래식',midcentury:'미드센추리'};
   const sourceLabels = { USER_TEXT: '직접 말씀한 조건', REFERENCE_IMAGE: '사진에서 읽은 취향', INFERENCE: 'AI의 추정', USER_EDIT: '직접 수정' };
   const canConfirm = draft.selections.some(item => item.included) && draft.selections.filter(item => item.included).every(item => item.description.trim());
   return <section className="design-consultation" aria-label="취향 전달" aria-busy={draft.pending} tabIndex={0} onPaste={event => {
@@ -58,14 +64,12 @@ export default function DesignConsultationPanel({ draft }: { draft: ReturnType<t
           <label className="demo-field">조건 {index + 1} 내용<textarea value={item.description} maxLength={300} disabled={draft.confirmed}
             aria-invalid={item.included && !item.description.trim()} onChange={event => draft.changeCondition(index, event.target.value)} /></label>
           {item.evidence && <p className="demo-help">근거: {item.evidence}</p>}
-          <span className="demo-badge">{supportLabels[item.support]}</span>
         </li>)}
       </ul>
       {!!draft.analysis.questions.length && <div className="demo-section"><h3>더 확인하고 싶은 점</h3>
         <ul className="demo-issues">{draft.analysis.questions.map((question, index) => <li key={index}>{question}</li>)}</ul>
         <p className="demo-help">답변은 ‘사진·설명 수정’에서 원래 설명에 추가한 뒤 다시 분석할 수 있어요.</p>
       </div>}
-      <p className="demo-help">‘연결 가능’은 기존 엔진에 대응하는 항목이 있다는 뜻이에요. 추가 연결·확인이 필요한 조건까지 반영한 추천은 아직 생성하지 않습니다.</p>
     </>}
     {!!draft.images.length && <ul className="design-consultation-images" aria-label="첨부한 참고 사진">
       {draft.images.map((image, index) => <li key={image.id}>
@@ -78,12 +82,20 @@ export default function DesignConsultationPanel({ draft }: { draft: ReturnType<t
     <div role="status" aria-live="polite" aria-atomic="true">
       {draft.processing && <p className="demo-help">첨부한 사진을 확인하고 있어요.</p>}
       {draft.pending && <p className="demo-help">사진과 설명에서 취향·필수 조건을 분석하고 있어요. 현재 배치는 바뀌지 않습니다.</p>}
-      {draft.confirmed && <p className="demo-help">조건 확인을 완료했습니다. 확인한 내용은 작업실에 유지되며, 추천 생성 연결은 다음 단계입니다.</p>}
+      {draft.confirmed && <p className="demo-help">확인한 조건으로 추천안을 만들 수 있어요. 적용하기 전까지 현재 배치는 바뀌지 않습니다.</p>}
     </div>
+    {preparationError && <p className="demo-save-error" role="alert">{preparationError}</p>}
+    {report && <div className="demo-section">
+      {report.options && <p className="demo-help">추천 기준: {report.options.purpose} · {styleLabels[report.options.style]} · {PREFERRED_COLOR_TONE_OPTIONS.find(item=>item.id===report.options?.palette)?.label??'자동 색 조합'}</p>}
+      {!!report.blockers.length && <div role="alert"><h3>추천 전에 확인해 주세요</h3><ul className="demo-issues">{report.blockers.map((text,index)=><li key={index}>{text}</li>)}</ul><p className="demo-help">‘조건 다시 수정’에서 내용을 구체화하거나 선택을 해제해 주세요.</p></div>}
+      {!!report.omitted.length && <><h3>이번 추천에서 반영하지 않은 요청</h3><ul className="demo-issues">{report.omitted.map((text,index)=><li key={index}>{text}</li>)}</ul></>}
+    </div>}
     {draft.error && <p className="demo-save-error" role="alert">{draft.error}</p>}
     <div className="design-consultation-actions">
       {draft.analysis ? <>
-        <Button className="w-full" disabled={!canConfirm || draft.confirmed} onClick={draft.confirm}>조건 확인 완료</Button>
+        {!draft.confirmed && <Button className="w-full" disabled={!canConfirm} onClick={draft.confirm}>조건 확인 완료</Button>}
+        {draft.confirmed && <Button className="w-full" disabled={preparing||generating||busy} onClick={onGenerate}>{preparing?'요청을 정리하는 중…':generating?'배치 계산 중…':'이 조건으로 추천 생성'}</Button>}
+        {(preparing||generating) && <button type="button" className="demo-outline" onClick={onCancel}>추천 생성 취소</button>}
         {draft.confirmed && <button type="button" className="demo-outline" onClick={draft.resumeReview}>조건 다시 수정</button>}
         <button type="button" className="demo-outline" onClick={() => { draft.edit(); requestAnimationFrame(() => descriptionInput.current?.focus()); }}>사진·설명 수정</button>
       </> : <>
@@ -93,6 +105,6 @@ export default function DesignConsultationPanel({ draft }: { draft: ReturnType<t
         {draft.pending && <button type="button" className="demo-outline" onClick={draft.cancel}>분석 취소</button>}
       </>}
     </div>
-    <p className="demo-help design-consultation-note">분석할 때 설명·현재 가구 목록과 축소한 참고 사진을 OpenAI에 전달합니다. RoomFit에 별도 저장하지 않으며, 새로고침하거나 작업실을 나가면 입력과 확인한 조건이 사라져요. 현재 배치는 바뀌지 않습니다.</p>
+    <p className="demo-help design-consultation-note">취향 분석 시 사진·설명·현재 가구 목록을, 추천 준비 시 확인한 조건·가구 목록을 OpenAI에 전달합니다. RoomFit에 별도 저장하지 않으며, 새로고침하거나 작업실을 나가면 입력과 확인한 조건이 사라져요. 현재 배치는 바뀌지 않습니다.</p>
   </section>;
 }

@@ -5,7 +5,7 @@ import { getActiveRequestClientId } from '../../config/clientScope';
 import type { RoomLayout } from '../../types';
 
 // Attachments and confirmed conditions belong to this workspace, never room autosave.
-export function useDesignConsultationDraft(getRoom: () => RoomLayout) {
+export function useDesignConsultationDraft(getRoom: () => RoomLayout, onConditionsChange: () => void) {
   const [description, setDescription] = useState('');
   const [images, setImages] = useState<DesignReferenceImage[]>([]);
   const [processing, setProcessing] = useState(false);
@@ -25,6 +25,7 @@ export function useDesignConsultationDraft(getRoom: () => RoomLayout) {
   }, []);
 
   function invalidateAnalysis() {
+    onConditionsChange();
     analysisSequence.current++; controller.current?.abort(); controller.current = null;
     setPending(false); setAnalysis(null); setSelections([]); setConfirmed(false);
   }
@@ -84,6 +85,7 @@ export function useDesignConsultationDraft(getRoom: () => RoomLayout) {
     edit() { invalidateAnalysis(); setError(''); },
     cancel() { invalidateAnalysis(); setError('분석을 취소했습니다. 입력 내용은 유지됩니다.'); },
     changeCondition(index: number, description: string) {
+      onConditionsChange();
       setConfirmed(false);
       setSelections(items => items.map((item, itemIndex) => itemIndex === index ? {
         ...item, description: description.slice(0, 300), kind: 'OTHER', value: '', source: 'USER_EDIT',
@@ -91,10 +93,12 @@ export function useDesignConsultationDraft(getRoom: () => RoomLayout) {
       } : item));
     },
     includeCondition(index: number, included: boolean) {
+      onConditionsChange();
       setConfirmed(false); setSelections(items => items.map((item, itemIndex) => itemIndex === index ? { ...item, included } : item));
     },
-    resumeReview() { setConfirmed(false); },
+    resumeReview() { onConditionsChange(); setConfirmed(false); },
     changePriority(index: number, priority: 'REQUIRED' | 'PREFERRED') {
+      onConditionsChange();
       setConfirmed(false); setSelections(items => items.map((item, itemIndex) => itemIndex === index ? { ...item, priority } : item));
     },
     confirm() { if (selections.some(item => item.included) && selections.filter(item => item.included).every(item => item.description.trim())) setConfirmed(true); },

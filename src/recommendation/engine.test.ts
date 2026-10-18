@@ -38,6 +38,34 @@ describe('recommendation engine',()=>{
   }
   expect(initial).toEqual(before);
  },30000);
+ it('replays one seed and explores different safe products/layouts with another seed',()=>{
+  const first=generateRecommendations(room,{...options,seed:41});
+  expect(generateRecommendations(room,{...options,seed:41})).toEqual(first);
+  const second=generateRecommendations(room,{...options,seed:92});
+  expect(first.seed).toBe(41);expect(second.seed).toBe(92);
+  expect(first.proposals.length).toBeGreaterThan(0);expect(second.proposals.length).toBeGreaterThan(0);
+  const products=(result:typeof first)=>result.proposals.map(p=>p.room.furniture.map(item=>item.productId).sort());
+  expect(products(second)).not.toEqual(products(first));
+  for(const proposal of [...first.proposals,...second.proposals]){
+   expect(validateRecommendationLayout(proposal.room).valid).toBe(true);
+   expect(proposal.room.appliedColorSchemeId).toBeUndefined();
+  }
+ },30000);
+ it('keeps type/count, exact sizes and locked pieces across randomized requests',()=>{
+  const initial=generateRecommendations(room,{...options,seed:41}).proposals[0].room;
+  initial.furniture[0].recommendationLocked=true;
+  const before=structuredClone(initial);
+  for(const seed of [7,28]){
+   const result=generateRecommendations(initial,{...options,keepTypes:true,keepSizes:true,seed});
+   expect(result.proposals.length).toBeGreaterThan(0);
+   for(const p of result.proposals){
+    expect(p.room.furniture).toHaveLength(initial.furniture.length);
+    for(const old of initial.furniture){const next=p.room.furniture.find(item=>item.id===old.id)!;expect(next.sourceType).toBe(old.sourceType);expect(next.dimensions).toEqual(old.dimensions);if(old.recommendationLocked)expect(next).toEqual(old);}
+    expect(validateRecommendationLayout(p.room).valid).toBe(true);
+   }
+  }
+  expect(initial).toEqual(before);
+ },30000);
  it('rejects disconnected use positions even without body collisions',()=>{const split={...room,furniture:[box('divider',0,0,5.8,.3),box('far table',0,-1.8,1,.6)]};expect(validateCirculation(split).valid).toBe(false);});
  it('validates a concave floor and rejects furniture outside it',()=>{
   const vertices=[{x:-3,z:-3},{x:3,z:-3},{x:3,z:0},{x:0,z:0},{x:0,z:3},{x:-3,z:3}];
@@ -49,5 +77,6 @@ describe('recommendation engine',()=>{
   expect(validateCirculation({...room,doors:[]}).warnings.join()).toContain('문 정보');
   expect(generateRecommendations({...room,width:1,depth:1,doors:[],walls:[]},options).proposals).toHaveLength(0);
   expect(generateRecommendations({...room,width:0},options).proposals).toHaveLength(0);
+  for(const seed of [NaN,Infinity,-1,1.5,2**32])expect(generateRecommendations(room,{...options,seed}).proposals).toHaveLength(0);
  });
 });

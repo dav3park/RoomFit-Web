@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { generateRecommendations, type RecommendationOptions } from './engine';
+import { getAutomaticColorScheme } from '../config/automaticColorSchemes';
 import { getLayoutAppliedColorScheme, getLayoutAppliedPreferredColorTone } from '../config/appliedColorTone';
 import { layoutDistance } from './designGuidelines';
 import { validateRecommendationLayout } from './layoutValidation';
@@ -21,6 +22,18 @@ describe('automatic colour recommendations',()=>{
     expect(result.proposals).toHaveLength(3);
     for(const p of result.proposals) {expect(p.room.furniture).toEqual(fixed.furniture);expect(p.title).toContain('색 조합');}
     expect(new Set(result.proposals.map(p=>p.room.appliedColorSchemeId)).size).toBe(3);
+  });
+  it('varies automatic schemes between seeds without leaving the selected style',()=>{
+    const fixed={...room,furniture:room.furniture.map(item=>({...item,recommendationLocked:true}))};
+    const first=generateRecommendations(fixed,{...options,mode:'preserve',seed:10});
+    const second=generateRecommendations(fixed,{...options,mode:'preserve',seed:99});
+    expect(first.proposals).toHaveLength(3);expect(second.proposals).toHaveLength(3);
+    const schemes=(result:typeof first)=>result.proposals.map(p=>p.room.appliedColorSchemeId);
+    expect(schemes(first)).not.toEqual(schemes(second));
+    for(const p of [...first.proposals,...second.proposals]){
+      expect(getAutomaticColorScheme(p.room.appliedColorSchemeId)?.styles).toContain('natural');
+      expect(p.room.furniture).toEqual(fixed.furniture);
+    }
   });
   it('removes the automatic palette when a subsequent manual colour is applied',()=>{
     const initial=generateRecommendations(room,options).proposals[0].room;

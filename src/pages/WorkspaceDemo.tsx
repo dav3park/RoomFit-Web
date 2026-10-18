@@ -194,7 +194,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
         } else setNotice(event.data.error ?? '추천을 생성하지 못했습니다. 현재 배치는 유지됩니다.');
       };
       worker.onerror = () => { if(workerRef.current === worker) {stopGeneration(); setNotice('추천 생성에 실패했습니다. 현재 배치는 유지됩니다. 다시 시도해 주세요.');} };
-      worker.postMessage({room:copyDemoRoom(latestRoom.current),options:{purpose,style,palette,mode:'new',keepTypes,keepSizes}});
+      worker.postMessage({room:copyDemoRoom(latestRoom.current),options:{purpose,style,palette,mode:'new',keepTypes,keepSizes,seed:crypto.getRandomValues(new Uint32Array(1))[0]}});
     } catch {stopGeneration(); setNotice('추천 계산을 시작하지 못했습니다. 현재 배치는 유지됩니다. 다시 시도해 주세요.');}
   }
   async function serviceAction(action: 'choose' | 'next') {

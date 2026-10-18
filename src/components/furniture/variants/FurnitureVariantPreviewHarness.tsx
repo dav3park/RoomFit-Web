@@ -1,10 +1,12 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { FurnitureVariantPreview } from "./FurnitureVariantPreview";
 import type { FurnitureVariantPreviewView } from "./FurnitureVariantPreview";
 import {
   PRODUCTION_FURNITURE_VARIANT_IDS,
-  createProductionFurnitureCatalog,
+  productionFurnitureRegistry,productionMaterialPresets,
 } from "./productionFurnitureCatalog";
+import catalogDocument from "../../../data/furniture/catalog.json";
+import { useFurnitureVariant } from "./useFurnitureVariant";
 import type { ProductionFurnitureVariantId } from "./productionFurnitureCatalog";
 
 const VIEW_OPTIONS: ReadonlyArray<{
@@ -17,12 +19,12 @@ const VIEW_OPTIONS: ReadonlyArray<{
 ];
 
 export function FurnitureVariantPreviewHarness() {
-  const catalog = useMemo(() => createProductionFurnitureCatalog(), []);
+  const catalog={registry:productionFurnitureRegistry,materialPresets:productionMaterialPresets};
   const [variantId, setVariantId] = useState<ProductionFurnitureVariantId>(
     PRODUCTION_FURNITURE_VARIANT_IDS[0],
   );
   const [view, setView] = useState<FurnitureVariantPreviewView>("front");
-  const variant = catalog.registry.getFurnitureVariant(variantId);
+  const {variant,error,retry}=useFurnitureVariant(variantId,catalog.registry);
 
   return (
     <main style={{ maxWidth: 1120, margin: "0 auto", padding: 24 }}>
@@ -33,9 +35,9 @@ export function FurnitureVariantPreviewHarness() {
             value={variantId}
             onChange={(event) => setVariantId(event.target.value as ProductionFurnitureVariantId)}
           >
-            {catalog.variants.map((item) => (
+            {catalogDocument.products.map((item) => (
               <option key={item.variantId} value={item.variantId}>
-                {item.name} ({item.variantId})
+                {item.label} ({item.variantId})
               </option>
             ))}
           </select>
@@ -58,20 +60,20 @@ export function FurnitureVariantPreviewHarness() {
       <dl style={{ display: "grid", gridTemplateColumns: "max-content 1fr", gap: "6px 12px" }}>
         <dt>Dimensions</dt>
         <dd style={{ margin: 0 }}>
-          {variant.dimensions.width} × {variant.dimensions.depth} × {variant.dimensions.height} m
+          {variant?.dimensions.width} × {variant?.dimensions.depth} × {variant?.dimensions.height} m
         </dd>
         <dt>Materials</dt>
-        <dd style={{ margin: 0 }}>{variant.materials.join(", ")}</dd>
+        <dd style={{ margin: 0 }}>{variant?.materials.join(", ")}</dd>
         <dt>Origin</dt>
         <dd style={{ margin: 0 }}>floor-center, +Z front</dd>
       </dl>
 
-      <FurnitureVariantPreview
+      {!variant?<div role={error?'alert':'status'}>{error?<button onClick={retry}>모델 다시 불러오기</button>:'모델 로딩 중…'}</div>:<FurnitureVariantPreview
         variantId={variantId}
         registry={catalog.registry}
         materialPresets={catalog.materialPresets}
         view={view}
-      />
+      />}
     </main>
   );
 }

@@ -144,7 +144,7 @@ export function demoOverlapHighlights(room: RoomLayout) {
   // Reuse shared support/stack exemptions, including desk + chair and monitor + desk.
   const issues = computeLocalValidationIssues(room.furniture.map(demoGeometryItem),room);
   for (const issue of issues) {
-    if (issue.type === 'BODY_COLLISION' || issue.type === 'OUT_OF_BOUNDS') {
+    if (issue.type === 'BODY_COLLISION' || issue.type === 'OUT_OF_BOUNDS' || issue.type === 'INSTALLATION_INVALID') {
       findings.push(issue);
       bodies.add(issue.furnitureId);
       markItem(issue.furnitureId, 'blocked', issue.message);

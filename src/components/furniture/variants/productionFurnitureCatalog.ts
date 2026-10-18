@@ -6,10 +6,7 @@ import type { MaterialPresetCatalog } from "./materialResolver";
 import type { ValidatedFurnitureVariant } from "./types";
 import { validateFurnitureVariant } from "./validateFurnitureVariant";
 
-const variantModules = import.meta.glob("../../../data/furniture/variants/*.json", {
-  eager: true,
-  import: "default",
-}) as Record<string, unknown>;
+const variantAssets = import.meta.glob("../../../data/furniture/variants/*.json", {eager:true,query:"?url&no-inline",import:"default"}) as Record<string,string>;
 
 interface CatalogProduct {
   productId: string;
@@ -55,28 +52,40 @@ export interface ProductionFurnitureCatalog {
   variants: ValidatedFurnitureVariant[];
 }
 
-export function createProductionFurnitureCatalog(): ProductionFurnitureCatalog {
-  const materialPresets = parseMaterialCatalogDocument(materialsDocument);
-  const registry = new FurnitureVariantRegistry();
-  const documentsByVariantId = indexVariantDocuments(variantModules);
-  const variants = generatedCatalog.products.map((product) => {
-    const document = documentsByVariantId.get(product.variantId);
-    if (document === undefined) {
-      throw new Error(`Catalog variant "${product.variantId}" has no bundled JSON document`);
-    }
-    const variant = validateFurnitureVariant(document, materialPresets);
-    assertProductContract(product, variant);
-    registry.registerFurnitureVariant(variant);
-    return variant;
-  });
-
-  if (documentsByVariantId.size !== variants.length) {
-    const registered = new Set(variants.map((variant) => variant.variantId));
-    const extras = [...documentsByVariantId.keys()].filter((variantId) => !registered.has(variantId));
-    throw new Error(`Bundled furniture JSON is missing from catalog manifest: ${extras.join(", ")}`);
-  }
-
-  return { materialPresets, registry, variants };
+export const productionMaterialPresets=parseMaterialCatalogDocument(materialsDocument);
+export const productionFurnitureRegistry=new FurnitureVariantRegistry();
+const productsById=new Map(generatedCatalog.products.map(product=>[product.variantId,product]));
+const requests=new Map<string,Promise<ValidatedFurnitureVariant>>();
+const states=new Map<string,'loading'|'ready'|'error'>();
+const listeners=new Set<()=>void>();
+const notify=()=>{for(const listener of listeners)listener();};
+export function subscribeFurnitureModels(listener:()=>void){listeners.add(listener);return ()=>{listeners.delete(listener);};}
+export function getProductionFurnitureVariantState(id:string){return states.get(id)??'idle';}
+export function getProductionFurnitureProductMetadata(id:string){return productsById.get(id)??null;}
+export function getLoadedFurnitureVariant(id:string):ValidatedFurnitureVariant|null {
+ return productionFurnitureRegistry.hasFurnitureVariant(id)?productionFurnitureRegistry.getFurnitureVariant(id):null;
+}
+export function retryProductionFurnitureVariant(id:string):void {
+ if(states.get(id)!=='error')return;requests.delete(id);states.delete(id);notify();
+}
+export function loadProductionFurnitureVariant(id:string):Promise<ValidatedFurnitureVariant> {
+ const pending=requests.get(id);if(pending)return pending;
+ const product=productsById.get(id),asset=product?variantAssets[`../../../data/furniture/${product.variantPath}`]:undefined;
+ if(!product||!asset)return Promise.reject(new Error(`Unknown furniture model: ${id}`));
+ states.set(id,'loading');
+ const request=fetch(asset,{cache:'no-cache',signal:AbortSignal.timeout(20_000)}).then(async response=>{
+  if(!response.ok)throw new Error(`Furniture model request failed: ${response.status}`);
+  return response.json() as Promise<unknown>;
+ }).then(document=>{
+  const variant=validateFurnitureVariant(document,productionMaterialPresets);assertProductContract(product,variant);
+  productionFurnitureRegistry.registerFurnitureVariant(variant);states.set(id,'ready');notify();return variant;
+ }).catch((error:unknown)=>{states.set(id,'error');notify();throw error;});
+ requests.set(id,request);notify();return request;
+}
+/** Explicit full preload is for QA, never for catalog listings or the Worker. */
+export async function createProductionFurnitureCatalog():Promise<ProductionFurnitureCatalog> {
+ const variants=await Promise.all(PRODUCTION_FURNITURE_VARIANT_IDS.map(loadProductionFurnitureVariant));
+ return {materialPresets:productionMaterialPresets,registry:productionFurnitureRegistry,variants};
 }
 
 export function getProductionFurnitureVisualFootprint(
@@ -86,19 +95,6 @@ export function getProductionFurnitureVisualFootprint(
   return product?.visualFootprint ?? null;
 }
 
-function indexVariantDocuments(modules: Record<string, unknown>): Map<string, unknown> {
-  const documents = new Map<string, unknown>();
-  for (const [modulePath, document] of Object.entries(modules)) {
-    if (!isRecord(document) || typeof document.variantId !== "string") {
-      throw new Error(`Furniture JSON "${modulePath}" does not declare variantId`);
-    }
-    if (documents.has(document.variantId)) {
-      throw new Error(`Duplicate bundled furniture variant "${document.variantId}"`);
-    }
-    documents.set(document.variantId, document);
-  }
-  return documents;
-}
 
 function assertProductContract(product: CatalogProduct, variant: ValidatedFurnitureVariant): void {
   if (product.productId !== `${variant.variantId}-01`) {

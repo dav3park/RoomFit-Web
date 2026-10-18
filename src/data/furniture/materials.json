@@ -193,6 +193,53 @@
       "metalness": 0,
       "transparent": true,
       "opacity": 0.58
+    },
+    "icePlastic": {
+      "color": "#E1E9E8",
+      "roughness": 0.32,
+      "metalness": 0,
+      "transparent": true,
+      "opacity": 0.9
+    },
+    "jungleGreenMetal": {
+      "color": "#28664D",
+      "roughness": 0.4,
+      "metalness": 0.15
+    },
+    "clearGlassSheet": {
+      "color": "#D7E1DF",
+      "roughness": 0.18,
+      "metalness": 0,
+      "transparent": true,
+      "opacity": 0.2
+    },
+    "reededGlass": {
+      "color": "#C4D0CC",
+      "roughness": 0.28,
+      "metalness": 0,
+      "transparent": true,
+      "opacity": 0.68
+    },
+    "opalGlass": {
+      "color": "#F2F0E9",
+      "roughness": 0.48,
+      "metalness": 0,
+      "emissive": "#FFF5DB",
+      "emissiveIntensity": 0.25
+    },
+    "pinkDiffuser": {
+      "color": "#F0A7A1",
+      "roughness": 0.4,
+      "metalness": 0,
+      "emissive": "#F0A7A1",
+      "emissiveIntensity": 0.65
+    },
+    "meshFabric": {
+      "color": "#4B4A47",
+      "roughness": 0.94,
+      "metalness": 0,
+      "transparent": true,
+      "opacity": 0.82
     }
   }
 }

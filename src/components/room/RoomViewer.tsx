@@ -10,8 +10,8 @@ import Lighting from "./Lighting";
 import Wall from "./Wall";
 import Window from "./Window";
 import { entranceViewCamera, interiorViewWallIds } from "./roomViewGeometry";
-import { resolveFurnitureSupportPositions } from "./furnitureSupportPlacement";
-import { isWindowAnchoredFurniture, resolveWindowBlindPlacements } from "./windowBlindPlacement";
+import { resolveFurnitureInstallations } from "../../geometry/furnitureInstallation";
+import { placementPolicy } from "../../config/furniturePlacementPolicy";
 import { computeLocalValidationIssues } from "../../geometry/liveValidation";
 import type { Furniture, RoomLayout, Vector2D, WallSegment } from "../../types";
 import type { FurnitureColorThemeId } from "../../config/furnitureBehaviorPolicy";
@@ -62,12 +62,11 @@ export function RoomViewer({
   const activeCamera = alignCameraToEntrance ? entranceViewCamera(room, camera) : camera;
   const cameraMode = alignCameraToEntrance ? `entrance-${room.id}` : `default-${room.id}`;
   const visibleFurniture = furniture.filter((item) => item.status !== "deleted");
-  const blindPlacements = resolveWindowBlindPlacements(room, visibleFurniture);
-  const supportPositions = resolveFurnitureSupportPositions(visibleFurniture);
+  const installations=resolveFurnitureInstallations(room,visibleFurniture);
   // Recomputed from the furniture list alone on every render — including
   // every drag tick — so a collision/clearance problem shows up as a
   // red/orange floor decal instantly, before any server round-trip.
-  const liveIssues = computeLocalValidationIssues(furniture, room);
+  const liveIssues = computeLocalValidationIssues(furniture, room, "render");
 
   return (
     <div className="viewer-shell">
@@ -110,11 +109,8 @@ export function RoomViewer({
           />
 
           {visibleFurniture.map((item) => {
-            const blindPlacement = blindPlacements.get(item.id);
-            const supportPosition = supportPositions.get(item.id);
-            // A blind has no free-standing fallback: a room without a window,
-            // or with no remaining unused window, cannot render one mid-room.
-            if (isWindowAnchoredFurniture(item) && !blindPlacement) return null;
+            const installation=installations.get(item.id);
+            const anchored=placementPolicy(item).installation==='WINDOW';
             const itemIssues = liveIssues.filter((issue) => issue.furnitureId === item.id);
             const bodySeverity = itemIssues.some((issue) => issue.severity === "ERROR") ? "ERROR" : null;
             const warningZoneSides = itemIssues
@@ -128,16 +124,16 @@ export function RoomViewer({
                 item={item}
                 room={room}
                 isSelected={selectedFurnitureId === item.id}
-                canTransform={showEditingHelpers && !blindPlacement}
-                showSelectionIndicator={showEditingHelpers && !blindPlacement}
+                canTransform={showEditingHelpers && !anchored}
+                showSelectionIndicator={showEditingHelpers && !anchored}
                 onSelect={onSelectFurniture}
                 onMove={onMoveFurniture}
                 onMoveStart={onBeginMoveFurniture}
                 onMoveEnd={onEndMoveFurniture}
                 preferredColorTone={getLayoutAppliedColorScheme(room)??preferredColorTone}
-                layoutPosition={blindPlacement?.position ?? supportPosition}
-                layoutRotationY={blindPlacement?.rotationY}
-                visualScale={blindPlacement?.scale}
+                layoutPosition={installation?.position}
+                layoutRotationY={installation?.rotationY}
+                visualScale={item.demoVisualScale??installation?.scale}
                 bodySeverity={bodySeverity}
                 warningZoneSides={warningZoneSides}
               />

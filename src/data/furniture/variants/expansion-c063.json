@@ -1,0 +1,254 @@
+{
+  "schemaVersion": "1.0",
+  "name": "보강봉 프레임 커피 테이블",
+  "furnitureType": "사이드 테이블",
+  "variant": "보강봉 프레임 커피 테이블",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.45,
+    "depth": 0.45,
+    "height": 0.4265
+  },
+  "materials": [
+    "metal",
+    "ceramic"
+  ],
+  "parts": [
+    {
+      "id": "rear-vertical--0.19",
+      "geometry": "cylinder",
+      "position": [
+        -0.19,
+        0.199,
+        -0.19
+      ],
+      "size": [
+        0.007,
+        0.007,
+        0.398
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "front-vertical--0.19",
+      "geometry": "cylinder",
+      "position": [
+        -0.19,
+        0.199,
+        0.19
+      ],
+      "size": [
+        0.007,
+        0.007,
+        0.398
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "top-rebar--0.19",
+      "geometry": "cylinder",
+      "position": [
+        -0.19,
+        0.398,
+        0
+      ],
+      "size": [
+        0.007,
+        0.007,
+        0.38
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "rear-vertical-0.19",
+      "geometry": "cylinder",
+      "position": [
+        0.19,
+        0.199,
+        -0.19
+      ],
+      "size": [
+        0.007,
+        0.007,
+        0.398
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "front-vertical-0.19",
+      "geometry": "cylinder",
+      "position": [
+        0.19,
+        0.199,
+        0.19
+      ],
+      "size": [
+        0.007,
+        0.007,
+        0.398
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "top-rebar-0.19",
+      "geometry": "cylinder",
+      "position": [
+        0.19,
+        0.398,
+        0
+      ],
+      "size": [
+        0.007,
+        0.007,
+        0.38
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "welded-low-brace-front",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.055,
+        0.19
+      ],
+      "size": [
+        0.007,
+        0.007,
+        0.38
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "welded-low-brace-back",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.055,
+        -0.19
+      ],
+      "size": [
+        0.007,
+        0.007,
+        0.38
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "welded-low-brace-left",
+      "geometry": "cylinder",
+      "position": [
+        -0.19,
+        0.055,
+        0
+      ],
+      "size": [
+        0.007,
+        0.007,
+        0.38
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "welded-low-brace-right",
+      "geometry": "cylinder",
+      "position": [
+        0.19,
+        0.055,
+        0
+      ],
+      "size": [
+        0.007,
+        0.007,
+        0.38
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "stone-slab",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.414,
+        0
+      ],
+      "size": [
+        0.45,
+        0.025,
+        0.45
+      ],
+      "material": "ceramic",
+      "radius": 0.005,
+      "smoothness": 5
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/hay/furniture/tables/coffee-table/rebar-coffee-table",
+  "variantId": "expansion-c063",
+  "furnitureTypeCode": "SIDE_TABLE",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

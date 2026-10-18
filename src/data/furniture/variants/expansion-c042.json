@@ -1,0 +1,1703 @@
+{
+  "schemaVersion": "1.0",
+  "name": "굴곡 띠형 벽책장",
+  "furnitureType": "책장/오픈 선반",
+  "variant": "굴곡 띠형 벽책장",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.5679780519624236,
+    "depth": 0.2,
+    "height": 0.552253234123914
+  },
+  "materials": [
+    "gentianBlueMetal"
+  ],
+  "parts": [
+    {
+      "id": "flexible-band-0",
+      "geometry": "roundedBox",
+      "position": [
+        0.0437875882577374,
+        0.28926643886279363,
+        0
+      ],
+      "size": [
+        0.012,
+        0.010910245031050272,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.30009089685358586
+      ]
+    },
+    {
+      "id": "book-stop-0",
+      "geometry": "cylinder",
+      "position": [
+        0.04217501562433129,
+        0.33905510782731146,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.046452688611401005,
+        0.30001119129077175,
+        0
+      ],
+      "size": [
+        0.012,
+        0.011265268200774095,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.1879673491238859
+      ]
+    },
+    {
+      "id": "flexible-band-2",
+      "geometry": "roundedBox",
+      "position": [
+        0.0479495875689796,
+        0.3113384409781446,
+        0
+      ],
+      "size": [
+        0.012,
+        0.011621688708113496,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.07654748154737331
+      ]
+    },
+    {
+      "id": "flexible-band-3",
+      "geometry": "roundedBox",
+      "position": [
+        0.0481889770645552,
+        0.32311845167415393,
+        0
+      ],
+      "size": [
+        0.012,
+        0.01197938182947324,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        0.03422910753224387
+      ]
+    },
+    {
+      "id": "flexible-band-4",
+      "geometry": "roundedBox",
+      "position": [
+        0.04709616731642277,
+        0.335209532418497,
+        0
+      ],
+      "size": [
+        0.012,
+        0.012338236883746148,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        0.1444163608194935
+      ]
+    },
+    {
+      "id": "flexible-band-5",
+      "geometry": "roundedBox",
+      "position": [
+        0.044612573696251184,
+        0.3474596988193495,
+        0
+      ],
+      "size": [
+        0.012,
+        0.012698155361219116,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        0.2540625661619671
+      ]
+    },
+    {
+      "id": "book-stop-5",
+      "geometry": "cylinder",
+      "position": [
+        0.04620833931003583,
+        0.3963144307617073,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-6",
+      "geometry": "roundedBox",
+      "position": [
+        0.040697014078497115,
+        0.3597085107792581,
+        0
+      ],
+      "size": [
+        0.012,
+        0.013059049335651655,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        0.3632110495889873
+      ]
+    },
+    {
+      "id": "flexible-band-7",
+      "geometry": "roundedBox",
+      "position": [
+        0.035326796414895834,
+        0.3717890650401077,
+        0
+      ],
+      "size": [
+        0.012,
+        0.013420840112281058,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        0.47190077358665206
+      ]
+    },
+    {
+      "id": "flexible-band-8",
+      "geometry": "roundedBox",
+      "position": [
+        0.0284985787422746,
+        0.38353011865114467,
+        0
+      ],
+      "size": [
+        0.012,
+        0.013783457072989414,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        0.5801668544966224
+      ]
+    },
+    {
+      "id": "flexible-band-9",
+      "geometry": "roundedBox",
+      "position": [
+        0.0202289865440462,
+        0.3947583174763723,
+        0
+      ],
+      "size": [
+        0.012,
+        0.014146836686749861,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        0.6880410108423796
+      ]
+    },
+    {
+      "id": "flexible-band-10",
+      "geometry": "roundedBox",
+      "position": [
+        0.010554975314956638,
+        0.40530050217637387,
+        0
+      ],
+      "size": [
+        0.012,
+        0.014510921659057558,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        0.7955519525991948
+      ]
+    },
+    {
+      "id": "book-stop-10",
+      "geometry": "cylinder",
+      "position": [
+        0.015737188358807164,
+        0.45522247304914615,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-11",
+      "geometry": "roundedBox",
+      "position": [
+        -0.00046607070945112183,
+        0.4149860627480076,
+        0
+      ],
+      "size": [
+        0.012,
+        0.014875660198597582,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        0.902725719901744
+      ]
+    },
+    {
+      "id": "flexible-band-12",
+      "geometry": "roundedBox",
+      "position": [
+        -0.012756509439524638,
+        0.4236493117028956,
+        0
+      ],
+      "size": [
+        0.012,
+        0.01524100538311297,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        1.0095859783917158
+      ]
+    },
+    {
+      "id": "flexible-band-13",
+      "geometry": "roundedBox",
+      "position": [
+        -0.026218883850666425,
+        0.4311318453274909,
+        0
+      ],
+      "size": [
+        0.012,
+        0.01560691460946448,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        1.116154277316509
+      ]
+    },
+    {
+      "id": "flexible-band-14",
+      "geometry": "roundedBox",
+      "position": [
+        -0.04073663592037025,
+        0.4372848622047822,
+        0
+      ],
+      "size": [
+        0.012,
+        0.01597334911536258,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        1.222450275567804
+      ]
+    },
+    {
+      "id": "flexible-band-15",
+      "geometry": "roundedBox",
+      "position": [
+        -0.056175087112784114,
+        0.4419714082968936,
+        0
+      ],
+      "size": [
+        0.012,
+        0.016340273562290755,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        1.328491940072214
+      ]
+    },
+    {
+      "id": "book-stop-15",
+      "geometry": "cylinder",
+      "position": [
+        -0.048243619328448575,
+        0.4950110629679599,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-16",
+      "geometry": "roundedBox",
+      "position": [
+        -0.07238267750208975,
+        0.44506851839094513,
+        0
+      ],
+      "size": [
+        0.012,
+        0.01670765567082477,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        1.4342957202902356
+      ]
+    },
+    {
+      "id": "flexible-band-17",
+      "geometry": "roundedBox",
+      "position": [
+        -0.08919245224728956,
+        0.44646922459487964,
+        0
+      ],
+      "size": [
+        0.012,
+        0.017075465900943568,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        1.5398767020269617
+      ]
+    },
+    {
+      "id": "flexible-band-18",
+      "geometry": "roundedBox",
+      "position": [
+        -0.10642378085385176,
+        0.4460844038282506,
+        0
+      ],
+      "size": [
+        0.012,
+        0.017443677171079367,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        1.6452487432913778
+      ]
+    },
+    {
+      "id": "flexible-band-19",
+      "geometry": "roundedBox",
+      "position": [
+        -0.12388429152307615,
+        0.44384443787335953,
+        0
+      ],
+      "size": [
+        0.012,
+        0.01781226461061267,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        1.7504245945462609
+      ]
+    },
+    {
+      "id": "flexible-band-20",
+      "geometry": "roundedBox",
+      "position": [
+        -0.14137199993760724,
+        0.4397006615183097,
+        0
+      ],
+      "size": [
+        0.012,
+        0.01818120534131977,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        1.8554160053571647
+      ]
+    },
+    {
+      "id": "book-stop-20",
+      "geometry": "cylinder",
+      "position": [
+        -0.13264712572596804,
+        0.49725323412391403,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-21",
+      "geometry": "roundedBox",
+      "position": [
+        -0.15867760909896342,
+        0.4336265766149166,
+        0
+      ],
+      "size": [
+        0.012,
+        0.01855047828394425,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        1.9602338191661064
+      ]
+    },
+    {
+      "id": "flexible-band-22",
+      "geometry": "roundedBox",
+      "position": [
+        -0.17558695435566013,
+        0.4256188124663081,
+        0
+      ],
+      "size": [
+        0.012,
+        0.018920063986626674,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        2.0648880576750672
+      ]
+    },
+    {
+      "id": "flexible-band-23",
+      "geometry": "roundedBox",
+      "position": [
+        -0.19188356557110095,
+        0.4156978158229718,
+        0
+      ],
+      "size": [
+        0.012,
+        0.01928994447239542,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        2.1693879961210536
+      ]
+    },
+    {
+      "id": "flexible-band-24",
+      "geometry": "roundedBox",
+      "position": [
+        -0.2073513165083355,
+        0.40390825686997583,
+        0
+      ],
+      "size": [
+        0.012,
+        0.01966010310332215,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        2.273742230549633
+      ]
+    },
+    {
+      "id": "flexible-band-25",
+      "geometry": "roundedBox",
+      "position": [
+        -0.2217771299799233,
+        0.3903191408969862,
+        0
+      ],
+      "size": [
+        0.012,
+        0.020030524459272663,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        2.3779587380463436
+      ]
+    },
+    {
+      "id": "book-stop-25",
+      "geometry": "cylinder",
+      "position": [
+        -0.21485106653710892,
+        0.45255344270949666,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-26",
+      "geometry": "roundedBox",
+      "position": [
+        -0.23495370614751196,
+        0.3750236188186195,
+        0
+      ],
+      "size": [
+        0.012,
+        0.020401194229477802,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        2.4820449307579455
+      ]
+    },
+    {
+      "id": "flexible-band-27",
+      "geometry": "roundedBox",
+      "position": [
+        -0.2466822405751723,
+        0.35813849331542374,
+        0
+      ],
+      "size": [
+        0.012,
+        0.02077209911538419,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        2.5860077044271255
+      ]
+    },
+    {
+      "id": "flexible-band-28",
+      "geometry": "roundedBox",
+      "position": [
+        -0.2567750982564555,
+        0.3398034210532804,
+        0
+      ],
+      "size": [
+        0.012,
+        0.02114322674344933,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        2.6898534820709514
+      ]
+    },
+    {
+      "id": "flexible-band-29",
+      "geometry": "roundedBox",
+      "position": [
+        -0.26505840985637363,
+        0.32017981516781063,
+        0
+      ],
+      "size": [
+        0.012,
+        0.021514565586726975,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        2.7935882533530325
+      ]
+    },
+    {
+      "id": "flexible-band-30",
+      "geometry": "roundedBox",
+      "position": [
+        -0.2713745568401263,
+        0.2994494559261121,
+        0
+      ],
+      "size": [
+        0.012,
+        0.02188610489423245,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        2.897217610130679
+      ]
+    },
+    {
+      "id": "book-stop-30",
+      "geometry": "cylinder",
+      "position": [
+        -0.2687268854778946,
+        0.3650673763071451,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-31",
+      "geometry": "roundedBox",
+      "position": [
+        -0.27558451299965747,
+        0.27781282115613243,
+        0
+      ],
+      "size": [
+        0.012,
+        0.02225783462720971,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        3.000746778598167
+      ]
+    },
+    {
+      "id": "flexible-band-32",
+      "geometry": "roundedBox",
+      "position": [
+        -0.27757001113141433,
+        0.25548715161966323,
+        0
+      ],
+      "size": [
+        0.012,
+        0.02262974540153286,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        3.104180648396258
+      ]
+    },
+    {
+      "id": "flexible-band-33",
+      "geometry": "roundedBox",
+      "position": [
+        -0.27723550525355933,
+        0.23270426995442067,
+        0
+      ],
+      "size": [
+        0.012,
+        0.0230018284355671,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -3.075661508166676
+      ]
+    },
+    {
+      "id": "flexible-band-34",
+      "geometry": "roundedBox",
+      "position": [
+        -0.2745099007631734,
+        0.20970817508132494,
+        0
+      ],
+      "size": [
+        0.012,
+        0.02337407550290359,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -2.9724047834177343
+      ]
+    },
+    {
+      "id": "flexible-band-35",
+      "geometry": "roundedBox",
+      "position": [
+        -0.26934802730389207,
+        0.1867524370239193,
+        0
+      ],
+      "size": [
+        0.012,
+        0.0237464788894421,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -2.869230455588047
+      ]
+    },
+    {
+      "id": "book-stop-35",
+      "geometry": "cylinder",
+      "position": [
+        -0.2725420154850999,
+        0.25318800672594916,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-36",
+      "geometry": "roundedBox",
+      "position": [
+        -0.26173183181773857,
+        0.16409741987915133,
+        0
+      ],
+      "size": [
+        0.012,
+        0.024119031354370397,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -2.7661347402316294
+      ]
+    },
+    {
+      "id": "flexible-band-37",
+      "geometry": "roundedBox",
+      "position": [
+        -0.2516712722632929,
+        0.14200736317638546,
+        0
+      ],
+      "size": [
+        0.012,
+        0.024491726094634122,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -2.6631140792906405
+      ]
+    },
+    {
+      "id": "flexible-band-38",
+      "geometry": "roundedBox",
+      "position": [
+        -0.23920489576352952,
+        0.12074735403159009,
+        0
+      ],
+      "size": [
+        0.012,
+        0.024864556712540963,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -2.5601651245541515
+      ]
+    },
+    {
+      "id": "flexible-band-39",
+      "geometry": "roundedBox",
+      "position": [
+        -0.22440008846492324,
+        0.10058022431672492,
+        0
+      ],
+      "size": [
+        0.012,
+        0.025237517186182386,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -2.45728472253439
+      ]
+    },
+    {
+      "id": "flexible-band-40",
+      "geometry": "roundedBox",
+      "position": [
+        -0.2073529881058597,
+        0.08176340849493263,
+        0
+      ],
+      "size": [
+        0.012,
+        0.025610601842393967,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -2.3544699006218677
+      ]
+    },
+    {
+      "id": "book-stop-40",
+      "geometry": "cylinder",
+      "position": [
+        -0.2164233054165802,
+        0.14580249448662735,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-41",
+      "geometry": "roundedBox",
+      "position": [
+        -0.18818805416541162,
+        0.06454579879894312,
+        0
+      ],
+      "size": [
+        0.012,
+        0.025983805332005075,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -2.2517178543960616
+      ]
+    },
+    {
+      "id": "flexible-band-42",
+      "geometry": "roundedBox",
+      "position": [
+        -0.167057294449298,
+        0.049164635036382076,
+        0
+      ],
+      "size": [
+        0.012,
+        0.026357122607153324,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -2.149025935981567
+      ]
+    },
+    {
+      "id": "flexible-band-43",
+      "geometry": "roundedBox",
+      "position": [
+        -0.14413915102273672,
+        0.03584246647943007,
+        0
+      ],
+      "size": [
+        0.012,
+        0.026730548900473515,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -2.046391643351302
+      ]
+    },
+    {
+      "id": "flexible-band-44",
+      "geometry": "roundedBox",
+      "position": [
+        -0.11963705247308727,
+        0.024784223030458297,
+        0
+      ],
+      "size": [
+        0.012,
+        0.027104079705974365,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -1.943812610488853
+      ]
+    },
+    {
+      "id": "flexible-band-45",
+      "geometry": "roundedBox",
+      "position": [
+        -0.09377764353111198,
+        0.01617443214785913,
+        0
+      ],
+      "size": [
+        0.012,
+        0.02747771076145372,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -1.8412865983310587
+      ]
+    },
+    {
+      "id": "book-stop-45",
+      "geometry": "cylinder",
+      "position": [
+        -0.10701695426361307,
+        0.07484550808017221,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-46",
+      "geometry": "roundedBox",
+      "position": [
+        -0.06680870705063847,
+        0.010174616870430253,
+        0
+      ],
+      "size": [
+        0.012,
+        0.027851438032308273,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -1.738811486420036
+      ]
+    },
+    {
+      "id": "flexible-band-47",
+      "geometry": "roundedBox",
+      "position": [
+        -0.03899679719507018,
+        0.006920908702623296,
+        0
+      ],
+      "size": [
+        0.012,
+        0.02822525769660916,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -1.636385265201182
+      ]
+    },
+    {
+      "id": "flexible-band-48",
+      "geometry": "roundedBox",
+      "position": [
+        -0.010624606359168925,
+        0.0065219071300838816,
+        0
+      ],
+      "size": [
+        0.012,
+        0.02859916613133319,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -1.534006028909893
+      ]
+    },
+    {
+      "id": "flexible-band-49",
+      "geometry": "roundedBox",
+      "position": [
+        0.018011908179074443,
+        0.009056815143524577,
+        0
+      ],
+      "size": [
+        0.012,
+        0.028973159899643563,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -1.4316719689955246
+      ]
+    },
+    {
+      "id": "flexible-band-50",
+      "geometry": "roundedBox",
+      "position": [
+        0.04660660867174629,
+        0.01457387738222643,
+        0
+      ],
+      "size": [
+        0.012,
+        0.029347235739130607,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -1.329381368036112
+      ]
+    },
+    {
+      "id": "book-stop-50",
+      "geometry": "cylinder",
+      "position": [
+        0.032358515989012474,
+        0.06606575590681346,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-51",
+      "geometry": "roundedBox",
+      "position": [
+        0.07484644026167217,
+        0.023089144394092653,
+        0
+      ],
+      "size": [
+        0.012,
+        0.029721390550931957,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -1.2271325941019207
+      ]
+    },
+    {
+      "id": "flexible-band-52",
+      "geometry": "roundedBox",
+      "position": [
+        0.10241483859369527,
+        0.03458558307921805,
+        0
+      ],
+      "size": [
+        0.012,
+        0.030095621389647702,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -1.1249240955299138
+      ]
+    },
+    {
+      "id": "flexible-band-53",
+      "geometry": "roundedBox",
+      "position": [
+        0.12899524476895666,
+        0.04901254967441737,
+        0
+      ],
+      "size": [
+        0.012,
+        0.030469925453996953,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -1.0227543960747634
+      ]
+    },
+    {
+      "id": "flexible-band-54",
+      "geometry": "roundedBox",
+      "position": [
+        0.1542746889216973,
+        0.0662856376866992,
+        0
+      ],
+      "size": [
+        0.012,
+        0.030844300078140187,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.9206220904053221
+      ]
+    },
+    {
+      "id": "flexible-band-55",
+      "geometry": "roundedBox",
+      "position": [
+        0.177947402308939,
+        0.08628690903707908,
+        0
+      ],
+      "size": [
+        0.012,
+        0.03121874272362159,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.8185258399183516
+      ]
+    },
+    {
+      "id": "book-stop-55",
+      "geometry": "cylinder",
+      "position": [
+        0.16655038632400757,
+        0.1306210522524538,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-56",
+      "geometry": "roundedBox",
+      "position": [
+        0.19971841685903638,
+        0.10886551237793368,
+        0
+      ],
+      "size": [
+        0.012,
+        0.03159325097187809,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.7164643688438533
+      ]
+    },
+    {
+      "id": "flexible-band-57",
+      "geometry": "roundedBox",
+      "position": [
+        0.2193071106417028,
+        0.13383868814504557,
+        0
+      ],
+      "size": [
+        0.012,
+        0.03196782251726893,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.6144364606186539
+      ]
+    },
+    {
+      "id": "flexible-band-58",
+      "geometry": "roundedBox",
+      "position": [
+        0.23645065771077448,
+        0.1609931554490152,
+        0
+      ],
+      "size": [
+        0.012,
+        0.03234245516058131,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.5124409545071388
+      ]
+    },
+    {
+      "id": "flexible-band-59",
+      "geometry": "roundedBox",
+      "position": [
+        0.25090734123745173,
+        0.1900868714504264,
+        0
+      ],
+      "size": [
+        0.012,
+        0.03271714680298292,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.4104767424497142
+      ]
+    },
+    {
+      "id": "flexible-band-60",
+      "geometry": "roundedBox",
+      "position": [
+        0.26245968979639456,
+        0.2208511494501969,
+        0
+      ],
+      "size": [
+        0.012,
+        0.03309189544037595,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.30854276612141235
+      ]
+    },
+    {
+      "id": "book-stop-60",
+      "geometry": "cylinder",
+      "position": [
+        0.2574351729125579,
+        0.26008654935875036,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.10999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "flexible-band-61",
+      "geometry": "roundedBox",
+      "position": [
+        0.2709173980847239,
+        0.25299311761210236,
+        0
+      ],
+      "size": [
+        0.012,
+        0.03346669915812853,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.20663801418452155
+      ]
+    },
+    {
+      "id": "flexible-band-62",
+      "geometry": "roundedBox",
+      "position": [
+        0.2761199952341241,
+        0.2861984960691108,
+        0
+      ],
+      "size": [
+        0.012,
+        0.03384155612615543,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.10476151972057525
+      ]
+    },
+    {
+      "id": "flexible-band-63",
+      "geometry": "roundedBox",
+      "position": [
+        0.27793922620285494,
+        0.3201346661983249,
+        0
+      ],
+      "size": [
+        0.012,
+        0.03421646459431243,
+        0.2
+      ],
+      "material": "gentianBlueMetal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.002912357828249948
+      ]
+    }
+  ],
+  "purchaseUrl": "https://www.kartell.com/es/es/ktes/shop/product/bookworm/kar080031a",
+  "variantId": "expansion-c042",
+  "furnitureTypeCode": "BOOKSHELF",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

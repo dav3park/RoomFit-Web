@@ -1,5 +1,5 @@
 import type { FurnitureVariantRegistry } from "./FurnitureVariantRegistry";
-import { createProductionFurnitureCatalog } from "./productionFurnitureCatalog";
+import { productionFurnitureRegistry,productionMaterialPresets,getProductionFurnitureProductMetadata } from "./productionFurnitureCatalog";
 import type { FurnitureVariantDimensions, ValidatedFurnitureVariant } from "./types";
 
 export const FURNITURE_VARIANT_DIMENSION_TOLERANCE_METERS = 0.001;
@@ -21,11 +21,7 @@ export interface FurnitureDimensionMismatch {
   variantValue: number;
 }
 
-const productionCatalog = createProductionFurnitureCatalog();
-const productionRenderResources = {
-  materialPresets: productionCatalog.materialPresets,
-  registry: productionCatalog.registry,
-};
+const productionRenderResources = {materialPresets:productionMaterialPresets,registry:productionFurnitureRegistry};
 const warnedUnknownVariantIds = new Set<string>();
 const warnedDimensionMismatches = new Set<string>();
 const defaultWarningEnvironment: WarningEnvironment = {
@@ -35,13 +31,14 @@ const defaultWarningEnvironment: WarningEnvironment = {
 
 export function resolveFurnitureVariant(
   variantId: string | null | undefined,
-  registry: FurnitureVariantRegistryReader = productionCatalog.registry,
+  registry: FurnitureVariantRegistryReader = productionFurnitureRegistry,
   warningEnvironment: WarningEnvironment = defaultWarningEnvironment,
-): ValidatedFurnitureVariant | null {
+): Pick<ValidatedFurnitureVariant,'variantId'|'dimensions'> | null {
   if (variantId == null) {
     return null;
   }
 
+  if(registry===productionFurnitureRegistry){const product=getProductionFurnitureProductMetadata(variantId);if(product)return product;}
   if (!registry.hasFurnitureVariant(variantId)) {
     if (warningEnvironment.isDevelopment && !warnedUnknownVariantIds.has(variantId)) {
       warnedUnknownVariantIds.add(variantId);

@@ -1,0 +1,1872 @@
+{
+  "schemaVersion": "1.0",
+  "name": "롤러 패턴 미디어장",
+  "furnitureType": "TV장/미디어 콘솔",
+  "variant": "롤러 패턴 미디어장",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.6480000000000001,
+    "depth": 0.463,
+    "height": 0.56
+  },
+  "materials": [
+    "metal",
+    "woodDark"
+  ],
+  "parts": [
+    {
+      "id": "roller-leg--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.67,
+        0.08,
+        -0.1565
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "roller-leg--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.67,
+        0.08,
+        0.1435
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "roller-leg-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.67,
+        0.08,
+        -0.1565
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "roller-leg-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.67,
+        0.08,
+        0.1435
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "bottom",
+      "geometry": "box",
+      "position": [
+        0,
+        0.175,
+        -0.006500000000000006
+      ],
+      "size": [
+        1.62,
+        0.03,
+        0.45
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "top",
+      "geometry": "box",
+      "position": [
+        0,
+        0.545,
+        -0.006500000000000006
+      ],
+      "size": [
+        1.62,
+        0.03,
+        0.45
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "left",
+      "geometry": "box",
+      "position": [
+        -0.795,
+        0.36,
+        -0.006500000000000006
+      ],
+      "size": [
+        0.03,
+        0.4,
+        0.45
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "right",
+      "geometry": "box",
+      "position": [
+        0.795,
+        0.36,
+        -0.006500000000000006
+      ],
+      "size": [
+        0.03,
+        0.4,
+        0.45
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "back",
+      "geometry": "box",
+      "position": [
+        0,
+        0.36,
+        -0.2225
+      ],
+      "size": [
+        1.56,
+        0.34,
+        0.018
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.792,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.7684000000000001,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.7448,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.7212000000000001,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-4",
+      "geometry": "cylinder",
+      "position": [
+        -0.6976,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-5",
+      "geometry": "cylinder",
+      "position": [
+        -0.674,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-6",
+      "geometry": "cylinder",
+      "position": [
+        -0.6504000000000001,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-7",
+      "geometry": "cylinder",
+      "position": [
+        -0.6268,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-8",
+      "geometry": "cylinder",
+      "position": [
+        -0.6032000000000001,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-9",
+      "geometry": "cylinder",
+      "position": [
+        -0.5796,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-10",
+      "geometry": "cylinder",
+      "position": [
+        -0.556,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-11",
+      "geometry": "cylinder",
+      "position": [
+        -0.5324,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-12",
+      "geometry": "cylinder",
+      "position": [
+        -0.5088,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-13",
+      "geometry": "cylinder",
+      "position": [
+        -0.4852,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-14",
+      "geometry": "cylinder",
+      "position": [
+        -0.46160000000000007,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-15",
+      "geometry": "cylinder",
+      "position": [
+        -0.43800000000000006,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-16",
+      "geometry": "cylinder",
+      "position": [
+        -0.41440000000000005,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-17",
+      "geometry": "cylinder",
+      "position": [
+        -0.39080000000000004,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-18",
+      "geometry": "cylinder",
+      "position": [
+        -0.3672,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-19",
+      "geometry": "cylinder",
+      "position": [
+        -0.34360000000000007,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-20",
+      "geometry": "cylinder",
+      "position": [
+        -0.32000000000000006,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-21",
+      "geometry": "cylinder",
+      "position": [
+        -0.29640000000000005,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-22",
+      "geometry": "cylinder",
+      "position": [
+        -0.27280000000000004,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-23",
+      "geometry": "cylinder",
+      "position": [
+        -0.2492000000000001,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-24",
+      "geometry": "cylinder",
+      "position": [
+        -0.22560000000000002,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-25",
+      "geometry": "cylinder",
+      "position": [
+        -0.20200000000000007,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-26",
+      "geometry": "cylinder",
+      "position": [
+        -0.1784,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-27",
+      "geometry": "cylinder",
+      "position": [
+        -0.15480000000000005,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-28",
+      "geometry": "cylinder",
+      "position": [
+        -0.1312000000000001,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-29",
+      "geometry": "cylinder",
+      "position": [
+        -0.10760000000000003,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-30",
+      "geometry": "cylinder",
+      "position": [
+        -0.08400000000000007,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-31",
+      "geometry": "cylinder",
+      "position": [
+        -0.06040000000000001,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-32",
+      "geometry": "cylinder",
+      "position": [
+        -0.036800000000000055,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-33",
+      "geometry": "cylinder",
+      "position": [
+        -0.0132000000000001,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-34",
+      "geometry": "cylinder",
+      "position": [
+        0.010399999999999965,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-35",
+      "geometry": "cylinder",
+      "position": [
+        0.03399999999999992,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-36",
+      "geometry": "cylinder",
+      "position": [
+        0.057599999999999985,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-37",
+      "geometry": "cylinder",
+      "position": [
+        0.08119999999999994,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-38",
+      "geometry": "cylinder",
+      "position": [
+        0.1047999999999999,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-39",
+      "geometry": "cylinder",
+      "position": [
+        0.12839999999999996,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-40",
+      "geometry": "cylinder",
+      "position": [
+        0.1519999999999999,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-41",
+      "geometry": "cylinder",
+      "position": [
+        0.17559999999999998,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-42",
+      "geometry": "cylinder",
+      "position": [
+        0.19919999999999993,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-43",
+      "geometry": "cylinder",
+      "position": [
+        0.2227999999999999,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-44",
+      "geometry": "cylinder",
+      "position": [
+        0.24639999999999995,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-45",
+      "geometry": "cylinder",
+      "position": [
+        0.27,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-46",
+      "geometry": "cylinder",
+      "position": [
+        0.29359999999999986,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-47",
+      "geometry": "cylinder",
+      "position": [
+        0.3171999999999999,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-48",
+      "geometry": "cylinder",
+      "position": [
+        0.3408,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-49",
+      "geometry": "cylinder",
+      "position": [
+        0.36439999999999984,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-50",
+      "geometry": "cylinder",
+      "position": [
+        0.3879999999999999,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-51",
+      "geometry": "cylinder",
+      "position": [
+        0.41159999999999997,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-52",
+      "geometry": "cylinder",
+      "position": [
+        0.43520000000000003,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-53",
+      "geometry": "cylinder",
+      "position": [
+        0.4587999999999999,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-54",
+      "geometry": "cylinder",
+      "position": [
+        0.48239999999999994,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-55",
+      "geometry": "cylinder",
+      "position": [
+        0.506,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-56",
+      "geometry": "cylinder",
+      "position": [
+        0.5295999999999998,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-57",
+      "geometry": "cylinder",
+      "position": [
+        0.5531999999999999,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-58",
+      "geometry": "cylinder",
+      "position": [
+        0.5768,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-59",
+      "geometry": "cylinder",
+      "position": [
+        0.6003999999999998,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-60",
+      "geometry": "cylinder",
+      "position": [
+        0.6239999999999999,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-61",
+      "geometry": "cylinder",
+      "position": [
+        0.6476,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-62",
+      "geometry": "cylinder",
+      "position": [
+        0.6712,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-63",
+      "geometry": "cylinder",
+      "position": [
+        0.6947999999999999,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-64",
+      "geometry": "cylinder",
+      "position": [
+        0.7183999999999999,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-65",
+      "geometry": "cylinder",
+      "position": [
+        0.742,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-66",
+      "geometry": "cylinder",
+      "position": [
+        0.7655999999999998,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "tambour-slat-67",
+      "geometry": "cylinder",
+      "position": [
+        0.7891999999999999,
+        0.355,
+        0.2215
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end--1-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.76,
+        0.355,
+        0.2185
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.7722386513675973,
+        0.355,
+        0.2171210351700003
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end--1-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.7838636056514657,
+        0.355,
+        0.21305328773463306
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end--1-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.7942919391022304,
+        0.355,
+        0.20650073153574164
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end--1-4",
+      "geometry": "cylinder",
+      "position": [
+        -0.8030007315357417,
+        0.355,
+        0.19779193910223036
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end--1-5",
+      "geometry": "cylinder",
+      "position": [
+        -0.8095532877346331,
+        0.355,
+        0.1873636056514657
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end--1-6",
+      "geometry": "cylinder",
+      "position": [
+        -0.8136210351700003,
+        0.355,
+        0.1757386513675973
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end--1-7",
+      "geometry": "cylinder",
+      "position": [
+        -0.8150000000000001,
+        0.355,
+        0.1635
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end-1-0",
+      "geometry": "cylinder",
+      "position": [
+        0.76,
+        0.355,
+        0.2185
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.7722386513675973,
+        0.355,
+        0.2171210351700003
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end-1-2",
+      "geometry": "cylinder",
+      "position": [
+        0.7838636056514657,
+        0.355,
+        0.21305328773463306
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end-1-3",
+      "geometry": "cylinder",
+      "position": [
+        0.7942919391022304,
+        0.355,
+        0.20650073153574164
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end-1-4",
+      "geometry": "cylinder",
+      "position": [
+        0.8030007315357417,
+        0.355,
+        0.19779193910223036
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end-1-5",
+      "geometry": "cylinder",
+      "position": [
+        0.8095532877346331,
+        0.355,
+        0.1873636056514657
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end-1-6",
+      "geometry": "cylinder",
+      "position": [
+        0.8136210351700003,
+        0.355,
+        0.1757386513675973
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "rounded-end-1-7",
+      "geometry": "cylinder",
+      "position": [
+        0.8150000000000001,
+        0.355,
+        0.1635
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.35000000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    }
+  ],
+  "purchaseUrl": "https://media.ethnicraft.com/sys-master/s3_product_medias/h78/he7/8927676235806/Roller%20Max%20162%20LD.pdf",
+  "variantId": "expansion-c072",
+  "furnitureTypeCode": "MEDIA_CONSOLE",
+  "styleTags": [
+    "modern",
+    "natural"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

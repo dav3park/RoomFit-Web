@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "1.0",
+  "name": "노출 원목 랙 선반",
+  "furnitureType": "책장/오픈 선반",
+  "variant": "노출 원목 랙 선반",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.03,
+    "depth": 0.43200000000000005,
+    "height": 1.96
+  },
+  "materials": [
+    "woodLight",
+    "paintedWhite",
+    "metalLight",
+    "mustardPaint"
+  ],
+  "parts": [
+    {
+      "id": "upright--0.49--0.2",
+      "geometry": "box",
+      "position": [
+        -0.49,
+        0.98,
+        -0.2
+      ],
+      "size": [
+        0.032,
+        1.96,
+        0.032
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "upright--0.49-0.2",
+      "geometry": "box",
+      "position": [
+        -0.49,
+        0.98,
+        0.2
+      ],
+      "size": [
+        0.032,
+        1.96,
+        0.032
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "upright-0.49--0.2",
+      "geometry": "box",
+      "position": [
+        0.49,
+        0.98,
+        -0.2
+      ],
+      "size": [
+        0.032,
+        1.96,
+        0.032
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "upright-0.49-0.2",
+      "geometry": "box",
+      "position": [
+        0.49,
+        0.98,
+        0.2
+      ],
+      "size": [
+        0.032,
+        1.96,
+        0.032
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "sheet-shelf-0",
+      "geometry": "box",
+      "position": [
+        0,
+        0.1,
+        0
+      ],
+      "size": [
+        1.03,
+        0.018,
+        0.43
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "joint-0--0.49",
+      "geometry": "box",
+      "position": [
+        -0.49,
+        0.082,
+        0
+      ],
+      "size": [
+        0.032,
+        0.036,
+        0.4
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "joint-0-0.49",
+      "geometry": "box",
+      "position": [
+        0.49,
+        0.082,
+        0
+      ],
+      "size": [
+        0.032,
+        0.036,
+        0.4
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "sheet-shelf-1",
+      "geometry": "box",
+      "position": [
+        0,
+        0.44999999999999996,
+        0
+      ],
+      "size": [
+        1.03,
+        0.018,
+        0.43
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "joint-1--0.49",
+      "geometry": "box",
+      "position": [
+        -0.49,
+        0.43199999999999994,
+        0
+      ],
+      "size": [
+        0.032,
+        0.036,
+        0.4
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "joint-1-0.49",
+      "geometry": "box",
+      "position": [
+        0.49,
+        0.43199999999999994,
+        0
+      ],
+      "size": [
+        0.032,
+        0.036,
+        0.4
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "sheet-shelf-2",
+      "geometry": "box",
+      "position": [
+        0,
+        0.7999999999999999,
+        0
+      ],
+      "size": [
+        1.03,
+        0.018,
+        0.43
+      ],
+      "material": "mustardPaint"
+    },
+    {
+      "id": "joint-2--0.49",
+      "geometry": "box",
+      "position": [
+        -0.49,
+        0.7819999999999999,
+        0
+      ],
+      "size": [
+        0.032,
+        0.036,
+        0.4
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "joint-2-0.49",
+      "geometry": "box",
+      "position": [
+        0.49,
+        0.7819999999999999,
+        0
+      ],
+      "size": [
+        0.032,
+        0.036,
+        0.4
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "sheet-shelf-3",
+      "geometry": "box",
+      "position": [
+        0,
+        1.15,
+        0
+      ],
+      "size": [
+        1.03,
+        0.018,
+        0.43
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "joint-3--0.49",
+      "geometry": "box",
+      "position": [
+        -0.49,
+        1.132,
+        0
+      ],
+      "size": [
+        0.032,
+        0.036,
+        0.4
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "joint-3-0.49",
+      "geometry": "box",
+      "position": [
+        0.49,
+        1.132,
+        0
+      ],
+      "size": [
+        0.032,
+        0.036,
+        0.4
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "sheet-shelf-4",
+      "geometry": "box",
+      "position": [
+        0,
+        1.5,
+        0
+      ],
+      "size": [
+        1.03,
+        0.018,
+        0.43
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "joint-4--0.49",
+      "geometry": "box",
+      "position": [
+        -0.49,
+        1.482,
+        0
+      ],
+      "size": [
+        0.032,
+        0.036,
+        0.4
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "joint-4-0.49",
+      "geometry": "box",
+      "position": [
+        0.49,
+        1.482,
+        0
+      ],
+      "size": [
+        0.032,
+        0.036,
+        0.4
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "sheet-shelf-5",
+      "geometry": "box",
+      "position": [
+        0,
+        1.85,
+        0
+      ],
+      "size": [
+        1.03,
+        0.018,
+        0.43
+      ],
+      "material": "mustardPaint"
+    },
+    {
+      "id": "joint-5--0.49",
+      "geometry": "box",
+      "position": [
+        -0.49,
+        1.832,
+        0
+      ],
+      "size": [
+        0.032,
+        0.036,
+        0.4
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "joint-5-0.49",
+      "geometry": "box",
+      "position": [
+        0.49,
+        1.832,
+        0
+      ],
+      "size": [
+        0.032,
+        0.036,
+        0.4
+      ],
+      "material": "woodLight"
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/products/furniture/shelves",
+  "variantId": "expansion-c035",
+  "furnitureTypeCode": "BOOKSHELF",
+  "styleTags": [
+    "natural"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0",
+  "name": "코르크 조형 사이드 테이블",
+  "furnitureType": "사이드 테이블",
+  "variant": "코르크 조형 사이드 테이블",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.3100000023841858,
+    "depth": 0.3100000023841858,
+    "height": 0.33000001311302185
+  },
+  "materials": [
+    "woodLight"
+  ],
+  "parts": [
+    {
+      "id": "turned-cork-volume",
+      "geometry": "profile",
+      "profile": [
+        [
+          0,
+          0
+        ],
+        [
+          0.155,
+          0
+        ],
+        [
+          0.155,
+          0.06
+        ],
+        [
+          0.13,
+          0.08
+        ],
+        [
+          0.105,
+          0.09
+        ],
+        [
+          0.105,
+          0.25
+        ],
+        [
+          0.14,
+          0.27
+        ],
+        [
+          0.155,
+          0.29
+        ],
+        [
+          0.155,
+          0.33
+        ],
+        [
+          0,
+          0.33
+        ]
+      ],
+      "segments": 64,
+      "material": "woodLight",
+      "position": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "purchaseUrl": "https://www.vitra.com/en-us/product/category/coffee-and-side-tables",
+  "variantId": "expansion-c069",
+  "furnitureTypeCode": "SIDE_TABLE",
+  "styleTags": [
+    "natural"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

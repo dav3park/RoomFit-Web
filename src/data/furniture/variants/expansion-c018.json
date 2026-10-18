@@ -1,0 +1,585 @@
+{
+  "schemaVersion": "1.0",
+  "name": "로우 후톤 소파베드",
+  "furnitureType": "소파베드",
+  "variant": "로우 후톤 소파베드",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.46,
+    "depth": 1.1308674331207293,
+    "height": 0.8713335730220085
+  },
+  "materials": [
+    "woodLight",
+    "fabric"
+  ],
+  "parts": [
+    {
+      "id": "low-foot--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.65,
+        0.05,
+        -0.3345662834396354
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "low-foot--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.65,
+        0.05,
+        0.4454337165603646
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "low-foot-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.65,
+        0.05,
+        -0.3345662834396354
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "low-foot-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.65,
+        0.05,
+        0.4454337165603646
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "side-rail--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.675,
+        0.15,
+        0.08543371656036461
+      ],
+      "size": [
+        0.05,
+        0.1,
+        0.94
+      ],
+      "material": "woodLight",
+      "radius": 0.015,
+      "smoothness": 5
+    },
+    {
+      "id": "side-rail-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.675,
+        0.15,
+        0.08543371656036461
+      ],
+      "size": [
+        0.05,
+        0.1,
+        0.94
+      ],
+      "material": "woodLight",
+      "radius": 0.015,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-slat-0",
+      "geometry": "roundedBox",
+      "position": [
+        -0.63,
+        0.195,
+        0.10043371656036461
+      ],
+      "size": [
+        0.075,
+        0.035,
+        0.91
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-slat-1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.5154545454545455,
+        0.195,
+        0.10043371656036461
+      ],
+      "size": [
+        0.075,
+        0.035,
+        0.91
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-slat-2",
+      "geometry": "roundedBox",
+      "position": [
+        -0.4009090909090909,
+        0.195,
+        0.10043371656036461
+      ],
+      "size": [
+        0.075,
+        0.035,
+        0.91
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-slat-3",
+      "geometry": "roundedBox",
+      "position": [
+        -0.2863636363636363,
+        0.195,
+        0.10043371656036461
+      ],
+      "size": [
+        0.075,
+        0.035,
+        0.91
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-slat-4",
+      "geometry": "roundedBox",
+      "position": [
+        -0.17181818181818181,
+        0.195,
+        0.10043371656036461
+      ],
+      "size": [
+        0.075,
+        0.035,
+        0.91
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-slat-5",
+      "geometry": "roundedBox",
+      "position": [
+        -0.05727272727272725,
+        0.195,
+        0.10043371656036461
+      ],
+      "size": [
+        0.075,
+        0.035,
+        0.91
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-slat-6",
+      "geometry": "roundedBox",
+      "position": [
+        0.057272727272727364,
+        0.195,
+        0.10043371656036461
+      ],
+      "size": [
+        0.075,
+        0.035,
+        0.91
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-slat-7",
+      "geometry": "roundedBox",
+      "position": [
+        0.17181818181818187,
+        0.195,
+        0.10043371656036461
+      ],
+      "size": [
+        0.075,
+        0.035,
+        0.91
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-slat-8",
+      "geometry": "roundedBox",
+      "position": [
+        0.2863636363636364,
+        0.195,
+        0.10043371656036461
+      ],
+      "size": [
+        0.075,
+        0.035,
+        0.91
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-slat-9",
+      "geometry": "roundedBox",
+      "position": [
+        0.400909090909091,
+        0.195,
+        0.10043371656036461
+      ],
+      "size": [
+        0.075,
+        0.035,
+        0.91
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-slat-10",
+      "geometry": "roundedBox",
+      "position": [
+        0.5154545454545455,
+        0.195,
+        0.10043371656036461
+      ],
+      "size": [
+        0.075,
+        0.035,
+        0.91
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-slat-11",
+      "geometry": "roundedBox",
+      "position": [
+        0.63,
+        0.195,
+        0.10043371656036461
+      ],
+      "size": [
+        0.075,
+        0.035,
+        0.91
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "back-slat-0",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.25,
+        -0.3145662834396354
+      ],
+      "size": [
+        1.46,
+        0.075,
+        0.028
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5,
+      "rotation": [
+        -0.4,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "back-slat-1",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.38,
+        -0.3695662834396354
+      ],
+      "size": [
+        1.46,
+        0.075,
+        0.028
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5,
+      "rotation": [
+        -0.4,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "back-slat-2",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.51,
+        -0.4245662834396354
+      ],
+      "size": [
+        1.46,
+        0.075,
+        0.028
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5,
+      "rotation": [
+        -0.4,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "back-slat-3",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.64,
+        -0.4795662834396354
+      ],
+      "size": [
+        1.46,
+        0.075,
+        0.028
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5,
+      "rotation": [
+        -0.4,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "back-slat-4",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.77,
+        -0.5345662834396354
+      ],
+      "size": [
+        1.46,
+        0.075,
+        0.028
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5,
+      "rotation": [
+        -0.4,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "back-rest--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.67,
+        0.5,
+        -0.41956628343963537
+      ],
+      "size": [
+        0.045,
+        0.6685057965343308,
+        0.045
+      ],
+      "material": "woodLight",
+      "radius": 0.00675,
+      "smoothness": 5,
+      "rotation": [
+        -0.38328414774568553,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "back-rest-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.67,
+        0.5,
+        -0.41956628343963537
+      ],
+      "size": [
+        0.045,
+        0.6685057965343308,
+        0.045
+      ],
+      "material": "woodLight",
+      "radius": 0.00675,
+      "smoothness": 5,
+      "rotation": [
+        -0.38328414774568553,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "back-crossbar",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.8,
+        -0.5395662834396353
+      ],
+      "size": [
+        0.022,
+        0.022,
+        1.34
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "lower-folded-futon",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.267,
+        0.11543371656036461
+      ],
+      "size": [
+        1.4,
+        0.11,
+        0.9
+      ],
+      "material": "fabric",
+      "radius": 0.05,
+      "smoothness": 5
+    },
+    {
+      "id": "upper-folded-futon",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.37,
+        0.1454337165603646
+      ],
+      "size": [
+        1.4,
+        0.13,
+        0.84
+      ],
+      "material": "fabric",
+      "radius": 0.06,
+      "smoothness": 5
+    },
+    {
+      "id": "folded-futon-back",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.59,
+        -0.3445662834396354
+      ],
+      "size": [
+        1.4,
+        0.53,
+        0.19
+      ],
+      "material": "fabric",
+      "radius": 0.09,
+      "smoothness": 5,
+      "rotation": [
+        -0.38,
+        0,
+        0
+      ]
+    }
+  ],
+  "purchaseUrl": "https://karupdesign.com/en-dk/products/roots-sofa-bed-raw-pine-khaki-green-mattress-140-x-200?variant=53837166674261",
+  "variantId": "expansion-c018",
+  "furnitureTypeCode": "SOFA_BED",
+  "styleTags": [
+    "minimal",
+    "natural"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

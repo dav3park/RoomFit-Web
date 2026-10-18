@@ -1,3 +1,4 @@
+import { placementPolicy } from '../../config/furniturePlacementPolicy';
 import { getProductionFurnitureVisualFootprint } from "../furniture/variants/productionFurnitureCatalog";
 import type { Furniture, Opening, RoomLayout, Size3D, Vector2D, WallSegment } from "../../types";
 
@@ -31,7 +32,8 @@ export function resolveFurnitureLocalFootprint(furniture: Furniture): FurnitureL
   if (furniture.variantId) {
     const visualFootprint = getProductionFurnitureVisualFootprint(furniture.variantId);
     if (visualFootprint) {
-      const [x, , z] = furniture.demoVisualScale ?? [1, 1, 1];
+      const source=placementPolicy(furniture).sourceDimensions;
+      const [x, , z] = furniture.demoVisualScale ?? (source?[furniture.dimensions.width/source.width,1,furniture.dimensions.depth/source.depth]:[1,1,1]);
       return {minX:visualFootprint.minX*x,maxX:visualFootprint.maxX*x,minZ:visualFootprint.minZ*z,maxZ:visualFootprint.maxZ*z};
     }
   }

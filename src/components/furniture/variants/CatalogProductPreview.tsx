@@ -1,3 +1,5 @@
+import Button from "../../ui/Button";
+import { useFurnitureVariant } from "./useFurnitureVariant";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useMemo, useRef, type ComponentRef } from "react";
@@ -29,14 +31,14 @@ interface CatalogProductPreviewProps {
  */
 export function CatalogProductPreview({ variantId, registry, materialPresets, interactive = false, allowOrbit = true, transparentBackground = false, label }: CatalogProductPreviewProps) {
   const controls = useRef<ComponentRef<typeof OrbitControls>>(null);
-  const variant = registry.getFurnitureVariant(variantId);
+  const {variant,error,retry}=useFurnitureVariant(variantId,registry);
   const footprint = getProductionFurnitureVisualFootprint(variantId);
   const centerX = footprint ? (footprint.minX + footprint.maxX) / 2 : 0;
   const centerZ = footprint ? (footprint.minZ + footprint.maxZ) / 2 : 0;
-  const spanX = footprint ? footprint.maxX - footprint.minX : variant.dimensions.width;
-  const spanZ = footprint ? footprint.maxZ - footprint.minZ : variant.dimensions.depth;
-  const targetY = variant.dimensions.height / 2;
-  const distance = Math.max(spanX, spanZ, variant.dimensions.height, 0.5) * (interactive ? 1.35 : 1.9);
+  const spanX = footprint ? footprint.maxX - footprint.minX : (variant?.dimensions.width??1);
+  const spanZ = footprint ? footprint.maxZ - footprint.minZ : (variant?.dimensions.depth??1);
+  const targetY = (variant?.dimensions.height??1) / 2;
+  const distance = Math.max(spanX, spanZ, (variant?.dimensions.height??1), 0.5) * (interactive ? 1.35 : 1.9);
 
   const target = useMemo<[number, number, number]>(
     () => [centerX, targetY, centerZ],
@@ -47,6 +49,9 @@ export function CatalogProductPreview({ variantId, registry, materialPresets, in
     [centerX, centerZ, distance, targetY],
   );
 
+  if(!variant)return <div role={error?'alert':'status'} onClick={event=>event.stopPropagation()} style={{aspectRatio:interactive?'1':'4 / 3',display:'grid',placeContent:'center'}}>
+    {error?<><span>가구 모델을 불러오지 못했습니다.</span><Button onClick={retry}>다시 불러오기</Button></>:'3D 미리보기 로딩 중…'}
+  </div>;
   return (
     <div
       style={{ width: "100%", aspectRatio: interactive ? "1" : "4 / 3" }}

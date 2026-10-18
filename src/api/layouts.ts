@@ -57,6 +57,7 @@ export interface ScoreSummary {
 }
 
 export type LayoutValidationIssueType =
+  | "INSTALLATION_INVALID"
   | "BODY_COLLISION"
   | "OUT_OF_BOUNDS"
   | "DOOR_CLEARANCE"

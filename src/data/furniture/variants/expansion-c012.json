@@ -1,0 +1,634 @@
+{
+  "schemaVersion": "1.0",
+  "name": "스틸 루프 헤드 침대",
+  "furnitureType": "침대",
+  "variant": "스틸 루프 헤드 침대",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.63,
+    "depth": 2.105,
+    "height": 0.98
+  },
+  "materials": [
+    "metal",
+    "fabricLight",
+    "woodLight",
+    "paintedWhite",
+    "fabric"
+  ],
+  "parts": [
+    {
+      "id": "steel-leg--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.7849999999999999,
+        0.16,
+        -1.0075
+      ],
+      "size": [
+        0.013,
+        0.013,
+        0.32
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "steel-leg--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.7849999999999999,
+        0.16,
+        1.0125
+      ],
+      "size": [
+        0.013,
+        0.013,
+        0.32
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "steel-leg-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.7849999999999999,
+        0.16,
+        -1.0075
+      ],
+      "size": [
+        0.013,
+        0.013,
+        0.32
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "steel-leg-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.7849999999999999,
+        0.16,
+        1.0125
+      ],
+      "size": [
+        0.013,
+        0.013,
+        0.32
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "steel-bed-frame-front",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.31,
+        1.0375
+      ],
+      "size": [
+        0.015,
+        0.015,
+        1.5999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "steel-bed-frame-back",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.31,
+        -1.0325000000000002
+      ],
+      "size": [
+        0.015,
+        0.015,
+        1.5999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "steel-bed-frame-left",
+      "geometry": "cylinder",
+      "position": [
+        -0.7999999999999999,
+        0.31,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.015,
+        0.015,
+        2.0700000000000003
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "steel-bed-frame-right",
+      "geometry": "cylinder",
+      "position": [
+        0.7999999999999999,
+        0.31,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.015,
+        0.015,
+        2.0700000000000003
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "head-post--0.7999999999999999",
+      "geometry": "cylinder",
+      "position": [
+        -0.7999999999999999,
+        0.59,
+        -1.0375
+      ],
+      "size": [
+        0.015,
+        0.015,
+        0.56
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "head-post-0.7999999999999999",
+      "geometry": "cylinder",
+      "position": [
+        0.7999999999999999,
+        0.59,
+        -1.0375
+      ],
+      "size": [
+        0.015,
+        0.015,
+        0.56
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "head-top",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.87,
+        -1.0375
+      ],
+      "size": [
+        0.015,
+        0.015,
+        1.5999999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "separate-head-cushion--0.4",
+      "geometry": "roundedBox",
+      "position": [
+        -0.4,
+        0.77,
+        -0.9975
+      ],
+      "size": [
+        0.77,
+        0.42,
+        0.1
+      ],
+      "material": "fabricLight",
+      "radius": 0.04,
+      "smoothness": 5
+    },
+    {
+      "id": "separate-head-cushion-0.4",
+      "geometry": "roundedBox",
+      "position": [
+        0.4,
+        0.77,
+        -0.9975
+      ],
+      "size": [
+        0.77,
+        0.42,
+        0.1
+      ],
+      "material": "fabricLight",
+      "radius": 0.04,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-0",
+      "geometry": "roundedBox",
+      "position": [
+        -0.7549999999999999,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.6543333333333332,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-2",
+      "geometry": "roundedBox",
+      "position": [
+        -0.5536666666666665,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-3",
+      "geometry": "roundedBox",
+      "position": [
+        -0.45299999999999996,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-4",
+      "geometry": "roundedBox",
+      "position": [
+        -0.3523333333333333,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-5",
+      "geometry": "roundedBox",
+      "position": [
+        -0.2516666666666666,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-6",
+      "geometry": "roundedBox",
+      "position": [
+        -0.15100000000000002,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-7",
+      "geometry": "roundedBox",
+      "position": [
+        -0.05033333333333334,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-8",
+      "geometry": "roundedBox",
+      "position": [
+        0.05033333333333334,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-9",
+      "geometry": "roundedBox",
+      "position": [
+        0.15100000000000002,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-10",
+      "geometry": "roundedBox",
+      "position": [
+        0.2516666666666667,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-11",
+      "geometry": "roundedBox",
+      "position": [
+        0.3523333333333334,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-12",
+      "geometry": "roundedBox",
+      "position": [
+        0.45299999999999985,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-13",
+      "geometry": "roundedBox",
+      "position": [
+        0.5536666666666665,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-14",
+      "geometry": "roundedBox",
+      "position": [
+        0.6543333333333332,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-15",
+      "geometry": "roundedBox",
+      "position": [
+        0.7550000000000001,
+        0.325,
+        0.0024999999999999467
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.45999999999999996,
+        0.0024999999999999467
+      ],
+      "size": [
+        1.5499999999999998,
+        0.27,
+        2
+      ],
+      "material": "fabricLight",
+      "radius": 0.055,
+      "smoothness": 5
+    },
+    {
+      "id": "sleep-pillow--0.4125",
+      "geometry": "roundedBox",
+      "position": [
+        -0.4125,
+        0.64,
+        -0.6775000000000001
+      ],
+      "size": [
+        0.715,
+        0.13,
+        0.43
+      ],
+      "material": "paintedWhite",
+      "radius": 0.06,
+      "smoothness": 5
+    },
+    {
+      "id": "sleep-pillow-0.4125",
+      "geometry": "roundedBox",
+      "position": [
+        0.4125,
+        0.64,
+        -0.6775000000000001
+      ],
+      "size": [
+        0.715,
+        0.13,
+        0.43
+      ],
+      "material": "paintedWhite",
+      "radius": 0.06,
+      "smoothness": 5
+    },
+    {
+      "id": "bed-runner",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.606,
+        0.5525
+      ],
+      "size": [
+        1.5699999999999998,
+        0.026,
+        0.68
+      ],
+      "material": "fabric",
+      "radius": 0.012,
+      "smoothness": 5
+    }
+  ],
+  "purchaseUrl": "https://www.zanotta.com/en-us/products/beds",
+  "variantId": "expansion-c012",
+  "furnitureTypeCode": "BED",
+  "styleTags": [
+    "modern",
+    "minimal"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

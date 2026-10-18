@@ -1,3 +1,4 @@
+import { createSculptedFurnitureGeometry } from "../src/geometry/sculptedFurnitureGeometry.mjs";
 import {
   Box3,
   BoxGeometry,
@@ -35,7 +36,11 @@ export function computeVariantVisualFootprint(variant) {
         new Quaternion().setFromEuler(new Euler(...rotation, "XYZ")),
         new Vector3(1, 1, 1),
       );
-      bounds.union(geometry.boundingBox.clone().applyMatrix4(transform));
+      if (["mesh", "sweep", "profile"].includes(part.geometry)) {
+        geometry.applyMatrix4(transform);
+        geometry.computeBoundingBox();
+        bounds.union(geometry.boundingBox);
+      } else bounds.union(geometry.boundingBox.clone().applyMatrix4(transform));
     }
     geometry.dispose();
   }
@@ -54,6 +59,10 @@ export function computeVariantVisualFootprint(variant) {
 
 function createGeometry(part) {
   switch (part.geometry) {
+    case "mesh":
+    case "profile":
+    case "sweep":
+      return createSculptedFurnitureGeometry(part);
     case "box":
       return new BoxGeometry(...part.size);
     case "roundedBox": {

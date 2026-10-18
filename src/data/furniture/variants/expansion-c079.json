@@ -1,0 +1,252 @@
+{
+  "schemaVersion": "1.0",
+  "name": "강철 루프 보강 테이블",
+  "furnitureType": "다용도 테이블",
+  "variant": "강철 루프 보강 테이블",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 2,
+    "depth": 0.85,
+    "height": 0.750652689835988
+  },
+  "materials": [
+    "metal",
+    "woodLight"
+  ],
+  "parts": [
+    {
+      "id": "linoleum-top",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.735652689835988,
+        0
+      ],
+      "size": [
+        2,
+        0.03,
+        0.85
+      ],
+      "material": "metal",
+      "radius": 0.0147,
+      "smoothness": 5
+    },
+    {
+      "id": "oak-upright--0.61",
+      "geometry": "roundedBox",
+      "position": [
+        -0.61,
+        0.35065268983598796,
+        0
+      ],
+      "size": [
+        0.06,
+        0.7,
+        0.1
+      ],
+      "material": "woodLight",
+      "radius": 0.008,
+      "smoothness": 5
+    },
+    {
+      "id": "bent-steel-ribbon--0.61--1",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.61,
+          0.01,
+          -0.36
+        ],
+        [
+          -0.61,
+          0.04,
+          -0.32
+        ],
+        [
+          -0.61,
+          0.45,
+          -0.06
+        ],
+        [
+          -0.61,
+          0.69,
+          -0.07
+        ],
+        [
+          -0.61,
+          0.71,
+          -0.32
+        ]
+      ],
+      "radius": 0.014,
+      "material": "metal",
+      "position": [
+        0,
+        0.0006526898359879851,
+        0
+      ],
+      "segments": 40,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "bent-steel-ribbon--0.61-1",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.61,
+          0.01,
+          0.36
+        ],
+        [
+          -0.61,
+          0.04,
+          0.32
+        ],
+        [
+          -0.61,
+          0.45,
+          0.06
+        ],
+        [
+          -0.61,
+          0.69,
+          0.07
+        ],
+        [
+          -0.61,
+          0.71,
+          0.32
+        ]
+      ],
+      "radius": 0.014,
+      "material": "metal",
+      "position": [
+        0,
+        0.0006526898359879851,
+        0
+      ],
+      "segments": 40,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "oak-upright-0.61",
+      "geometry": "roundedBox",
+      "position": [
+        0.61,
+        0.35065268983598796,
+        0
+      ],
+      "size": [
+        0.06,
+        0.7,
+        0.1
+      ],
+      "material": "woodLight",
+      "radius": 0.008,
+      "smoothness": 5
+    },
+    {
+      "id": "bent-steel-ribbon-0.61--1",
+      "geometry": "sweep",
+      "points": [
+        [
+          0.61,
+          0.01,
+          -0.36
+        ],
+        [
+          0.61,
+          0.04,
+          -0.32
+        ],
+        [
+          0.61,
+          0.45,
+          -0.06
+        ],
+        [
+          0.61,
+          0.69,
+          -0.07
+        ],
+        [
+          0.61,
+          0.71,
+          -0.32
+        ]
+      ],
+      "radius": 0.014,
+      "material": "metal",
+      "position": [
+        0,
+        0.0006526898359879851,
+        0
+      ],
+      "segments": 40,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "bent-steel-ribbon-0.61-1",
+      "geometry": "sweep",
+      "points": [
+        [
+          0.61,
+          0.01,
+          0.36
+        ],
+        [
+          0.61,
+          0.04,
+          0.32
+        ],
+        [
+          0.61,
+          0.45,
+          0.06
+        ],
+        [
+          0.61,
+          0.69,
+          0.07
+        ],
+        [
+          0.61,
+          0.71,
+          0.32
+        ]
+      ],
+      "radius": 0.014,
+      "material": "metal",
+      "position": [
+        0,
+        0.0006526898359879851,
+        0
+      ],
+      "segments": 40,
+      "radialSegments": 10,
+      "closed": false
+    }
+  ],
+  "purchaseUrl": "https://shop.artek.fi/collections/tables",
+  "variantId": "expansion-c079",
+  "furnitureTypeCode": "MULTI_TABLE",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

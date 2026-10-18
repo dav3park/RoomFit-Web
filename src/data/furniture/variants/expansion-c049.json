@@ -1,0 +1,544 @@
+{
+  "schemaVersion": "1.0",
+  "name": "노출 프레임 트롤리 서랍장",
+  "furnitureType": "서랍장",
+  "variant": "노출 프레임 트롤리 서랍장",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.48400000000000004,
+    "depth": 0.535,
+    "height": 0.78
+  },
+  "materials": [
+    "chrome",
+    "screenFrame",
+    "paintedWhite",
+    "icePlastic"
+  ],
+  "parts": [
+    {
+      "id": "exposed-upright--0.225--0.22",
+      "geometry": "cylinder",
+      "position": [
+        -0.225,
+        0.4515,
+        -0.22
+      ],
+      "size": [
+        0.008,
+        0.008,
+        0.643
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "large-caster--0.225--0.22",
+      "geometry": "ellipsoid",
+      "position": [
+        -0.225,
+        0.0475,
+        -0.22
+      ],
+      "size": [
+        0.03,
+        0.095,
+        0.095
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "caster-hub--0.225--0.22",
+      "geometry": "cylinder",
+      "position": [
+        -0.225,
+        0.0475,
+        -0.22
+      ],
+      "size": [
+        0.034,
+        0.034,
+        0.034
+      ],
+      "rotation": [
+        0,
+        0,
+        1.5707963267948966
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "caster-fork--0.225--0.22",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.225,
+          0.13,
+          -0.22
+        ],
+        [
+          -0.225,
+          0.09,
+          -0.235
+        ],
+        [
+          -0.225,
+          0.0475,
+          -0.22
+        ]
+      ],
+      "radius": 0.007,
+      "material": "chrome",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "exposed-upright--0.225-0.22",
+      "geometry": "cylinder",
+      "position": [
+        -0.225,
+        0.4515,
+        0.22
+      ],
+      "size": [
+        0.008,
+        0.008,
+        0.643
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "large-caster--0.225-0.22",
+      "geometry": "ellipsoid",
+      "position": [
+        -0.225,
+        0.0475,
+        0.22
+      ],
+      "size": [
+        0.03,
+        0.095,
+        0.095
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "caster-hub--0.225-0.22",
+      "geometry": "cylinder",
+      "position": [
+        -0.225,
+        0.0475,
+        0.22
+      ],
+      "size": [
+        0.034,
+        0.034,
+        0.034
+      ],
+      "rotation": [
+        0,
+        0,
+        1.5707963267948966
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "caster-fork--0.225-0.22",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.225,
+          0.13,
+          0.22
+        ],
+        [
+          -0.225,
+          0.09,
+          0.20500000000000002
+        ],
+        [
+          -0.225,
+          0.0475,
+          0.22
+        ]
+      ],
+      "radius": 0.007,
+      "material": "chrome",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "exposed-upright-0.225--0.22",
+      "geometry": "cylinder",
+      "position": [
+        0.225,
+        0.4515,
+        -0.22
+      ],
+      "size": [
+        0.008,
+        0.008,
+        0.643
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "large-caster-0.225--0.22",
+      "geometry": "ellipsoid",
+      "position": [
+        0.225,
+        0.0475,
+        -0.22
+      ],
+      "size": [
+        0.03,
+        0.095,
+        0.095
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "caster-hub-0.225--0.22",
+      "geometry": "cylinder",
+      "position": [
+        0.225,
+        0.0475,
+        -0.22
+      ],
+      "size": [
+        0.034,
+        0.034,
+        0.034
+      ],
+      "rotation": [
+        0,
+        0,
+        1.5707963267948966
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "caster-fork-0.225--0.22",
+      "geometry": "sweep",
+      "points": [
+        [
+          0.225,
+          0.13,
+          -0.22
+        ],
+        [
+          0.225,
+          0.09,
+          -0.235
+        ],
+        [
+          0.225,
+          0.0475,
+          -0.22
+        ]
+      ],
+      "radius": 0.007,
+      "material": "chrome",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "exposed-upright-0.225-0.22",
+      "geometry": "cylinder",
+      "position": [
+        0.225,
+        0.4515,
+        0.22
+      ],
+      "size": [
+        0.008,
+        0.008,
+        0.643
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "large-caster-0.225-0.22",
+      "geometry": "ellipsoid",
+      "position": [
+        0.225,
+        0.0475,
+        0.22
+      ],
+      "size": [
+        0.03,
+        0.095,
+        0.095
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "caster-hub-0.225-0.22",
+      "geometry": "cylinder",
+      "position": [
+        0.225,
+        0.0475,
+        0.22
+      ],
+      "size": [
+        0.034,
+        0.034,
+        0.034
+      ],
+      "rotation": [
+        0,
+        0,
+        1.5707963267948966
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "caster-fork-0.225-0.22",
+      "geometry": "sweep",
+      "points": [
+        [
+          0.225,
+          0.13,
+          0.22
+        ],
+        [
+          0.225,
+          0.09,
+          0.20500000000000002
+        ],
+        [
+          0.225,
+          0.0475,
+          0.22
+        ]
+      ],
+      "radius": 0.007,
+      "material": "chrome",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "independent-bin-0",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.22,
+        0
+      ],
+      "size": [
+        0.432,
+        0.166,
+        0.432
+      ],
+      "material": "icePlastic",
+      "radius": 0.025,
+      "smoothness": 5
+    },
+    {
+      "id": "recessed-pull-0",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.275,
+        0.22
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.27
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "independent-bin-1",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.4,
+        0
+      ],
+      "size": [
+        0.432,
+        0.166,
+        0.432
+      ],
+      "material": "icePlastic",
+      "radius": 0.025,
+      "smoothness": 5
+    },
+    {
+      "id": "recessed-pull-1",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.455,
+        0.22
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.27
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "independent-bin-2",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.58,
+        0
+      ],
+      "size": [
+        0.432,
+        0.166,
+        0.432
+      ],
+      "material": "icePlastic",
+      "radius": 0.025,
+      "smoothness": 5
+    },
+    {
+      "id": "recessed-pull-2",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.635,
+        0.22
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.27
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "bottom-shelf",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.13,
+        0
+      ],
+      "size": [
+        0.47,
+        0.012,
+        0.46
+      ],
+      "material": "icePlastic",
+      "radius": 0.005,
+      "smoothness": 5
+    },
+    {
+      "id": "open-shelf-floor",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.674,
+        0
+      ],
+      "size": [
+        0.47,
+        0.012,
+        0.46
+      ],
+      "material": "icePlastic",
+      "radius": 0.005,
+      "smoothness": 5
+    },
+    {
+      "id": "open-top-shelf",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.774,
+        0
+      ],
+      "size": [
+        0.47,
+        0.012,
+        0.46
+      ],
+      "material": "icePlastic",
+      "radius": 0.005,
+      "smoothness": 5
+    }
+  ],
+  "purchaseUrl": "https://www.kartell.com/es/en/ktes/shop/product/mobil-3-drawers-1-shelf-with-wheels/551-6136",
+  "variantId": "expansion-c049",
+  "furnitureTypeCode": "DRAWER_CHEST",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

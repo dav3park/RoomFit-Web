@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "1.0",
+  "name": "하부 이동서랍 옷장",
+  "furnitureType": "옷장",
+  "variant": "하부 이동서랍 옷장",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.22,
+    "depth": 0.6375,
+    "height": 2.16
+  },
+  "materials": [
+    "metalLight",
+    "paintedWhite",
+    "metal"
+  ],
+  "parts": [
+    {
+      "id": "bottom",
+      "geometry": "box",
+      "position": [
+        0,
+        0.015,
+        -0.02375000000000002
+      ],
+      "size": [
+        1.22,
+        0.03,
+        0.59
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "top",
+      "geometry": "box",
+      "position": [
+        0,
+        2.145,
+        -0.02375000000000002
+      ],
+      "size": [
+        1.22,
+        0.03,
+        0.59
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "left",
+      "geometry": "box",
+      "position": [
+        -0.595,
+        1.08,
+        -0.02375000000000002
+      ],
+      "size": [
+        0.03,
+        2.16,
+        0.59
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "right",
+      "geometry": "box",
+      "position": [
+        0.595,
+        1.08,
+        -0.02375000000000002
+      ],
+      "size": [
+        0.03,
+        2.16,
+        0.59
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "back",
+      "geometry": "box",
+      "position": [
+        0,
+        1.08,
+        -0.30974999999999997
+      ],
+      "size": [
+        1.16,
+        2.1,
+        0.018
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "partition",
+      "geometry": "box",
+      "position": [
+        -0.02,
+        1.08,
+        -0.02375000000000002
+      ],
+      "size": [
+        0.025,
+        2.1,
+        0.55
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "right-full-door",
+      "geometry": "box",
+      "position": [
+        0.29,
+        1.285,
+        0.28425
+      ],
+      "size": [
+        0.59,
+        1.69,
+        0.026
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "left-upper-door",
+      "geometry": "box",
+      "position": [
+        -0.31,
+        1.83,
+        0.28425
+      ],
+      "size": [
+        0.55,
+        0.6,
+        0.026
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "left-middle-door",
+      "geometry": "box",
+      "position": [
+        -0.31,
+        1.22,
+        0.28425
+      ],
+      "size": [
+        0.55,
+        0.59,
+        0.026
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "left-drawer-0",
+      "geometry": "box",
+      "position": [
+        -0.31,
+        0.8,
+        0.28425
+      ],
+      "size": [
+        0.55,
+        0.216,
+        0.026
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "left-drawer-grip-0",
+      "geometry": "box",
+      "position": [
+        -0.31,
+        0.8500000000000001,
+        0.30125
+      ],
+      "size": [
+        0.08,
+        0.012,
+        0.025
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "left-drawer-1",
+      "geometry": "box",
+      "position": [
+        -0.31,
+        0.57,
+        0.28425
+      ],
+      "size": [
+        0.55,
+        0.216,
+        0.026
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "left-drawer-grip-1",
+      "geometry": "box",
+      "position": [
+        -0.31,
+        0.62,
+        0.30125
+      ],
+      "size": [
+        0.08,
+        0.012,
+        0.025
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "left-drawer-2",
+      "geometry": "box",
+      "position": [
+        -0.31,
+        0.34,
+        0.28425
+      ],
+      "size": [
+        0.55,
+        0.216,
+        0.026
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "left-drawer-grip-2",
+      "geometry": "box",
+      "position": [
+        -0.31,
+        0.39,
+        0.30125
+      ],
+      "size": [
+        0.08,
+        0.012,
+        0.025
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "left-drawer-3",
+      "geometry": "box",
+      "position": [
+        -0.31,
+        0.11,
+        0.28425
+      ],
+      "size": [
+        0.55,
+        0.216,
+        0.026
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "left-drawer-grip-3",
+      "geometry": "box",
+      "position": [
+        -0.31,
+        0.16,
+        0.30125
+      ],
+      "size": [
+        0.08,
+        0.012,
+        0.025
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "right-bottom-drawer-0.32",
+      "geometry": "box",
+      "position": [
+        0.29,
+        0.32,
+        0.28425
+      ],
+      "size": [
+        0.59,
+        0.2,
+        0.026
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "right-bottom-drawer-0.1",
+      "geometry": "box",
+      "position": [
+        0.29,
+        0.1,
+        0.28425
+      ],
+      "size": [
+        0.59,
+        0.2,
+        0.026
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "left-door-handle-1.75",
+      "geometry": "box",
+      "position": [
+        -0.08,
+        1.75,
+        0.30625
+      ],
+      "size": [
+        0.015,
+        0.09,
+        0.025
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "left-door-handle-1.25",
+      "geometry": "box",
+      "position": [
+        -0.08,
+        1.25,
+        0.30625
+      ],
+      "size": [
+        0.015,
+        0.09,
+        0.025
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "right-door-handle",
+      "geometry": "box",
+      "position": [
+        0.08,
+        1.28,
+        0.30625
+      ],
+      "size": [
+        0.015,
+        0.09,
+        0.025
+      ],
+      "material": "metal"
+    }
+  ],
+  "purchaseUrl": "https://www.ikea.com/se/en/p/visthus-wardrobe-grey-white-90493446/",
+  "variantId": "expansion-c045",
+  "furnitureTypeCode": "WARDROBE",
+  "styleTags": [
+    "modern",
+    "minimal"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

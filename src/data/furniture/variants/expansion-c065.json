@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "1.0",
+  "name": "핸들 기둥 사이드 테이블",
+  "furnitureType": "사이드 테이블",
+  "variant": "핸들 기둥 사이드 테이블",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.36000001430511475,
+    "depth": 0.36000001430511475,
+    "height": 0.6412239670753479
+  },
+  "materials": [
+    "ceramic",
+    "metal"
+  ],
+  "parts": [
+    {
+      "id": "granite-base",
+      "geometry": "profile",
+      "profile": [
+        [
+          0,
+          0
+        ],
+        [
+          0.11,
+          0
+        ],
+        [
+          0.12,
+          0.03
+        ],
+        [
+          0.09,
+          0.14
+        ],
+        [
+          0,
+          0.15
+        ]
+      ],
+      "segments": 64,
+      "material": "ceramic",
+      "position": [
+        0.06,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "offset-stem",
+      "geometry": "cylinder",
+      "position": [
+        0.06,
+        0.34,
+        0
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.44000000000000006
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "round-tray",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.5,
+        0
+      ],
+      "size": [
+        0.18,
+        0.18,
+        0.01200000000000001
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "tray-rim",
+      "geometry": "profile",
+      "profile": [
+        [
+          0.168,
+          0.5
+        ],
+        [
+          0.18,
+          0.5
+        ],
+        [
+          0.18,
+          0.52
+        ],
+        [
+          0.172,
+          0.52
+        ],
+        [
+          0.168,
+          0.5
+        ]
+      ],
+      "segments": 64,
+      "material": "metal",
+      "position": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "integrated-carry-handle",
+      "geometry": "sweep",
+      "points": [
+        [
+          0.06,
+          0.5,
+          0
+        ],
+        [
+          0.06,
+          0.59,
+          0
+        ],
+        [
+          0,
+          0.63,
+          0
+        ],
+        [
+          -0.06,
+          0.59,
+          0
+        ],
+        [
+          -0.06,
+          0.55,
+          0
+        ]
+      ],
+      "radius": 0.012,
+      "material": "metal",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "segments": 40,
+      "radialSegments": 10,
+      "closed": false
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/hay/furniture/tables/coffee-table/bowler",
+  "variantId": "expansion-c065",
+  "furnitureTypeCode": "SIDE_TABLE",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

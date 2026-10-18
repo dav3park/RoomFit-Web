@@ -1,3 +1,4 @@
+import { assertSculptedFurniturePart } from "../../../geometry/sculptedFurnitureGeometry.mjs";
 import type { MaterialPresetCatalog } from "./materialResolver";
 import {
   FURNITURE_LIFESTYLE_TAGS,
@@ -144,6 +145,16 @@ function readPartGeometry(
   base: ValidatedPartBase,
 ): ValidatedFurniturePart {
   switch (part.geometry) {
+    case "mesh":
+    case "profile":
+    case "sweep": {
+      try { assertSculptedFurniturePart(part); }
+      catch { fail(variantId, `Invalid ${part.geometry} geometry`, partId); }
+      if (part.geometry === "mesh") return { ...base, geometry:"mesh", vertices:[...(part.vertices as number[])], indices:[...(part.indices as number[])] };
+      if (part.geometry === "profile") return { ...base, geometry:"profile", profile:(part.profile as Vector2Tuple[]).map(point=>[...point]), segments:part.segments as number };
+      return { ...base, geometry:"sweep", points:(part.points as Vector3Tuple[]).map(point=>[...point]), radius:part.radius as number,
+        segments:part.segments as number, radialSegments:part.radialSegments as number, closed:part.closed as boolean|undefined };
+    }
     case "box":
       return {
         ...base,

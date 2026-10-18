@@ -1,0 +1,383 @@
+{
+  "schemaVersion": "1.0",
+  "name": "노출 원목 프레임 소파",
+  "furnitureType": "소파",
+  "variant": "노출 원목 프레임 소파",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 2.095,
+    "depth": 0.806,
+    "height": 0.9
+  },
+  "materials": [
+    "woodLight",
+    "fabricLight"
+  ],
+  "parts": [
+    {
+      "id": "solid-wood-leg--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.955,
+        0.15,
+        -0.34
+      ],
+      "size": [
+        0.036,
+        0.036,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "solid-wood-leg--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.955,
+        0.15,
+        0.34
+      ],
+      "size": [
+        0.036,
+        0.036,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "solid-wood-leg-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.955,
+        0.15,
+        -0.34
+      ],
+      "size": [
+        0.036,
+        0.036,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "solid-wood-leg-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.955,
+        0.15,
+        0.34
+      ],
+      "size": [
+        0.036,
+        0.036,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "exposed-wood-frame-front",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.3,
+        0.37
+      ],
+      "size": [
+        0.033,
+        0.033,
+        2.02
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "exposed-wood-frame-back",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.3,
+        -0.37
+      ],
+      "size": [
+        0.033,
+        0.033,
+        2.02
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "exposed-wood-frame-left",
+      "geometry": "cylinder",
+      "position": [
+        -1.01,
+        0.3,
+        0
+      ],
+      "size": [
+        0.033,
+        0.033,
+        0.74
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "exposed-wood-frame-right",
+      "geometry": "cylinder",
+      "position": [
+        1.01,
+        0.3,
+        0
+      ],
+      "size": [
+        0.033,
+        0.033,
+        0.74
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "seat-cushion-0",
+      "geometry": "roundedBox",
+      "position": [
+        -0.6499999999999999,
+        0.43,
+        0.06
+      ],
+      "size": [
+        0.632,
+        0.23,
+        0.68
+      ],
+      "material": "fabricLight",
+      "radius": 0.095,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-cushion-1",
+      "geometry": "roundedBox",
+      "position": [
+        1.1102230246251565e-16,
+        0.43,
+        0.06
+      ],
+      "size": [
+        0.632,
+        0.23,
+        0.68
+      ],
+      "material": "fabricLight",
+      "radius": 0.095,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-cushion-2",
+      "geometry": "roundedBox",
+      "position": [
+        0.65,
+        0.43,
+        0.06
+      ],
+      "size": [
+        0.632,
+        0.23,
+        0.68
+      ],
+      "material": "fabricLight",
+      "radius": 0.095,
+      "smoothness": 5
+    },
+    {
+      "id": "wood-arm--1.01",
+      "geometry": "roundedBox",
+      "position": [
+        -1.01,
+        0.64,
+        0
+      ],
+      "size": [
+        0.075,
+        0.07,
+        0.78
+      ],
+      "material": "woodLight",
+      "radius": 0.018,
+      "smoothness": 5
+    },
+    {
+      "id": "rear-upright--1.01",
+      "geometry": "roundedBox",
+      "position": [
+        -1.01,
+        0.5,
+        -0.35
+      ],
+      "size": [
+        0.065,
+        0.45,
+        0.065
+      ],
+      "material": "woodLight",
+      "radius": 0.012,
+      "smoothness": 5
+    },
+    {
+      "id": "wood-arm-1.01",
+      "geometry": "roundedBox",
+      "position": [
+        1.01,
+        0.64,
+        0
+      ],
+      "size": [
+        0.075,
+        0.07,
+        0.78
+      ],
+      "material": "woodLight",
+      "radius": 0.018,
+      "smoothness": 5
+    },
+    {
+      "id": "rear-upright-1.01",
+      "geometry": "roundedBox",
+      "position": [
+        1.01,
+        0.5,
+        -0.35
+      ],
+      "size": [
+        0.065,
+        0.45,
+        0.065
+      ],
+      "material": "woodLight",
+      "radius": 0.012,
+      "smoothness": 5
+    },
+    {
+      "id": "wood-back-rail",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.69,
+        -0.36
+      ],
+      "size": [
+        2.05,
+        0.075,
+        0.07
+      ],
+      "material": "woodLight",
+      "radius": 0.012,
+      "smoothness": 5
+    },
+    {
+      "id": "back-cushion--0.65",
+      "geometry": "roundedBox",
+      "position": [
+        -0.65,
+        0.67,
+        -0.26
+      ],
+      "size": [
+        0.635,
+        0.46,
+        0.2
+      ],
+      "material": "fabricLight",
+      "radius": 0.09,
+      "smoothness": 5
+    },
+    {
+      "id": "back-cushion-0",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.67,
+        -0.26
+      ],
+      "size": [
+        0.635,
+        0.46,
+        0.2
+      ],
+      "material": "fabricLight",
+      "radius": 0.09,
+      "smoothness": 5
+    },
+    {
+      "id": "back-cushion-0.65",
+      "geometry": "roundedBox",
+      "position": [
+        0.65,
+        0.67,
+        -0.26
+      ],
+      "size": [
+        0.635,
+        0.46,
+        0.2
+      ],
+      "material": "fabricLight",
+      "radius": 0.09,
+      "smoothness": 5
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/products/furniture/seating/sofas/arbour",
+  "variantId": "expansion-c057",
+  "furnitureTypeCode": "SOFA",
+  "styleTags": [
+    "natural"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

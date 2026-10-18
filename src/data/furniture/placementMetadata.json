@@ -1,0 +1,2138 @@
+{
+  "defaults": {
+    "bed": {
+      "installation": "FLOOR",
+      "roles": [
+        "sleep"
+      ]
+    },
+    "sofa_bed": {
+      "installation": "FLOOR",
+      "roles": [
+        "sleep",
+        "seating"
+      ]
+    },
+    "sofa": {
+      "installation": "FLOOR",
+      "roles": [
+        "seating"
+      ]
+    },
+    "desk": {
+      "installation": "FLOOR",
+      "roles": [
+        "work"
+      ]
+    },
+    "desk_chair": {
+      "installation": "FLOOR",
+      "roles": [
+        "work"
+      ]
+    },
+    "bookshelf": {
+      "installation": "FLOOR",
+      "roles": [
+        "storage"
+      ]
+    },
+    "wardrobe": {
+      "installation": "FLOOR",
+      "roles": [
+        "storage"
+      ]
+    },
+    "drawer_chest": {
+      "installation": "FLOOR",
+      "roles": [
+        "storage"
+      ]
+    },
+    "hanger": {
+      "installation": "FLOOR",
+      "roles": [
+        "storage"
+      ]
+    },
+    "media_console": {
+      "installation": "FLOOR",
+      "roles": [
+        "storage"
+      ]
+    },
+    "monitor": {
+      "installation": "SUPPORT",
+      "roles": [
+        "work"
+      ],
+      "supportTypes": [
+        "desk"
+      ]
+    },
+    "tv": {
+      "installation": "SUPPORT",
+      "roles": [
+        "seating"
+      ],
+      "supportTypes": [
+        "media_console"
+      ]
+    },
+    "nightstand": {
+      "installation": "FLOOR",
+      "roles": [
+        "bedside"
+      ]
+    },
+    "side_table": {
+      "installation": "FLOOR",
+      "roles": [
+        "bedside"
+      ]
+    },
+    "multi_table": {
+      "installation": "FLOOR",
+      "roles": [
+        "dining"
+      ]
+    },
+    "mood_lamp": {
+      "installation": "FLOOR",
+      "roles": [
+        "lighting"
+      ]
+    },
+    "plant": {
+      "installation": "FLOOR",
+      "roles": [
+        "plant"
+      ]
+    },
+    "rug": {
+      "installation": "FLOOR_OVERLAY",
+      "roles": [
+        "rug"
+      ]
+    },
+    "full_length_mirror": {
+      "installation": "FLOOR",
+      "roles": [
+        "mirror"
+      ]
+    },
+    "curtain_blind": {
+      "installation": "WINDOW",
+      "roles": [],
+      "windowTreatment": "CURTAIN"
+    },
+    "partition_shelf": {
+      "installation": "FLOOR",
+      "roles": [
+        "divider",
+        "storage"
+      ]
+    }
+  },
+  "overrides": {
+    "lamp-table": {
+      "installation": "SUPPORT",
+      "supportTypes": [
+        "desk",
+        "nightstand",
+        "side_table",
+        "multi_table",
+        "media_console",
+        "drawer_chest"
+      ],
+      "sourceDimensions": {
+        "width": 0.28,
+        "depth": 0.28,
+        "height": 0.46
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "plant-tabletop": {
+      "installation": "SUPPORT",
+      "supportTypes": [
+        "desk",
+        "nightstand",
+        "side_table",
+        "multi_table",
+        "media_console",
+        "drawer_chest"
+      ],
+      "sourceDimensions": {
+        "width": 0.09667013873202057,
+        "depth": 0.10344419281736927,
+        "height": 0.1400000007522717
+      },
+      "canonicalType": "plant"
+    },
+    "expansion-c089": {
+      "installation": "SUPPORT",
+      "supportTypes": [
+        "desk",
+        "nightstand",
+        "side_table",
+        "multi_table",
+        "media_console",
+        "drawer_chest"
+      ],
+      "sourceDimensions": {
+        "width": 0.48417943716049194,
+        "depth": 0.5017610285788683,
+        "height": 0.5733923917985686
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "expansion-c090": {
+      "installation": "SUPPORT",
+      "supportTypes": [
+        "desk",
+        "nightstand",
+        "side_table",
+        "multi_table",
+        "media_console",
+        "drawer_chest"
+      ],
+      "sourceDimensions": {
+        "width": 0.38999998569488525,
+        "depth": 0.38999998569488525,
+        "height": 0.35821908712387085
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "expansion-c091": {
+      "installation": "SUPPORT",
+      "supportTypes": [
+        "desk",
+        "nightstand",
+        "side_table",
+        "multi_table",
+        "media_console",
+        "drawer_chest"
+      ],
+      "sourceDimensions": {
+        "width": 0.21000000000000002,
+        "depth": 0.2,
+        "height": 0.3811234752377721
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "expansion-c092": {
+      "installation": "SUPPORT",
+      "supportTypes": [
+        "desk",
+        "nightstand",
+        "side_table",
+        "multi_table",
+        "media_console",
+        "drawer_chest"
+      ],
+      "sourceDimensions": {
+        "width": 0.28999999165534973,
+        "depth": 0.28999999165534973,
+        "height": 0.36800000071525574
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "expansion-c093": {
+      "installation": "SUPPORT",
+      "supportTypes": [
+        "desk",
+        "nightstand",
+        "side_table",
+        "multi_table",
+        "media_console",
+        "drawer_chest"
+      ],
+      "sourceDimensions": {
+        "width": 0.4000000059604645,
+        "depth": 0.4000000059604645,
+        "height": 0.550000011920929
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "expansion-c094": {
+      "installation": "SUPPORT",
+      "supportTypes": [
+        "desk",
+        "nightstand",
+        "side_table",
+        "multi_table",
+        "media_console",
+        "drawer_chest"
+      ],
+      "sourceDimensions": {
+        "width": 0.15071551501750946,
+        "depth": 0.17399999499320984,
+        "height": 0.38691797890514135
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "expansion-c095": {
+      "installation": "SUPPORT",
+      "supportTypes": [
+        "desk",
+        "nightstand",
+        "side_table",
+        "multi_table",
+        "media_console",
+        "drawer_chest"
+      ],
+      "sourceDimensions": {
+        "width": 0.30051322865996904,
+        "depth": 0.23,
+        "height": 0.6325
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "expansion-c096": {
+      "installation": "SUPPORT",
+      "supportTypes": [
+        "desk",
+        "nightstand",
+        "side_table",
+        "multi_table",
+        "media_console",
+        "drawer_chest"
+      ],
+      "sourceDimensions": {
+        "width": 0.5608277864132318,
+        "depth": 0.11,
+        "height": 0.6720572529209519
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "expansion-c097": {
+      "installation": "SUPPORT",
+      "supportTypes": [
+        "desk",
+        "nightstand",
+        "side_table",
+        "multi_table",
+        "media_console",
+        "drawer_chest"
+      ],
+      "sourceDimensions": {
+        "width": 0.1599999964237213,
+        "depth": 0.1599999964237213,
+        "height": 0.2800000011920929
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "mirror-wall": {
+      "installation": "WALL",
+      "mountBottom": 0,
+      "sourceDimensions": {
+        "width": 0.42,
+        "depth": 0.072,
+        "height": 1.55
+      },
+      "canonicalType": "full_length_mirror"
+    },
+    "expansion-c084": {
+      "installation": "WALL",
+      "mountBottom": 0,
+      "sourceDimensions": {
+        "width": 0.6511538624763489,
+        "depth": 0.03800000250339508,
+        "height": 1.3799999952316284
+      },
+      "canonicalType": "full_length_mirror"
+    },
+    "expansion-c085": {
+      "installation": "WALL",
+      "mountBottom": 0,
+      "sourceDimensions": {
+        "width": 0.7952555418014526,
+        "depth": 0.03800000250339508,
+        "height": 1.7472000122070312
+      },
+      "canonicalType": "full_length_mirror"
+    },
+    "expansion-c087": {
+      "installation": "WALL",
+      "mountBottom": 0,
+      "sourceDimensions": {
+        "width": 0.7473433017730713,
+        "depth": 0.05650000274181366,
+        "height": 1.9726402759552002
+      },
+      "canonicalType": "full_length_mirror"
+    },
+    "expansion-c022": {
+      "installation": "WALL",
+      "mountBottom": 0.55,
+      "sourceDimensions": {
+        "width": 0.3,
+        "depth": 0.16449999999999998,
+        "height": 0.21
+      },
+      "canonicalType": "nightstand"
+    },
+    "expansion-c024": {
+      "installation": "WALL",
+      "mountBottom": 0.55,
+      "surface": {
+        "height": 0.354,
+        "minX": -0.162,
+        "maxX": 0.162,
+        "minZ": -0.1505,
+        "maxZ": 0.1195
+      },
+      "surfacePartId": "top",
+      "sourceDimensions": {
+        "width": 0.354,
+        "depth": 0.33099999999999996,
+        "height": 0.354
+      },
+      "canonicalType": "nightstand"
+    },
+    "expansion-c037": {
+      "installation": "WALL",
+      "mountBottom": 1.2,
+      "sourceDimensions": {
+        "width": 0.8,
+        "depth": 0.248,
+        "height": 0.966
+      },
+      "canonicalType": "bookshelf"
+    },
+    "expansion-c040": {
+      "installation": "WALL",
+      "mountBottom": 1.2,
+      "sourceDimensions": {
+        "width": 0.6,
+        "depth": 0.1635,
+        "height": 0.5035000000000001
+      },
+      "canonicalType": "bookshelf"
+    },
+    "expansion-c042": {
+      "installation": "WALL",
+      "mountBottom": 1.2,
+      "sourceDimensions": {
+        "width": 0.5679780519624236,
+        "depth": 0.2,
+        "height": 0.552253234123914
+      },
+      "canonicalType": "bookshelf"
+    },
+    "expansion-c043": {
+      "installation": "FLOOR_CEILING",
+      "sourceDimensions": {
+        "width": 2.602,
+        "depth": 0.3635,
+        "height": 2.7
+      },
+      "canonicalType": "bookshelf"
+    },
+    "blind-roller": {
+      "windowTreatment": "BLIND",
+      "sourceDimensions": {
+        "width": 1.28,
+        "depth": 0.1,
+        "height": 1.79
+      },
+      "canonicalType": "curtain_blind"
+    },
+    "blind-wood": {
+      "windowTreatment": "BLIND",
+      "sourceDimensions": {
+        "width": 1.25,
+        "depth": 0.1,
+        "height": 1.8
+      },
+      "canonicalType": "curtain_blind"
+    },
+    "side-table-coffee": {
+      "roles": [
+        "coffee"
+      ],
+      "surface": {
+        "height": 0.45,
+        "minX": -0.435,
+        "maxX": 0.435,
+        "minZ": -0.26,
+        "maxZ": 0.26
+      },
+      "surfacePartId": "tabletop",
+      "sourceDimensions": {
+        "width": 0.9,
+        "depth": 0.55,
+        "height": 0.45
+      },
+      "canonicalType": "side_table"
+    },
+    "expansion-c063": {
+      "roles": [
+        "coffee"
+      ],
+      "surface": {
+        "height": 0.4265,
+        "minX": -0.21,
+        "maxX": 0.21,
+        "minZ": -0.21,
+        "maxZ": 0.21
+      },
+      "surfacePartId": "stone-slab",
+      "sourceDimensions": {
+        "width": 0.45,
+        "depth": 0.45,
+        "height": 0.4265
+      },
+      "canonicalType": "side_table"
+    },
+    "expansion-c064": {
+      "roles": [
+        "coffee"
+      ],
+      "surface": {
+        "height": 0.347,
+        "minX": -0.485,
+        "maxX": 0.485,
+        "minZ": -0.285,
+        "maxZ": 0.285
+      },
+      "surfacePartId": "glass-top",
+      "sourceDimensions": {
+        "width": 1,
+        "depth": 0.6,
+        "height": 0.34700000000000003
+      },
+      "canonicalType": "side_table"
+    },
+    "expansion-c067": {
+      "roles": [
+        "coffee"
+      ],
+      "sourceDimensions": {
+        "width": 0.8,
+        "depth": 0.8,
+        "height": 0.380978632527711
+      },
+      "canonicalType": "side_table"
+    },
+    "expansion-c068": {
+      "roles": [
+        "coffee"
+      ],
+      "sourceDimensions": {
+        "width": 1.300950566786042,
+        "depth": 0.8909100269280927,
+        "height": 0.40886700925789776
+      },
+      "canonicalType": "side_table"
+    },
+    "drawer-chest-bedside": {
+      "roles": [
+        "storage",
+        "bedside"
+      ],
+      "surface": {
+        "height": 0.49,
+        "minX": -0.16,
+        "maxX": 0.16,
+        "minZ": -0.185,
+        "maxZ": 0.185
+      },
+      "surfacePartId": "compact-top",
+      "sourceDimensions": {
+        "width": 0.35,
+        "depth": 0.4,
+        "height": 0.49
+      },
+      "canonicalType": "drawer_chest"
+    },
+    "bookshelf-double-open": {
+      "roles": [
+        "storage",
+        "divider"
+      ],
+      "sourceDimensions": {
+        "width": 0.765,
+        "depth": 0.39,
+        "height": 1.465
+      },
+      "canonicalType": "bookshelf"
+    },
+    "desk-midcentury-glass": {
+      "surface": {
+        "height": 0.812,
+        "minX": -0.86,
+        "maxX": 0.86,
+        "minZ": -0.355,
+        "maxZ": 0.355
+      },
+      "surfacePartId": "glass-top",
+      "sourceDimensions": {
+        "width": 1.75,
+        "depth": 0.74,
+        "height": 0.812
+      },
+      "canonicalType": "desk"
+    },
+    "desk-compact": {
+      "surface": {
+        "height": 0.73,
+        "minX": -0.585,
+        "maxX": 0.585,
+        "minZ": -0.285,
+        "maxZ": 0.285
+      },
+      "surfacePartId": "top",
+      "sourceDimensions": {
+        "width": 1.2,
+        "depth": 0.6,
+        "height": 0.73
+      },
+      "canonicalType": "desk"
+    },
+    "multi-table-storage": {
+      "surface": {
+        "height": 0.9,
+        "minX": -0.615,
+        "maxX": 0.615,
+        "minZ": -0.38,
+        "maxZ": 0.38
+      },
+      "surfacePartId": "countertop",
+      "sourceDimensions": {
+        "width": 1.26,
+        "depth": 0.79,
+        "height": 0.9
+      },
+      "canonicalType": "multi_table"
+    },
+    "drawer-chest-classic-gullaberg": {
+      "surface": {
+        "height": 1.22,
+        "minX": -0.43,
+        "maxX": 0.43,
+        "minZ": -0.225,
+        "maxZ": 0.225
+      },
+      "surfacePartId": "top",
+      "sourceDimensions": {
+        "width": 0.89,
+        "depth": 0.48,
+        "height": 1.22
+      },
+      "canonicalType": "drawer_chest"
+    },
+    "nightstand-open": {
+      "surface": {
+        "height": 0.45,
+        "minX": -0.17,
+        "maxX": 0.17,
+        "minZ": -0.125,
+        "maxZ": 0.125
+      },
+      "surfacePartId": "top",
+      "sourceDimensions": {
+        "width": 0.37,
+        "depth": 0.28,
+        "height": 0.45
+      },
+      "canonicalType": "nightstand"
+    },
+    "side-table-storage": {
+      "surface": {
+        "height": 0.52,
+        "minX": -0.385,
+        "maxX": 0.385,
+        "minZ": -0.14,
+        "maxZ": 0.14
+      },
+      "surfacePartId": "top-panel",
+      "sourceDimensions": {
+        "width": 0.8,
+        "depth": 0.31,
+        "height": 0.52
+      },
+      "canonicalType": "side_table"
+    },
+    "nightstand-drawer": {
+      "surface": {
+        "height": 0.49,
+        "minX": -0.16,
+        "maxX": 0.16,
+        "minZ": -0.198,
+        "maxZ": 0.172
+      },
+      "surfacePartId": "top",
+      "sourceDimensions": {
+        "width": 0.35,
+        "depth": 0.426,
+        "height": 0.49
+      },
+      "canonicalType": "nightstand"
+    },
+    "multi-table-compact": {
+      "surface": {
+        "height": 0.73,
+        "minX": -0.32,
+        "maxX": 0.32,
+        "minZ": -0.32,
+        "maxZ": 0.32
+      },
+      "surfacePartId": "tabletop",
+      "sourceDimensions": {
+        "width": 0.67,
+        "depth": 0.67,
+        "height": 0.73
+      },
+      "canonicalType": "multi_table"
+    },
+    "media-console-drawer": {
+      "surface": {
+        "height": 0.48,
+        "minX": -0.585,
+        "maxX": 0.585,
+        "minZ": -0.195,
+        "maxZ": 0.195
+      },
+      "surfacePartId": "console-top",
+      "sourceDimensions": {
+        "width": 1.2,
+        "depth": 0.42,
+        "height": 0.48
+      },
+      "canonicalType": "media_console"
+    },
+    "desk-storage": {
+      "surface": {
+        "height": 0.73,
+        "minX": -0.685,
+        "maxX": 0.685,
+        "minZ": -0.295,
+        "maxZ": 0.295
+      },
+      "surfacePartId": "top",
+      "sourceDimensions": {
+        "width": 1.4,
+        "depth": 0.62,
+        "height": 0.73
+      },
+      "canonicalType": "desk"
+    },
+    "multi-table-gateleg": {
+      "surface": {
+        "height": 0.74,
+        "minX": -0.745,
+        "maxX": -0.225,
+        "minZ": -0.385,
+        "maxZ": 0.385
+      },
+      "surfacePartId": "drop-leaf-left",
+      "sourceDimensions": {
+        "width": 1.52,
+        "depth": 0.8,
+        "height": 0.74
+      },
+      "canonicalType": "multi_table"
+    },
+    "media-console-midcentury-stockholm": {
+      "surface": {
+        "height": 0.6454,
+        "minX": -0.596,
+        "maxX": 0.596,
+        "minZ": -0.1515,
+        "maxZ": 0.1515
+      },
+      "surfacePartId": "top-panel",
+      "sourceDimensions": {
+        "width": 1.27,
+        "depth": 0.381,
+        "height": 0.6604
+      },
+      "canonicalType": "media_console"
+    },
+    "media-console-low": {
+      "surface": {
+        "height": 0.36,
+        "minX": -0.585,
+        "maxX": 0.585,
+        "minZ": -0.16,
+        "maxZ": 0.16
+      },
+      "surfacePartId": "console-top",
+      "sourceDimensions": {
+        "width": 1.2,
+        "depth": 0.35,
+        "height": 0.36
+      },
+      "canonicalType": "media_console"
+    },
+    "multi-table-two-seat": {
+      "surface": {
+        "height": 0.75,
+        "minX": -0.385,
+        "maxX": 0.385,
+        "minZ": -0.285,
+        "maxZ": 0.285
+      },
+      "surfacePartId": "tabletop",
+      "sourceDimensions": {
+        "width": 0.8,
+        "depth": 0.6,
+        "height": 0.75
+      },
+      "canonicalType": "multi_table"
+    },
+    "media-console-open": {
+      "surface": {
+        "height": 0.64,
+        "minX": -0.585,
+        "maxX": 0.585,
+        "minZ": -0.185,
+        "maxZ": 0.185
+      },
+      "surfacePartId": "top-panel",
+      "sourceDimensions": {
+        "width": 1.2,
+        "depth": 0.4,
+        "height": 0.64
+      },
+      "canonicalType": "media_console"
+    },
+    "desk-corner": {
+      "surface": {
+        "height": 0.755,
+        "minX": -0.3,
+        "maxX": 0.4,
+        "minZ": -0.1,
+        "maxZ": 0.28
+      },
+      "surfacePartId": "corner-desktop",
+      "sourceDimensions": {
+        "width": 1.3,
+        "depth": 1,
+        "height": 1.42
+      },
+      "canonicalType": "desk"
+    },
+    "drawer-chest-vertical": {
+      "surface": {
+        "height": 1.12,
+        "minX": -0.335,
+        "maxX": 0.335,
+        "minZ": -0.185,
+        "maxZ": 0.185
+      },
+      "surfacePartId": "tall-top",
+      "sourceDimensions": {
+        "width": 0.7,
+        "depth": 0.4,
+        "height": 1.12
+      },
+      "canonicalType": "drawer_chest"
+    },
+    "nightstand-classic-gullaberg": {
+      "surface": {
+        "height": 0.69,
+        "minX": -0.25,
+        "maxX": 0.25,
+        "minZ": -0.2,
+        "maxZ": 0.2
+      },
+      "surfacePartId": "top",
+      "sourceDimensions": {
+        "width": 0.53,
+        "depth": 0.43,
+        "height": 0.69
+      },
+      "canonicalType": "nightstand"
+    },
+    "drawer-chest-low-wide": {
+      "surface": {
+        "height": 0.72,
+        "minX": -0.685,
+        "maxX": 0.685,
+        "minZ": -0.185,
+        "maxZ": 0.185
+      },
+      "surfacePartId": "top",
+      "sourceDimensions": {
+        "width": 1.4,
+        "depth": 0.4,
+        "height": 0.72
+      },
+      "canonicalType": "drawer_chest"
+    },
+    "expansion-c001": {
+      "surface": {
+        "height": 0.7125,
+        "minX": -0.61,
+        "maxX": 0.61,
+        "minZ": -0.285,
+        "maxZ": 0.285
+      },
+      "surfacePartId": "oak-top",
+      "sourceDimensions": {
+        "width": 1.25,
+        "depth": 0.6,
+        "height": 0.7125000004470348
+      },
+      "canonicalType": "desk"
+    },
+    "expansion-c002": {
+      "surface": {
+        "height": 0.705303653,
+        "minX": -0.48,
+        "maxX": 0.48,
+        "minZ": -0.29775,
+        "maxZ": 0.34525
+      },
+      "surfacePartId": "writing-top",
+      "sourceDimensions": {
+        "width": 0.99,
+        "depth": 0.7204999999999999,
+        "height": 0.8728036526347738
+      },
+      "canonicalType": "desk"
+    },
+    "expansion-c004": {
+      "surface": {
+        "height": 0.74,
+        "minX": -0.685,
+        "maxX": 0.685,
+        "minZ": -0.335,
+        "maxZ": 0.335
+      },
+      "surfacePartId": "desktop",
+      "sourceDimensions": {
+        "width": 1.4,
+        "depth": 0.7,
+        "height": 0.74
+      },
+      "canonicalType": "desk"
+    },
+    "expansion-c005": {
+      "surface": {
+        "height": 0.732983082,
+        "minX": -0.635,
+        "maxX": 0.635,
+        "minZ": -0.31,
+        "maxZ": 0.31
+      },
+      "surfacePartId": "linoleum-top",
+      "sourceDimensions": {
+        "width": 1.3,
+        "depth": 0.65,
+        "height": 0.732983082362842
+      },
+      "canonicalType": "desk"
+    },
+    "expansion-c006": {
+      "surface": {
+        "height": 0.74,
+        "minX": -0.685,
+        "maxX": 0.685,
+        "minZ": -0.31,
+        "maxZ": 0.31
+      },
+      "surfacePartId": "oak-top",
+      "sourceDimensions": {
+        "width": 1.4,
+        "depth": 0.65,
+        "height": 0.74
+      },
+      "canonicalType": "desk"
+    },
+    "expansion-c007": {
+      "surface": {
+        "height": 0.730909546,
+        "minX": -0.685,
+        "maxX": 0.685,
+        "minZ": -0.335,
+        "maxZ": 0.335
+      },
+      "surfacePartId": "oak-writing-top",
+      "sourceDimensions": {
+        "width": 1.4,
+        "depth": 0.7,
+        "height": 0.7309095456108491
+      },
+      "canonicalType": "desk"
+    },
+    "expansion-c021": {
+      "surface": {
+        "height": 0.61,
+        "minX": -0.203,
+        "maxX": 0.203,
+        "minZ": -0.164,
+        "maxZ": 0.156
+      },
+      "surfacePartId": "module-1-top",
+      "sourceDimensions": {
+        "width": 0.436,
+        "depth": 0.358,
+        "height": 0.61
+      },
+      "canonicalType": "nightstand"
+    },
+    "expansion-c047": {
+      "surface": {
+        "height": 0.6395,
+        "minX": -0.162,
+        "maxX": 0.162,
+        "minZ": -0.2015,
+        "maxZ": 0.1685
+      },
+      "surfacePartId": "tray-floor",
+      "sourceDimensions": {
+        "width": 0.35400000000000004,
+        "depth": 0.443,
+        "height": 0.765
+      },
+      "canonicalType": "drawer_chest"
+    },
+    "expansion-c048": {
+      "sourceDimensions": {
+        "width": 0.699999988079071,
+        "depth": 0.6000000238418579,
+        "height": 1.8300000429153442
+      },
+      "canonicalType": "drawer_chest"
+    },
+    "expansion-c049": {
+      "surface": {
+        "height": 0.78,
+        "minX": -0.22,
+        "maxX": 0.22,
+        "minZ": -0.215,
+        "maxZ": 0.215
+      },
+      "surfacePartId": "open-top-shelf",
+      "sourceDimensions": {
+        "width": 0.48400000000000004,
+        "depth": 0.535,
+        "height": 0.78
+      },
+      "canonicalType": "drawer_chest"
+    },
+    "expansion-c070": {
+      "surface": {
+        "height": 0.484,
+        "minX": -0.6815,
+        "maxX": 0.6815,
+        "minZ": -0.185,
+        "maxZ": 0.165
+      },
+      "surfacePartId": "top",
+      "sourceDimensions": {
+        "width": 1.393,
+        "depth": 0.4,
+        "height": 0.484
+      },
+      "canonicalType": "media_console"
+    },
+    "expansion-c071": {
+      "surface": {
+        "height": 0.6425,
+        "minX": -0.915,
+        "maxX": 0.915,
+        "minZ": -0.216,
+        "maxZ": 0.204
+      },
+      "surfacePartId": "oak-cap",
+      "sourceDimensions": {
+        "width": 1.86,
+        "depth": 0.462,
+        "height": 0.6425
+      },
+      "canonicalType": "media_console"
+    },
+    "expansion-c072": {
+      "surface": {
+        "height": 0.56,
+        "minX": -0.795,
+        "maxX": 0.795,
+        "minZ": -0.2165,
+        "maxZ": 0.2035
+      },
+      "surfacePartId": "top",
+      "sourceDimensions": {
+        "width": 1.6480000000000001,
+        "depth": 0.463,
+        "height": 0.56
+      },
+      "canonicalType": "media_console"
+    },
+    "expansion-c073": {
+      "surface": {
+        "height": 0.569,
+        "minX": -0.885,
+        "maxX": 0.885,
+        "minZ": -0.21,
+        "maxZ": 0.21
+      },
+      "surfacePartId": "projecting-horizontal-plane-0.57",
+      "sourceDimensions": {
+        "width": 1.8,
+        "depth": 0.45,
+        "height": 0.61
+      },
+      "canonicalType": "media_console"
+    },
+    "expansion-c077": {
+      "surface": {
+        "height": 0.746878209,
+        "minX": -0.885,
+        "maxX": 0.885,
+        "minZ": -0.42,
+        "maxZ": 0.42
+      },
+      "surfacePartId": "tabletop",
+      "sourceDimensions": {
+        "width": 1.8,
+        "depth": 0.87,
+        "height": 0.7468782091308608
+      },
+      "canonicalType": "multi_table"
+    },
+    "expansion-c079": {
+      "surface": {
+        "height": 0.75065269,
+        "minX": -0.985,
+        "maxX": 0.985,
+        "minZ": -0.41,
+        "maxZ": 0.41
+      },
+      "surfacePartId": "linoleum-top",
+      "sourceDimensions": {
+        "width": 2,
+        "depth": 0.85,
+        "height": 0.750652689835988
+      },
+      "canonicalType": "multi_table"
+    },
+    "chair-classic-tonstad": {
+      "sourceDimensions": {
+        "width": 0.42,
+        "depth": 0.56,
+        "height": 0.86
+      },
+      "canonicalType": "desk_chair"
+    },
+    "partition-shelf-translucent": {
+      "sourceDimensions": {
+        "width": 1.52,
+        "depth": 0.3,
+        "height": 1.52
+      },
+      "canonicalType": "partition_shelf"
+    },
+    "wardrobe-open": {
+      "sourceDimensions": {
+        "width": 0.99,
+        "depth": 0.51,
+        "height": 1.73
+      },
+      "canonicalType": "wardrobe"
+    },
+    "bed-fabric-headboard": {
+      "sourceDimensions": {
+        "width": 0.94,
+        "depth": 2.06,
+        "height": 0.85
+      },
+      "canonicalType": "bed"
+    },
+    "bed-storage": {
+      "sourceDimensions": {
+        "width": 0.96,
+        "depth": 2.06,
+        "height": 0.635
+      },
+      "canonicalType": "bed"
+    },
+    "side-table-round": {
+      "sourceDimensions": {
+        "width": 0.49,
+        "depth": 0.49,
+        "height": 0.51
+      },
+      "canonicalType": "side_table"
+    },
+    "curtain-fabric": {
+      "sourceDimensions": {
+        "width": 2.96,
+        "depth": 0.18,
+        "height": 2.54
+      },
+      "canonicalType": "curtain_blind"
+    },
+    "sofa-classic-ektorp": {
+      "sourceDimensions": {
+        "width": 2.18,
+        "depth": 0.88,
+        "height": 0.88
+      },
+      "canonicalType": "sofa"
+    },
+    "mirror-standing": {
+      "sourceDimensions": {
+        "width": 0.45,
+        "depth": 0.36,
+        "height": 1.6825
+      },
+      "canonicalType": "full_length_mirror"
+    },
+    "sofa-single": {
+      "sourceDimensions": {
+        "width": 0.93,
+        "depth": 0.99,
+        "height": 0.83
+      },
+      "canonicalType": "sofa"
+    },
+    "sofa-bed-daybed": {
+      "sourceDimensions": {
+        "width": 2.05,
+        "depth": 0.87,
+        "height": 0.63
+      },
+      "canonicalType": "sofa_bed"
+    },
+    "chair-midcentury-shell": {
+      "sourceDimensions": {
+        "width": 0.56,
+        "depth": 0.54,
+        "height": 0.88
+      },
+      "canonicalType": "desk_chair"
+    },
+    "monitor-basic": {
+      "sourceDimensions": {
+        "width": 0.556,
+        "depth": 0.181,
+        "height": 0.417
+      },
+      "canonicalType": "monitor"
+    },
+    "rug-round": {
+      "sourceDimensions": {
+        "width": 1.3,
+        "depth": 1.3,
+        "height": 0.018
+      },
+      "canonicalType": "rug"
+    },
+    "wardrobe-sliding": {
+      "sourceDimensions": {
+        "width": 1.17,
+        "depth": 0.55,
+        "height": 1.76
+      },
+      "canonicalType": "wardrobe"
+    },
+    "partition-shelf-slim": {
+      "sourceDimensions": {
+        "width": 1.5,
+        "depth": 0.32,
+        "height": 1.41
+      },
+      "canonicalType": "partition_shelf"
+    },
+    "hanger-shelf": {
+      "sourceDimensions": {
+        "width": 0.9,
+        "depth": 0.36,
+        "height": 1.75
+      },
+      "canonicalType": "hanger"
+    },
+    "hanger-basic": {
+      "sourceDimensions": {
+        "width": 1.11,
+        "depth": 0.51,
+        "height": 1.75
+      },
+      "canonicalType": "hanger"
+    },
+    "plant-midcentury": {
+      "sourceDimensions": {
+        "width": 0.3418371500697426,
+        "depth": 0.3570907760380737,
+        "height": 0.6499999931191831
+      },
+      "canonicalType": "plant"
+    },
+    "sofa-bed-compact": {
+      "sourceDimensions": {
+        "width": 1.42,
+        "depth": 1,
+        "height": 0.87
+      },
+      "canonicalType": "sofa_bed"
+    },
+    "tv-natural-frame": {
+      "sourceDimensions": {
+        "width": 0.9695,
+        "depth": 0.1968,
+        "height": 0.5919
+      },
+      "canonicalType": "tv"
+    },
+    "rug-runner": {
+      "sourceDimensions": {
+        "width": 0.7,
+        "depth": 1.8,
+        "height": 0.006
+      },
+      "canonicalType": "rug"
+    },
+    "tv-wide": {
+      "sourceDimensions": {
+        "width": 1.2341,
+        "depth": 0.237,
+        "height": 0.758
+      },
+      "canonicalType": "tv"
+    },
+    "rug-rectangular": {
+      "sourceDimensions": {
+        "width": 1.2,
+        "depth": 1.8,
+        "height": 0.002
+      },
+      "canonicalType": "rug"
+    },
+    "mirror-storage": {
+      "sourceDimensions": {
+        "width": 0.485,
+        "depth": 0.36,
+        "height": 1.585
+      },
+      "canonicalType": "full_length_mirror"
+    },
+    "wardrobe-natural-nordkisa": {
+      "sourceDimensions": {
+        "width": 1.2,
+        "depth": 0.47,
+        "height": 1.86
+      },
+      "canonicalType": "wardrobe"
+    },
+    "curtain-blackout": {
+      "sourceDimensions": {
+        "width": 1.82,
+        "depth": 0.2,
+        "height": 2.4
+      },
+      "canonicalType": "curtain_blind"
+    },
+    "hanger-natural-morsning": {
+      "sourceDimensions": {
+        "width": 0.54,
+        "depth": 0.47,
+        "height": 1.39
+      },
+      "canonicalType": "hanger"
+    },
+    "bookshelf-low": {
+      "sourceDimensions": {
+        "width": 0.8,
+        "depth": 0.28,
+        "height": 1.06
+      },
+      "canonicalType": "bookshelf"
+    },
+    "bed-classic-idanaes": {
+      "sourceDimensions": {
+        "width": 1.57,
+        "depth": 2.22,
+        "height": 1.21
+      },
+      "canonicalType": "bed"
+    },
+    "bookshelf-midcentury-stockholm": {
+      "sourceDimensions": {
+        "width": 1.524,
+        "depth": 0.381,
+        "height": 1.8034
+      },
+      "canonicalType": "bookshelf"
+    },
+    "chair-compact-swivel": {
+      "sourceDimensions": {
+        "width": 0.67,
+        "depth": 0.67,
+        "height": 0.9
+      },
+      "canonicalType": "desk_chair"
+    },
+    "chair-armrest": {
+      "sourceDimensions": {
+        "width": 0.71,
+        "depth": 0.71,
+        "height": 1.14
+      },
+      "canonicalType": "desk_chair"
+    },
+    "bookshelf-classic-havsta": {
+      "sourceDimensions": {
+        "width": 1.21,
+        "depth": 0.37,
+        "height": 1.34
+      },
+      "canonicalType": "bookshelf"
+    },
+    "partition-shelf-storage": {
+      "sourceDimensions": {
+        "width": 0.77,
+        "depth": 0.39,
+        "height": 1.49
+      },
+      "canonicalType": "partition_shelf"
+    },
+    "sofa-modular": {
+      "sourceDimensions": {
+        "width": 1.4,
+        "depth": 0.95,
+        "height": 0.71
+      },
+      "canonicalType": "sofa"
+    },
+    "partition-shelf-kallax": {
+      "sourceDimensions": {
+        "width": 1.47,
+        "depth": 0.39,
+        "height": 0.77
+      },
+      "canonicalType": "partition_shelf"
+    },
+    "monitor-ultrawide": {
+      "sourceDimensions": {
+        "width": 0.809,
+        "depth": 0.223,
+        "height": 0.483
+      },
+      "canonicalType": "monitor"
+    },
+    "monitor-dual": {
+      "sourceDimensions": {
+        "width": 1.132,
+        "depth": 0.181,
+        "height": 0.417
+      },
+      "canonicalType": "monitor"
+    },
+    "plant-floor": {
+      "sourceDimensions": {
+        "width": 0.32917215269250133,
+        "depth": 0.33407750271294784,
+        "height": 0.3999999965988789
+      },
+      "canonicalType": "plant"
+    },
+    "lamp-midcentury-globe": {
+      "sourceDimensions": {
+        "width": 0.28,
+        "depth": 0.28,
+        "height": 0.285
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "plant-corner": {
+      "sourceDimensions": {
+        "width": 0.6005779884792202,
+        "depth": 0.6231243531863027,
+        "height": 0.8999999922374311
+      },
+      "canonicalType": "plant"
+    },
+    "nightstand-round": {
+      "sourceDimensions": {
+        "width": 0.45,
+        "depth": 0.45,
+        "height": 0.53
+      },
+      "canonicalType": "nightstand"
+    },
+    "hanger-corner": {
+      "sourceDimensions": {
+        "width": 0.8,
+        "depth": 0.8,
+        "height": 1.75
+      },
+      "canonicalType": "hanger"
+    },
+    "bed-loft-desk": {
+      "sourceDimensions": {
+        "width": 2.07,
+        "depth": 1.04,
+        "height": 1.82
+      },
+      "canonicalType": "bed"
+    },
+    "lamp-indirect": {
+      "sourceDimensions": {
+        "width": 0.19,
+        "depth": 0.19,
+        "height": 0.3745
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "bookshelf-high": {
+      "sourceDimensions": {
+        "width": 0.8,
+        "depth": 0.28,
+        "height": 2.02
+      },
+      "canonicalType": "bookshelf"
+    },
+    "wardrobe-classic-gullaberg": {
+      "sourceDimensions": {
+        "width": 1.28,
+        "depth": 0.64,
+        "height": 2.01
+      },
+      "canonicalType": "wardrobe"
+    },
+    "chair-basic": {
+      "sourceDimensions": {
+        "width": 0.46,
+        "depth": 0.54,
+        "height": 0.8
+      },
+      "canonicalType": "desk_chair"
+    },
+    "lamp-floor": {
+      "sourceDimensions": {
+        "width": 0.52,
+        "depth": 0.52,
+        "height": 1.48
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "side-table-midcentury-stockholm": {
+      "sourceDimensions": {
+        "width": 0.48,
+        "depth": 0.48,
+        "height": 0.51
+      },
+      "canonicalType": "side_table"
+    },
+    "bed-midcentury-teal": {
+      "sourceDimensions": {
+        "width": 1.8,
+        "depth": 2.31,
+        "height": 1.19
+      },
+      "canonicalType": "bed"
+    },
+    "rug-geometric": {
+      "sourceDimensions": {
+        "width": 1.3,
+        "depth": 1.6,
+        "height": 0.009
+      },
+      "canonicalType": "rug"
+    },
+    "sofa-bed-folding": {
+      "sourceDimensions": {
+        "width": 2,
+        "depth": 0.97,
+        "height": 0.9
+      },
+      "canonicalType": "sofa_bed"
+    },
+    "sofa-two-seat": {
+      "sourceDimensions": {
+        "width": 1.21,
+        "depth": 0.78,
+        "height": 0.68
+      },
+      "canonicalType": "sofa"
+    },
+    "sofa-bed-midcentury-orange": {
+      "sourceDimensions": {
+        "width": 1.89,
+        "depth": 1.02,
+        "height": 0.88
+      },
+      "canonicalType": "sofa_bed"
+    },
+    "sofa-bed-classic-storage": {
+      "sourceDimensions": {
+        "width": 2.09,
+        "depth": 0.89,
+        "height": 0.83
+      },
+      "canonicalType": "sofa_bed"
+    },
+    "mirror-classic-rounded": {
+      "sourceDimensions": {
+        "width": 0.78,
+        "depth": 0.097,
+        "height": 1.968
+      },
+      "canonicalType": "full_length_mirror"
+    },
+    "nightstand-midcentury-trolley": {
+      "sourceDimensions": {
+        "width": 0.32,
+        "depth": 0.32,
+        "height": 0.4
+      },
+      "canonicalType": "nightstand"
+    },
+    "monitor-gaming-odyssey": {
+      "sourceDimensions": {
+        "width": 0.7142,
+        "depth": 0.2635,
+        "height": 0.5819
+      },
+      "canonicalType": "monitor"
+    },
+    "sofa-midcentury-stockholm": {
+      "sourceDimensions": {
+        "width": 1.32,
+        "depth": 0.74,
+        "height": 0.79
+      },
+      "canonicalType": "sofa"
+    },
+    "wardrobe-hinged": {
+      "sourceDimensions": {
+        "width": 0.79,
+        "depth": 0.55,
+        "height": 1.76
+      },
+      "canonicalType": "wardrobe"
+    },
+    "tv-small": {
+      "sourceDimensions": {
+        "width": 0.7374,
+        "depth": 0.1505,
+        "height": 0.4654
+      },
+      "canonicalType": "tv"
+    },
+    "bed-low-platform": {
+      "sourceDimensions": {
+        "width": 0.83,
+        "depth": 2.05,
+        "height": 0.7
+      },
+      "canonicalType": "bed"
+    },
+    "chair-gaming-matchspel": {
+      "sourceDimensions": {
+        "width": 0.66,
+        "depth": 0.66,
+        "height": 1.32
+      },
+      "canonicalType": "desk_chair"
+    },
+    "tv-medium": {
+      "sourceDimensions": {
+        "width": 0.9675,
+        "depth": 0.191,
+        "height": 0.6097
+      },
+      "canonicalType": "tv"
+    },
+    "expansion-c003": {
+      "sourceDimensions": {
+        "width": 1.2000000476837158,
+        "depth": 0.7100766897201538,
+        "height": 0.882480800151825
+      },
+      "canonicalType": "desk"
+    },
+    "expansion-c008": {
+      "sourceDimensions": {
+        "width": 1.190000057220459,
+        "depth": 0.6708513498306274,
+        "height": 0.8129388689994812
+      },
+      "canonicalType": "desk"
+    },
+    "expansion-c009": {
+      "sourceDimensions": {
+        "width": 1.636,
+        "depth": 2.1064953341484074,
+        "height": 1.0282706022262573
+      },
+      "canonicalType": "bed"
+    },
+    "expansion-c010": {
+      "sourceDimensions": {
+        "width": 1.6540000000000001,
+        "depth": 2.12,
+        "height": 0.7050000000000001
+      },
+      "canonicalType": "bed"
+    },
+    "expansion-c011": {
+      "sourceDimensions": {
+        "width": 1.652,
+        "depth": 2.1519999790191653,
+        "height": 1.0404337644577026
+      },
+      "canonicalType": "bed"
+    },
+    "expansion-c012": {
+      "sourceDimensions": {
+        "width": 1.63,
+        "depth": 2.105,
+        "height": 0.98
+      },
+      "canonicalType": "bed"
+    },
+    "expansion-c013": {
+      "sourceDimensions": {
+        "width": 1.932,
+        "depth": 2.172,
+        "height": 2.1260000000000003
+      },
+      "canonicalType": "bed"
+    },
+    "expansion-c014": {
+      "sourceDimensions": {
+        "width": 1.65,
+        "depth": 2.138092546463013,
+        "height": 0.8031929135322571
+      },
+      "canonicalType": "bed"
+    },
+    "expansion-c015": {
+      "sourceDimensions": {
+        "width": 1.48,
+        "depth": 0.9327613417778173,
+        "height": 0.7820437320646108
+      },
+      "canonicalType": "sofa_bed"
+    },
+    "expansion-c016": {
+      "sourceDimensions": {
+        "width": 2.225,
+        "depth": 0.9116109169571653,
+        "height": 0.9540763692389864
+      },
+      "canonicalType": "sofa_bed"
+    },
+    "expansion-c017": {
+      "sourceDimensions": {
+        "width": 2.08,
+        "depth": 0.8675,
+        "height": 0.9070359471456493
+      },
+      "canonicalType": "sofa_bed"
+    },
+    "expansion-c018": {
+      "sourceDimensions": {
+        "width": 1.46,
+        "depth": 1.1308674331207293,
+        "height": 0.8713335730220085
+      },
+      "canonicalType": "sofa_bed"
+    },
+    "expansion-c019": {
+      "sourceDimensions": {
+        "width": 1.4313654899597168,
+        "depth": 1.0327614360509283,
+        "height": 0.6778026571708919
+      },
+      "canonicalType": "sofa_bed"
+    },
+    "expansion-c020": {
+      "sourceDimensions": {
+        "width": 0.3878050523238433,
+        "depth": 0.3878050523238433,
+        "height": 0.49
+      },
+      "canonicalType": "nightstand"
+    },
+    "expansion-c023": {
+      "sourceDimensions": {
+        "width": 0.38,
+        "depth": 0.38,
+        "height": 0.6408805847167969
+      },
+      "canonicalType": "nightstand"
+    },
+    "expansion-c025": {
+      "sourceDimensions": {
+        "width": 0.65459593265545,
+        "depth": 0.7165203682875279,
+        "height": 1.0484668016433716
+      },
+      "canonicalType": "desk_chair"
+    },
+    "expansion-c026": {
+      "sourceDimensions": {
+        "width": 0.65459593265545,
+        "depth": 0.7944517127966526,
+        "height": 1.0818641185760498
+      },
+      "canonicalType": "desk_chair"
+    },
+    "expansion-c027": {
+      "sourceDimensions": {
+        "width": 0.65459593265545,
+        "depth": 0.7174185059761646,
+        "height": 0.997
+      },
+      "canonicalType": "desk_chair"
+    },
+    "expansion-c028": {
+      "sourceDimensions": {
+        "width": 0.65459593265545,
+        "depth": 0.7604832790588978,
+        "height": 1.2012205123901367
+      },
+      "canonicalType": "desk_chair"
+    },
+    "expansion-c029": {
+      "sourceDimensions": {
+        "width": 0.65459593265545,
+        "depth": 0.6946957772277196,
+        "height": 0.8619276881217957
+      },
+      "canonicalType": "desk_chair"
+    },
+    "expansion-c030": {
+      "sourceDimensions": {
+        "width": 0.65459593265545,
+        "depth": 0.6972514979338291,
+        "height": 0.9512899518013
+      },
+      "canonicalType": "desk_chair"
+    },
+    "expansion-c031": {
+      "sourceDimensions": {
+        "width": 0.662248432636261,
+        "depth": 0.655317186543906,
+        "height": 0.905
+      },
+      "canonicalType": "desk_chair"
+    },
+    "expansion-c032": {
+      "sourceDimensions": {
+        "width": 0.5,
+        "depth": 0.6169313192367554,
+        "height": 0.8960082530975342
+      },
+      "canonicalType": "desk_chair"
+    },
+    "expansion-c033": {
+      "sourceDimensions": {
+        "width": 0.65459593265545,
+        "depth": 0.7108802191710117,
+        "height": 0.8692004742438892
+      },
+      "canonicalType": "desk_chair"
+    },
+    "expansion-c034": {
+      "sourceDimensions": {
+        "width": 0.65459593265545,
+        "depth": 0.6979494236206654,
+        "height": 1.028003454208374
+      },
+      "canonicalType": "desk_chair"
+    },
+    "expansion-c035": {
+      "sourceDimensions": {
+        "width": 1.03,
+        "depth": 0.43200000000000005,
+        "height": 1.96
+      },
+      "canonicalType": "bookshelf"
+    },
+    "expansion-c036": {
+      "sourceDimensions": {
+        "width": 0.9400000000000002,
+        "depth": 0.9498473651195588,
+        "height": 1.9089999999999998
+      },
+      "canonicalType": "bookshelf"
+    },
+    "expansion-c038": {
+      "sourceDimensions": {
+        "width": 0.75,
+        "depth": 0.43100000000000005,
+        "height": 1.3
+      },
+      "canonicalType": "bookshelf"
+    },
+    "expansion-c039": {
+      "sourceDimensions": {
+        "width": 1.2,
+        "depth": 0.341,
+        "height": 1.5299999999999998
+      },
+      "canonicalType": "bookshelf"
+    },
+    "expansion-c041": {
+      "sourceDimensions": {
+        "width": 1.2,
+        "depth": 0.4115,
+        "height": 1.48
+      },
+      "canonicalType": "bookshelf"
+    },
+    "expansion-c044": {
+      "sourceDimensions": {
+        "width": 1.215,
+        "depth": 0.63,
+        "height": 2.1
+      },
+      "canonicalType": "wardrobe"
+    },
+    "expansion-c045": {
+      "sourceDimensions": {
+        "width": 1.22,
+        "depth": 0.6375,
+        "height": 2.16
+      },
+      "canonicalType": "wardrobe"
+    },
+    "expansion-c046": {
+      "sourceDimensions": {
+        "width": 0.6800000071525574,
+        "depth": 0.5149999928474427,
+        "height": 1.7000000476837158
+      },
+      "canonicalType": "drawer_chest"
+    },
+    "expansion-c050": {
+      "sourceDimensions": {
+        "width": 0.493604838848114,
+        "depth": 0.503246545791626,
+        "height": 1.5899461507797241
+      },
+      "canonicalType": "hanger"
+    },
+    "expansion-c051": {
+      "sourceDimensions": {
+        "width": 1.464,
+        "depth": 0.6228253841400146,
+        "height": 1.5
+      },
+      "canonicalType": "hanger"
+    },
+    "expansion-c052": {
+      "sourceDimensions": {
+        "width": 0.68,
+        "depth": 0.5854168407416321,
+        "height": 1.5220901330809156
+      },
+      "canonicalType": "hanger"
+    },
+    "expansion-c053": {
+      "sourceDimensions": {
+        "width": 0.6223388660441872,
+        "depth": 0.6223388660441872,
+        "height": 1.7709472941731792
+      },
+      "canonicalType": "hanger"
+    },
+    "expansion-c054": {
+      "sourceDimensions": {
+        "width": 1.75,
+        "depth": 0.8265979290008545,
+        "height": 0.8403100854002998
+      },
+      "canonicalType": "sofa"
+    },
+    "expansion-c055": {
+      "sourceDimensions": {
+        "width": 2.0300000000000002,
+        "depth": 0.96,
+        "height": 0.875
+      },
+      "canonicalType": "sofa"
+    },
+    "expansion-c056": {
+      "sourceDimensions": {
+        "width": 1.7938252687454224,
+        "depth": 0.837499988079071,
+        "height": 0.7849999999999999
+      },
+      "canonicalType": "sofa"
+    },
+    "expansion-c057": {
+      "sourceDimensions": {
+        "width": 2.095,
+        "depth": 0.806,
+        "height": 0.9
+      },
+      "canonicalType": "sofa"
+    },
+    "expansion-c058": {
+      "sourceDimensions": {
+        "width": 2.1887478828430176,
+        "depth": 0.7579149007797241,
+        "height": 0.8565362095832825
+      },
+      "canonicalType": "sofa"
+    },
+    "expansion-c059": {
+      "sourceDimensions": {
+        "width": 1.765,
+        "depth": 0.8025,
+        "height": 1.545
+      },
+      "canonicalType": "sofa"
+    },
+    "expansion-c060": {
+      "sourceDimensions": {
+        "width": 1.6440000000000001,
+        "depth": 0.7743032097816467,
+        "height": 0.7949999999999999
+      },
+      "canonicalType": "sofa"
+    },
+    "expansion-c061": {
+      "sourceDimensions": {
+        "width": 1.7194000482559204,
+        "depth": 1.0821421146392822,
+        "height": 0.8289934992790222
+      },
+      "canonicalType": "sofa"
+    },
+    "expansion-c062": {
+      "sourceDimensions": {
+        "width": 0.45,
+        "depth": 0.45,
+        "height": 0.358
+      },
+      "canonicalType": "side_table"
+    },
+    "expansion-c065": {
+      "sourceDimensions": {
+        "width": 0.36000001430511475,
+        "depth": 0.36000001430511475,
+        "height": 0.6412239670753479
+      },
+      "canonicalType": "side_table"
+    },
+    "expansion-c066": {
+      "sourceDimensions": {
+        "width": 0.5103740692138672,
+        "depth": 0.4390157163143158,
+        "height": 0.3825
+      },
+      "canonicalType": "side_table"
+    },
+    "expansion-c069": {
+      "sourceDimensions": {
+        "width": 0.3100000023841858,
+        "depth": 0.3100000023841858,
+        "height": 0.33000001311302185
+      },
+      "canonicalType": "side_table"
+    },
+    "expansion-c074": {
+      "sourceDimensions": {
+        "width": 1.2,
+        "depth": 1.2,
+        "height": 0.7404319378103698
+      },
+      "canonicalType": "multi_table"
+    },
+    "expansion-c075": {
+      "sourceDimensions": {
+        "width": 1.37,
+        "depth": 1.37,
+        "height": 0.7109999996200204
+      },
+      "canonicalType": "multi_table"
+    },
+    "expansion-c076": {
+      "sourceDimensions": {
+        "width": 1.8,
+        "depth": 1.2,
+        "height": 0.7188350231945514
+      },
+      "canonicalType": "multi_table"
+    },
+    "expansion-c078": {
+      "sourceDimensions": {
+        "width": 1,
+        "depth": 1,
+        "height": 0.7100155628472566
+      },
+      "canonicalType": "multi_table"
+    },
+    "expansion-c080": {
+      "sourceDimensions": {
+        "width": 1.97,
+        "depth": 0.85,
+        "height": 0.7424999999999999
+      },
+      "canonicalType": "multi_table"
+    },
+    "expansion-c081": {
+      "sourceDimensions": {
+        "width": 1.822,
+        "depth": 0.3818178364789106,
+        "height": 1.485
+      },
+      "canonicalType": "partition_shelf"
+    },
+    "expansion-c082": {
+      "sourceDimensions": {
+        "width": 1.3475232124328613,
+        "depth": 0.08363364636898041,
+        "height": 1.399999976158142
+      },
+      "canonicalType": "partition_shelf"
+    },
+    "expansion-c083": {
+      "sourceDimensions": {
+        "width": 1.89,
+        "depth": 0.65,
+        "height": 1.8125000000000002
+      },
+      "canonicalType": "partition_shelf"
+    },
+    "expansion-c086": {
+      "sourceDimensions": {
+        "width": 0.6399999856948853,
+        "depth": 0.41249999730288983,
+        "height": 1.6319999694824219
+      },
+      "canonicalType": "full_length_mirror"
+    },
+    "expansion-c088": {
+      "sourceDimensions": {
+        "width": 1.7799999690055848,
+        "depth": 0.4017413258552551,
+        "height": 2.216219663619995
+      },
+      "canonicalType": "mood_lamp"
+    },
+    "expansion-c098": {
+      "sourceDimensions": {
+        "width": 0.8676402467489243,
+        "depth": 0.5255342721939087,
+        "height": 0.9913419485092163
+      },
+      "canonicalType": "plant"
+    },
+    "expansion-c099": {
+      "sourceDimensions": {
+        "width": 0.5871589183807373,
+        "depth": 0.5805715322494507,
+        "height": 0.6860893368721008
+      },
+      "canonicalType": "plant"
+    },
+    "expansion-c100": {
+      "sourceDimensions": {
+        "width": 0.4654186964035034,
+        "depth": 0.4601777493953705,
+        "height": 0.8834371566772461
+      },
+      "canonicalType": "plant"
+    }
+  }
+}

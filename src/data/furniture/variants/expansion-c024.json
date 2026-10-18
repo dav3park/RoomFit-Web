@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "1.0",
+  "name": "벽걸이 오픈 협탁",
+  "furnitureType": "협탁",
+  "variant": "벽걸이 오픈 협탁",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.354,
+    "depth": 0.33099999999999996,
+    "height": 0.354
+  },
+  "materials": [
+    "mustardPaint"
+  ],
+  "parts": [
+    {
+      "id": "bottom",
+      "geometry": "box",
+      "position": [
+        0,
+        0.015,
+        -0.0155
+      ],
+      "size": [
+        0.354,
+        0.03,
+        0.3
+      ],
+      "material": "mustardPaint"
+    },
+    {
+      "id": "top",
+      "geometry": "box",
+      "position": [
+        0,
+        0.33899999999999997,
+        -0.0155
+      ],
+      "size": [
+        0.354,
+        0.03,
+        0.3
+      ],
+      "material": "mustardPaint"
+    },
+    {
+      "id": "left",
+      "geometry": "box",
+      "position": [
+        -0.16199999999999998,
+        0.177,
+        -0.0155
+      ],
+      "size": [
+        0.03,
+        0.354,
+        0.3
+      ],
+      "material": "mustardPaint"
+    },
+    {
+      "id": "right",
+      "geometry": "box",
+      "position": [
+        0.16199999999999998,
+        0.177,
+        -0.0155
+      ],
+      "size": [
+        0.03,
+        0.354,
+        0.3
+      ],
+      "material": "mustardPaint"
+    },
+    {
+      "id": "back",
+      "geometry": "box",
+      "position": [
+        0,
+        0.177,
+        -0.15649999999999997
+      ],
+      "size": [
+        0.294,
+        0.294,
+        0.018
+      ],
+      "material": "mustardPaint"
+    },
+    {
+      "id": "drawer-divider",
+      "geometry": "box",
+      "position": [
+        0,
+        0.17,
+        -0.0155
+      ],
+      "size": [
+        0.3,
+        0.016,
+        0.28
+      ],
+      "material": "mustardPaint"
+    },
+    {
+      "id": "upper-drawer-front",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.254,
+        0.1405
+      ],
+      "size": [
+        0.31,
+        0.15,
+        0.018
+      ],
+      "material": "mustardPaint",
+      "radius": 0.005,
+      "smoothness": 5
+    },
+    {
+      "id": "single-small-knob",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.254,
+        0.15749999999999997
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.015999999999999986
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "mustardPaint"
+    }
+  ],
+  "purchaseUrl": "https://www.montanafurniture.com/sv/serier/montana-selection",
+  "variantId": "expansion-c024",
+  "furnitureTypeCode": "NIGHTSTAND",
+  "styleTags": [
+    "minimal",
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

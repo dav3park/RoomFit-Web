@@ -1,0 +1,3590 @@
+[
+  {
+    "group": "text",
+    "attempt": 1,
+    "requestId": "42ef35f5-566c-471e-be2a-15ae2962fa3d",
+    "analysisMs": 8591,
+    "proposals": [
+      {
+        "id": "proposal-0-1-11",
+        "checks": [
+          {
+            "label": "화분",
+            "expected": 3,
+            "actual": 3,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "수납 결합 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "노출 원목 랙 선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "중형 바닥 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 2
+          },
+          {
+            "name": "소형 테이블 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.96
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.73
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.73,
+            "maxY": 0.8700000007522717
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-2",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-desk_chair",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          }
+        ]
+      },
+      {
+        "id": "proposal-1-0-6",
+        "checks": [
+          {
+            "label": "화분",
+            "expected": 3,
+            "actual": 3,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "가로 보강 프레임 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "노출 원목 랙 선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "중형 바닥 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 2
+          },
+          {
+            "name": "소형 테이블 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.96
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.74
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.74,
+            "maxY": 0.8800000007522717
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-2",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-desk_chair",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          }
+        ]
+      },
+      {
+        "id": "proposal-0-1-8",
+        "checks": [
+          {
+            "label": "화분",
+            "expected": 3,
+            "actual": 3,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "가로 보강 프레임 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "노출 원목 랙 선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "소형 테이블 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 2
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.96
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.74
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.74,
+            "maxY": 0.8800000007522717
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-2",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-desk_chair",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          }
+        ]
+      }
+    ],
+    "engineMs": 2080
+  },
+  {
+    "group": "text",
+    "attempt": 2,
+    "requestId": "be1b2a60-aed6-4e20-b60c-7d9ba9d0ee95",
+    "analysisMs": 8185,
+    "proposals": [
+      {
+        "id": "proposal-0-1-11",
+        "checks": [
+          {
+            "label": "화분",
+            "expected": 3,
+            "actual": 3,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "수납 결합 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "노출 원목 랙 선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "중형 바닥 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 2
+          },
+          {
+            "name": "소형 테이블 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.96
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.73
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.73,
+            "maxY": 0.8700000007522717
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-2",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-desk_chair",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          }
+        ]
+      },
+      {
+        "id": "proposal-1-0-6",
+        "checks": [
+          {
+            "label": "화분",
+            "expected": 3,
+            "actual": 3,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "가로 보강 프레임 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "노출 원목 랙 선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "중형 바닥 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 2
+          },
+          {
+            "name": "소형 테이블 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.96
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.74
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.74,
+            "maxY": 0.8800000007522717
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-2",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-desk_chair",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          }
+        ]
+      },
+      {
+        "id": "proposal-0-1-8",
+        "checks": [
+          {
+            "label": "화분",
+            "expected": 3,
+            "actual": 3,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "가로 보강 프레임 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "노출 원목 랙 선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "소형 테이블 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 2
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.96
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.74
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.74,
+            "maxY": 0.8800000007522717
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-2",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-desk_chair",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          }
+        ]
+      }
+    ],
+    "engineMs": 2008
+  },
+  {
+    "group": "text",
+    "attempt": 3,
+    "requestId": "46a47ea0-761b-4033-9cc3-e14f668cab6c",
+    "analysisMs": 7314,
+    "proposals": [
+      {
+        "id": "proposal-0-1-11",
+        "checks": [
+          {
+            "label": "화분",
+            "expected": 3,
+            "actual": 3,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "수납 결합 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "노출 원목 랙 선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "중형 바닥 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 2
+          },
+          {
+            "name": "소형 테이블 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.96
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.73
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.73,
+            "maxY": 0.8700000007522717
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-2",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-desk_chair",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          }
+        ]
+      },
+      {
+        "id": "proposal-1-0-6",
+        "checks": [
+          {
+            "label": "화분",
+            "expected": 3,
+            "actual": 3,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "가로 보강 프레임 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "노출 원목 랙 선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "중형 바닥 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 2
+          },
+          {
+            "name": "소형 테이블 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.96
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.74
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.74,
+            "maxY": 0.8800000007522717
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-2",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-desk_chair",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          }
+        ]
+      },
+      {
+        "id": "proposal-0-1-8",
+        "checks": [
+          {
+            "label": "화분",
+            "expected": 3,
+            "actual": 3,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "가로 보강 프레임 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "노출 원목 랙 선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "소형 테이블 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 2
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.96
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.74
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.74,
+            "maxY": 0.8800000007522717
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-2",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-desk_chair",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          }
+        ]
+      }
+    ],
+    "engineMs": 1911
+  },
+  {
+    "group": "image",
+    "attempt": 1,
+    "requestId": "894c9a91-3b53-4a5c-b3d7-f4a3819d69b4",
+    "analysisMs": 17623,
+    "proposals": [
+      {
+        "id": "proposal-2-0-6",
+        "checks": [
+          {
+            "label": "침대",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상 의자",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "커튼 · 블라인드",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "무드등",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "노출 조인트 메탈 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "컴퍼스 다리 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "슬라이딩형 옷장",
+            "type": "wardrobe",
+            "label": "옷장",
+            "count": 1
+          },
+          {
+            "name": "높은 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "우드 블라인드",
+            "type": "curtain_blind",
+            "label": "커튼 · 블라인드",
+            "count": 1
+          },
+          {
+            "name": "스탠드 무드등",
+            "type": "mood_lamp",
+            "label": "무드등",
+            "count": 1
+          },
+          {
+            "name": "직사각 레그 플랜터",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "러너형 러그",
+            "type": "rug",
+            "label": "러그",
+            "count": 1
+          },
+          {
+            "name": "기본형 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bed-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7050000000000001
+          },
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 2.02
+          },
+          {
+            "id": "consultation-studio-1r-sample-curtain_blind-0",
+            "valid": true,
+            "openingId": "window-main",
+            "minY": 0.85,
+            "maxY": 2.05
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk_chair-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7125000004470348
+          },
+          {
+            "id": "consultation-studio-1r-sample-mood_lamp-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.48
+          },
+          {
+            "id": "recommend-studio-1r-sample-1-wardrobe",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.76
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-plant",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.9913419485092163
+          },
+          {
+            "id": "recommend-studio-1r-sample-3-rug",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.006
+          }
+        ]
+      },
+      {
+        "id": "proposal-2-1-14",
+        "checks": [
+          {
+            "label": "침대",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상 의자",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "커튼 · 블라인드",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "무드등",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "컴퍼스 다리 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "내추럴 슬라이딩 오픈 옷장",
+            "type": "wardrobe",
+            "label": "옷장",
+            "count": 1
+          },
+          {
+            "name": "와이어 측판 벽선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "우드 블라인드",
+            "type": "curtain_blind",
+            "label": "커튼 · 블라인드",
+            "count": 1
+          },
+          {
+            "name": "LED 무드등",
+            "type": "mood_lamp",
+            "label": "무드등",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "러너형 러그",
+            "type": "rug",
+            "label": "러그",
+            "count": 1
+          },
+          {
+            "name": "컴팩트 회전형 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bed-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          },
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 1.2,
+            "maxY": 1.7035
+          },
+          {
+            "id": "consultation-studio-1r-sample-curtain_blind-0",
+            "valid": true,
+            "openingId": "window-main",
+            "minY": 0.85,
+            "maxY": 2.05
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk_chair-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.9
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7125000004470348
+          },
+          {
+            "id": "consultation-studio-1r-sample-mood_lamp-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3745
+          },
+          {
+            "id": "recommend-studio-1r-sample-1-wardrobe",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.86
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-plant",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "recommend-studio-1r-sample-3-rug",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.006
+          }
+        ]
+      },
+      {
+        "id": "proposal-1-0-1",
+        "checks": [
+          {
+            "label": "침대",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상 의자",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "커튼 · 블라인드",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "무드등",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "컴퍼스 다리 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "내추럴 슬라이딩 오픈 옷장",
+            "type": "wardrobe",
+            "label": "옷장",
+            "count": 1
+          },
+          {
+            "name": "와이어 측판 벽선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "우드 블라인드",
+            "type": "curtain_blind",
+            "label": "커튼 · 블라인드",
+            "count": 1
+          },
+          {
+            "name": "스탠드 무드등",
+            "type": "mood_lamp",
+            "label": "무드등",
+            "count": 1
+          },
+          {
+            "name": "중형 바닥 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "직사각형 러그",
+            "type": "rug",
+            "label": "러그",
+            "count": 1
+          },
+          {
+            "name": "기본형 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bed-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          },
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 1.2,
+            "maxY": 1.7035
+          },
+          {
+            "id": "consultation-studio-1r-sample-curtain_blind-0",
+            "valid": true,
+            "openingId": "window-main",
+            "minY": 0.85,
+            "maxY": 2.05
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk_chair-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7125000004470348
+          },
+          {
+            "id": "consultation-studio-1r-sample-mood_lamp-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.48
+          },
+          {
+            "id": "recommend-studio-1r-sample-1-wardrobe",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.86
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-plant",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "recommend-studio-1r-sample-3-rug",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.002
+          }
+        ]
+      }
+    ],
+    "engineMs": 3573
+  },
+  {
+    "group": "image",
+    "attempt": 2,
+    "requestId": "7978a2bd-1b66-423f-a3a7-91cfde03ec53",
+    "analysisMs": 20020,
+    "proposals": [
+      {
+        "id": "proposal-0-0-5",
+        "checks": [
+          {
+            "label": "침대",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상 의자",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "커튼 · 블라인드",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "무드등",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "화분",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "비대칭 사선 다리 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "폴딩 패널 옷장",
+            "type": "wardrobe",
+            "label": "옷장",
+            "count": 1
+          },
+          {
+            "name": "클래식 유리도어 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "우드 블라인드",
+            "type": "curtain_blind",
+            "label": "커튼 · 블라인드",
+            "count": 1
+          },
+          {
+            "name": "미드센추리 글로브 무드등",
+            "type": "mood_lamp",
+            "label": "무드등",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bed-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          },
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.34
+          },
+          {
+            "id": "consultation-studio-1r-sample-curtain_blind-0",
+            "valid": true,
+            "openingId": "window-main",
+            "minY": 0.85,
+            "maxY": 2.05
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk_chair-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.732983082362842
+          },
+          {
+            "id": "consultation-studio-1r-sample-mood_lamp-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.285
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "recommend-studio-1r-sample-1-wardrobe",
+            "valid": true,
+            "minY": 0,
+            "maxY": 2.1
+          }
+        ]
+      },
+      {
+        "id": "proposal-1-0-2",
+        "checks": [
+          {
+            "label": "침대",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상 의자",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "커튼 · 블라인드",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "무드등",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "화분",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "수납 결합 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "내추럴 슬라이딩 오픈 옷장",
+            "type": "wardrobe",
+            "label": "옷장",
+            "count": 1
+          },
+          {
+            "name": "클래식 유리도어 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "우드 블라인드",
+            "type": "curtain_blind",
+            "label": "커튼 · 블라인드",
+            "count": 1
+          },
+          {
+            "name": "사선 원추 태스크 조명",
+            "type": "mood_lamp",
+            "label": "무드등",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bed-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          },
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.34
+          },
+          {
+            "id": "consultation-studio-1r-sample-curtain_blind-0",
+            "valid": true,
+            "openingId": "window-main",
+            "minY": 0.85,
+            "maxY": 2.05
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk_chair-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.73
+          },
+          {
+            "id": "consultation-studio-1r-sample-mood_lamp-0",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.73,
+            "maxY": 1.1169179789051413
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "recommend-studio-1r-sample-1-wardrobe",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.86
+          }
+        ]
+      },
+      {
+        "id": "proposal-1-0-3",
+        "checks": [
+          {
+            "label": "침대",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상 의자",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "커튼 · 블라인드",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "무드등",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "화분",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "수납 결합 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "폴딩 패널 옷장",
+            "type": "wardrobe",
+            "label": "옷장",
+            "count": 1
+          },
+          {
+            "name": "클래식 유리도어 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "우드 블라인드",
+            "type": "curtain_blind",
+            "label": "커튼 · 블라인드",
+            "count": 1
+          },
+          {
+            "name": "아치 암 플로어 조명",
+            "type": "mood_lamp",
+            "label": "무드등",
+            "count": 1
+          },
+          {
+            "name": "소형 테이블 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bed-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          },
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.34
+          },
+          {
+            "id": "consultation-studio-1r-sample-curtain_blind-0",
+            "valid": true,
+            "openingId": "window-main",
+            "minY": 0.85,
+            "maxY": 2.05
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk_chair-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.73
+          },
+          {
+            "id": "consultation-studio-1r-sample-mood_lamp-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 2.216219663619995
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.73,
+            "maxY": 0.8700000007522717
+          },
+          {
+            "id": "recommend-studio-1r-sample-1-wardrobe",
+            "valid": true,
+            "minY": 0,
+            "maxY": 2.1
+          }
+        ]
+      }
+    ],
+    "engineMs": 1945
+  },
+  {
+    "group": "image",
+    "attempt": 3,
+    "requestId": "3b65643a-3746-4b17-a4b4-1dbe257021da",
+    "analysisMs": 11633,
+    "proposals": [
+      {
+        "id": "proposal-0-0-5",
+        "checks": [
+          {
+            "label": "침대",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상 의자",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "커튼 · 블라인드",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "무드등",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "비대칭 사선 다리 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "폴딩 패널 옷장",
+            "type": "wardrobe",
+            "label": "옷장",
+            "count": 1
+          },
+          {
+            "name": "클래식 유리도어 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "우드 블라인드",
+            "type": "curtain_blind",
+            "label": "커튼 · 블라인드",
+            "count": 1
+          },
+          {
+            "name": "미드센추리 글로브 무드등",
+            "type": "mood_lamp",
+            "label": "무드등",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bed-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          },
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.34
+          },
+          {
+            "id": "consultation-studio-1r-sample-curtain_blind-0",
+            "valid": true,
+            "openingId": "window-main",
+            "minY": 0.85,
+            "maxY": 2.05
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk_chair-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.732983082362842
+          },
+          {
+            "id": "consultation-studio-1r-sample-mood_lamp-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.285
+          },
+          {
+            "id": "recommend-studio-1r-sample-1-wardrobe",
+            "valid": true,
+            "minY": 0,
+            "maxY": 2.1
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-plant",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          }
+        ]
+      },
+      {
+        "id": "proposal-1-0-2",
+        "checks": [
+          {
+            "label": "침대",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상 의자",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "커튼 · 블라인드",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "무드등",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "수납 결합 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "내추럴 슬라이딩 오픈 옷장",
+            "type": "wardrobe",
+            "label": "옷장",
+            "count": 1
+          },
+          {
+            "name": "클래식 유리도어 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "우드 블라인드",
+            "type": "curtain_blind",
+            "label": "커튼 · 블라인드",
+            "count": 1
+          },
+          {
+            "name": "사선 원추 태스크 조명",
+            "type": "mood_lamp",
+            "label": "무드등",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bed-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          },
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.34
+          },
+          {
+            "id": "consultation-studio-1r-sample-curtain_blind-0",
+            "valid": true,
+            "openingId": "window-main",
+            "minY": 0.85,
+            "maxY": 2.05
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk_chair-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.73
+          },
+          {
+            "id": "consultation-studio-1r-sample-mood_lamp-0",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.73,
+            "maxY": 1.1169179789051413
+          },
+          {
+            "id": "recommend-studio-1r-sample-1-wardrobe",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.86
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-plant",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          }
+        ]
+      },
+      {
+        "id": "proposal-1-0-3",
+        "checks": [
+          {
+            "label": "침대",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상 의자",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "커튼 · 블라인드",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "무드등",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "수납 결합 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "폴딩 패널 옷장",
+            "type": "wardrobe",
+            "label": "옷장",
+            "count": 1
+          },
+          {
+            "name": "클래식 유리도어 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "우드 블라인드",
+            "type": "curtain_blind",
+            "label": "커튼 · 블라인드",
+            "count": 1
+          },
+          {
+            "name": "아치 암 플로어 조명",
+            "type": "mood_lamp",
+            "label": "무드등",
+            "count": 1
+          },
+          {
+            "name": "소형 테이블 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "클래식 우드 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bed-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          },
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.34
+          },
+          {
+            "id": "consultation-studio-1r-sample-curtain_blind-0",
+            "valid": true,
+            "openingId": "window-main",
+            "minY": 0.85,
+            "maxY": 2.05
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk_chair-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.86
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.73
+          },
+          {
+            "id": "consultation-studio-1r-sample-mood_lamp-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 2.216219663619995
+          },
+          {
+            "id": "recommend-studio-1r-sample-1-wardrobe",
+            "valid": true,
+            "minY": 0,
+            "maxY": 2.1
+          },
+          {
+            "id": "recommend-studio-1r-sample-2-plant",
+            "valid": true,
+            "supportId": "consultation-studio-1r-sample-desk-0",
+            "minY": 0.73,
+            "maxY": 0.8700000007522717
+          }
+        ]
+      }
+    ],
+    "engineMs": 1930
+  },
+  {
+    "group": "mixed",
+    "attempt": 1,
+    "requestId": "6b3fa6bd-5126-463f-b445-e1a6a2b2b287",
+    "analysisMs": 10520,
+    "proposals": [
+      {
+        "id": "proposal-1-1-9",
+        "checks": [
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "화분",
+            "expected": 2,
+            "actual": 2,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "클래식 유리도어 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 2
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.34
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          }
+        ]
+      },
+      {
+        "id": "proposal-0-1-12",
+        "checks": [
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "화분",
+            "expected": 2,
+            "actual": 2,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "클래식 유리도어 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "리브 스탠드 플랜터",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.34
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8834371566772461
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          }
+        ]
+      },
+      {
+        "id": "proposal-0-0-5",
+        "checks": [
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "화분",
+            "expected": 2,
+            "actual": 2,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "클래식 유리도어 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "리브 스탠드 플랜터",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "중형 바닥 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.34
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8834371566772461
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          }
+        ]
+      }
+    ],
+    "engineMs": 896
+  },
+  {
+    "group": "mixed",
+    "attempt": 2,
+    "requestId": "0299f066-8043-4e32-b6d0-c3bb588d0143",
+    "analysisMs": 10706,
+    "proposals": [
+      {
+        "id": "proposal-1-1-9",
+        "checks": [
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "화분",
+            "expected": 2,
+            "actual": 2,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "클래식 유리도어 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 2
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.34
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          }
+        ]
+      },
+      {
+        "id": "proposal-0-1-12",
+        "checks": [
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "화분",
+            "expected": 2,
+            "actual": 2,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "클래식 유리도어 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "리브 스탠드 플랜터",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.34
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8834371566772461
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          }
+        ]
+      },
+      {
+        "id": "proposal-0-0-5",
+        "checks": [
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "화분",
+            "expected": 2,
+            "actual": 2,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "클래식 유리도어 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "리브 스탠드 플랜터",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "중형 바닥 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.34
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8834371566772461
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          }
+        ]
+      }
+    ],
+    "engineMs": 900
+  },
+  {
+    "group": "mixed",
+    "attempt": 3,
+    "requestId": "e82ed08b-1f86-48d9-afc4-d7bc0797dcd2",
+    "analysisMs": 13438,
+    "proposals": [
+      {
+        "id": "proposal-2-0-0",
+        "checks": [
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "화분",
+            "expected": 2,
+            "actual": 2,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "양면 오픈 선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "직사각 레그 플랜터",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "러너형 러그",
+            "type": "rug",
+            "label": "러그",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.465
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.9913419485092163
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          },
+          {
+            "id": "recommend-studio-1r-sample-3-rug",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.006
+          }
+        ]
+      },
+      {
+        "id": "proposal-1-0-0",
+        "checks": [
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "화분",
+            "expected": 2,
+            "actual": 2,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "수납형 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "와이어 서스펜션 벽선반",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 2
+          },
+          {
+            "name": "원형 러그",
+            "type": "rug",
+            "label": "러그",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 1.2,
+            "maxY": 2.166
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.635
+          },
+          {
+            "id": "recommend-studio-1r-sample-3-rug",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.018
+          }
+        ]
+      },
+      {
+        "id": "proposal-2-1-15",
+        "checks": [
+          {
+            "label": "책장 / 오픈 선반",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "화분",
+            "expected": 2,
+            "actual": 2,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "로우 플랫폼 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "바닥 천장 연결 모듈 책장",
+            "type": "bookshelf",
+            "label": "책장 / 오픈 선반",
+            "count": 1
+          },
+          {
+            "name": "중형 바닥 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "대형 코너 화분",
+            "type": "plant",
+            "label": "화분",
+            "count": 1
+          },
+          {
+            "name": "원형 러그",
+            "type": "rug",
+            "label": "러그",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bookshelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 2.7
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.3999999965988789
+          },
+          {
+            "id": "consultation-studio-1r-sample-plant-1",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8999999922374311
+          },
+          {
+            "id": "recommend-studio-1r-sample-0-bed",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7
+          },
+          {
+            "id": "recommend-studio-1r-sample-3-rug",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.018
+          }
+        ]
+      }
+    ],
+    "engineMs": 1362
+  },
+  {
+    "group": "explicit-divider",
+    "proposals": [
+      {
+        "id": "proposal-0-1-0",
+        "checks": [
+          {
+            "label": "침대",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상 의자",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "커튼 · 블라인드",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "파티션",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "무드등",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "라운드 목재 프레임 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "코너 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "암막 플리츠 커튼",
+            "type": "curtain_blind",
+            "label": "커튼 · 블라인드",
+            "count": 1
+          },
+          {
+            "name": "슬림 파티션",
+            "type": "partition_shelf",
+            "label": "파티션",
+            "count": 1
+          },
+          {
+            "name": "스탠드 무드등",
+            "type": "mood_lamp",
+            "label": "무드등",
+            "count": 1
+          },
+          {
+            "name": "척추 지지 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다.",
+          "일부 권장 접근 공간은 주의가 필요합니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bed-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8031929135322571
+          },
+          {
+            "id": "consultation-studio-1r-sample-curtain_blind-0",
+            "valid": true,
+            "openingId": "window-main",
+            "minY": 0,
+            "maxY": 2.15
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk_chair-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.0818641185760498
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.42
+          },
+          {
+            "id": "consultation-studio-1r-sample-mood_lamp-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.48
+          },
+          {
+            "id": "consultation-studio-1r-sample-partition_shelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.41
+          }
+        ]
+      },
+      {
+        "id": "proposal-1-1-3",
+        "checks": [
+          {
+            "label": "침대",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상 의자",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "커튼 · 블라인드",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "파티션",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "무드등",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "라운드 목재 프레임 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "코너 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "암막 플리츠 커튼",
+            "type": "curtain_blind",
+            "label": "커튼 · 블라인드",
+            "count": 1
+          },
+          {
+            "name": "슬림 파티션",
+            "type": "partition_shelf",
+            "label": "파티션",
+            "count": 1
+          },
+          {
+            "name": "스탠드 무드등",
+            "type": "mood_lamp",
+            "label": "무드등",
+            "count": 1
+          },
+          {
+            "name": "팔걸이형 책상 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다.",
+          "일부 권장 접근 공간은 주의가 필요합니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bed-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.8031929135322571
+          },
+          {
+            "id": "consultation-studio-1r-sample-curtain_blind-0",
+            "valid": true,
+            "openingId": "window-main",
+            "minY": 0,
+            "maxY": 2.15
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk_chair-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.14
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.42
+          },
+          {
+            "id": "consultation-studio-1r-sample-mood_lamp-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.48
+          },
+          {
+            "id": "consultation-studio-1r-sample-partition_shelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.41
+          }
+        ]
+      },
+      {
+        "id": "proposal-2-1-0",
+        "checks": [
+          {
+            "label": "침대",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "책상 의자",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "커튼 · 블라인드",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "파티션",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "무드등",
+            "expected": 1,
+            "actual": 1,
+            "passed": true
+          },
+          {
+            "label": "옷장 제외",
+            "expected": 0,
+            "actual": 0,
+            "passed": true
+          }
+        ],
+        "inventory": [
+          {
+            "name": "노출 조인트 메탈 침대",
+            "type": "bed",
+            "label": "침대",
+            "count": 1
+          },
+          {
+            "name": "코너 책상",
+            "type": "desk",
+            "label": "책상",
+            "count": 1
+          },
+          {
+            "name": "암막 플리츠 커튼",
+            "type": "curtain_blind",
+            "label": "커튼 · 블라인드",
+            "count": 1
+          },
+          {
+            "name": "슬림 파티션",
+            "type": "partition_shelf",
+            "label": "파티션",
+            "count": 1
+          },
+          {
+            "name": "스탠드 무드등",
+            "type": "mood_lamp",
+            "label": "무드등",
+            "count": 1
+          },
+          {
+            "name": "서스펜션 등받이 의자",
+            "type": "desk_chair",
+            "label": "책상 의자",
+            "count": 1
+          }
+        ],
+        "warnings": [
+          "창턱 높이가 없는 창은 화면의 추정 높이를 사용했습니다. 창문 개폐 방식은 미확인입니다."
+        ],
+        "installations": [
+          {
+            "id": "consultation-studio-1r-sample-bed-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.7050000000000001
+          },
+          {
+            "id": "consultation-studio-1r-sample-curtain_blind-0",
+            "valid": true,
+            "openingId": "window-main",
+            "minY": 0,
+            "maxY": 2.15
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk_chair-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 0.997
+          },
+          {
+            "id": "consultation-studio-1r-sample-desk-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.42
+          },
+          {
+            "id": "consultation-studio-1r-sample-mood_lamp-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.48
+          },
+          {
+            "id": "consultation-studio-1r-sample-partition_shelf-0",
+            "valid": true,
+            "minY": 0,
+            "maxY": 1.41
+          }
+        ]
+      }
+    ],
+    "engineMs": 761
+  }
+]

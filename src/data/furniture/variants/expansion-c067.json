@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "1.0",
+  "name": "삼각 연결 원목 테이블",
+  "furnitureType": "사이드 테이블",
+  "variant": "삼각 연결 원목 테이블",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.8,
+    "depth": 0.8,
+    "height": 0.380978632527711
+  },
+  "materials": [
+    "woodDark",
+    "metal"
+  ],
+  "parts": [
+    {
+      "id": "thick-wood-top",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.365978632527711,
+        0
+      ],
+      "size": [
+        0.4,
+        0.4,
+        0.030000000000000027
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "splayed-solid-leg-0",
+      "geometry": "cylinder",
+      "position": [
+        0.22500000000000003,
+        0.18597863252771102,
+        0
+      ],
+      "size": [
+        0.03,
+        0.038,
+        0.3573513677041128
+      ],
+      "rotation": [
+        0,
+        0,
+        0.3129012278803845
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "splayed-solid-leg-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.11249999999999996,
+        0.18597863252771102,
+        0.19485571585149872
+      ],
+      "size": [
+        0.03,
+        0.038,
+        0.3573513677041128
+      ],
+      "rotation": [
+        -0.2699042228818215,
+        0.021026689570714203,
+        -0.15455879887547608
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "splayed-solid-leg-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.1125000000000001,
+        0.18597863252771102,
+        -0.1948557158514987
+      ],
+      "size": [
+        0.03,
+        0.038,
+        0.35735136770411274
+      ],
+      "rotation": [
+        0.2699042228818214,
+        -0.021026689570714227,
+        -0.15455879887547627
+      ],
+      "material": "woodDark"
+    },
+    {
+      "id": "triangular-connection",
+      "geometry": "extrudedPolygon",
+      "points": [
+        [
+          0.17,
+          0
+        ],
+        [
+          -0.08499999999999996,
+          0.14722431864335458
+        ],
+        [
+          -0.08500000000000008,
+          -0.14722431864335456
+        ]
+      ],
+      "height": 0.024,
+      "position": [
+        0,
+        0.255978632527711,
+        0
+      ],
+      "material": "metal"
+    }
+  ],
+  "purchaseUrl": "https://www.vitra.com/en-us/product/category/coffee-and-side-tables",
+  "variantId": "expansion-c067",
+  "furnitureTypeCode": "SIDE_TABLE",
+  "styleTags": [
+    "natural"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "schemaVersion": "1.0",
+  "name": "절곡 트레이 선반",
+  "furnitureType": "책장/오픈 선반",
+  "variant": "절곡 트레이 선반",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.2,
+    "depth": 0.341,
+    "height": 1.5299999999999998
+  },
+  "materials": [
+    "metal",
+    "metalLight"
+  ],
+  "parts": [
+    {
+      "id": "upright--0.55--0.16",
+      "geometry": "cylinder",
+      "position": [
+        -0.55,
+        0.76,
+        -0.1595
+      ],
+      "size": [
+        0.01,
+        0.01,
+        1.52
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "upright--0.55-0.16",
+      "geometry": "cylinder",
+      "position": [
+        -0.55,
+        0.76,
+        0.1605
+      ],
+      "size": [
+        0.01,
+        0.01,
+        1.52
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "upright-0.55--0.16",
+      "geometry": "cylinder",
+      "position": [
+        0.55,
+        0.76,
+        -0.1595
+      ],
+      "size": [
+        0.01,
+        0.01,
+        1.52
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "upright-0.55-0.16",
+      "geometry": "cylinder",
+      "position": [
+        0.55,
+        0.76,
+        0.1605
+      ],
+      "size": [
+        0.01,
+        0.01,
+        1.52
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "folded-tray-0",
+      "geometry": "box",
+      "position": [
+        0,
+        0.04,
+        0.0005000000000000004
+      ],
+      "size": [
+        1.2,
+        0.015,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-back-0",
+      "geometry": "box",
+      "position": [
+        0,
+        0.065,
+        -0.1645
+      ],
+      "size": [
+        1.2,
+        0.05,
+        0.012
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-side-0--0.594",
+      "geometry": "box",
+      "position": [
+        -0.594,
+        0.065,
+        0.0005000000000000004
+      ],
+      "size": [
+        0.012,
+        0.05,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-side-0-0.594",
+      "geometry": "box",
+      "position": [
+        0.594,
+        0.065,
+        0.0005000000000000004
+      ],
+      "size": [
+        0.012,
+        0.05,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "folded-tray-1",
+      "geometry": "box",
+      "position": [
+        0,
+        0.39999999999999997,
+        0.0005000000000000004
+      ],
+      "size": [
+        1.2,
+        0.015,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-back-1",
+      "geometry": "box",
+      "position": [
+        0,
+        0.425,
+        -0.1645
+      ],
+      "size": [
+        1.2,
+        0.05,
+        0.012
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-side-1--0.594",
+      "geometry": "box",
+      "position": [
+        -0.594,
+        0.425,
+        0.0005000000000000004
+      ],
+      "size": [
+        0.012,
+        0.05,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-side-1-0.594",
+      "geometry": "box",
+      "position": [
+        0.594,
+        0.425,
+        0.0005000000000000004
+      ],
+      "size": [
+        0.012,
+        0.05,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "folded-tray-2",
+      "geometry": "box",
+      "position": [
+        0,
+        0.76,
+        0.0005000000000000004
+      ],
+      "size": [
+        1.2,
+        0.015,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-back-2",
+      "geometry": "box",
+      "position": [
+        0,
+        0.785,
+        -0.1645
+      ],
+      "size": [
+        1.2,
+        0.05,
+        0.012
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-side-2--0.594",
+      "geometry": "box",
+      "position": [
+        -0.594,
+        0.785,
+        0.0005000000000000004
+      ],
+      "size": [
+        0.012,
+        0.05,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-side-2-0.594",
+      "geometry": "box",
+      "position": [
+        0.594,
+        0.785,
+        0.0005000000000000004
+      ],
+      "size": [
+        0.012,
+        0.05,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "folded-tray-3",
+      "geometry": "box",
+      "position": [
+        0,
+        1.12,
+        0.0005000000000000004
+      ],
+      "size": [
+        1.2,
+        0.015,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-back-3",
+      "geometry": "box",
+      "position": [
+        0,
+        1.145,
+        -0.1645
+      ],
+      "size": [
+        1.2,
+        0.05,
+        0.012
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-side-3--0.594",
+      "geometry": "box",
+      "position": [
+        -0.594,
+        1.145,
+        0.0005000000000000004
+      ],
+      "size": [
+        0.012,
+        0.05,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-side-3-0.594",
+      "geometry": "box",
+      "position": [
+        0.594,
+        1.145,
+        0.0005000000000000004
+      ],
+      "size": [
+        0.012,
+        0.05,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "folded-tray-4",
+      "geometry": "box",
+      "position": [
+        0,
+        1.48,
+        0.0005000000000000004
+      ],
+      "size": [
+        1.2,
+        0.015,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-back-4",
+      "geometry": "box",
+      "position": [
+        0,
+        1.505,
+        -0.1645
+      ],
+      "size": [
+        1.2,
+        0.05,
+        0.012
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-side-4--0.594",
+      "geometry": "box",
+      "position": [
+        -0.594,
+        1.505,
+        0.0005000000000000004
+      ],
+      "size": [
+        0.012,
+        0.05,
+        0.34
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "tray-side-4-0.594",
+      "geometry": "box",
+      "position": [
+        0.594,
+        1.505,
+        0.0005000000000000004
+      ],
+      "size": [
+        0.012,
+        0.05,
+        0.34
+      ],
+      "material": "metalLight"
+    }
+  ],
+  "purchaseUrl": "https://www.muuto.com/products/shop-by-family/compile-shelving-system/",
+  "variantId": "expansion-c039",
+  "furnitureTypeCode": "BOOKSHELF",
+  "styleTags": [
+    "minimal",
+    "modern"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

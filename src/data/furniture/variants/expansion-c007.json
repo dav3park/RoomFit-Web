@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "1.0",
+  "name": "절곡 스틸 다리 책상",
+  "furnitureType": "책상",
+  "variant": "절곡 스틸 다리 책상",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.4,
+    "depth": 0.7,
+    "height": 0.7309095456108491
+  },
+  "materials": [
+    "woodLight",
+    "metal"
+  ],
+  "parts": [
+    {
+      "id": "oak-writing-top",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.7159095456108491,
+        0
+      ],
+      "size": [
+        1.4,
+        0.03,
+        0.7
+      ],
+      "material": "woodLight",
+      "radius": 0.009,
+      "smoothness": 5
+    },
+    {
+      "id": "folded-leg-web--1--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.54,
+        0.35340954561084903,
+        -0.245
+      ],
+      "size": [
+        0.075,
+        0.7056380091803445,
+        0.012
+      ],
+      "material": "metal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0.09936693426793414,
+        -0.0070826176492688585,
+        -0.142198006124297
+      ]
+    },
+    {
+      "id": "folded-leg-return--1--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.508,
+        0.35340954561084903,
+        -0.245
+      ],
+      "size": [
+        0.012,
+        0.7056380091803445,
+        0.045
+      ],
+      "material": "metal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0.09936693426793414,
+        -0.0070826176492688585,
+        -0.142198006124297
+      ]
+    },
+    {
+      "id": "folded-leg-web--1-1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.54,
+        0.35340954561084903,
+        0.245
+      ],
+      "size": [
+        0.075,
+        0.7056380091803445,
+        0.012
+      ],
+      "material": "metal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        -0.09936693426793414,
+        0.0070826176492688585,
+        -0.142198006124297
+      ]
+    },
+    {
+      "id": "folded-leg-return--1-1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.508,
+        0.35340954561084903,
+        0.245
+      ],
+      "size": [
+        0.012,
+        0.7056380091803445,
+        0.045
+      ],
+      "material": "metal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        -0.09936693426793414,
+        0.0070826176492688585,
+        -0.142198006124297
+      ]
+    },
+    {
+      "id": "folded-leg-web-1--1",
+      "geometry": "roundedBox",
+      "position": [
+        0.54,
+        0.35340954561084903,
+        -0.245
+      ],
+      "size": [
+        0.075,
+        0.7056380091803445,
+        0.012
+      ],
+      "material": "metal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0.09936693426793414,
+        0.0070826176492688585,
+        0.142198006124297
+      ]
+    },
+    {
+      "id": "folded-leg-return-1--1",
+      "geometry": "roundedBox",
+      "position": [
+        0.508,
+        0.35340954561084903,
+        -0.245
+      ],
+      "size": [
+        0.012,
+        0.7056380091803445,
+        0.045
+      ],
+      "material": "metal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        0.09936693426793414,
+        0.0070826176492688585,
+        0.142198006124297
+      ]
+    },
+    {
+      "id": "folded-leg-web-1-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.54,
+        0.35340954561084903,
+        0.245
+      ],
+      "size": [
+        0.075,
+        0.7056380091803445,
+        0.012
+      ],
+      "material": "metal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        -0.09936693426793414,
+        -0.0070826176492688585,
+        0.142198006124297
+      ]
+    },
+    {
+      "id": "folded-leg-return-1-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.508,
+        0.35340954561084903,
+        0.245
+      ],
+      "size": [
+        0.012,
+        0.7056380091803445,
+        0.045
+      ],
+      "material": "metal",
+      "radius": 0.0018,
+      "smoothness": 5,
+      "rotation": [
+        -0.09936693426793414,
+        -0.0070826176492688585,
+        0.142198006124297
+      ]
+    },
+    {
+      "id": "apron-front",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.6709095456108491,
+        0.23
+      ],
+      "size": [
+        0.014,
+        0.014,
+        1.06
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "apron-back",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.6709095456108491,
+        -0.23
+      ],
+      "size": [
+        0.014,
+        0.014,
+        1.06
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "apron-left",
+      "geometry": "cylinder",
+      "position": [
+        -0.53,
+        0.6709095456108491,
+        0
+      ],
+      "size": [
+        0.014,
+        0.014,
+        0.46
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "apron-right",
+      "geometry": "cylinder",
+      "position": [
+        0.53,
+        0.6709095456108491,
+        0
+      ],
+      "size": [
+        0.014,
+        0.014,
+        0.46
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metal"
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/products/furniture/tables/desks",
+  "variantId": "expansion-c007",
+  "furnitureTypeCode": "DESK",
+  "styleTags": [
+    "midcentury",
+    "modern"
+  ],
+  "lifestyleTags": [
+    "WORK_STUDY"
+  ]
+}

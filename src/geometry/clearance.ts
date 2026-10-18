@@ -1,3 +1,4 @@
+import { placementPolicy } from '../config/furniturePlacementPolicy';
 import catalogDocument from "../data/furniture/catalog.json";
 import { normalizeCanonicalFurnitureType } from "../config/canonicalFurnitureType";
 import { resolveFurnitureLocalFootprint } from "../components/room/furnitureBoundary";
@@ -74,6 +75,7 @@ export interface LocalClearanceRect {
  * `FootprintDecal`) doesn't need to re-apply rotation itself.
  */
 export function localClearanceRects(furniture: Furniture): LocalClearanceRect[] {
+  if(['SUPPORT','WALL','WINDOW'].includes(placementPolicy(furniture).installation))return [];
   const [front, side] = frontSide(furniture);
   if (front <= 1e-6 && side <= 1e-6) {
     return [];

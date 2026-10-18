@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "1.0",
+  "name": "삼각 받침 슬림 행거",
+  "furnitureType": "행거",
+  "variant": "삼각 받침 슬림 행거",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.68,
+    "depth": 0.5854168407416321,
+    "height": 1.5220901330809156
+  },
+  "materials": [
+    "paintedWhite"
+  ],
+  "parts": [
+    {
+      "id": "tripod-upright-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.2912,
+        0.7540901330809155,
+        -0.17482072140453625
+      ],
+      "size": [
+        0.018,
+        0.018,
+        1.5143704170380508
+      ],
+      "rotation": [
+        0.13245547510868622,
+        -0.002523621413968337,
+        -0.038044906545999554
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "tripod-upright-1",
+      "geometry": "cylinder",
+      "position": [
+        0.2912,
+        0.7540901330809155,
+        -0.17482072140453625
+      ],
+      "size": [
+        0.018,
+        0.018,
+        1.5143704170380508
+      ],
+      "rotation": [
+        0.13245547510868622,
+        0.002523621413968337,
+        0.038044906545999554
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "tripod-upright-2",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.7540901330809155,
+        0.10017927859546374
+      ],
+      "size": [
+        0.018,
+        0.018,
+        1.5402921800749363
+      ],
+      "rotation": [
+        -0.22923193327699537,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "hanging-rail",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        1.5040901330809155,
+        -0.07482072140453626
+      ],
+      "size": [
+        0.018,
+        0.018,
+        0.68
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "paintedWhite"
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/hay/furniture/coatrack/loop-stand-hall",
+  "variantId": "expansion-c052",
+  "furnitureTypeCode": "HANGER",
+  "styleTags": [
+    "minimal"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

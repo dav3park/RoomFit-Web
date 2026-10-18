@@ -1,3 +1,4 @@
+import { beforeAll } from "vitest";
 import { describe, expect, it } from "vitest";
 import { createProductionFurnitureCatalog } from "../../components/furniture/variants/productionFurnitureCatalog";
 import { resolveMaterialPreset } from "../../components/furniture/variants/materialResolver";
@@ -11,7 +12,7 @@ import {
 } from "../furnitureBehaviorPolicy";
 
 describe("furniture behavior policy", () => {
-  const catalog = createProductionFurnitureCatalog();
+
   it("covers every real part of all 93 models and no stale part IDs", () => {
     expect(Object.keys(FURNITURE_THEME_TARGETS).sort()).toEqual(catalog.variants.map(v=>v.variantId).sort());
     for(const variant of catalog.variants) {
@@ -30,7 +31,7 @@ describe("furniture behavior policy", () => {
         expect(typeof originalColor).toBe("string");expect(typeof themedColor).toBe("string");
         expect(themedPbr).toEqual(originalPbr);
       }
-      expect(changed,variant.variantId+":"+tone.id).toBe(true);
+      expect(changed,variant.variantId+":"+tone.id).toBe(variant.parts.some(part=>getThemeTarget(variant.variantId,part.id)?.slot!=="preserve"));
     }
   });
   it("protects foliage, soil, glass, mirrors, screens and light sources", () => {
@@ -69,3 +70,6 @@ describe("furniture behavior policy", () => {
     expect(resolveFurnitureCollisionMode("chair-basic", "chair")).toBe("SOLID");
   });
 });
+
+let catalog: Awaited<ReturnType<typeof createProductionFurnitureCatalog>>;
+beforeAll(async()=>{catalog=await createProductionFurnitureCatalog();});

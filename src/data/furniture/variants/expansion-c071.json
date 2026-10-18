@@ -1,0 +1,1558 @@
+{
+  "schemaVersion": "1.0",
+  "name": "플루팅 슬라이딩 미디어장",
+  "furnitureType": "TV장/미디어 콘솔",
+  "variant": "플루팅 슬라이딩 미디어장",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.86,
+    "depth": 0.462,
+    "height": 0.6425
+  },
+  "materials": [
+    "metal",
+    "woodLight",
+    "metalLight"
+  ],
+  "parts": [
+    {
+      "id": "steel-leg--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.825,
+        0.08,
+        -0.17600000000000002
+      ],
+      "size": [
+        0.02,
+        0.02,
+        0.16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "steel-leg--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.825,
+        0.08,
+        0.164
+      ],
+      "size": [
+        0.02,
+        0.02,
+        0.16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "steel-leg-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.825,
+        0.08,
+        -0.17600000000000002
+      ],
+      "size": [
+        0.02,
+        0.02,
+        0.16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "steel-leg-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.825,
+        0.08,
+        0.164
+      ],
+      "size": [
+        0.02,
+        0.02,
+        0.16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "bottom",
+      "geometry": "box",
+      "position": [
+        0,
+        0.175,
+        -0.006000000000000005
+      ],
+      "size": [
+        1.86,
+        0.03,
+        0.45
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "top",
+      "geometry": "box",
+      "position": [
+        0,
+        0.605,
+        -0.006000000000000005
+      ],
+      "size": [
+        1.86,
+        0.03,
+        0.45
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "left",
+      "geometry": "box",
+      "position": [
+        -0.915,
+        0.39,
+        -0.006000000000000005
+      ],
+      "size": [
+        0.03,
+        0.46,
+        0.45
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "right",
+      "geometry": "box",
+      "position": [
+        0.915,
+        0.39,
+        -0.006000000000000005
+      ],
+      "size": [
+        0.03,
+        0.46,
+        0.45
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "back",
+      "geometry": "box",
+      "position": [
+        0,
+        0.39,
+        -0.222
+      ],
+      "size": [
+        1.8,
+        0.4,
+        0.018
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "oak-end--0.913",
+      "geometry": "box",
+      "position": [
+        -0.913,
+        0.39,
+        -0.006000000000000005
+      ],
+      "size": [
+        0.034,
+        0.46,
+        0.45
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "oak-end-0.913",
+      "geometry": "box",
+      "position": [
+        0.913,
+        0.39,
+        -0.006000000000000005
+      ],
+      "size": [
+        0.034,
+        0.46,
+        0.45
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "oak-cap",
+      "geometry": "box",
+      "position": [
+        0,
+        0.63,
+        -0.006000000000000005
+      ],
+      "size": [
+        1.86,
+        0.025,
+        0.45
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "corrugated-front-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.89,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.863,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.836,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.809,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-4",
+      "geometry": "cylinder",
+      "position": [
+        -0.782,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-5",
+      "geometry": "cylinder",
+      "position": [
+        -0.755,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-6",
+      "geometry": "cylinder",
+      "position": [
+        -0.728,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-7",
+      "geometry": "cylinder",
+      "position": [
+        -0.7010000000000001,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-8",
+      "geometry": "cylinder",
+      "position": [
+        -0.674,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-9",
+      "geometry": "cylinder",
+      "position": [
+        -0.647,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-10",
+      "geometry": "cylinder",
+      "position": [
+        -0.62,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-11",
+      "geometry": "cylinder",
+      "position": [
+        -0.593,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-12",
+      "geometry": "cylinder",
+      "position": [
+        -0.5660000000000001,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-13",
+      "geometry": "cylinder",
+      "position": [
+        -0.539,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-14",
+      "geometry": "cylinder",
+      "position": [
+        -0.512,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-15",
+      "geometry": "cylinder",
+      "position": [
+        -0.48500000000000004,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-16",
+      "geometry": "cylinder",
+      "position": [
+        -0.458,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-17",
+      "geometry": "cylinder",
+      "position": [
+        -0.431,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-18",
+      "geometry": "cylinder",
+      "position": [
+        -0.404,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-19",
+      "geometry": "cylinder",
+      "position": [
+        -0.377,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-20",
+      "geometry": "cylinder",
+      "position": [
+        -0.35,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-21",
+      "geometry": "cylinder",
+      "position": [
+        -0.32300000000000006,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-22",
+      "geometry": "cylinder",
+      "position": [
+        -0.29600000000000004,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-23",
+      "geometry": "cylinder",
+      "position": [
+        -0.269,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-24",
+      "geometry": "cylinder",
+      "position": [
+        -0.242,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-25",
+      "geometry": "cylinder",
+      "position": [
+        -0.21499999999999997,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-26",
+      "geometry": "cylinder",
+      "position": [
+        -0.18800000000000006,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-27",
+      "geometry": "cylinder",
+      "position": [
+        -0.16100000000000003,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-28",
+      "geometry": "cylinder",
+      "position": [
+        -0.134,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-29",
+      "geometry": "cylinder",
+      "position": [
+        -0.10699999999999998,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-30",
+      "geometry": "cylinder",
+      "position": [
+        -0.08000000000000007,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-31",
+      "geometry": "cylinder",
+      "position": [
+        -0.05300000000000005,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-32",
+      "geometry": "cylinder",
+      "position": [
+        -0.026000000000000023,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-33",
+      "geometry": "cylinder",
+      "position": [
+        0.0010000000000000009,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-34",
+      "geometry": "cylinder",
+      "position": [
+        0.028000000000000025,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-35",
+      "geometry": "cylinder",
+      "position": [
+        0.05499999999999994,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-36",
+      "geometry": "cylinder",
+      "position": [
+        0.08199999999999996,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-37",
+      "geometry": "cylinder",
+      "position": [
+        0.10899999999999999,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-38",
+      "geometry": "cylinder",
+      "position": [
+        0.136,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-39",
+      "geometry": "cylinder",
+      "position": [
+        0.16299999999999992,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-40",
+      "geometry": "cylinder",
+      "position": [
+        0.19000000000000006,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-41",
+      "geometry": "cylinder",
+      "position": [
+        0.21699999999999997,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-42",
+      "geometry": "cylinder",
+      "position": [
+        0.24399999999999988,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-43",
+      "geometry": "cylinder",
+      "position": [
+        0.271,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-44",
+      "geometry": "cylinder",
+      "position": [
+        0.29799999999999993,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-45",
+      "geometry": "cylinder",
+      "position": [
+        0.32500000000000007,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-46",
+      "geometry": "cylinder",
+      "position": [
+        0.352,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-47",
+      "geometry": "cylinder",
+      "position": [
+        0.3789999999999999,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-48",
+      "geometry": "cylinder",
+      "position": [
+        0.406,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-49",
+      "geometry": "cylinder",
+      "position": [
+        0.43299999999999994,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-50",
+      "geometry": "cylinder",
+      "position": [
+        0.4600000000000001,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-51",
+      "geometry": "cylinder",
+      "position": [
+        0.487,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-52",
+      "geometry": "cylinder",
+      "position": [
+        0.5139999999999999,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-53",
+      "geometry": "cylinder",
+      "position": [
+        0.541,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-54",
+      "geometry": "cylinder",
+      "position": [
+        0.568,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-55",
+      "geometry": "cylinder",
+      "position": [
+        0.5949999999999999,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-56",
+      "geometry": "cylinder",
+      "position": [
+        0.622,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-57",
+      "geometry": "cylinder",
+      "position": [
+        0.6489999999999999,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-58",
+      "geometry": "cylinder",
+      "position": [
+        0.676,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-59",
+      "geometry": "cylinder",
+      "position": [
+        0.703,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-60",
+      "geometry": "cylinder",
+      "position": [
+        0.7299999999999999,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-61",
+      "geometry": "cylinder",
+      "position": [
+        0.757,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-62",
+      "geometry": "cylinder",
+      "position": [
+        0.7839999999999999,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-63",
+      "geometry": "cylinder",
+      "position": [
+        0.811,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-64",
+      "geometry": "cylinder",
+      "position": [
+        0.838,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "corrugated-front-65",
+      "geometry": "cylinder",
+      "position": [
+        0.8649999999999999,
+        0.39,
+        0.222
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39999999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    }
+  ],
+  "purchaseUrl": "https://www.muuto.com/product/enfold-sideboard--p6661/83630/",
+  "variantId": "expansion-c071",
+  "furnitureTypeCode": "MEDIA_CONSOLE",
+  "styleTags": [
+    "natural",
+    "modern"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

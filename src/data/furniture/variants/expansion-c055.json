@@ -1,0 +1,342 @@
+{
+  "schemaVersion": "1.0",
+  "name": "퀼팅 블록 소파",
+  "furnitureType": "소파",
+  "variant": "퀼팅 블록 소파",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 2.0300000000000002,
+    "depth": 0.96,
+    "height": 0.875
+  },
+  "materials": [
+    "metal",
+    "fabric",
+    "fabricDark"
+  ],
+  "parts": [
+    {
+      "id": "recessed-foot--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.775,
+        0.035,
+        -0.3
+      ],
+      "size": [
+        0.035,
+        0.035,
+        0.07
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "recessed-foot--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.775,
+        0.035,
+        0.3
+      ],
+      "size": [
+        0.035,
+        0.035,
+        0.07
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "recessed-foot-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.775,
+        0.035,
+        -0.3
+      ],
+      "size": [
+        0.035,
+        0.035,
+        0.07
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "recessed-foot-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.775,
+        0.035,
+        0.3
+      ],
+      "size": [
+        0.035,
+        0.035,
+        0.07
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "soft-continuous-plinth",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.2,
+        0
+      ],
+      "size": [
+        2.02,
+        0.27,
+        0.96
+      ],
+      "material": "fabric",
+      "radius": 0.12,
+      "smoothness": 5
+    },
+    {
+      "id": "quilted-seat--0.5",
+      "geometry": "roundedBox",
+      "position": [
+        -0.5,
+        0.39,
+        0.06
+      ],
+      "size": [
+        0.98,
+        0.24,
+        0.79
+      ],
+      "material": "fabric",
+      "radius": 0.11,
+      "smoothness": 5
+    },
+    {
+      "id": "quilted-seat-0.5",
+      "geometry": "roundedBox",
+      "position": [
+        0.5,
+        0.39,
+        0.06
+      ],
+      "size": [
+        0.98,
+        0.24,
+        0.79
+      ],
+      "material": "fabric",
+      "radius": 0.11,
+      "smoothness": 5
+    },
+    {
+      "id": "low-rounded-back",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.66,
+        -0.36
+      ],
+      "size": [
+        1.97,
+        0.43,
+        0.24
+      ],
+      "material": "fabric",
+      "radius": 0.115,
+      "smoothness": 5
+    },
+    {
+      "id": "soft-arm--0.88",
+      "geometry": "roundedBox",
+      "position": [
+        -0.88,
+        0.57,
+        0
+      ],
+      "size": [
+        0.27,
+        0.36,
+        0.84
+      ],
+      "material": "fabric",
+      "radius": 0.13,
+      "smoothness": 5
+    },
+    {
+      "id": "soft-arm-0.88",
+      "geometry": "roundedBox",
+      "position": [
+        0.88,
+        0.57,
+        0
+      ],
+      "size": [
+        0.27,
+        0.36,
+        0.84
+      ],
+      "material": "fabric",
+      "radius": 0.13,
+      "smoothness": 5
+    },
+    {
+      "id": "stitched-quilt-seam--0.48",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.48,
+          0.505,
+          0.39
+        ],
+        [
+          -0.48,
+          0.508,
+          0
+        ],
+        [
+          -0.48,
+          0.508,
+          -0.25
+        ],
+        [
+          -0.48,
+          0.72,
+          -0.24
+        ],
+        [
+          -0.48,
+          0.865,
+          -0.35
+        ]
+      ],
+      "radius": 0.0014,
+      "material": "fabricDark",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "segments": 40,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "stitched-quilt-seam-0",
+      "geometry": "sweep",
+      "points": [
+        [
+          0,
+          0.505,
+          0.39
+        ],
+        [
+          0,
+          0.508,
+          0
+        ],
+        [
+          0,
+          0.508,
+          -0.25
+        ],
+        [
+          0,
+          0.72,
+          -0.24
+        ],
+        [
+          0,
+          0.865,
+          -0.35
+        ]
+      ],
+      "radius": 0.0014,
+      "material": "fabricDark",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "segments": 40,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "stitched-quilt-seam-0.48",
+      "geometry": "sweep",
+      "points": [
+        [
+          0.48,
+          0.505,
+          0.39
+        ],
+        [
+          0.48,
+          0.508,
+          0
+        ],
+        [
+          0.48,
+          0.508,
+          -0.25
+        ],
+        [
+          0.48,
+          0.72,
+          -0.24
+        ],
+        [
+          0.48,
+          0.865,
+          -0.35
+        ]
+      ],
+      "radius": 0.0014,
+      "material": "fabricDark",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "segments": 40,
+      "radialSegments": 10,
+      "closed": false
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/inspiration/the-hay-sofa-collection",
+  "variantId": "expansion-c055",
+  "furnitureTypeCode": "SOFA",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

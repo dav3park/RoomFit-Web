@@ -1,0 +1,296 @@
+{
+  "schemaVersion": "1.0",
+  "name": "트리 페그 코트랙",
+  "furnitureType": "행거",
+  "variant": "트리 페그 코트랙",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.6223388660441872,
+    "depth": 0.6223388660441872,
+    "height": 1.7709472941731792
+  },
+  "materials": [
+    "woodLight",
+    "metal"
+  ],
+  "parts": [
+    {
+      "id": "birch-trunk",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.9009472941731791,
+        0
+      ],
+      "size": [
+        0.029,
+        0.029,
+        1.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "radial-metal-foot-0",
+      "geometry": "cylinder",
+      "position": [
+        0.155,
+        0.026947294173179107,
+        0
+      ],
+      "size": [
+        0.013,
+        0.013,
+        0.31126194756185666
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.6608744804952373
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "radial-metal-foot-1",
+      "geometry": "cylinder",
+      "position": [
+        9.491012693391988e-18,
+        0.026947294173179107,
+        0.155
+      ],
+      "size": [
+        0.013,
+        0.013,
+        0.31126194756185666
+      ],
+      "rotation": [
+        1.6608744804952373,
+        -6.674057998553744e-17,
+        -6.098408602616518e-17
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "radial-metal-foot-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.155,
+        0.026947294173179107,
+        1.8982025386783976e-17
+      ],
+      "size": [
+        0.013,
+        0.013,
+        0.31126194756185666
+      ],
+      "rotation": [
+        1.2196817205233036e-16,
+        1.3348115997107488e-16,
+        1.6608744804952373
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "radial-metal-foot-3",
+      "geometry": "cylinder",
+      "position": [
+        -2.847303808017596e-17,
+        0.026947294173179107,
+        -0.155
+      ],
+      "size": [
+        0.013,
+        0.013,
+        0.31126194756185666
+      ],
+      "rotation": [
+        -1.6608744804952373,
+        -2.002217399566123e-16,
+        1.829522580784955e-16
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "unequal-wood-peg-0",
+      "geometry": "cylinder",
+      "position": [
+        0.08,
+        0.8659472941731791,
+        0
+      ],
+      "size": [
+        0.014,
+        0.014,
+        0.18357559750685817
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.058406866484159
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "unequal-wood-peg-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.061203678389923376,
+        0.980947294173179,
+        0.05606344398574553
+      ],
+      "size": [
+        0.014,
+        0.014,
+        0.18882796403075472
+      ],
+      "rotation": [
+        0.6624761081762226,
+        0.26373080261182624,
+        0.7361833071905216
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "unequal-wood-peg-2",
+      "geometry": "cylinder",
+      "position": [
+        0.007524912575792391,
+        1.0959472941731794,
+        -0.0856701563598823
+      ],
+      "size": [
+        0.014,
+        0.014,
+        0.19412367192076296
+      ],
+      "rotation": [
+        -1.0834978367471244,
+        0.046769576096006495,
+        -0.07768999356151315
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "unequal-wood-peg-3",
+      "geometry": "cylinder",
+      "position": [
+        0.054143266993370714,
+        1.2109472941731791,
+        0.07063643988257458
+      ],
+      "size": [
+        0.014,
+        0.014,
+        0.1994592690250318
+      ],
+      "rotation": [
+        0.8249787876781614,
+        -0.2681695587534878,
+        -0.5980407769658138
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "unequal-wood-peg-4",
+      "geometry": "cylinder",
+      "position": [
+        -0.09059128273305968,
+        1.3259472941731794,
+        -0.01603806387251413
+      ],
+      "size": [
+        0.014,
+        0.014,
+        0.2048316381812146
+      ],
+      "rotation": [
+        -0.15798408760701213,
+        -0.09638286494582304,
+        1.094432939243753
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "unequal-wood-peg-5",
+      "geometry": "cylinder",
+      "position": [
+        0.08016612607958676,
+        1.4409472941731791,
+        -0.05097442721004132
+      ],
+      "size": [
+        0.014,
+        0.014,
+        0.21023796041628642
+      ],
+      "rotation": [
+        -0.5259635348701182,
+        0.26194150335097094,
+        -0.9100839239284819
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "unequal-wood-peg-6",
+      "geometry": "cylinder",
+      "position": [
+        -0.025462100908947904,
+        1.5559472941731793,
+        0.09463446210182924
+      ],
+      "size": [
+        0.014,
+        0.014,
+        0.21567568244936658
+      ],
+      "rotation": [
+        1.0910113012924902,
+        0.14672389042777173,
+        0.24100555360556966
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "unequal-wood-peg-7",
+      "geometry": "cylinder",
+      "position": [
+        -0.04652853732854762,
+        1.670947294173179,
+        -0.08964427039173196
+      ],
+      "size": [
+        0.014,
+        0.014,
+        0.22114248800264508
+      ],
+      "rotation": [
+        -0.9893635597275046,
+        -0.24491815759592267,
+        0.4486456590171188
+      ],
+      "material": "woodLight"
+    }
+  ],
+  "purchaseUrl": "https://www.artek.fi/en/products/clothes-tree-160",
+  "variantId": "expansion-c053",
+  "furnitureTypeCode": "HANGER",
+  "styleTags": [
+    "natural"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

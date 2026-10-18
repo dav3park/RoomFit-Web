@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "1.0",
+  "name": "삼각 다리 원형 테이블",
+  "furnitureType": "다용도 테이블",
+  "variant": "삼각 다리 원형 테이블",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.2,
+    "depth": 1.2,
+    "height": 0.7404319378103698
+  },
+  "materials": [
+    "woodLight"
+  ],
+  "parts": [
+    {
+      "id": "round-dining-top",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.7279319378103698,
+        0
+      ],
+      "size": [
+        0.6,
+        0.6,
+        0.02499999999999991
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "angular-leg-0",
+      "geometry": "roundedBox",
+      "position": [
+        0.28500000000000003,
+        0.3629319378103698,
+        0
+      ],
+      "size": [
+        0.055,
+        0.7655716818169283,
+        0.042
+      ],
+      "material": "woodLight",
+      "radius": 0.0063,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        0.4168980704098938
+      ]
+    },
+    {
+      "id": "angular-leg-1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.14249999999999993,
+        0.3629319378103698,
+        0.24681724007856504
+      ],
+      "size": [
+        0.055,
+        0.7655716818169283,
+        0.042
+      ],
+      "material": "woodLight",
+      "radius": 0.0063,
+      "smoothness": 5,
+      "rotation": [
+        -0.3585510191372473,
+        0.037096309884983115,
+        -0.2040147765740736
+      ]
+    },
+    {
+      "id": "angular-leg-2",
+      "geometry": "roundedBox",
+      "position": [
+        -0.14250000000000013,
+        0.3629319378103698,
+        -0.24681724007856498
+      ],
+      "size": [
+        0.055,
+        0.7655716818169283,
+        0.042
+      ],
+      "material": "woodLight",
+      "radius": 0.0063,
+      "smoothness": 5,
+      "rotation": [
+        0.3585510191372473,
+        -0.037096309884983164,
+        -0.20401477657407388
+      ]
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/hay/furniture/tables/dining-table/cph-20-table",
+  "variantId": "expansion-c074",
+  "furnitureTypeCode": "MULTI_TABLE",
+  "styleTags": [
+    "minimal",
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

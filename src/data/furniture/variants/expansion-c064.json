@@ -1,0 +1,203 @@
+{
+  "schemaVersion": "1.0",
+  "name": "유리 상판 목재 테이블",
+  "furnitureType": "사이드 테이블",
+  "variant": "유리 상판 목재 테이블",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1,
+    "depth": 0.6,
+    "height": 0.34700000000000003
+  },
+  "materials": [
+    "woodLight",
+    "glass"
+  ],
+  "parts": [
+    {
+      "id": "wood-apron-front",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.31,
+        0.205
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.81
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "wood-apron-back",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.31,
+        -0.205
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.81
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "wood-apron-left",
+      "geometry": "cylinder",
+      "position": [
+        -0.405,
+        0.31,
+        0
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.41
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "wood-apron-right",
+      "geometry": "cylinder",
+      "position": [
+        0.405,
+        0.31,
+        0
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.41
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "leg--1--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.405,
+        0.16,
+        -0.205
+      ],
+      "size": [
+        0.045,
+        0.32,
+        0.045
+      ],
+      "material": "woodLight",
+      "radius": 0.004,
+      "smoothness": 5
+    },
+    {
+      "id": "leg--1-1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.405,
+        0.16,
+        0.205
+      ],
+      "size": [
+        0.045,
+        0.32,
+        0.045
+      ],
+      "material": "woodLight",
+      "radius": 0.004,
+      "smoothness": 5
+    },
+    {
+      "id": "leg-1--1",
+      "geometry": "roundedBox",
+      "position": [
+        0.405,
+        0.16,
+        -0.205
+      ],
+      "size": [
+        0.045,
+        0.32,
+        0.045
+      ],
+      "material": "woodLight",
+      "radius": 0.004,
+      "smoothness": 5
+    },
+    {
+      "id": "leg-1-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.405,
+        0.16,
+        0.205
+      ],
+      "size": [
+        0.045,
+        0.32,
+        0.045
+      ],
+      "material": "woodLight",
+      "radius": 0.004,
+      "smoothness": 5
+    },
+    {
+      "id": "glass-top",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.34,
+        0
+      ],
+      "size": [
+        1,
+        0.014,
+        0.6
+      ],
+      "material": "glass",
+      "radius": 0.005,
+      "smoothness": 5
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/hay/furniture/tables/coffee-table/kofi",
+  "variantId": "expansion-c064",
+  "furnitureTypeCode": "SIDE_TABLE",
+  "styleTags": [
+    "natural",
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

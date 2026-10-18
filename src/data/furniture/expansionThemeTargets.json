@@ -1,0 +1,7258 @@
+{
+  "expansion-c001": {
+    "oak-top": {
+      "slot": "wood"
+    },
+    "compass-blade--0.48--1": {
+      "slot": "primary"
+    },
+    "compass-blade--0.48-1": {
+      "slot": "primary"
+    },
+    "pivot--0.48": {
+      "slot": "primary"
+    },
+    "compass-blade-0.48--1": {
+      "slot": "primary"
+    },
+    "compass-blade-0.48-1": {
+      "slot": "primary"
+    },
+    "pivot-0.48": {
+      "slot": "primary"
+    },
+    "rear-crossbeam": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c002": {
+    "writing-top": {
+      "slot": "primary"
+    },
+    "front-leg--0.405": {
+      "slot": "preserve"
+    },
+    "rear-leg--0.405": {
+      "slot": "preserve"
+    },
+    "cross--0.405": {
+      "slot": "preserve"
+    },
+    "front-leg-0.405": {
+      "slot": "preserve"
+    },
+    "rear-leg-0.405": {
+      "slot": "preserve"
+    },
+    "cross-0.405": {
+      "slot": "preserve"
+    },
+    "rear-pigeonhole-base": {
+      "slot": "wood"
+    },
+    "rear-panel": {
+      "slot": "wood"
+    },
+    "cubicle-side--0.48": {
+      "slot": "wood"
+    },
+    "cubicle-side--0.19": {
+      "slot": "wood"
+    },
+    "cubicle-side-0.17": {
+      "slot": "wood"
+    },
+    "cubicle-side-0.48": {
+      "slot": "wood"
+    },
+    "ochre-front-inset": {
+      "slot": "primary"
+    },
+    "red-front-inset": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c003": {
+    "bent-veneer-desktop": {
+      "slot": "wood"
+    },
+    "cast-aluminium-A-frame--0.53": {
+      "slot": "primary"
+    },
+    "under-top-support--0.53": {
+      "slot": "primary"
+    },
+    "cast-aluminium-A-frame-0.53": {
+      "slot": "primary"
+    },
+    "under-top-support-0.53": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c004": {
+    "desktop": {
+      "slot": "primary"
+    },
+    "t-foot--0.55": {
+      "slot": "primary"
+    },
+    "outer-column--0.55": {
+      "slot": "primary"
+    },
+    "inner-column--0.55": {
+      "slot": "secondary"
+    },
+    "top-carrier--0.55": {
+      "slot": "primary"
+    },
+    "t-foot-0.55": {
+      "slot": "primary"
+    },
+    "outer-column-0.55": {
+      "slot": "primary"
+    },
+    "inner-column-0.55": {
+      "slot": "secondary"
+    },
+    "top-carrier-0.55": {
+      "slot": "primary"
+    },
+    "under-top-traverse": {
+      "slot": "primary"
+    },
+    "control-pad": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c005": {
+    "linoleum-top": {
+      "slot": "wood"
+    },
+    "slanted-front--1": {
+      "slot": "wood"
+    },
+    "slanted-back--1": {
+      "slot": "wood"
+    },
+    "rail--1": {
+      "slot": "wood"
+    },
+    "slanted-front-1": {
+      "slot": "wood"
+    },
+    "slanted-back-1": {
+      "slot": "wood"
+    },
+    "rail-1": {
+      "slot": "wood"
+    },
+    "rear-stretcher": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c006": {
+    "oak-top": {
+      "slot": "wood"
+    },
+    "solid-T-upright--0.53": {
+      "slot": "wood"
+    },
+    "wood-cross-foot--0.53": {
+      "slot": "wood"
+    },
+    "folded-steel-top-bracket--0.53": {
+      "slot": "primary"
+    },
+    "solid-T-upright-0.53": {
+      "slot": "wood"
+    },
+    "wood-cross-foot-0.53": {
+      "slot": "wood"
+    },
+    "folded-steel-top-bracket-0.53": {
+      "slot": "primary"
+    },
+    "oak-central-stretcher": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c007": {
+    "oak-writing-top": {
+      "slot": "wood"
+    },
+    "folded-leg-web--1--1": {
+      "slot": "primary"
+    },
+    "folded-leg-return--1--1": {
+      "slot": "primary"
+    },
+    "folded-leg-web--1-1": {
+      "slot": "primary"
+    },
+    "folded-leg-return--1-1": {
+      "slot": "primary"
+    },
+    "folded-leg-web-1--1": {
+      "slot": "primary"
+    },
+    "folded-leg-return-1--1": {
+      "slot": "primary"
+    },
+    "folded-leg-web-1-1": {
+      "slot": "primary"
+    },
+    "folded-leg-return-1-1": {
+      "slot": "primary"
+    },
+    "apron-front": {
+      "slot": "primary"
+    },
+    "apron-back": {
+      "slot": "primary"
+    },
+    "apron-left": {
+      "slot": "primary"
+    },
+    "apron-right": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c008": {
+    "curled-veneer-top": {
+      "slot": "wood"
+    },
+    "chrome-leg--1--1": {
+      "slot": "preserve"
+    },
+    "chrome-leg--1-1": {
+      "slot": "preserve"
+    },
+    "chrome-leg-1--1": {
+      "slot": "preserve"
+    },
+    "chrome-leg-1-1": {
+      "slot": "preserve"
+    },
+    "underframe-front": {
+      "slot": "preserve"
+    },
+    "underframe-back": {
+      "slot": "preserve"
+    },
+    "underframe-left": {
+      "slot": "preserve"
+    },
+    "underframe-right": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c009": {
+    "tubular-leg--1--1": {
+      "slot": "primary"
+    },
+    "tubular-leg--1-1": {
+      "slot": "primary"
+    },
+    "tubular-leg-1--1": {
+      "slot": "primary"
+    },
+    "tubular-leg-1-1": {
+      "slot": "primary"
+    },
+    "frame-front": {
+      "slot": "primary"
+    },
+    "frame-back": {
+      "slot": "primary"
+    },
+    "frame-left": {
+      "slot": "primary"
+    },
+    "frame-right": {
+      "slot": "primary"
+    },
+    "head-upright--0.7949999999999999": {
+      "slot": "primary"
+    },
+    "head-upright-0.7949999999999999": {
+      "slot": "primary"
+    },
+    "head-upper-rail": {
+      "slot": "primary"
+    },
+    "draped-headboard": {
+      "slot": "primary"
+    },
+    "mattress-slat-0": {
+      "slot": "wood"
+    },
+    "mattress-slat-1": {
+      "slot": "wood"
+    },
+    "mattress-slat-2": {
+      "slot": "wood"
+    },
+    "mattress-slat-3": {
+      "slot": "wood"
+    },
+    "mattress-slat-4": {
+      "slot": "wood"
+    },
+    "mattress-slat-5": {
+      "slot": "wood"
+    },
+    "mattress-slat-6": {
+      "slot": "wood"
+    },
+    "mattress-slat-7": {
+      "slot": "wood"
+    },
+    "mattress-slat-8": {
+      "slot": "wood"
+    },
+    "mattress-slat-9": {
+      "slot": "wood"
+    },
+    "mattress-slat-10": {
+      "slot": "wood"
+    },
+    "mattress-slat-11": {
+      "slot": "wood"
+    },
+    "mattress-slat-12": {
+      "slot": "wood"
+    },
+    "mattress-slat-13": {
+      "slot": "wood"
+    },
+    "mattress-slat-14": {
+      "slot": "wood"
+    },
+    "mattress-slat-15": {
+      "slot": "wood"
+    },
+    "mattress": {
+      "slot": "neutral"
+    },
+    "sleep-pillow--0.4125": {
+      "slot": "primary"
+    },
+    "sleep-pillow-0.4125": {
+      "slot": "primary"
+    },
+    "bed-runner": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c010": {
+    "square-foot--1--1": {
+      "slot": "primary"
+    },
+    "square-foot--1-1": {
+      "slot": "primary"
+    },
+    "square-foot-1--1": {
+      "slot": "primary"
+    },
+    "square-foot-1-1": {
+      "slot": "primary"
+    },
+    "side-rail--1": {
+      "slot": "primary"
+    },
+    "side-rail-1": {
+      "slot": "primary"
+    },
+    "end-rail--1": {
+      "slot": "primary"
+    },
+    "end-rail-1": {
+      "slot": "primary"
+    },
+    "exposed-bolt--1--1": {
+      "slot": "preserve"
+    },
+    "exposed-bolt--1-1": {
+      "slot": "preserve"
+    },
+    "exposed-bolt-1--1": {
+      "slot": "preserve"
+    },
+    "exposed-bolt-1-1": {
+      "slot": "preserve"
+    },
+    "mattress-slat-0": {
+      "slot": "wood"
+    },
+    "mattress-slat-1": {
+      "slot": "wood"
+    },
+    "mattress-slat-2": {
+      "slot": "wood"
+    },
+    "mattress-slat-3": {
+      "slot": "wood"
+    },
+    "mattress-slat-4": {
+      "slot": "wood"
+    },
+    "mattress-slat-5": {
+      "slot": "wood"
+    },
+    "mattress-slat-6": {
+      "slot": "wood"
+    },
+    "mattress-slat-7": {
+      "slot": "wood"
+    },
+    "mattress-slat-8": {
+      "slot": "wood"
+    },
+    "mattress-slat-9": {
+      "slot": "wood"
+    },
+    "mattress-slat-10": {
+      "slot": "wood"
+    },
+    "mattress-slat-11": {
+      "slot": "wood"
+    },
+    "mattress-slat-12": {
+      "slot": "wood"
+    },
+    "mattress-slat-13": {
+      "slot": "wood"
+    },
+    "mattress-slat-14": {
+      "slot": "wood"
+    },
+    "mattress-slat-15": {
+      "slot": "wood"
+    },
+    "mattress": {
+      "slot": "neutral"
+    },
+    "sleep-pillow--0.4125": {
+      "slot": "primary"
+    },
+    "sleep-pillow-0.4125": {
+      "slot": "primary"
+    },
+    "bed-runner": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c011": {
+    "taper-leg--1--1": {
+      "slot": "wood"
+    },
+    "taper-leg--1-1": {
+      "slot": "wood"
+    },
+    "taper-leg-1--1": {
+      "slot": "wood"
+    },
+    "taper-leg-1-1": {
+      "slot": "wood"
+    },
+    "wood-side--1": {
+      "slot": "wood"
+    },
+    "wood-side-1": {
+      "slot": "wood"
+    },
+    "foot-board": {
+      "slot": "wood"
+    },
+    "head-bottom-rail": {
+      "slot": "wood"
+    },
+    "head-post--0.7999999999999999": {
+      "slot": "wood"
+    },
+    "head-post-0.7999999999999999": {
+      "slot": "wood"
+    },
+    "rounded-head-crest": {
+      "slot": "wood"
+    },
+    "head-spindle-0": {
+      "slot": "wood"
+    },
+    "head-spindle-1": {
+      "slot": "wood"
+    },
+    "head-spindle-2": {
+      "slot": "wood"
+    },
+    "head-spindle-3": {
+      "slot": "wood"
+    },
+    "head-spindle-4": {
+      "slot": "wood"
+    },
+    "head-spindle-5": {
+      "slot": "wood"
+    },
+    "head-spindle-6": {
+      "slot": "wood"
+    },
+    "head-spindle-7": {
+      "slot": "wood"
+    },
+    "head-spindle-8": {
+      "slot": "wood"
+    },
+    "head-spindle-9": {
+      "slot": "wood"
+    },
+    "head-spindle-10": {
+      "slot": "wood"
+    },
+    "head-spindle-11": {
+      "slot": "wood"
+    },
+    "head-spindle-12": {
+      "slot": "wood"
+    },
+    "head-spindle-13": {
+      "slot": "wood"
+    },
+    "head-spindle-14": {
+      "slot": "wood"
+    },
+    "head-spindle-15": {
+      "slot": "wood"
+    },
+    "head-spindle-16": {
+      "slot": "wood"
+    },
+    "mattress-slat-0": {
+      "slot": "wood"
+    },
+    "mattress-slat-1": {
+      "slot": "wood"
+    },
+    "mattress-slat-2": {
+      "slot": "wood"
+    },
+    "mattress-slat-3": {
+      "slot": "wood"
+    },
+    "mattress-slat-4": {
+      "slot": "wood"
+    },
+    "mattress-slat-5": {
+      "slot": "wood"
+    },
+    "mattress-slat-6": {
+      "slot": "wood"
+    },
+    "mattress-slat-7": {
+      "slot": "wood"
+    },
+    "mattress-slat-8": {
+      "slot": "wood"
+    },
+    "mattress-slat-9": {
+      "slot": "wood"
+    },
+    "mattress-slat-10": {
+      "slot": "wood"
+    },
+    "mattress-slat-11": {
+      "slot": "wood"
+    },
+    "mattress-slat-12": {
+      "slot": "wood"
+    },
+    "mattress-slat-13": {
+      "slot": "wood"
+    },
+    "mattress-slat-14": {
+      "slot": "wood"
+    },
+    "mattress-slat-15": {
+      "slot": "wood"
+    },
+    "mattress": {
+      "slot": "neutral"
+    },
+    "sleep-pillow--0.4125": {
+      "slot": "primary"
+    },
+    "sleep-pillow-0.4125": {
+      "slot": "primary"
+    },
+    "bed-runner": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c012": {
+    "steel-leg--1--1": {
+      "slot": "primary"
+    },
+    "steel-leg--1-1": {
+      "slot": "primary"
+    },
+    "steel-leg-1--1": {
+      "slot": "primary"
+    },
+    "steel-leg-1-1": {
+      "slot": "primary"
+    },
+    "steel-bed-frame-front": {
+      "slot": "primary"
+    },
+    "steel-bed-frame-back": {
+      "slot": "primary"
+    },
+    "steel-bed-frame-left": {
+      "slot": "primary"
+    },
+    "steel-bed-frame-right": {
+      "slot": "primary"
+    },
+    "head-post--0.7999999999999999": {
+      "slot": "primary"
+    },
+    "head-post-0.7999999999999999": {
+      "slot": "primary"
+    },
+    "head-top": {
+      "slot": "primary"
+    },
+    "separate-head-cushion--0.4": {
+      "slot": "neutral"
+    },
+    "separate-head-cushion-0.4": {
+      "slot": "neutral"
+    },
+    "mattress-slat-0": {
+      "slot": "wood"
+    },
+    "mattress-slat-1": {
+      "slot": "wood"
+    },
+    "mattress-slat-2": {
+      "slot": "wood"
+    },
+    "mattress-slat-3": {
+      "slot": "wood"
+    },
+    "mattress-slat-4": {
+      "slot": "wood"
+    },
+    "mattress-slat-5": {
+      "slot": "wood"
+    },
+    "mattress-slat-6": {
+      "slot": "wood"
+    },
+    "mattress-slat-7": {
+      "slot": "wood"
+    },
+    "mattress-slat-8": {
+      "slot": "wood"
+    },
+    "mattress-slat-9": {
+      "slot": "wood"
+    },
+    "mattress-slat-10": {
+      "slot": "wood"
+    },
+    "mattress-slat-11": {
+      "slot": "wood"
+    },
+    "mattress-slat-12": {
+      "slot": "wood"
+    },
+    "mattress-slat-13": {
+      "slot": "wood"
+    },
+    "mattress-slat-14": {
+      "slot": "wood"
+    },
+    "mattress-slat-15": {
+      "slot": "wood"
+    },
+    "mattress": {
+      "slot": "neutral"
+    },
+    "sleep-pillow--0.4125": {
+      "slot": "primary"
+    },
+    "sleep-pillow-0.4125": {
+      "slot": "primary"
+    },
+    "bed-runner": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c013": {
+    "canopy-post--1--1": {
+      "slot": "wood"
+    },
+    "canopy-post--1-1": {
+      "slot": "wood"
+    },
+    "canopy-post-1--1": {
+      "slot": "wood"
+    },
+    "canopy-post-1-1": {
+      "slot": "wood"
+    },
+    "canopy-roof-front": {
+      "slot": "wood"
+    },
+    "canopy-roof-back": {
+      "slot": "wood"
+    },
+    "canopy-roof-left": {
+      "slot": "wood"
+    },
+    "canopy-roof-right": {
+      "slot": "wood"
+    },
+    "leather-rail--1": {
+      "slot": "wood"
+    },
+    "leather-rail-1": {
+      "slot": "wood"
+    },
+    "foot-leather-rail": {
+      "slot": "wood"
+    },
+    "head-leather-panel": {
+      "slot": "wood"
+    },
+    "head-cushion--0.45": {
+      "slot": "neutral"
+    },
+    "cushion-belt--0.45": {
+      "slot": "wood"
+    },
+    "head-cushion-0.45": {
+      "slot": "neutral"
+    },
+    "cushion-belt-0.45": {
+      "slot": "wood"
+    },
+    "mattress-slat-0": {
+      "slot": "wood"
+    },
+    "mattress-slat-1": {
+      "slot": "wood"
+    },
+    "mattress-slat-2": {
+      "slot": "wood"
+    },
+    "mattress-slat-3": {
+      "slot": "wood"
+    },
+    "mattress-slat-4": {
+      "slot": "wood"
+    },
+    "mattress-slat-5": {
+      "slot": "wood"
+    },
+    "mattress-slat-6": {
+      "slot": "wood"
+    },
+    "mattress-slat-7": {
+      "slot": "wood"
+    },
+    "mattress-slat-8": {
+      "slot": "wood"
+    },
+    "mattress-slat-9": {
+      "slot": "wood"
+    },
+    "mattress-slat-10": {
+      "slot": "wood"
+    },
+    "mattress-slat-11": {
+      "slot": "wood"
+    },
+    "mattress-slat-12": {
+      "slot": "wood"
+    },
+    "mattress-slat-13": {
+      "slot": "wood"
+    },
+    "mattress-slat-14": {
+      "slot": "wood"
+    },
+    "mattress-slat-15": {
+      "slot": "wood"
+    },
+    "mattress": {
+      "slot": "neutral"
+    },
+    "sleep-pillow--0.48": {
+      "slot": "primary"
+    },
+    "sleep-pillow-0.48": {
+      "slot": "primary"
+    },
+    "bed-runner": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c014": {
+    "stout-rounded-foot--1--1": {
+      "slot": "wood"
+    },
+    "stout-rounded-foot--1-1": {
+      "slot": "wood"
+    },
+    "stout-rounded-foot-1--1": {
+      "slot": "wood"
+    },
+    "stout-rounded-foot-1-1": {
+      "slot": "wood"
+    },
+    "rounded-wood-side--1": {
+      "slot": "wood"
+    },
+    "rounded-wood-side-1": {
+      "slot": "wood"
+    },
+    "round-end--1": {
+      "slot": "wood"
+    },
+    "round-end-1": {
+      "slot": "wood"
+    },
+    "headboard-mount--0.4125": {
+      "slot": "secondary"
+    },
+    "split-curved-head--0.4125": {
+      "slot": "wood"
+    },
+    "headboard-mount-0.4125": {
+      "slot": "secondary"
+    },
+    "split-curved-head-0.4125": {
+      "slot": "wood"
+    },
+    "aluminium-corner--1": {
+      "slot": "secondary"
+    },
+    "aluminium-corner-1": {
+      "slot": "secondary"
+    },
+    "mattress-slat-0": {
+      "slot": "wood"
+    },
+    "mattress-slat-1": {
+      "slot": "wood"
+    },
+    "mattress-slat-2": {
+      "slot": "wood"
+    },
+    "mattress-slat-3": {
+      "slot": "wood"
+    },
+    "mattress-slat-4": {
+      "slot": "wood"
+    },
+    "mattress-slat-5": {
+      "slot": "wood"
+    },
+    "mattress-slat-6": {
+      "slot": "wood"
+    },
+    "mattress-slat-7": {
+      "slot": "wood"
+    },
+    "mattress-slat-8": {
+      "slot": "wood"
+    },
+    "mattress-slat-9": {
+      "slot": "wood"
+    },
+    "mattress-slat-10": {
+      "slot": "wood"
+    },
+    "mattress-slat-11": {
+      "slot": "wood"
+    },
+    "mattress-slat-12": {
+      "slot": "wood"
+    },
+    "mattress-slat-13": {
+      "slot": "wood"
+    },
+    "mattress-slat-14": {
+      "slot": "wood"
+    },
+    "mattress-slat-15": {
+      "slot": "wood"
+    },
+    "mattress": {
+      "slot": "neutral"
+    },
+    "sleep-pillow--0.4125": {
+      "slot": "primary"
+    },
+    "sleep-pillow-0.4125": {
+      "slot": "primary"
+    },
+    "bed-runner": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c015": {
+    "folding-seat-deck": {
+      "slot": "primary"
+    },
+    "front-fold-mattress": {
+      "slot": "neutral"
+    },
+    "rear-folded-base": {
+      "slot": "neutral"
+    },
+    "back-support-panel": {
+      "slot": "neutral"
+    },
+    "aluminium-front-leg--1": {
+      "slot": "secondary"
+    },
+    "aluminium-rear-leg--1": {
+      "slot": "secondary"
+    },
+    "aluminium-side-rail--1": {
+      "slot": "secondary"
+    },
+    "back-cushion--1": {
+      "slot": "neutral"
+    },
+    "side-pivot--1": {
+      "slot": "preserve"
+    },
+    "aluminium-front-leg-1": {
+      "slot": "secondary"
+    },
+    "aluminium-rear-leg-1": {
+      "slot": "secondary"
+    },
+    "aluminium-side-rail-1": {
+      "slot": "secondary"
+    },
+    "back-cushion-1": {
+      "slot": "neutral"
+    },
+    "side-pivot-1": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c016": {
+    "wooden-leg--1--1": {
+      "slot": "wood"
+    },
+    "wooden-leg--1-1": {
+      "slot": "wood"
+    },
+    "wooden-leg-1--1": {
+      "slot": "wood"
+    },
+    "wooden-leg-1-1": {
+      "slot": "wood"
+    },
+    "bed-deck-front": {
+      "slot": "primary"
+    },
+    "bed-deck-back": {
+      "slot": "primary"
+    },
+    "bed-deck-left": {
+      "slot": "primary"
+    },
+    "bed-deck-right": {
+      "slot": "primary"
+    },
+    "seat--0.51": {
+      "slot": "neutral"
+    },
+    "splitback--0.51": {
+      "slot": "neutral"
+    },
+    "seat-0.51": {
+      "slot": "neutral"
+    },
+    "splitback-0.51": {
+      "slot": "neutral"
+    },
+    "seat-support-deck": {
+      "slot": "primary"
+    },
+    "wood-arm-front--1.08": {
+      "slot": "wood"
+    },
+    "wood-arm-rear--1.08": {
+      "slot": "wood"
+    },
+    "solid-arm--1.08": {
+      "slot": "wood"
+    },
+    "wood-arm-front-1.08": {
+      "slot": "wood"
+    },
+    "wood-arm-rear-1.08": {
+      "slot": "wood"
+    },
+    "solid-arm-1.08": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c017": {
+    "oak-leg--1--1": {
+      "slot": "wood"
+    },
+    "oak-leg--1-1": {
+      "slot": "wood"
+    },
+    "oak-leg-1--1": {
+      "slot": "wood"
+    },
+    "oak-leg-1-1": {
+      "slot": "wood"
+    },
+    "covered-daybed-deck-front": {
+      "slot": "primary"
+    },
+    "covered-daybed-deck-back": {
+      "slot": "primary"
+    },
+    "covered-daybed-deck-left": {
+      "slot": "primary"
+    },
+    "covered-daybed-deck-right": {
+      "slot": "primary"
+    },
+    "central-mattress": {
+      "slot": "primary"
+    },
+    "rear-fabric-apron": {
+      "slot": "primary"
+    },
+    "raised-padded-arm--1": {
+      "slot": "primary"
+    },
+    "fabric-side-cover--1": {
+      "slot": "primary"
+    },
+    "back-cushion--1": {
+      "slot": "primary"
+    },
+    "hidden-back-support--1": {
+      "slot": "primary"
+    },
+    "raised-padded-arm-1": {
+      "slot": "primary"
+    },
+    "fabric-side-cover-1": {
+      "slot": "primary"
+    },
+    "back-cushion-1": {
+      "slot": "primary"
+    },
+    "hidden-back-support-1": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c018": {
+    "low-foot--1--1": {
+      "slot": "wood"
+    },
+    "low-foot--1-1": {
+      "slot": "wood"
+    },
+    "low-foot-1--1": {
+      "slot": "wood"
+    },
+    "low-foot-1-1": {
+      "slot": "wood"
+    },
+    "side-rail--1": {
+      "slot": "wood"
+    },
+    "side-rail-1": {
+      "slot": "wood"
+    },
+    "seat-slat-0": {
+      "slot": "wood"
+    },
+    "seat-slat-1": {
+      "slot": "wood"
+    },
+    "seat-slat-2": {
+      "slot": "wood"
+    },
+    "seat-slat-3": {
+      "slot": "wood"
+    },
+    "seat-slat-4": {
+      "slot": "wood"
+    },
+    "seat-slat-5": {
+      "slot": "wood"
+    },
+    "seat-slat-6": {
+      "slot": "wood"
+    },
+    "seat-slat-7": {
+      "slot": "wood"
+    },
+    "seat-slat-8": {
+      "slot": "wood"
+    },
+    "seat-slat-9": {
+      "slot": "wood"
+    },
+    "seat-slat-10": {
+      "slot": "wood"
+    },
+    "seat-slat-11": {
+      "slot": "wood"
+    },
+    "back-slat-0": {
+      "slot": "wood"
+    },
+    "back-slat-1": {
+      "slot": "wood"
+    },
+    "back-slat-2": {
+      "slot": "wood"
+    },
+    "back-slat-3": {
+      "slot": "wood"
+    },
+    "back-slat-4": {
+      "slot": "wood"
+    },
+    "back-rest--1": {
+      "slot": "wood"
+    },
+    "back-rest-1": {
+      "slot": "wood"
+    },
+    "back-crossbar": {
+      "slot": "wood"
+    },
+    "lower-folded-futon": {
+      "slot": "primary"
+    },
+    "upper-folded-futon": {
+      "slot": "primary"
+    },
+    "folded-futon-back": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c019": {
+    "floor-futon": {
+      "slot": "primary"
+    },
+    "rounded-back-fold": {
+      "slot": "primary"
+    },
+    "folded-arm--1": {
+      "slot": "primary"
+    },
+    "belt-side--1": {
+      "slot": "primary"
+    },
+    "folded-arm-1": {
+      "slot": "primary"
+    },
+    "belt-side-1": {
+      "slot": "primary"
+    },
+    "back-tuft--0.4": {
+      "slot": "primary"
+    },
+    "back-tuft-0": {
+      "slot": "primary"
+    },
+    "back-tuft-0.4": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c020": {
+    "facet-shelf-0": {
+      "slot": "primary"
+    },
+    "facet-shelf-1": {
+      "slot": "primary"
+    },
+    "facet-top": {
+      "slot": "primary"
+    },
+    "frame-band-0-0": {
+      "slot": "primary"
+    },
+    "frame-band-1-0": {
+      "slot": "primary"
+    },
+    "frame-band-2-0": {
+      "slot": "primary"
+    },
+    "revolving-door-0-0": {
+      "slot": "primary"
+    },
+    "revolving-door-1-0": {
+      "slot": "primary"
+    },
+    "frame-band-0-1": {
+      "slot": "primary"
+    },
+    "frame-band-1-1": {
+      "slot": "primary"
+    },
+    "frame-band-2-1": {
+      "slot": "primary"
+    },
+    "revolving-door-0-1": {
+      "slot": "primary"
+    },
+    "revolving-door-1-1": {
+      "slot": "primary"
+    },
+    "frame-band-0-2": {
+      "slot": "primary"
+    },
+    "frame-band-1-2": {
+      "slot": "primary"
+    },
+    "frame-band-2-2": {
+      "slot": "primary"
+    },
+    "revolving-door-0-2": {
+      "slot": "primary"
+    },
+    "revolving-door-1-2": {
+      "slot": "primary"
+    },
+    "frame-band-0-3": {
+      "slot": "primary"
+    },
+    "frame-band-1-3": {
+      "slot": "primary"
+    },
+    "frame-band-2-3": {
+      "slot": "primary"
+    },
+    "revolving-door-0-3": {
+      "slot": "primary"
+    },
+    "revolving-door-1-3": {
+      "slot": "primary"
+    },
+    "frame-band-0-4": {
+      "slot": "primary"
+    },
+    "frame-band-1-4": {
+      "slot": "primary"
+    },
+    "frame-band-2-4": {
+      "slot": "primary"
+    },
+    "revolving-door-0-4": {
+      "slot": "primary"
+    },
+    "revolving-door-1-4": {
+      "slot": "primary"
+    },
+    "frame-band-0-5": {
+      "slot": "primary"
+    },
+    "frame-band-1-5": {
+      "slot": "primary"
+    },
+    "frame-band-2-5": {
+      "slot": "primary"
+    },
+    "revolving-door-0-5": {
+      "slot": "primary"
+    },
+    "revolving-door-1-5": {
+      "slot": "primary"
+    },
+    "frame-band-0-6": {
+      "slot": "primary"
+    },
+    "frame-band-1-6": {
+      "slot": "primary"
+    },
+    "frame-band-2-6": {
+      "slot": "primary"
+    },
+    "rear-wall-0-6": {
+      "slot": "primary"
+    },
+    "rear-wall-1-6": {
+      "slot": "primary"
+    },
+    "frame-band-0-7": {
+      "slot": "primary"
+    },
+    "frame-band-1-7": {
+      "slot": "primary"
+    },
+    "frame-band-2-7": {
+      "slot": "primary"
+    },
+    "rear-wall-0-7": {
+      "slot": "primary"
+    },
+    "rear-wall-1-7": {
+      "slot": "primary"
+    },
+    "frame-band-0-8": {
+      "slot": "primary"
+    },
+    "frame-band-1-8": {
+      "slot": "primary"
+    },
+    "frame-band-2-8": {
+      "slot": "primary"
+    },
+    "rear-wall-0-8": {
+      "slot": "primary"
+    },
+    "rear-wall-1-8": {
+      "slot": "primary"
+    },
+    "frame-band-0-9": {
+      "slot": "primary"
+    },
+    "frame-band-1-9": {
+      "slot": "primary"
+    },
+    "frame-band-2-9": {
+      "slot": "primary"
+    },
+    "rear-wall-0-9": {
+      "slot": "primary"
+    },
+    "rear-wall-1-9": {
+      "slot": "primary"
+    },
+    "frame-band-0-10": {
+      "slot": "primary"
+    },
+    "frame-band-1-10": {
+      "slot": "primary"
+    },
+    "frame-band-2-10": {
+      "slot": "primary"
+    },
+    "rear-wall-0-10": {
+      "slot": "primary"
+    },
+    "rear-wall-1-10": {
+      "slot": "primary"
+    },
+    "frame-band-0-11": {
+      "slot": "primary"
+    },
+    "frame-band-1-11": {
+      "slot": "primary"
+    },
+    "frame-band-2-11": {
+      "slot": "primary"
+    },
+    "rear-wall-0-11": {
+      "slot": "primary"
+    },
+    "rear-wall-1-11": {
+      "slot": "primary"
+    },
+    "front-window-jamb--0.184": {
+      "slot": "primary"
+    },
+    "front-window-jamb-0.184": {
+      "slot": "primary"
+    },
+    "integrated-door-grip-0.17": {
+      "slot": "primary"
+    },
+    "integrated-door-grip-0.37": {
+      "slot": "primary"
+    },
+    "recessed-caster--0.105--0.105": {
+      "slot": "preserve"
+    },
+    "caster-pin--0.105--0.105": {
+      "slot": "primary"
+    },
+    "recessed-caster--0.105-0.105": {
+      "slot": "preserve"
+    },
+    "caster-pin--0.105-0.105": {
+      "slot": "primary"
+    },
+    "recessed-caster-0.105--0.105": {
+      "slot": "preserve"
+    },
+    "caster-pin-0.105--0.105": {
+      "slot": "primary"
+    },
+    "recessed-caster-0.105-0.105": {
+      "slot": "preserve"
+    },
+    "caster-pin-0.105-0.105": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c021": {
+    "module-0-bottom": {
+      "slot": "wood"
+    },
+    "module-0-top": {
+      "slot": "wood"
+    },
+    "module-0-back": {
+      "slot": "wood"
+    },
+    "module-0-side--1": {
+      "slot": "wood"
+    },
+    "module-0-side-1": {
+      "slot": "wood"
+    },
+    "module-1-bottom": {
+      "slot": "wood"
+    },
+    "module-1-top": {
+      "slot": "wood"
+    },
+    "module-1-back": {
+      "slot": "wood"
+    },
+    "module-1-side--1": {
+      "slot": "wood"
+    },
+    "module-1-side-1": {
+      "slot": "wood"
+    },
+    "podium-leg--1--1": {
+      "slot": "secondary"
+    },
+    "podium-leg--1-1": {
+      "slot": "secondary"
+    },
+    "podium-leg-1--1": {
+      "slot": "secondary"
+    },
+    "podium-leg-1-1": {
+      "slot": "secondary"
+    },
+    "podium-crossbar--0.15": {
+      "slot": "secondary"
+    },
+    "podium-crossbar-0.15": {
+      "slot": "secondary"
+    },
+    "module-joining-clip-0.182": {
+      "slot": "secondary"
+    },
+    "module-joining-clip-0.392": {
+      "slot": "secondary"
+    }
+  },
+  "expansion-c022": {
+    "wall-bracket": {
+      "slot": "primary"
+    },
+    "half-round-drawer": {
+      "slot": "wood"
+    },
+    "drawer-back": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c023": {
+    "tray": {
+      "slot": "primary"
+    },
+    "raised-tray-rim": {
+      "slot": "primary"
+    },
+    "splayed-leg-0": {
+      "slot": "primary"
+    },
+    "splayed-leg-1": {
+      "slot": "primary"
+    },
+    "splayed-leg-2": {
+      "slot": "primary"
+    },
+    "carrying-loop": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c024": {
+    "bottom": {
+      "slot": "primary"
+    },
+    "top": {
+      "slot": "primary"
+    },
+    "left": {
+      "slot": "primary"
+    },
+    "right": {
+      "slot": "primary"
+    },
+    "back": {
+      "slot": "primary"
+    },
+    "drawer-divider": {
+      "slot": "primary"
+    },
+    "upper-drawer-front": {
+      "slot": "primary"
+    },
+    "single-small-knob": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c025": {
+    "gas-lift": {
+      "slot": "primary"
+    },
+    "lift-collar": {
+      "slot": "primary"
+    },
+    "under-seat-mechanism": {
+      "slot": "preserve"
+    },
+    "base-spoke-0": {
+      "slot": "primary"
+    },
+    "caster-0": {
+      "slot": "preserve"
+    },
+    "base-spoke-1": {
+      "slot": "primary"
+    },
+    "caster-1": {
+      "slot": "preserve"
+    },
+    "base-spoke-2": {
+      "slot": "primary"
+    },
+    "caster-2": {
+      "slot": "preserve"
+    },
+    "base-spoke-3": {
+      "slot": "primary"
+    },
+    "caster-3": {
+      "slot": "preserve"
+    },
+    "base-spoke-4": {
+      "slot": "primary"
+    },
+    "caster-4": {
+      "slot": "preserve"
+    },
+    "scooped-seat": {
+      "slot": "primary"
+    },
+    "arm-post--1": {
+      "slot": "primary"
+    },
+    "arm-pad--1": {
+      "slot": "primary"
+    },
+    "arm-post-1": {
+      "slot": "primary"
+    },
+    "arm-pad-1": {
+      "slot": "primary"
+    },
+    "aeron-woven-back": {
+      "slot": "primary"
+    },
+    "oval-back-rim": {
+      "slot": "preserve"
+    },
+    "lumbar-link": {
+      "slot": "preserve"
+    },
+    "lumbar-pad": {
+      "slot": "preserve"
+    },
+    "woven-back-2": {
+      "slot": "secondary"
+    },
+    "woven-back-5": {
+      "slot": "secondary"
+    },
+    "woven-back-8": {
+      "slot": "secondary"
+    },
+    "woven-back-11": {
+      "slot": "secondary"
+    },
+    "woven-back-14": {
+      "slot": "secondary"
+    },
+    "woven-back-17": {
+      "slot": "secondary"
+    },
+    "woven-back-20": {
+      "slot": "secondary"
+    },
+    "woven-back-23": {
+      "slot": "secondary"
+    },
+    "woven-back-26": {
+      "slot": "secondary"
+    },
+    "woven-back-29": {
+      "slot": "secondary"
+    },
+    "woven-back-32": {
+      "slot": "secondary"
+    },
+    "woven-back-35": {
+      "slot": "secondary"
+    },
+    "woven-back-38": {
+      "slot": "secondary"
+    },
+    "woven-back-41": {
+      "slot": "secondary"
+    },
+    "woven-back-44": {
+      "slot": "secondary"
+    },
+    "woven-back-47": {
+      "slot": "secondary"
+    },
+    "woven-back-50": {
+      "slot": "secondary"
+    },
+    "woven-back-53": {
+      "slot": "secondary"
+    },
+    "woven-back-56": {
+      "slot": "secondary"
+    },
+    "woven-back-59": {
+      "slot": "secondary"
+    },
+    "woven-back-62": {
+      "slot": "secondary"
+    },
+    "woven-back-65": {
+      "slot": "secondary"
+    },
+    "woven-back-68": {
+      "slot": "secondary"
+    },
+    "seat-perimeter": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c026": {
+    "gas-lift": {
+      "slot": "primary"
+    },
+    "lift-collar": {
+      "slot": "primary"
+    },
+    "under-seat-mechanism": {
+      "slot": "preserve"
+    },
+    "base-spoke-0": {
+      "slot": "primary"
+    },
+    "caster-0": {
+      "slot": "preserve"
+    },
+    "base-spoke-1": {
+      "slot": "primary"
+    },
+    "caster-1": {
+      "slot": "preserve"
+    },
+    "base-spoke-2": {
+      "slot": "primary"
+    },
+    "caster-2": {
+      "slot": "preserve"
+    },
+    "base-spoke-3": {
+      "slot": "primary"
+    },
+    "caster-3": {
+      "slot": "preserve"
+    },
+    "base-spoke-4": {
+      "slot": "primary"
+    },
+    "caster-4": {
+      "slot": "preserve"
+    },
+    "scooped-seat": {
+      "slot": "primary"
+    },
+    "curved-backrest": {
+      "slot": "primary"
+    },
+    "arm-post--1": {
+      "slot": "primary"
+    },
+    "arm-pad--1": {
+      "slot": "primary"
+    },
+    "arm-post-1": {
+      "slot": "primary"
+    },
+    "arm-pad-1": {
+      "slot": "primary"
+    },
+    "embody-central-spine": {
+      "slot": "preserve"
+    },
+    "flex-rib-0--1": {
+      "slot": "preserve"
+    },
+    "flex-rib-0-1": {
+      "slot": "preserve"
+    },
+    "flex-rib-1--1": {
+      "slot": "preserve"
+    },
+    "flex-rib-1-1": {
+      "slot": "preserve"
+    },
+    "flex-rib-2--1": {
+      "slot": "preserve"
+    },
+    "flex-rib-2-1": {
+      "slot": "preserve"
+    },
+    "flex-rib-3--1": {
+      "slot": "preserve"
+    },
+    "flex-rib-3-1": {
+      "slot": "preserve"
+    },
+    "flex-rib-4--1": {
+      "slot": "preserve"
+    },
+    "flex-rib-4-1": {
+      "slot": "preserve"
+    },
+    "flex-rib-5--1": {
+      "slot": "preserve"
+    },
+    "flex-rib-5-1": {
+      "slot": "preserve"
+    },
+    "flex-rib-6--1": {
+      "slot": "preserve"
+    },
+    "flex-rib-6-1": {
+      "slot": "preserve"
+    },
+    "flex-rib-7--1": {
+      "slot": "preserve"
+    },
+    "flex-rib-7-1": {
+      "slot": "preserve"
+    },
+    "flex-rib-8--1": {
+      "slot": "preserve"
+    },
+    "flex-rib-8-1": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c027": {
+    "gas-lift": {
+      "slot": "primary"
+    },
+    "lift-collar": {
+      "slot": "primary"
+    },
+    "under-seat-mechanism": {
+      "slot": "preserve"
+    },
+    "base-spoke-0": {
+      "slot": "primary"
+    },
+    "caster-0": {
+      "slot": "preserve"
+    },
+    "base-spoke-1": {
+      "slot": "primary"
+    },
+    "caster-1": {
+      "slot": "preserve"
+    },
+    "base-spoke-2": {
+      "slot": "primary"
+    },
+    "caster-2": {
+      "slot": "preserve"
+    },
+    "base-spoke-3": {
+      "slot": "primary"
+    },
+    "caster-3": {
+      "slot": "preserve"
+    },
+    "base-spoke-4": {
+      "slot": "primary"
+    },
+    "caster-4": {
+      "slot": "preserve"
+    },
+    "scooped-seat": {
+      "slot": "primary"
+    },
+    "arm-post--1": {
+      "slot": "primary"
+    },
+    "arm-pad--1": {
+      "slot": "primary"
+    },
+    "arm-post-1": {
+      "slot": "primary"
+    },
+    "arm-pad-1": {
+      "slot": "primary"
+    },
+    "Y-tower": {
+      "slot": "primary"
+    },
+    "top-suspension-hub": {
+      "slot": "primary"
+    },
+    "Y-branch--1": {
+      "slot": "primary"
+    },
+    "lower-suspension-hub--1": {
+      "slot": "primary"
+    },
+    "Y-branch-1": {
+      "slot": "primary"
+    },
+    "lower-suspension-hub-1": {
+      "slot": "primary"
+    },
+    "suspension-vertical-0": {
+      "slot": "primary"
+    },
+    "suspension-vertical-1": {
+      "slot": "primary"
+    },
+    "suspension-vertical-2": {
+      "slot": "primary"
+    },
+    "suspension-vertical-3": {
+      "slot": "primary"
+    },
+    "suspension-vertical-4": {
+      "slot": "primary"
+    },
+    "suspension-vertical-5": {
+      "slot": "primary"
+    },
+    "suspension-vertical-6": {
+      "slot": "primary"
+    },
+    "suspension-vertical-7": {
+      "slot": "primary"
+    },
+    "suspension-vertical-8": {
+      "slot": "primary"
+    },
+    "suspension-vertical-9": {
+      "slot": "primary"
+    },
+    "suspension-vertical-10": {
+      "slot": "primary"
+    },
+    "suspension-vertical-11": {
+      "slot": "primary"
+    },
+    "suspension-vertical-12": {
+      "slot": "primary"
+    },
+    "suspension-vertical-13": {
+      "slot": "primary"
+    },
+    "suspension-vertical-14": {
+      "slot": "primary"
+    },
+    "suspension-vertical-15": {
+      "slot": "primary"
+    },
+    "suspension-vertical-16": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-0": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-1": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-2": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-3": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-4": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-5": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-6": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-7": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-8": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-9": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-10": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-11": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-12": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-13": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-14": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-15": {
+      "slot": "primary"
+    },
+    "suspension-horizontal-16": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c028": {
+    "gas-lift": {
+      "slot": "primary"
+    },
+    "lift-collar": {
+      "slot": "primary"
+    },
+    "under-seat-mechanism": {
+      "slot": "preserve"
+    },
+    "base-spoke-0": {
+      "slot": "primary"
+    },
+    "caster-0": {
+      "slot": "preserve"
+    },
+    "base-spoke-1": {
+      "slot": "primary"
+    },
+    "caster-1": {
+      "slot": "preserve"
+    },
+    "base-spoke-2": {
+      "slot": "primary"
+    },
+    "caster-2": {
+      "slot": "preserve"
+    },
+    "base-spoke-3": {
+      "slot": "primary"
+    },
+    "caster-3": {
+      "slot": "preserve"
+    },
+    "base-spoke-4": {
+      "slot": "primary"
+    },
+    "caster-4": {
+      "slot": "preserve"
+    },
+    "continuous-highback-suspension": {
+      "slot": "primary"
+    },
+    "rim-continuous-highback-suspension--1": {
+      "slot": "preserve"
+    },
+    "rim-continuous-highback-suspension-1": {
+      "slot": "preserve"
+    },
+    "arm-post--1": {
+      "slot": "primary"
+    },
+    "arm-pad--1": {
+      "slot": "primary"
+    },
+    "arm-post-1": {
+      "slot": "primary"
+    },
+    "arm-pad-1": {
+      "slot": "primary"
+    },
+    "cosm-rear-spine": {
+      "slot": "primary"
+    },
+    "cosm-rear-Y--1": {
+      "slot": "primary"
+    },
+    "cosm-rear-Y-1": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c029": {
+    "gas-lift": {
+      "slot": "primary"
+    },
+    "lift-collar": {
+      "slot": "primary"
+    },
+    "under-seat-mechanism": {
+      "slot": "preserve"
+    },
+    "base-spoke-0": {
+      "slot": "primary"
+    },
+    "caster-0": {
+      "slot": "preserve"
+    },
+    "base-spoke-1": {
+      "slot": "primary"
+    },
+    "caster-1": {
+      "slot": "preserve"
+    },
+    "base-spoke-2": {
+      "slot": "primary"
+    },
+    "caster-2": {
+      "slot": "preserve"
+    },
+    "base-spoke-3": {
+      "slot": "primary"
+    },
+    "caster-3": {
+      "slot": "preserve"
+    },
+    "base-spoke-4": {
+      "slot": "primary"
+    },
+    "caster-4": {
+      "slot": "preserve"
+    },
+    "setu-membrane": {
+      "slot": "primary"
+    },
+    "rim-setu-membrane--1": {
+      "slot": "preserve"
+    },
+    "rim-setu-membrane-1": {
+      "slot": "preserve"
+    },
+    "spine-segment--1-18": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-21": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-24": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-27": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-30": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-33": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-36": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-39": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-42": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-45": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-48": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-51": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-54": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-57": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-60": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-63": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-66": {
+      "slot": "secondary"
+    },
+    "spine-segment--1-69": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-18": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-21": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-24": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-27": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-30": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-33": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-36": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-39": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-42": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-45": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-48": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-51": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-54": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-57": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-60": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-63": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-66": {
+      "slot": "secondary"
+    },
+    "spine-segment-1-69": {
+      "slot": "secondary"
+    },
+    "arm-post--1": {
+      "slot": "primary"
+    },
+    "arm-pad--1": {
+      "slot": "primary"
+    },
+    "arm-post-1": {
+      "slot": "primary"
+    },
+    "arm-pad-1": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c030": {
+    "gas-lift": {
+      "slot": "primary"
+    },
+    "lift-collar": {
+      "slot": "primary"
+    },
+    "under-seat-mechanism": {
+      "slot": "preserve"
+    },
+    "base-spoke-0": {
+      "slot": "primary"
+    },
+    "caster-0": {
+      "slot": "preserve"
+    },
+    "base-spoke-1": {
+      "slot": "primary"
+    },
+    "caster-1": {
+      "slot": "preserve"
+    },
+    "base-spoke-2": {
+      "slot": "primary"
+    },
+    "caster-2": {
+      "slot": "preserve"
+    },
+    "base-spoke-3": {
+      "slot": "primary"
+    },
+    "caster-3": {
+      "slot": "preserve"
+    },
+    "base-spoke-4": {
+      "slot": "primary"
+    },
+    "caster-4": {
+      "slot": "preserve"
+    },
+    "physix-sling": {
+      "slot": "primary"
+    },
+    "rim-physix-sling--1": {
+      "slot": "preserve"
+    },
+    "rim-physix-sling-1": {
+      "slot": "preserve"
+    },
+    "arm-post--1": {
+      "slot": "primary"
+    },
+    "arm-pad--1": {
+      "slot": "primary"
+    },
+    "arm-post-1": {
+      "slot": "primary"
+    },
+    "arm-pad-1": {
+      "slot": "primary"
+    },
+    "rear-flex-support": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c031": {
+    "gas-lift": {
+      "slot": "primary"
+    },
+    "lift-collar": {
+      "slot": "primary"
+    },
+    "under-seat-mechanism": {
+      "slot": "preserve"
+    },
+    "base-spoke-0": {
+      "slot": "primary"
+    },
+    "caster-0": {
+      "slot": "preserve"
+    },
+    "base-spoke-1": {
+      "slot": "primary"
+    },
+    "caster-1": {
+      "slot": "preserve"
+    },
+    "base-spoke-2": {
+      "slot": "primary"
+    },
+    "caster-2": {
+      "slot": "preserve"
+    },
+    "base-spoke-3": {
+      "slot": "primary"
+    },
+    "caster-3": {
+      "slot": "preserve"
+    },
+    "base-spoke-4": {
+      "slot": "primary"
+    },
+    "caster-4": {
+      "slot": "preserve"
+    },
+    "scooped-seat": {
+      "slot": "neutral"
+    },
+    "independent-oval-back-pad": {
+      "slot": "neutral"
+    },
+    "allstar-loop--1": {
+      "slot": "primary"
+    },
+    "allstar-loop-1": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c032": {
+    "continuous-cantilever-S-shell": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c033": {
+    "gas-lift": {
+      "slot": "primary"
+    },
+    "lift-collar": {
+      "slot": "primary"
+    },
+    "under-seat-mechanism": {
+      "slot": "preserve"
+    },
+    "base-spoke-0": {
+      "slot": "primary"
+    },
+    "caster-0": {
+      "slot": "preserve"
+    },
+    "base-spoke-1": {
+      "slot": "primary"
+    },
+    "caster-1": {
+      "slot": "preserve"
+    },
+    "base-spoke-2": {
+      "slot": "primary"
+    },
+    "caster-2": {
+      "slot": "preserve"
+    },
+    "base-spoke-3": {
+      "slot": "primary"
+    },
+    "caster-3": {
+      "slot": "preserve"
+    },
+    "base-spoke-4": {
+      "slot": "primary"
+    },
+    "caster-4": {
+      "slot": "preserve"
+    },
+    "upholstered-seat": {
+      "slot": "primary"
+    },
+    "upholstered-back": {
+      "slot": "primary"
+    },
+    "direction-arm-support--1": {
+      "slot": "primary"
+    },
+    "wood-arm-cap--1": {
+      "slot": "wood"
+    },
+    "direction-arm-support-1": {
+      "slot": "primary"
+    },
+    "wood-arm-cap-1": {
+      "slot": "wood"
+    },
+    "rear-spine": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c034": {
+    "gas-lift": {
+      "slot": "primary"
+    },
+    "lift-collar": {
+      "slot": "primary"
+    },
+    "under-seat-mechanism": {
+      "slot": "preserve"
+    },
+    "base-spoke-0": {
+      "slot": "primary"
+    },
+    "caster-0": {
+      "slot": "preserve"
+    },
+    "base-spoke-1": {
+      "slot": "primary"
+    },
+    "caster-1": {
+      "slot": "preserve"
+    },
+    "base-spoke-2": {
+      "slot": "primary"
+    },
+    "caster-2": {
+      "slot": "preserve"
+    },
+    "base-spoke-3": {
+      "slot": "primary"
+    },
+    "caster-3": {
+      "slot": "preserve"
+    },
+    "base-spoke-4": {
+      "slot": "primary"
+    },
+    "caster-4": {
+      "slot": "preserve"
+    },
+    "contoured-saddle-seat": {
+      "slot": "primary"
+    },
+    "sculpted-elbow-back": {
+      "slot": "primary"
+    },
+    "rear-spine": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c035": {
+    "upright--0.49--0.2": {
+      "slot": "wood"
+    },
+    "upright--0.49-0.2": {
+      "slot": "wood"
+    },
+    "upright-0.49--0.2": {
+      "slot": "wood"
+    },
+    "upright-0.49-0.2": {
+      "slot": "wood"
+    },
+    "sheet-shelf-0": {
+      "slot": "primary"
+    },
+    "joint-0--0.49": {
+      "slot": "wood"
+    },
+    "joint-0-0.49": {
+      "slot": "wood"
+    },
+    "sheet-shelf-1": {
+      "slot": "secondary"
+    },
+    "joint-1--0.49": {
+      "slot": "wood"
+    },
+    "joint-1-0.49": {
+      "slot": "wood"
+    },
+    "sheet-shelf-2": {
+      "slot": "primary"
+    },
+    "joint-2--0.49": {
+      "slot": "wood"
+    },
+    "joint-2-0.49": {
+      "slot": "wood"
+    },
+    "sheet-shelf-3": {
+      "slot": "primary"
+    },
+    "joint-3--0.49": {
+      "slot": "wood"
+    },
+    "joint-3-0.49": {
+      "slot": "wood"
+    },
+    "sheet-shelf-4": {
+      "slot": "secondary"
+    },
+    "joint-4--0.49": {
+      "slot": "wood"
+    },
+    "joint-4-0.49": {
+      "slot": "wood"
+    },
+    "sheet-shelf-5": {
+      "slot": "primary"
+    },
+    "joint-5--0.49": {
+      "slot": "wood"
+    },
+    "joint-5-0.49": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c036": {
+    "low-supporting-bridge": {
+      "slot": "primary"
+    },
+    "bridge-foot--0.26": {
+      "slot": "primary"
+    },
+    "bridge-foot-0": {
+      "slot": "primary"
+    },
+    "single-articulation-axis": {
+      "slot": "primary"
+    },
+    "rotating-plane-0": {
+      "slot": "primary"
+    },
+    "floor-bearing-L-0": {
+      "slot": "primary"
+    },
+    "rotating-plane-1": {
+      "slot": "primary"
+    },
+    "floor-bearing-L-1": {
+      "slot": "primary"
+    },
+    "rotating-plane-2": {
+      "slot": "primary"
+    },
+    "floor-bearing-L-2": {
+      "slot": "primary"
+    },
+    "rotating-plane-3": {
+      "slot": "primary"
+    },
+    "floor-bearing-L-3": {
+      "slot": "primary"
+    },
+    "rotating-plane-4": {
+      "slot": "primary"
+    },
+    "floor-bearing-L-4": {
+      "slot": "primary"
+    },
+    "rotating-plane-5": {
+      "slot": "primary"
+    },
+    "floor-bearing-L-5": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c037": {
+    "floating-shelf-0.2": {
+      "slot": "wood"
+    },
+    "floating-shelf-0.61": {
+      "slot": "wood"
+    },
+    "suspension--0.31": {
+      "slot": "primary"
+    },
+    "lower-suspension--0.31": {
+      "slot": "primary"
+    },
+    "wall-anchor--0.31": {
+      "slot": "primary"
+    },
+    "suspension-0.31": {
+      "slot": "primary"
+    },
+    "lower-suspension-0.31": {
+      "slot": "primary"
+    },
+    "wall-anchor-0.31": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c038": {
+    "slim-leg--1--1": {
+      "slot": "primary"
+    },
+    "slim-leg--1-1": {
+      "slot": "primary"
+    },
+    "slim-leg-1--1": {
+      "slot": "primary"
+    },
+    "slim-leg-1-1": {
+      "slot": "primary"
+    },
+    "bottom": {
+      "slot": "primary"
+    },
+    "top": {
+      "slot": "primary"
+    },
+    "left": {
+      "slot": "primary"
+    },
+    "right": {
+      "slot": "primary"
+    },
+    "back": {
+      "slot": "primary"
+    },
+    "interior-shelf-0": {
+      "slot": "primary"
+    },
+    "interior-shelf-1": {
+      "slot": "primary"
+    },
+    "interior-shelf-2": {
+      "slot": "primary"
+    },
+    "sliding-door-0": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-0": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-1": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-2": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-3": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-4": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-5": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-6": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-7": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-8": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-9": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-10": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-11": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-12": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-13": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-14": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-15": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-16": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-17": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-18": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-19": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-20": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-21": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-22": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-23": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-24": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-25": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-26": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-27": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-28": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-29": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-30": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-31": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-32": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-33": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-34": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-35": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-36": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-37": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-38": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-39": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-40": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-41": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-42": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-43": {
+      "slot": "preserve"
+    },
+    "glass-flute-0-44": {
+      "slot": "preserve"
+    },
+    "glass-edge-pull-0": {
+      "slot": "secondary"
+    },
+    "sliding-door-1": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-0": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-1": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-2": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-3": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-4": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-5": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-6": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-7": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-8": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-9": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-10": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-11": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-12": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-13": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-14": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-15": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-16": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-17": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-18": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-19": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-20": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-21": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-22": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-23": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-24": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-25": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-26": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-27": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-28": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-29": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-30": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-31": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-32": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-33": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-34": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-35": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-36": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-37": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-38": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-39": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-40": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-41": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-42": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-43": {
+      "slot": "preserve"
+    },
+    "glass-flute-1-44": {
+      "slot": "preserve"
+    },
+    "glass-edge-pull-1": {
+      "slot": "secondary"
+    },
+    "sliding-track-0.262": {
+      "slot": "secondary"
+    },
+    "sliding-track-1.278": {
+      "slot": "secondary"
+    }
+  },
+  "expansion-c039": {
+    "upright--0.55--0.16": {
+      "slot": "primary"
+    },
+    "upright--0.55-0.16": {
+      "slot": "primary"
+    },
+    "upright-0.55--0.16": {
+      "slot": "primary"
+    },
+    "upright-0.55-0.16": {
+      "slot": "primary"
+    },
+    "folded-tray-0": {
+      "slot": "secondary"
+    },
+    "tray-back-0": {
+      "slot": "secondary"
+    },
+    "tray-side-0--0.594": {
+      "slot": "secondary"
+    },
+    "tray-side-0-0.594": {
+      "slot": "secondary"
+    },
+    "folded-tray-1": {
+      "slot": "secondary"
+    },
+    "tray-back-1": {
+      "slot": "secondary"
+    },
+    "tray-side-1--0.594": {
+      "slot": "secondary"
+    },
+    "tray-side-1-0.594": {
+      "slot": "secondary"
+    },
+    "folded-tray-2": {
+      "slot": "secondary"
+    },
+    "tray-back-2": {
+      "slot": "secondary"
+    },
+    "tray-side-2--0.594": {
+      "slot": "secondary"
+    },
+    "tray-side-2-0.594": {
+      "slot": "secondary"
+    },
+    "folded-tray-3": {
+      "slot": "secondary"
+    },
+    "tray-back-3": {
+      "slot": "secondary"
+    },
+    "tray-side-3--0.594": {
+      "slot": "secondary"
+    },
+    "tray-side-3-0.594": {
+      "slot": "secondary"
+    },
+    "folded-tray-4": {
+      "slot": "secondary"
+    },
+    "tray-back-4": {
+      "slot": "secondary"
+    },
+    "tray-side-4--0.594": {
+      "slot": "secondary"
+    },
+    "tray-side-4-0.594": {
+      "slot": "secondary"
+    }
+  },
+  "expansion-c040": {
+    "wire-rail--0.295--0.1": {
+      "slot": "primary"
+    },
+    "wire-rail--0.295-0.05": {
+      "slot": "primary"
+    },
+    "rung--0.295-0": {
+      "slot": "primary"
+    },
+    "rung--0.295-1": {
+      "slot": "primary"
+    },
+    "rung--0.295-2": {
+      "slot": "primary"
+    },
+    "rung--0.295-3": {
+      "slot": "primary"
+    },
+    "rung--0.295-4": {
+      "slot": "primary"
+    },
+    "rung--0.295-5": {
+      "slot": "primary"
+    },
+    "rung--0.295-6": {
+      "slot": "primary"
+    },
+    "rung--0.295-7": {
+      "slot": "primary"
+    },
+    "wire-rail-0.295--0.1": {
+      "slot": "primary"
+    },
+    "wire-rail-0.295-0.05": {
+      "slot": "primary"
+    },
+    "rung-0.295-0": {
+      "slot": "primary"
+    },
+    "rung-0.295-1": {
+      "slot": "primary"
+    },
+    "rung-0.295-2": {
+      "slot": "primary"
+    },
+    "rung-0.295-3": {
+      "slot": "primary"
+    },
+    "rung-0.295-4": {
+      "slot": "primary"
+    },
+    "rung-0.295-5": {
+      "slot": "primary"
+    },
+    "rung-0.295-6": {
+      "slot": "primary"
+    },
+    "rung-0.295-7": {
+      "slot": "primary"
+    },
+    "shelf-0": {
+      "slot": "wood"
+    },
+    "shelf-1": {
+      "slot": "wood"
+    },
+    "shelf-2": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c041": {
+    "angle-post--0.57--0.18": {
+      "slot": "primary"
+    },
+    "angle-post--0.57-0.18": {
+      "slot": "primary"
+    },
+    "angle-post-0.57--0.18": {
+      "slot": "primary"
+    },
+    "angle-post-0.57-0.18": {
+      "slot": "primary"
+    },
+    "shelf-0": {
+      "slot": "wood"
+    },
+    "shelf-1": {
+      "slot": "wood"
+    },
+    "shelf-2": {
+      "slot": "wood"
+    },
+    "shelf-3": {
+      "slot": "wood"
+    },
+    "shelf-4": {
+      "slot": "wood"
+    },
+    "side-panel-0--0.59": {
+      "slot": "primary"
+    },
+    "side-panel-0-0.59": {
+      "slot": "primary"
+    },
+    "rear-brace-0": {
+      "slot": "primary"
+    },
+    "side-panel-1--0.59": {
+      "slot": "primary"
+    },
+    "side-panel-1-0.59": {
+      "slot": "primary"
+    },
+    "rear-brace-1": {
+      "slot": "primary"
+    },
+    "side-panel-2--0.59": {
+      "slot": "primary"
+    },
+    "side-panel-2-0.59": {
+      "slot": "primary"
+    },
+    "rear-brace-2": {
+      "slot": "primary"
+    },
+    "side-panel-3--0.59": {
+      "slot": "primary"
+    },
+    "side-panel-3-0.59": {
+      "slot": "primary"
+    },
+    "rear-brace-3": {
+      "slot": "primary"
+    },
+    "sliding-panel": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c042": {
+    "flexible-band-0": {
+      "slot": "primary"
+    },
+    "book-stop-0": {
+      "slot": "primary"
+    },
+    "flexible-band-1": {
+      "slot": "primary"
+    },
+    "flexible-band-2": {
+      "slot": "primary"
+    },
+    "flexible-band-3": {
+      "slot": "primary"
+    },
+    "flexible-band-4": {
+      "slot": "primary"
+    },
+    "flexible-band-5": {
+      "slot": "primary"
+    },
+    "book-stop-5": {
+      "slot": "primary"
+    },
+    "flexible-band-6": {
+      "slot": "primary"
+    },
+    "flexible-band-7": {
+      "slot": "primary"
+    },
+    "flexible-band-8": {
+      "slot": "primary"
+    },
+    "flexible-band-9": {
+      "slot": "primary"
+    },
+    "flexible-band-10": {
+      "slot": "primary"
+    },
+    "book-stop-10": {
+      "slot": "primary"
+    },
+    "flexible-band-11": {
+      "slot": "primary"
+    },
+    "flexible-band-12": {
+      "slot": "primary"
+    },
+    "flexible-band-13": {
+      "slot": "primary"
+    },
+    "flexible-band-14": {
+      "slot": "primary"
+    },
+    "flexible-band-15": {
+      "slot": "primary"
+    },
+    "book-stop-15": {
+      "slot": "primary"
+    },
+    "flexible-band-16": {
+      "slot": "primary"
+    },
+    "flexible-band-17": {
+      "slot": "primary"
+    },
+    "flexible-band-18": {
+      "slot": "primary"
+    },
+    "flexible-band-19": {
+      "slot": "primary"
+    },
+    "flexible-band-20": {
+      "slot": "primary"
+    },
+    "book-stop-20": {
+      "slot": "primary"
+    },
+    "flexible-band-21": {
+      "slot": "primary"
+    },
+    "flexible-band-22": {
+      "slot": "primary"
+    },
+    "flexible-band-23": {
+      "slot": "primary"
+    },
+    "flexible-band-24": {
+      "slot": "primary"
+    },
+    "flexible-band-25": {
+      "slot": "primary"
+    },
+    "book-stop-25": {
+      "slot": "primary"
+    },
+    "flexible-band-26": {
+      "slot": "primary"
+    },
+    "flexible-band-27": {
+      "slot": "primary"
+    },
+    "flexible-band-28": {
+      "slot": "primary"
+    },
+    "flexible-band-29": {
+      "slot": "primary"
+    },
+    "flexible-band-30": {
+      "slot": "primary"
+    },
+    "book-stop-30": {
+      "slot": "primary"
+    },
+    "flexible-band-31": {
+      "slot": "primary"
+    },
+    "flexible-band-32": {
+      "slot": "primary"
+    },
+    "flexible-band-33": {
+      "slot": "primary"
+    },
+    "flexible-band-34": {
+      "slot": "primary"
+    },
+    "flexible-band-35": {
+      "slot": "primary"
+    },
+    "book-stop-35": {
+      "slot": "primary"
+    },
+    "flexible-band-36": {
+      "slot": "primary"
+    },
+    "flexible-band-37": {
+      "slot": "primary"
+    },
+    "flexible-band-38": {
+      "slot": "primary"
+    },
+    "flexible-band-39": {
+      "slot": "primary"
+    },
+    "flexible-band-40": {
+      "slot": "primary"
+    },
+    "book-stop-40": {
+      "slot": "primary"
+    },
+    "flexible-band-41": {
+      "slot": "primary"
+    },
+    "flexible-band-42": {
+      "slot": "primary"
+    },
+    "flexible-band-43": {
+      "slot": "primary"
+    },
+    "flexible-band-44": {
+      "slot": "primary"
+    },
+    "flexible-band-45": {
+      "slot": "primary"
+    },
+    "book-stop-45": {
+      "slot": "primary"
+    },
+    "flexible-band-46": {
+      "slot": "primary"
+    },
+    "flexible-band-47": {
+      "slot": "primary"
+    },
+    "flexible-band-48": {
+      "slot": "primary"
+    },
+    "flexible-band-49": {
+      "slot": "primary"
+    },
+    "flexible-band-50": {
+      "slot": "primary"
+    },
+    "book-stop-50": {
+      "slot": "primary"
+    },
+    "flexible-band-51": {
+      "slot": "primary"
+    },
+    "flexible-band-52": {
+      "slot": "primary"
+    },
+    "flexible-band-53": {
+      "slot": "primary"
+    },
+    "flexible-band-54": {
+      "slot": "primary"
+    },
+    "flexible-band-55": {
+      "slot": "primary"
+    },
+    "book-stop-55": {
+      "slot": "primary"
+    },
+    "flexible-band-56": {
+      "slot": "primary"
+    },
+    "flexible-band-57": {
+      "slot": "primary"
+    },
+    "flexible-band-58": {
+      "slot": "primary"
+    },
+    "flexible-band-59": {
+      "slot": "primary"
+    },
+    "flexible-band-60": {
+      "slot": "primary"
+    },
+    "book-stop-60": {
+      "slot": "primary"
+    },
+    "flexible-band-61": {
+      "slot": "primary"
+    },
+    "flexible-band-62": {
+      "slot": "primary"
+    },
+    "flexible-band-63": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c043": {
+    "floor-ceiling-post-0": {
+      "slot": "preserve"
+    },
+    "ceiling-pad-0": {
+      "slot": "secondary"
+    },
+    "floor-pad-0": {
+      "slot": "secondary"
+    },
+    "bottom-tensioner-0": {
+      "slot": "secondary"
+    },
+    "top-tensioner-0": {
+      "slot": "secondary"
+    },
+    "floor-ceiling-post-1": {
+      "slot": "preserve"
+    },
+    "ceiling-pad-1": {
+      "slot": "secondary"
+    },
+    "floor-pad-1": {
+      "slot": "secondary"
+    },
+    "bottom-tensioner-1": {
+      "slot": "secondary"
+    },
+    "top-tensioner-1": {
+      "slot": "secondary"
+    },
+    "floor-ceiling-post-2": {
+      "slot": "preserve"
+    },
+    "ceiling-pad-2": {
+      "slot": "secondary"
+    },
+    "floor-pad-2": {
+      "slot": "secondary"
+    },
+    "bottom-tensioner-2": {
+      "slot": "secondary"
+    },
+    "top-tensioner-2": {
+      "slot": "secondary"
+    },
+    "floor-ceiling-post-3": {
+      "slot": "preserve"
+    },
+    "ceiling-pad-3": {
+      "slot": "secondary"
+    },
+    "floor-pad-3": {
+      "slot": "secondary"
+    },
+    "bottom-tensioner-3": {
+      "slot": "secondary"
+    },
+    "top-tensioner-3": {
+      "slot": "secondary"
+    },
+    "bay-0-shelf-0": {
+      "slot": "preserve"
+    },
+    "bay-0-shelf-1": {
+      "slot": "preserve"
+    },
+    "bay-0-shelf-2": {
+      "slot": "preserve"
+    },
+    "bay-0-shelf-3": {
+      "slot": "preserve"
+    },
+    "bay-0-shelf-4": {
+      "slot": "preserve"
+    },
+    "bay-1-shelf-0": {
+      "slot": "preserve"
+    },
+    "bay-1-shelf-1": {
+      "slot": "preserve"
+    },
+    "bay-1-shelf-2": {
+      "slot": "preserve"
+    },
+    "bay-1-shelf-3": {
+      "slot": "preserve"
+    },
+    "bay-2-shelf-0": {
+      "slot": "preserve"
+    },
+    "bay-2-shelf-1": {
+      "slot": "preserve"
+    },
+    "bay-2-shelf-2": {
+      "slot": "preserve"
+    },
+    "cabinet-0-bottom": {
+      "slot": "preserve"
+    },
+    "cabinet-0-top": {
+      "slot": "preserve"
+    },
+    "cabinet-0-left": {
+      "slot": "preserve"
+    },
+    "cabinet-0-right": {
+      "slot": "preserve"
+    },
+    "cabinet-0-back": {
+      "slot": "preserve"
+    },
+    "cabinet-mount-0--1": {
+      "slot": "secondary"
+    },
+    "cabinet-mount-0-1": {
+      "slot": "secondary"
+    },
+    "cabinet-0-door-0": {
+      "slot": "preserve"
+    },
+    "cabinet-1-bottom": {
+      "slot": "preserve"
+    },
+    "cabinet-1-top": {
+      "slot": "preserve"
+    },
+    "cabinet-1-left": {
+      "slot": "preserve"
+    },
+    "cabinet-1-right": {
+      "slot": "preserve"
+    },
+    "cabinet-1-back": {
+      "slot": "preserve"
+    },
+    "cabinet-mount-1--1": {
+      "slot": "secondary"
+    },
+    "cabinet-mount-1-1": {
+      "slot": "secondary"
+    },
+    "cabinet-1-door-0": {
+      "slot": "preserve"
+    },
+    "cabinet-1-door-1": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c044": {
+    "plinth-foot--1--1": {
+      "slot": "wood"
+    },
+    "plinth-foot--1-1": {
+      "slot": "wood"
+    },
+    "plinth-foot-1--1": {
+      "slot": "wood"
+    },
+    "plinth-foot-1-1": {
+      "slot": "wood"
+    },
+    "bottom": {
+      "slot": "primary"
+    },
+    "top": {
+      "slot": "primary"
+    },
+    "left": {
+      "slot": "primary"
+    },
+    "right": {
+      "slot": "primary"
+    },
+    "back": {
+      "slot": "primary"
+    },
+    "bifold-leaf--0.45": {
+      "slot": "primary"
+    },
+    "panel-inset--0.45": {
+      "slot": "neutral"
+    },
+    "bifold-leaf--0.15": {
+      "slot": "primary"
+    },
+    "panel-inset--0.15": {
+      "slot": "neutral"
+    },
+    "bifold-leaf-0.15": {
+      "slot": "primary"
+    },
+    "panel-inset-0.15": {
+      "slot": "neutral"
+    },
+    "bifold-leaf-0.45": {
+      "slot": "primary"
+    },
+    "panel-inset-0.45": {
+      "slot": "neutral"
+    },
+    "handle--0.29": {
+      "slot": "preserve"
+    },
+    "handle-0.29": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c045": {
+    "bottom": {
+      "slot": "secondary"
+    },
+    "top": {
+      "slot": "secondary"
+    },
+    "left": {
+      "slot": "secondary"
+    },
+    "right": {
+      "slot": "secondary"
+    },
+    "back": {
+      "slot": "secondary"
+    },
+    "partition": {
+      "slot": "secondary"
+    },
+    "right-full-door": {
+      "slot": "primary"
+    },
+    "left-upper-door": {
+      "slot": "primary"
+    },
+    "left-middle-door": {
+      "slot": "primary"
+    },
+    "left-drawer-0": {
+      "slot": "primary"
+    },
+    "left-drawer-grip-0": {
+      "slot": "primary"
+    },
+    "left-drawer-1": {
+      "slot": "primary"
+    },
+    "left-drawer-grip-1": {
+      "slot": "primary"
+    },
+    "left-drawer-2": {
+      "slot": "primary"
+    },
+    "left-drawer-grip-2": {
+      "slot": "primary"
+    },
+    "left-drawer-3": {
+      "slot": "primary"
+    },
+    "left-drawer-grip-3": {
+      "slot": "primary"
+    },
+    "right-bottom-drawer-0.32": {
+      "slot": "primary"
+    },
+    "right-bottom-drawer-0.1": {
+      "slot": "primary"
+    },
+    "left-door-handle-1.75": {
+      "slot": "primary"
+    },
+    "left-door-handle-1.25": {
+      "slot": "primary"
+    },
+    "right-door-handle": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c046": {
+    "continuous-S-side--1": {
+      "slot": "preserve"
+    },
+    "continuous-S-side-1": {
+      "slot": "preserve"
+    },
+    "S-shaped-rear": {
+      "slot": "preserve"
+    },
+    "fork--1--1": {
+      "slot": "primary"
+    },
+    "wheel--1--1": {
+      "slot": "preserve"
+    },
+    "fork--1-1": {
+      "slot": "primary"
+    },
+    "wheel--1-1": {
+      "slot": "preserve"
+    },
+    "fork-1--1": {
+      "slot": "primary"
+    },
+    "wheel-1--1": {
+      "slot": "preserve"
+    },
+    "fork-1-1": {
+      "slot": "primary"
+    },
+    "wheel-1-1": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-0": {
+      "slot": "primary"
+    },
+    "small-round-knob-0": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-1": {
+      "slot": "primary"
+    },
+    "small-round-knob-1": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-2": {
+      "slot": "primary"
+    },
+    "small-round-knob-2": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-3": {
+      "slot": "primary"
+    },
+    "small-round-knob-3": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-4": {
+      "slot": "primary"
+    },
+    "small-round-knob-4": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-5": {
+      "slot": "primary"
+    },
+    "small-round-knob-5": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-6": {
+      "slot": "primary"
+    },
+    "small-round-knob-6": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-7": {
+      "slot": "primary"
+    },
+    "small-round-knob-7": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-8": {
+      "slot": "primary"
+    },
+    "small-round-knob-8": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-9": {
+      "slot": "primary"
+    },
+    "small-round-knob-9": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-10": {
+      "slot": "primary"
+    },
+    "small-round-knob-10": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-11": {
+      "slot": "primary"
+    },
+    "small-round-knob-11": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-12": {
+      "slot": "primary"
+    },
+    "small-round-knob-12": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-13": {
+      "slot": "primary"
+    },
+    "small-round-knob-13": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-14": {
+      "slot": "primary"
+    },
+    "small-round-knob-14": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-15": {
+      "slot": "primary"
+    },
+    "small-round-knob-15": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-16": {
+      "slot": "primary"
+    },
+    "small-round-knob-16": {
+      "slot": "preserve"
+    },
+    "white-curved-drawer-17": {
+      "slot": "primary"
+    },
+    "small-round-knob-17": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c047": {
+    "fork--1--1": {
+      "slot": "primary"
+    },
+    "wheel--1--1": {
+      "slot": "preserve"
+    },
+    "fork--1-1": {
+      "slot": "primary"
+    },
+    "wheel--1-1": {
+      "slot": "preserve"
+    },
+    "fork-1--1": {
+      "slot": "primary"
+    },
+    "wheel-1--1": {
+      "slot": "preserve"
+    },
+    "fork-1-1": {
+      "slot": "primary"
+    },
+    "wheel-1-1": {
+      "slot": "preserve"
+    },
+    "bottom": {
+      "slot": "primary"
+    },
+    "tray-floor": {
+      "slot": "primary"
+    },
+    "rear": {
+      "slot": "primary"
+    },
+    "open-tray-side--0.167": {
+      "slot": "primary"
+    },
+    "open-tray-side-0.167": {
+      "slot": "primary"
+    },
+    "lower-door": {
+      "slot": "primary"
+    },
+    "single-drawer": {
+      "slot": "primary"
+    },
+    "door-knob": {
+      "slot": "primary"
+    },
+    "drawer-knob": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c048": {
+    "transparent-tapered-envelope": {
+      "slot": "preserve"
+    },
+    "fork--1--1": {
+      "slot": "primary"
+    },
+    "wheel--1--1": {
+      "slot": "preserve"
+    },
+    "fork--1-1": {
+      "slot": "primary"
+    },
+    "wheel--1-1": {
+      "slot": "preserve"
+    },
+    "fork-1--1": {
+      "slot": "primary"
+    },
+    "wheel-1--1": {
+      "slot": "preserve"
+    },
+    "fork-1-1": {
+      "slot": "primary"
+    },
+    "wheel-1-1": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-0": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-1": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-2": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-3": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-4": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-5": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-6": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-7": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-8": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-9": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-10": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-11": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-12": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-13": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-14": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-15": {
+      "slot": "preserve"
+    },
+    "seventeen-black-drawer-16": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c049": {
+    "exposed-upright--0.225--0.22": {
+      "slot": "preserve"
+    },
+    "large-caster--0.225--0.22": {
+      "slot": "preserve"
+    },
+    "caster-hub--0.225--0.22": {
+      "slot": "primary"
+    },
+    "caster-fork--0.225--0.22": {
+      "slot": "preserve"
+    },
+    "exposed-upright--0.225-0.22": {
+      "slot": "preserve"
+    },
+    "large-caster--0.225-0.22": {
+      "slot": "preserve"
+    },
+    "caster-hub--0.225-0.22": {
+      "slot": "primary"
+    },
+    "caster-fork--0.225-0.22": {
+      "slot": "preserve"
+    },
+    "exposed-upright-0.225--0.22": {
+      "slot": "preserve"
+    },
+    "large-caster-0.225--0.22": {
+      "slot": "preserve"
+    },
+    "caster-hub-0.225--0.22": {
+      "slot": "primary"
+    },
+    "caster-fork-0.225--0.22": {
+      "slot": "preserve"
+    },
+    "exposed-upright-0.225-0.22": {
+      "slot": "preserve"
+    },
+    "large-caster-0.225-0.22": {
+      "slot": "preserve"
+    },
+    "caster-hub-0.225-0.22": {
+      "slot": "primary"
+    },
+    "caster-fork-0.225-0.22": {
+      "slot": "preserve"
+    },
+    "independent-bin-0": {
+      "slot": "primary"
+    },
+    "recessed-pull-0": {
+      "slot": "preserve"
+    },
+    "independent-bin-1": {
+      "slot": "primary"
+    },
+    "recessed-pull-1": {
+      "slot": "preserve"
+    },
+    "independent-bin-2": {
+      "slot": "primary"
+    },
+    "recessed-pull-2": {
+      "slot": "preserve"
+    },
+    "bottom-shelf": {
+      "slot": "primary"
+    },
+    "open-shelf-floor": {
+      "slot": "primary"
+    },
+    "open-top-shelf": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c050": {
+    "intertwined-pipe-0": {
+      "slot": "primary"
+    },
+    "intertwined-pipe-1": {
+      "slot": "primary"
+    },
+    "intertwined-pipe-2": {
+      "slot": "primary"
+    },
+    "knit-joint-bolt-0": {
+      "slot": "secondary"
+    },
+    "knit-joint-bolt-1": {
+      "slot": "secondary"
+    },
+    "knit-joint-bolt-2": {
+      "slot": "secondary"
+    }
+  },
+  "expansion-c051": {
+    "planar-S-rail-0.012": {
+      "slot": "primary"
+    },
+    "planar-S-rail-1.488": {
+      "slot": "primary"
+    },
+    "straight-upright--0.72": {
+      "slot": "primary"
+    },
+    "straight-upright-0.72": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c052": {
+    "tripod-upright-0": {
+      "slot": "primary"
+    },
+    "tripod-upright-1": {
+      "slot": "primary"
+    },
+    "tripod-upright-2": {
+      "slot": "primary"
+    },
+    "hanging-rail": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c053": {
+    "birch-trunk": {
+      "slot": "wood"
+    },
+    "radial-metal-foot-0": {
+      "slot": "primary"
+    },
+    "radial-metal-foot-1": {
+      "slot": "primary"
+    },
+    "radial-metal-foot-2": {
+      "slot": "primary"
+    },
+    "radial-metal-foot-3": {
+      "slot": "primary"
+    },
+    "unequal-wood-peg-0": {
+      "slot": "wood"
+    },
+    "unequal-wood-peg-1": {
+      "slot": "wood"
+    },
+    "unequal-wood-peg-2": {
+      "slot": "wood"
+    },
+    "unequal-wood-peg-3": {
+      "slot": "wood"
+    },
+    "unequal-wood-peg-4": {
+      "slot": "wood"
+    },
+    "unequal-wood-peg-5": {
+      "slot": "wood"
+    },
+    "unequal-wood-peg-6": {
+      "slot": "wood"
+    },
+    "unequal-wood-peg-7": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c054": {
+    "tubular-base-front": {
+      "slot": "preserve"
+    },
+    "tubular-base-back": {
+      "slot": "preserve"
+    },
+    "tubular-base-left": {
+      "slot": "preserve"
+    },
+    "tubular-base-right": {
+      "slot": "preserve"
+    },
+    "continuous-frame--0.86": {
+      "slot": "preserve"
+    },
+    "stretched-side-sling--0.86": {
+      "slot": "primary"
+    },
+    "continuous-frame-0.86": {
+      "slot": "preserve"
+    },
+    "stretched-side-sling-0.86": {
+      "slot": "primary"
+    },
+    "stretched-back-sling": {
+      "slot": "primary"
+    },
+    "stretched-seat-sling": {
+      "slot": "primary"
+    },
+    "seat-cushion-0": {
+      "slot": "neutral"
+    },
+    "seat-cushion-1": {
+      "slot": "neutral"
+    },
+    "loose-back--0.395": {
+      "slot": "neutral"
+    },
+    "loose-back-0.395": {
+      "slot": "neutral"
+    }
+  },
+  "expansion-c055": {
+    "recessed-foot--1--1": {
+      "slot": "primary"
+    },
+    "recessed-foot--1-1": {
+      "slot": "primary"
+    },
+    "recessed-foot-1--1": {
+      "slot": "primary"
+    },
+    "recessed-foot-1-1": {
+      "slot": "primary"
+    },
+    "soft-continuous-plinth": {
+      "slot": "primary"
+    },
+    "quilted-seat--0.5": {
+      "slot": "primary"
+    },
+    "quilted-seat-0.5": {
+      "slot": "primary"
+    },
+    "low-rounded-back": {
+      "slot": "primary"
+    },
+    "soft-arm--0.88": {
+      "slot": "primary"
+    },
+    "soft-arm-0.88": {
+      "slot": "primary"
+    },
+    "stitched-quilt-seam--0.48": {
+      "slot": "primary"
+    },
+    "stitched-quilt-seam-0": {
+      "slot": "primary"
+    },
+    "stitched-quilt-seam-0.48": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c056": {
+    "slender-leg--1--1": {
+      "slot": "primary"
+    },
+    "slender-leg--1-1": {
+      "slot": "primary"
+    },
+    "slender-leg-1--1": {
+      "slot": "primary"
+    },
+    "slender-leg-1-1": {
+      "slot": "primary"
+    },
+    "deck": {
+      "slot": "primary"
+    },
+    "seat-cushion-0": {
+      "slot": "neutral"
+    },
+    "seat-cushion-1": {
+      "slot": "neutral"
+    },
+    "continuous-wrapped-shell": {
+      "slot": "primary"
+    },
+    "inner-back-cushion": {
+      "slot": "neutral"
+    }
+  },
+  "expansion-c057": {
+    "solid-wood-leg--1--1": {
+      "slot": "wood"
+    },
+    "solid-wood-leg--1-1": {
+      "slot": "wood"
+    },
+    "solid-wood-leg-1--1": {
+      "slot": "wood"
+    },
+    "solid-wood-leg-1-1": {
+      "slot": "wood"
+    },
+    "exposed-wood-frame-front": {
+      "slot": "wood"
+    },
+    "exposed-wood-frame-back": {
+      "slot": "wood"
+    },
+    "exposed-wood-frame-left": {
+      "slot": "wood"
+    },
+    "exposed-wood-frame-right": {
+      "slot": "wood"
+    },
+    "seat-cushion-0": {
+      "slot": "neutral"
+    },
+    "seat-cushion-1": {
+      "slot": "neutral"
+    },
+    "seat-cushion-2": {
+      "slot": "neutral"
+    },
+    "wood-arm--1.01": {
+      "slot": "wood"
+    },
+    "rear-upright--1.01": {
+      "slot": "wood"
+    },
+    "wood-arm-1.01": {
+      "slot": "wood"
+    },
+    "rear-upright-1.01": {
+      "slot": "wood"
+    },
+    "wood-back-rail": {
+      "slot": "wood"
+    },
+    "back-cushion--0.65": {
+      "slot": "neutral"
+    },
+    "back-cushion-0": {
+      "slot": "neutral"
+    },
+    "back-cushion-0.65": {
+      "slot": "neutral"
+    }
+  },
+  "expansion-c058": {
+    "continuous-mouth-body": {
+      "slot": "primary"
+    },
+    "lower-lip": {
+      "slot": "primary"
+    },
+    "upper-cupids-bow-lip": {
+      "slot": "primary"
+    },
+    "mouth-seat": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c059": {
+    "chrome-leg--1--1": {
+      "slot": "preserve"
+    },
+    "chrome-leg--1-1": {
+      "slot": "preserve"
+    },
+    "chrome-leg-1--1": {
+      "slot": "preserve"
+    },
+    "chrome-leg-1-1": {
+      "slot": "preserve"
+    },
+    "base-frame-front": {
+      "slot": "preserve"
+    },
+    "base-frame-back": {
+      "slot": "preserve"
+    },
+    "base-frame-left": {
+      "slot": "preserve"
+    },
+    "base-frame-right": {
+      "slot": "preserve"
+    },
+    "seat-deck": {
+      "slot": "primary"
+    },
+    "seat-cushion-0": {
+      "slot": "neutral"
+    },
+    "seat-cushion-1": {
+      "slot": "neutral"
+    },
+    "high-back-enclosure": {
+      "slot": "primary"
+    },
+    "high-side-enclosure--0.84": {
+      "slot": "primary"
+    },
+    "high-side-enclosure-0.84": {
+      "slot": "primary"
+    },
+    "horizontal-back-padding-0.52": {
+      "slot": "primary"
+    },
+    "horizontal-back-padding-0.82": {
+      "slot": "primary"
+    },
+    "horizontal-back-padding-1.12": {
+      "slot": "primary"
+    },
+    "horizontal-back-padding-1.42": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c060": {
+    "tubular-leg--1--1": {
+      "slot": "preserve"
+    },
+    "tubular-leg--1-1": {
+      "slot": "preserve"
+    },
+    "tubular-leg-1--1": {
+      "slot": "preserve"
+    },
+    "tubular-leg-1-1": {
+      "slot": "preserve"
+    },
+    "lower-chrome-cage-front": {
+      "slot": "preserve"
+    },
+    "lower-chrome-cage-back": {
+      "slot": "preserve"
+    },
+    "lower-chrome-cage-left": {
+      "slot": "preserve"
+    },
+    "lower-chrome-cage-right": {
+      "slot": "preserve"
+    },
+    "side-chrome-cage--0.8": {
+      "slot": "preserve"
+    },
+    "rectangular-arm-cushion--0.8": {
+      "slot": "primary"
+    },
+    "side-chrome-cage-0.8": {
+      "slot": "preserve"
+    },
+    "rectangular-arm-cushion-0.8": {
+      "slot": "primary"
+    },
+    "back-chrome-rail": {
+      "slot": "preserve"
+    },
+    "seat-cushion-0": {
+      "slot": "neutral"
+    },
+    "seat-cushion-1": {
+      "slot": "neutral"
+    },
+    "independent-back-cushion": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c061": {
+    "full-depth-foam-core": {
+      "slot": "primary"
+    },
+    "folded-foam-body": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-0": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-1": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-2": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-3": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-4": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-5": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-6": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-7": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-8": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-9": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-10": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-11": {
+      "slot": "primary"
+    },
+    "deep-upholstery-pleat-12": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c062": {
+    "round-top": {
+      "slot": "preserve"
+    },
+    "folded-triangle-a": {
+      "slot": "preserve"
+    },
+    "folded-foot": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c063": {
+    "rear-vertical--0.19": {
+      "slot": "primary"
+    },
+    "front-vertical--0.19": {
+      "slot": "primary"
+    },
+    "top-rebar--0.19": {
+      "slot": "primary"
+    },
+    "rear-vertical-0.19": {
+      "slot": "primary"
+    },
+    "front-vertical-0.19": {
+      "slot": "primary"
+    },
+    "top-rebar-0.19": {
+      "slot": "primary"
+    },
+    "welded-low-brace-front": {
+      "slot": "primary"
+    },
+    "welded-low-brace-back": {
+      "slot": "primary"
+    },
+    "welded-low-brace-left": {
+      "slot": "primary"
+    },
+    "welded-low-brace-right": {
+      "slot": "primary"
+    },
+    "stone-slab": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c064": {
+    "wood-apron-front": {
+      "slot": "wood"
+    },
+    "wood-apron-back": {
+      "slot": "wood"
+    },
+    "wood-apron-left": {
+      "slot": "wood"
+    },
+    "wood-apron-right": {
+      "slot": "wood"
+    },
+    "leg--1--1": {
+      "slot": "wood"
+    },
+    "leg--1-1": {
+      "slot": "wood"
+    },
+    "leg-1--1": {
+      "slot": "wood"
+    },
+    "leg-1-1": {
+      "slot": "wood"
+    },
+    "glass-top": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c065": {
+    "granite-base": {
+      "slot": "primary"
+    },
+    "offset-stem": {
+      "slot": "primary"
+    },
+    "round-tray": {
+      "slot": "primary"
+    },
+    "tray-rim": {
+      "slot": "primary"
+    },
+    "integrated-carry-handle": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c066": {
+    "triangular-folded-top": {
+      "slot": "primary"
+    },
+    "V-cut-folded-side-0": {
+      "slot": "primary"
+    },
+    "V-cut-folded-side-1": {
+      "slot": "primary"
+    },
+    "V-cut-folded-side-2": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c067": {
+    "thick-wood-top": {
+      "slot": "wood"
+    },
+    "splayed-solid-leg-0": {
+      "slot": "wood"
+    },
+    "splayed-solid-leg-1": {
+      "slot": "wood"
+    },
+    "splayed-solid-leg-2": {
+      "slot": "wood"
+    },
+    "triangular-connection": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c068": {
+    "organic-glass-top": {
+      "slot": "preserve"
+    },
+    "curved-solid-wood-support-a": {
+      "slot": "wood"
+    },
+    "inverted-identical-support-b": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c069": {
+    "turned-cork-volume": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c070": {
+    "octave-foot--1--1": {
+      "slot": "primary"
+    },
+    "octave-foot--1-1": {
+      "slot": "primary"
+    },
+    "octave-foot-1--1": {
+      "slot": "primary"
+    },
+    "octave-foot-1-1": {
+      "slot": "primary"
+    },
+    "bottom": {
+      "slot": "primary"
+    },
+    "top": {
+      "slot": "primary"
+    },
+    "left": {
+      "slot": "primary"
+    },
+    "right": {
+      "slot": "primary"
+    },
+    "back": {
+      "slot": "primary"
+    },
+    "acoustic-door--0.45": {
+      "slot": "primary"
+    },
+    "perforation--0.45-0-0": {
+      "slot": "primary"
+    },
+    "perforation--0.45-0-1": {
+      "slot": "primary"
+    },
+    "perforation--0.45-0-2": {
+      "slot": "primary"
+    },
+    "perforation--0.45-0-3": {
+      "slot": "primary"
+    },
+    "perforation--0.45-1-0": {
+      "slot": "primary"
+    },
+    "perforation--0.45-1-1": {
+      "slot": "primary"
+    },
+    "perforation--0.45-1-2": {
+      "slot": "primary"
+    },
+    "perforation--0.45-1-3": {
+      "slot": "primary"
+    },
+    "perforation--0.45-2-0": {
+      "slot": "primary"
+    },
+    "perforation--0.45-2-1": {
+      "slot": "primary"
+    },
+    "perforation--0.45-2-2": {
+      "slot": "primary"
+    },
+    "perforation--0.45-2-3": {
+      "slot": "primary"
+    },
+    "perforation--0.45-3-0": {
+      "slot": "primary"
+    },
+    "perforation--0.45-3-1": {
+      "slot": "primary"
+    },
+    "perforation--0.45-3-2": {
+      "slot": "primary"
+    },
+    "perforation--0.45-3-3": {
+      "slot": "primary"
+    },
+    "perforation--0.45-4-0": {
+      "slot": "primary"
+    },
+    "perforation--0.45-4-1": {
+      "slot": "primary"
+    },
+    "perforation--0.45-4-2": {
+      "slot": "primary"
+    },
+    "perforation--0.45-4-3": {
+      "slot": "primary"
+    },
+    "perforation--0.45-5-0": {
+      "slot": "primary"
+    },
+    "perforation--0.45-5-1": {
+      "slot": "primary"
+    },
+    "perforation--0.45-5-2": {
+      "slot": "primary"
+    },
+    "perforation--0.45-5-3": {
+      "slot": "primary"
+    },
+    "perforation--0.45-6-0": {
+      "slot": "primary"
+    },
+    "perforation--0.45-6-1": {
+      "slot": "primary"
+    },
+    "perforation--0.45-6-2": {
+      "slot": "primary"
+    },
+    "perforation--0.45-6-3": {
+      "slot": "primary"
+    },
+    "perforation--0.45-7-0": {
+      "slot": "primary"
+    },
+    "perforation--0.45-7-1": {
+      "slot": "primary"
+    },
+    "perforation--0.45-7-2": {
+      "slot": "primary"
+    },
+    "perforation--0.45-7-3": {
+      "slot": "primary"
+    },
+    "acoustic-door-0": {
+      "slot": "primary"
+    },
+    "perforation-0-0-0": {
+      "slot": "primary"
+    },
+    "perforation-0-0-1": {
+      "slot": "primary"
+    },
+    "perforation-0-0-2": {
+      "slot": "primary"
+    },
+    "perforation-0-0-3": {
+      "slot": "primary"
+    },
+    "perforation-0-1-0": {
+      "slot": "primary"
+    },
+    "perforation-0-1-1": {
+      "slot": "primary"
+    },
+    "perforation-0-1-2": {
+      "slot": "primary"
+    },
+    "perforation-0-1-3": {
+      "slot": "primary"
+    },
+    "perforation-0-2-0": {
+      "slot": "primary"
+    },
+    "perforation-0-2-1": {
+      "slot": "primary"
+    },
+    "perforation-0-2-2": {
+      "slot": "primary"
+    },
+    "perforation-0-2-3": {
+      "slot": "primary"
+    },
+    "perforation-0-3-0": {
+      "slot": "primary"
+    },
+    "perforation-0-3-1": {
+      "slot": "primary"
+    },
+    "perforation-0-3-2": {
+      "slot": "primary"
+    },
+    "perforation-0-3-3": {
+      "slot": "primary"
+    },
+    "perforation-0-4-0": {
+      "slot": "primary"
+    },
+    "perforation-0-4-1": {
+      "slot": "primary"
+    },
+    "perforation-0-4-2": {
+      "slot": "primary"
+    },
+    "perforation-0-4-3": {
+      "slot": "primary"
+    },
+    "perforation-0-5-0": {
+      "slot": "primary"
+    },
+    "perforation-0-5-1": {
+      "slot": "primary"
+    },
+    "perforation-0-5-2": {
+      "slot": "primary"
+    },
+    "perforation-0-5-3": {
+      "slot": "primary"
+    },
+    "perforation-0-6-0": {
+      "slot": "primary"
+    },
+    "perforation-0-6-1": {
+      "slot": "primary"
+    },
+    "perforation-0-6-2": {
+      "slot": "primary"
+    },
+    "perforation-0-6-3": {
+      "slot": "primary"
+    },
+    "perforation-0-7-0": {
+      "slot": "primary"
+    },
+    "perforation-0-7-1": {
+      "slot": "primary"
+    },
+    "perforation-0-7-2": {
+      "slot": "primary"
+    },
+    "perforation-0-7-3": {
+      "slot": "primary"
+    },
+    "acoustic-door-0.45": {
+      "slot": "primary"
+    },
+    "perforation-0.45-0-0": {
+      "slot": "primary"
+    },
+    "perforation-0.45-0-1": {
+      "slot": "primary"
+    },
+    "perforation-0.45-0-2": {
+      "slot": "primary"
+    },
+    "perforation-0.45-0-3": {
+      "slot": "primary"
+    },
+    "perforation-0.45-1-0": {
+      "slot": "primary"
+    },
+    "perforation-0.45-1-1": {
+      "slot": "primary"
+    },
+    "perforation-0.45-1-2": {
+      "slot": "primary"
+    },
+    "perforation-0.45-1-3": {
+      "slot": "primary"
+    },
+    "perforation-0.45-2-0": {
+      "slot": "primary"
+    },
+    "perforation-0.45-2-1": {
+      "slot": "primary"
+    },
+    "perforation-0.45-2-2": {
+      "slot": "primary"
+    },
+    "perforation-0.45-2-3": {
+      "slot": "primary"
+    },
+    "perforation-0.45-3-0": {
+      "slot": "primary"
+    },
+    "perforation-0.45-3-1": {
+      "slot": "primary"
+    },
+    "perforation-0.45-3-2": {
+      "slot": "primary"
+    },
+    "perforation-0.45-3-3": {
+      "slot": "primary"
+    },
+    "perforation-0.45-4-0": {
+      "slot": "primary"
+    },
+    "perforation-0.45-4-1": {
+      "slot": "primary"
+    },
+    "perforation-0.45-4-2": {
+      "slot": "primary"
+    },
+    "perforation-0.45-4-3": {
+      "slot": "primary"
+    },
+    "perforation-0.45-5-0": {
+      "slot": "primary"
+    },
+    "perforation-0.45-5-1": {
+      "slot": "primary"
+    },
+    "perforation-0.45-5-2": {
+      "slot": "primary"
+    },
+    "perforation-0.45-5-3": {
+      "slot": "primary"
+    },
+    "perforation-0.45-6-0": {
+      "slot": "primary"
+    },
+    "perforation-0.45-6-1": {
+      "slot": "primary"
+    },
+    "perforation-0.45-6-2": {
+      "slot": "primary"
+    },
+    "perforation-0.45-6-3": {
+      "slot": "primary"
+    },
+    "perforation-0.45-7-0": {
+      "slot": "primary"
+    },
+    "perforation-0.45-7-1": {
+      "slot": "primary"
+    },
+    "perforation-0.45-7-2": {
+      "slot": "primary"
+    },
+    "perforation-0.45-7-3": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c071": {
+    "steel-leg--1--1": {
+      "slot": "primary"
+    },
+    "steel-leg--1-1": {
+      "slot": "primary"
+    },
+    "steel-leg-1--1": {
+      "slot": "primary"
+    },
+    "steel-leg-1-1": {
+      "slot": "primary"
+    },
+    "bottom": {
+      "slot": "primary"
+    },
+    "top": {
+      "slot": "primary"
+    },
+    "left": {
+      "slot": "primary"
+    },
+    "right": {
+      "slot": "primary"
+    },
+    "back": {
+      "slot": "primary"
+    },
+    "oak-end--0.913": {
+      "slot": "wood"
+    },
+    "oak-end-0.913": {
+      "slot": "wood"
+    },
+    "oak-cap": {
+      "slot": "wood"
+    },
+    "corrugated-front-0": {
+      "slot": "secondary"
+    },
+    "corrugated-front-1": {
+      "slot": "secondary"
+    },
+    "corrugated-front-2": {
+      "slot": "secondary"
+    },
+    "corrugated-front-3": {
+      "slot": "secondary"
+    },
+    "corrugated-front-4": {
+      "slot": "secondary"
+    },
+    "corrugated-front-5": {
+      "slot": "secondary"
+    },
+    "corrugated-front-6": {
+      "slot": "secondary"
+    },
+    "corrugated-front-7": {
+      "slot": "secondary"
+    },
+    "corrugated-front-8": {
+      "slot": "secondary"
+    },
+    "corrugated-front-9": {
+      "slot": "secondary"
+    },
+    "corrugated-front-10": {
+      "slot": "secondary"
+    },
+    "corrugated-front-11": {
+      "slot": "secondary"
+    },
+    "corrugated-front-12": {
+      "slot": "secondary"
+    },
+    "corrugated-front-13": {
+      "slot": "secondary"
+    },
+    "corrugated-front-14": {
+      "slot": "secondary"
+    },
+    "corrugated-front-15": {
+      "slot": "secondary"
+    },
+    "corrugated-front-16": {
+      "slot": "secondary"
+    },
+    "corrugated-front-17": {
+      "slot": "secondary"
+    },
+    "corrugated-front-18": {
+      "slot": "secondary"
+    },
+    "corrugated-front-19": {
+      "slot": "secondary"
+    },
+    "corrugated-front-20": {
+      "slot": "secondary"
+    },
+    "corrugated-front-21": {
+      "slot": "secondary"
+    },
+    "corrugated-front-22": {
+      "slot": "secondary"
+    },
+    "corrugated-front-23": {
+      "slot": "secondary"
+    },
+    "corrugated-front-24": {
+      "slot": "secondary"
+    },
+    "corrugated-front-25": {
+      "slot": "secondary"
+    },
+    "corrugated-front-26": {
+      "slot": "secondary"
+    },
+    "corrugated-front-27": {
+      "slot": "secondary"
+    },
+    "corrugated-front-28": {
+      "slot": "secondary"
+    },
+    "corrugated-front-29": {
+      "slot": "secondary"
+    },
+    "corrugated-front-30": {
+      "slot": "secondary"
+    },
+    "corrugated-front-31": {
+      "slot": "secondary"
+    },
+    "corrugated-front-32": {
+      "slot": "secondary"
+    },
+    "corrugated-front-33": {
+      "slot": "secondary"
+    },
+    "corrugated-front-34": {
+      "slot": "secondary"
+    },
+    "corrugated-front-35": {
+      "slot": "secondary"
+    },
+    "corrugated-front-36": {
+      "slot": "secondary"
+    },
+    "corrugated-front-37": {
+      "slot": "secondary"
+    },
+    "corrugated-front-38": {
+      "slot": "secondary"
+    },
+    "corrugated-front-39": {
+      "slot": "secondary"
+    },
+    "corrugated-front-40": {
+      "slot": "secondary"
+    },
+    "corrugated-front-41": {
+      "slot": "secondary"
+    },
+    "corrugated-front-42": {
+      "slot": "secondary"
+    },
+    "corrugated-front-43": {
+      "slot": "secondary"
+    },
+    "corrugated-front-44": {
+      "slot": "secondary"
+    },
+    "corrugated-front-45": {
+      "slot": "secondary"
+    },
+    "corrugated-front-46": {
+      "slot": "secondary"
+    },
+    "corrugated-front-47": {
+      "slot": "secondary"
+    },
+    "corrugated-front-48": {
+      "slot": "secondary"
+    },
+    "corrugated-front-49": {
+      "slot": "secondary"
+    },
+    "corrugated-front-50": {
+      "slot": "secondary"
+    },
+    "corrugated-front-51": {
+      "slot": "secondary"
+    },
+    "corrugated-front-52": {
+      "slot": "secondary"
+    },
+    "corrugated-front-53": {
+      "slot": "secondary"
+    },
+    "corrugated-front-54": {
+      "slot": "secondary"
+    },
+    "corrugated-front-55": {
+      "slot": "secondary"
+    },
+    "corrugated-front-56": {
+      "slot": "secondary"
+    },
+    "corrugated-front-57": {
+      "slot": "secondary"
+    },
+    "corrugated-front-58": {
+      "slot": "secondary"
+    },
+    "corrugated-front-59": {
+      "slot": "secondary"
+    },
+    "corrugated-front-60": {
+      "slot": "secondary"
+    },
+    "corrugated-front-61": {
+      "slot": "secondary"
+    },
+    "corrugated-front-62": {
+      "slot": "secondary"
+    },
+    "corrugated-front-63": {
+      "slot": "secondary"
+    },
+    "corrugated-front-64": {
+      "slot": "secondary"
+    },
+    "corrugated-front-65": {
+      "slot": "secondary"
+    }
+  },
+  "expansion-c072": {
+    "roller-leg--1--1": {
+      "slot": "primary"
+    },
+    "roller-leg--1-1": {
+      "slot": "primary"
+    },
+    "roller-leg-1--1": {
+      "slot": "primary"
+    },
+    "roller-leg-1-1": {
+      "slot": "primary"
+    },
+    "bottom": {
+      "slot": "wood"
+    },
+    "top": {
+      "slot": "wood"
+    },
+    "left": {
+      "slot": "wood"
+    },
+    "right": {
+      "slot": "wood"
+    },
+    "back": {
+      "slot": "wood"
+    },
+    "tambour-slat-0": {
+      "slot": "wood"
+    },
+    "tambour-slat-1": {
+      "slot": "wood"
+    },
+    "tambour-slat-2": {
+      "slot": "wood"
+    },
+    "tambour-slat-3": {
+      "slot": "wood"
+    },
+    "tambour-slat-4": {
+      "slot": "wood"
+    },
+    "tambour-slat-5": {
+      "slot": "wood"
+    },
+    "tambour-slat-6": {
+      "slot": "wood"
+    },
+    "tambour-slat-7": {
+      "slot": "wood"
+    },
+    "tambour-slat-8": {
+      "slot": "wood"
+    },
+    "tambour-slat-9": {
+      "slot": "wood"
+    },
+    "tambour-slat-10": {
+      "slot": "wood"
+    },
+    "tambour-slat-11": {
+      "slot": "wood"
+    },
+    "tambour-slat-12": {
+      "slot": "wood"
+    },
+    "tambour-slat-13": {
+      "slot": "wood"
+    },
+    "tambour-slat-14": {
+      "slot": "wood"
+    },
+    "tambour-slat-15": {
+      "slot": "wood"
+    },
+    "tambour-slat-16": {
+      "slot": "wood"
+    },
+    "tambour-slat-17": {
+      "slot": "wood"
+    },
+    "tambour-slat-18": {
+      "slot": "wood"
+    },
+    "tambour-slat-19": {
+      "slot": "wood"
+    },
+    "tambour-slat-20": {
+      "slot": "wood"
+    },
+    "tambour-slat-21": {
+      "slot": "wood"
+    },
+    "tambour-slat-22": {
+      "slot": "wood"
+    },
+    "tambour-slat-23": {
+      "slot": "wood"
+    },
+    "tambour-slat-24": {
+      "slot": "wood"
+    },
+    "tambour-slat-25": {
+      "slot": "wood"
+    },
+    "tambour-slat-26": {
+      "slot": "wood"
+    },
+    "tambour-slat-27": {
+      "slot": "wood"
+    },
+    "tambour-slat-28": {
+      "slot": "wood"
+    },
+    "tambour-slat-29": {
+      "slot": "wood"
+    },
+    "tambour-slat-30": {
+      "slot": "wood"
+    },
+    "tambour-slat-31": {
+      "slot": "wood"
+    },
+    "tambour-slat-32": {
+      "slot": "wood"
+    },
+    "tambour-slat-33": {
+      "slot": "wood"
+    },
+    "tambour-slat-34": {
+      "slot": "wood"
+    },
+    "tambour-slat-35": {
+      "slot": "wood"
+    },
+    "tambour-slat-36": {
+      "slot": "wood"
+    },
+    "tambour-slat-37": {
+      "slot": "wood"
+    },
+    "tambour-slat-38": {
+      "slot": "wood"
+    },
+    "tambour-slat-39": {
+      "slot": "wood"
+    },
+    "tambour-slat-40": {
+      "slot": "wood"
+    },
+    "tambour-slat-41": {
+      "slot": "wood"
+    },
+    "tambour-slat-42": {
+      "slot": "wood"
+    },
+    "tambour-slat-43": {
+      "slot": "wood"
+    },
+    "tambour-slat-44": {
+      "slot": "wood"
+    },
+    "tambour-slat-45": {
+      "slot": "wood"
+    },
+    "tambour-slat-46": {
+      "slot": "wood"
+    },
+    "tambour-slat-47": {
+      "slot": "wood"
+    },
+    "tambour-slat-48": {
+      "slot": "wood"
+    },
+    "tambour-slat-49": {
+      "slot": "wood"
+    },
+    "tambour-slat-50": {
+      "slot": "wood"
+    },
+    "tambour-slat-51": {
+      "slot": "wood"
+    },
+    "tambour-slat-52": {
+      "slot": "wood"
+    },
+    "tambour-slat-53": {
+      "slot": "wood"
+    },
+    "tambour-slat-54": {
+      "slot": "wood"
+    },
+    "tambour-slat-55": {
+      "slot": "wood"
+    },
+    "tambour-slat-56": {
+      "slot": "wood"
+    },
+    "tambour-slat-57": {
+      "slot": "wood"
+    },
+    "tambour-slat-58": {
+      "slot": "wood"
+    },
+    "tambour-slat-59": {
+      "slot": "wood"
+    },
+    "tambour-slat-60": {
+      "slot": "wood"
+    },
+    "tambour-slat-61": {
+      "slot": "wood"
+    },
+    "tambour-slat-62": {
+      "slot": "wood"
+    },
+    "tambour-slat-63": {
+      "slot": "wood"
+    },
+    "tambour-slat-64": {
+      "slot": "wood"
+    },
+    "tambour-slat-65": {
+      "slot": "wood"
+    },
+    "tambour-slat-66": {
+      "slot": "wood"
+    },
+    "tambour-slat-67": {
+      "slot": "wood"
+    },
+    "rounded-end--1-0": {
+      "slot": "wood"
+    },
+    "rounded-end--1-1": {
+      "slot": "wood"
+    },
+    "rounded-end--1-2": {
+      "slot": "wood"
+    },
+    "rounded-end--1-3": {
+      "slot": "wood"
+    },
+    "rounded-end--1-4": {
+      "slot": "wood"
+    },
+    "rounded-end--1-5": {
+      "slot": "wood"
+    },
+    "rounded-end--1-6": {
+      "slot": "wood"
+    },
+    "rounded-end--1-7": {
+      "slot": "wood"
+    },
+    "rounded-end-1-0": {
+      "slot": "wood"
+    },
+    "rounded-end-1-1": {
+      "slot": "wood"
+    },
+    "rounded-end-1-2": {
+      "slot": "wood"
+    },
+    "rounded-end-1-3": {
+      "slot": "wood"
+    },
+    "rounded-end-1-4": {
+      "slot": "wood"
+    },
+    "rounded-end-1-5": {
+      "slot": "wood"
+    },
+    "rounded-end-1-6": {
+      "slot": "wood"
+    },
+    "rounded-end-1-7": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c073": {
+    "projecting-horizontal-plane-0.07": {
+      "slot": "wood"
+    },
+    "projecting-horizontal-plane-0.32": {
+      "slot": "wood"
+    },
+    "projecting-horizontal-plane-0.57": {
+      "slot": "wood"
+    },
+    "projecting-upright--0.69": {
+      "slot": "wood"
+    },
+    "projecting-upright--0.23": {
+      "slot": "wood"
+    },
+    "projecting-upright-0.23": {
+      "slot": "wood"
+    },
+    "projecting-upright-0.69": {
+      "slot": "wood"
+    },
+    "two-central-drawers--0.45": {
+      "slot": "wood"
+    },
+    "recessed-pull--0.45": {
+      "slot": "primary"
+    },
+    "two-central-drawers-0.45": {
+      "slot": "wood"
+    },
+    "recessed-pull-0.45": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c074": {
+    "round-dining-top": {
+      "slot": "wood"
+    },
+    "angular-leg-0": {
+      "slot": "wood"
+    },
+    "angular-leg-1": {
+      "slot": "wood"
+    },
+    "angular-leg-2": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c075": {
+    "glass-top": {
+      "slot": "preserve"
+    },
+    "welded-wire-0": {
+      "slot": "preserve"
+    },
+    "welded-wire-1": {
+      "slot": "preserve"
+    },
+    "welded-wire-2": {
+      "slot": "preserve"
+    },
+    "welded-wire-3": {
+      "slot": "preserve"
+    },
+    "welded-wire-4": {
+      "slot": "preserve"
+    },
+    "welded-wire-5": {
+      "slot": "preserve"
+    },
+    "welded-wire-6": {
+      "slot": "preserve"
+    },
+    "welded-wire-7": {
+      "slot": "preserve"
+    },
+    "welded-wire-8": {
+      "slot": "preserve"
+    },
+    "welded-wire-9": {
+      "slot": "preserve"
+    },
+    "welded-wire-10": {
+      "slot": "preserve"
+    },
+    "welded-wire-11": {
+      "slot": "preserve"
+    },
+    "welded-wire-12": {
+      "slot": "preserve"
+    },
+    "welded-wire-13": {
+      "slot": "preserve"
+    },
+    "welded-wire-14": {
+      "slot": "preserve"
+    },
+    "welded-wire-15": {
+      "slot": "preserve"
+    },
+    "welded-wire-16": {
+      "slot": "preserve"
+    },
+    "welded-wire-17": {
+      "slot": "preserve"
+    },
+    "welded-wire-18": {
+      "slot": "preserve"
+    },
+    "welded-wire-19": {
+      "slot": "preserve"
+    },
+    "welded-wire-20": {
+      "slot": "preserve"
+    },
+    "welded-wire-21": {
+      "slot": "preserve"
+    },
+    "welded-wire-22": {
+      "slot": "preserve"
+    },
+    "welded-wire-23": {
+      "slot": "preserve"
+    },
+    "welded-wire-24": {
+      "slot": "preserve"
+    },
+    "welded-wire-25": {
+      "slot": "preserve"
+    },
+    "welded-wire-26": {
+      "slot": "preserve"
+    },
+    "welded-wire-27": {
+      "slot": "preserve"
+    },
+    "welded-wire-28": {
+      "slot": "preserve"
+    },
+    "welded-wire-29": {
+      "slot": "preserve"
+    },
+    "welded-wire-30": {
+      "slot": "preserve"
+    },
+    "welded-wire-31": {
+      "slot": "preserve"
+    },
+    "welded-wire-32": {
+      "slot": "preserve"
+    },
+    "welded-wire-33": {
+      "slot": "preserve"
+    },
+    "welded-wire-34": {
+      "slot": "preserve"
+    },
+    "welded-wire-35": {
+      "slot": "preserve"
+    },
+    "welded-wire-36": {
+      "slot": "preserve"
+    },
+    "welded-wire-37": {
+      "slot": "preserve"
+    },
+    "welded-wire-38": {
+      "slot": "preserve"
+    },
+    "welded-wire-39": {
+      "slot": "preserve"
+    },
+    "welded-wire-40": {
+      "slot": "preserve"
+    },
+    "welded-wire-41": {
+      "slot": "preserve"
+    },
+    "welded-wire-42": {
+      "slot": "preserve"
+    },
+    "welded-wire-43": {
+      "slot": "preserve"
+    },
+    "welded-wire-44": {
+      "slot": "preserve"
+    },
+    "welded-wire-45": {
+      "slot": "preserve"
+    },
+    "welded-wire-46": {
+      "slot": "preserve"
+    },
+    "welded-wire-47": {
+      "slot": "preserve"
+    },
+    "welded-wire-48": {
+      "slot": "preserve"
+    },
+    "welded-wire-49": {
+      "slot": "preserve"
+    },
+    "welded-wire-50": {
+      "slot": "preserve"
+    },
+    "welded-wire-51": {
+      "slot": "preserve"
+    },
+    "welded-wire-52": {
+      "slot": "preserve"
+    },
+    "welded-wire-53": {
+      "slot": "preserve"
+    },
+    "welded-wire-54": {
+      "slot": "preserve"
+    },
+    "welded-wire-55": {
+      "slot": "preserve"
+    },
+    "welded-wire-56": {
+      "slot": "preserve"
+    },
+    "welded-wire-57": {
+      "slot": "preserve"
+    },
+    "welded-wire-58": {
+      "slot": "preserve"
+    },
+    "welded-wire-59": {
+      "slot": "preserve"
+    },
+    "weld-ring-0.012": {
+      "slot": "preserve"
+    },
+    "weld-ring-0.35": {
+      "slot": "preserve"
+    },
+    "weld-ring-0.7": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c076": {
+    "superellipse-top": {
+      "slot": "primary"
+    },
+    "span-leg--0.62--0.39": {
+      "slot": "preserve"
+    },
+    "span-leg--0.62-0.39": {
+      "slot": "preserve"
+    },
+    "span-leg-0.62--0.39": {
+      "slot": "preserve"
+    },
+    "span-leg-0.62-0.39": {
+      "slot": "preserve"
+    },
+    "under-top-spine": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c077": {
+    "tabletop": {
+      "slot": "wood"
+    },
+    "tripod--1-0": {
+      "slot": "primary"
+    },
+    "tripod--1-1": {
+      "slot": "primary"
+    },
+    "tripod--1-2": {
+      "slot": "primary"
+    },
+    "tripod-1-0": {
+      "slot": "primary"
+    },
+    "tripod-1-1": {
+      "slot": "primary"
+    },
+    "tripod-1-2": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c078": {
+    "birch-round-top": {
+      "slot": "wood"
+    },
+    "bent-laminated-rectangular-L-leg-0": {
+      "slot": "wood"
+    },
+    "bent-laminated-rectangular-L-leg-1": {
+      "slot": "wood"
+    },
+    "bent-laminated-rectangular-L-leg-2": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c079": {
+    "linoleum-top": {
+      "slot": "primary"
+    },
+    "oak-upright--0.61": {
+      "slot": "wood"
+    },
+    "bent-steel-ribbon--0.61--1": {
+      "slot": "primary"
+    },
+    "bent-steel-ribbon--0.61-1": {
+      "slot": "primary"
+    },
+    "oak-upright-0.61": {
+      "slot": "wood"
+    },
+    "bent-steel-ribbon-0.61--1": {
+      "slot": "primary"
+    },
+    "bent-steel-ribbon-0.61-1": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c080": {
+    "soft-triangle-tabletop": {
+      "slot": "wood"
+    },
+    "triangular-leg--0.74--0.25": {
+      "slot": "wood"
+    },
+    "triangular-leg--0.74-0.25": {
+      "slot": "wood"
+    },
+    "triangular-leg-0.74--0.25": {
+      "slot": "wood"
+    },
+    "triangular-leg-0.74-0.25": {
+      "slot": "wood"
+    },
+    "apron-front": {
+      "slot": "wood"
+    },
+    "apron-back": {
+      "slot": "wood"
+    },
+    "apron-left": {
+      "slot": "wood"
+    },
+    "apron-right": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c081": {
+    "articulated-screen-slat-0": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-1": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-2": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-3": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-4": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-5": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-6": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-7": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-8": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-9": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-10": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-11": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-12": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-13": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-14": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-15": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-16": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-17": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-18": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-19": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-20": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-21": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-22": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-23": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-24": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-25": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-26": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-27": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-28": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-29": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-30": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-31": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-32": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-33": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-34": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-35": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-36": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-37": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-38": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-39": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-40": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-41": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-42": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-43": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-44": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-45": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-46": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-47": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-48": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-49": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-50": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-51": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-52": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-53": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-54": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-55": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-56": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-57": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-58": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-59": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-60": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-61": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-62": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-63": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-64": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-65": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-66": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-67": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-68": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-69": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-70": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-71": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-72": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-73": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-74": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-75": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-76": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-77": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-78": {
+      "slot": "wood"
+    },
+    "articulated-screen-slat-79": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c082": {
+    "interlocking-moulded-plywood-0": {
+      "slot": "wood"
+    },
+    "interlocking-moulded-plywood-1": {
+      "slot": "wood"
+    },
+    "interlocking-moulded-plywood-2": {
+      "slot": "wood"
+    },
+    "interlocking-moulded-plywood-3": {
+      "slot": "wood"
+    },
+    "interlocking-moulded-plywood-4": {
+      "slot": "wood"
+    },
+    "interlocking-moulded-plywood-5": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c083": {
+    "frame-upright--0.83": {
+      "slot": "primary"
+    },
+    "weighted-foot--0.83": {
+      "slot": "primary"
+    },
+    "caster--0.83--0.26": {
+      "slot": "preserve"
+    },
+    "caster--0.83-0.26": {
+      "slot": "preserve"
+    },
+    "frame-upright-0.83": {
+      "slot": "primary"
+    },
+    "weighted-foot-0.83": {
+      "slot": "primary"
+    },
+    "caster-0.83--0.26": {
+      "slot": "preserve"
+    },
+    "caster-0.83-0.26": {
+      "slot": "preserve"
+    },
+    "top-bar": {
+      "slot": "primary"
+    },
+    "open-shelf-0.35": {
+      "slot": "wood"
+    },
+    "open-shelf-0.72": {
+      "slot": "wood"
+    },
+    "open-shelf-1.09": {
+      "slot": "wood"
+    },
+    "open-shelf-1.46": {
+      "slot": "wood"
+    }
+  },
+  "expansion-c084": {
+    "mirror-glass": {
+      "slot": "preserve"
+    },
+    "open-surround": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c085": {
+    "mirror-glass": {
+      "slot": "preserve"
+    },
+    "open-surround": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c086": {
+    "mirror-glass": {
+      "slot": "preserve"
+    },
+    "open-surround": {
+      "slot": "primary"
+    },
+    "rear-easel": {
+      "slot": "primary"
+    },
+    "easel-cross-member": {
+      "slot": "primary"
+    }
+  },
+  "expansion-c087": {
+    "mirror-glass": {
+      "slot": "preserve"
+    },
+    "open-surround": {
+      "slot": "primary"
+    },
+    "illuminated-ripple-0": {
+      "slot": "preserve"
+    },
+    "illuminated-ripple-1": {
+      "slot": "preserve"
+    },
+    "illuminated-ripple-2": {
+      "slot": "preserve"
+    },
+    "illuminated-ripple-3": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c088": {
+    "marble-counterweight": {
+      "slot": "primary"
+    },
+    "continuous-telescopic-arch": {
+      "slot": "preserve"
+    },
+    "shade-neck": {
+      "slot": "preserve"
+    },
+    "polished-dome": {
+      "slot": "preserve"
+    },
+    "diffuser": {
+      "slot": "preserve"
+    },
+    "power-cord": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c089": {
+    "fluted-aluminium-base": {
+      "slot": "primary"
+    },
+    "vertical-flute-0": {
+      "slot": "primary"
+    },
+    "vertical-flute-1": {
+      "slot": "primary"
+    },
+    "vertical-flute-2": {
+      "slot": "primary"
+    },
+    "vertical-flute-3": {
+      "slot": "primary"
+    },
+    "vertical-flute-4": {
+      "slot": "primary"
+    },
+    "vertical-flute-5": {
+      "slot": "primary"
+    },
+    "vertical-flute-6": {
+      "slot": "primary"
+    },
+    "vertical-flute-7": {
+      "slot": "primary"
+    },
+    "vertical-flute-8": {
+      "slot": "primary"
+    },
+    "vertical-flute-9": {
+      "slot": "primary"
+    },
+    "vertical-flute-10": {
+      "slot": "primary"
+    },
+    "vertical-flute-11": {
+      "slot": "primary"
+    },
+    "vertical-flute-12": {
+      "slot": "primary"
+    },
+    "vertical-flute-13": {
+      "slot": "primary"
+    },
+    "vertical-flute-14": {
+      "slot": "primary"
+    },
+    "vertical-flute-15": {
+      "slot": "primary"
+    },
+    "vertical-flute-16": {
+      "slot": "primary"
+    },
+    "vertical-flute-17": {
+      "slot": "primary"
+    },
+    "vertical-flute-18": {
+      "slot": "primary"
+    },
+    "vertical-flute-19": {
+      "slot": "primary"
+    },
+    "vertical-flute-20": {
+      "slot": "primary"
+    },
+    "vertical-flute-21": {
+      "slot": "primary"
+    },
+    "vertical-flute-22": {
+      "slot": "primary"
+    },
+    "vertical-flute-23": {
+      "slot": "primary"
+    },
+    "vertical-flute-24": {
+      "slot": "primary"
+    },
+    "vertical-flute-25": {
+      "slot": "primary"
+    },
+    "vertical-flute-26": {
+      "slot": "primary"
+    },
+    "vertical-flute-27": {
+      "slot": "primary"
+    },
+    "vertical-flute-28": {
+      "slot": "primary"
+    },
+    "vertical-flute-29": {
+      "slot": "primary"
+    },
+    "vertical-flute-30": {
+      "slot": "primary"
+    },
+    "vertical-flute-31": {
+      "slot": "primary"
+    },
+    "vertical-flute-32": {
+      "slot": "primary"
+    },
+    "vertical-flute-33": {
+      "slot": "primary"
+    },
+    "vertical-flute-34": {
+      "slot": "primary"
+    },
+    "vertical-flute-35": {
+      "slot": "primary"
+    },
+    "tilting-glass-bowl": {
+      "slot": "preserve"
+    },
+    "white-reflector": {
+      "slot": "primary"
+    },
+    "light-source": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c090": {
+    "tilted-marble-pedestal": {
+      "slot": "primary"
+    },
+    "broad-rounded-snoopy-shade": {
+      "slot": "preserve"
+    },
+    "underside-diffuser": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c091": {
+    "base-cross-foot": {
+      "slot": "preserve"
+    },
+    "base-depth-foot": {
+      "slot": "preserve"
+    },
+    "vertical-stem": {
+      "slot": "preserve"
+    },
+    "inclined-balancing-stem": {
+      "slot": "preserve"
+    },
+    "opal-glass-sphere": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c092": {
+    "base": {
+      "slot": "preserve"
+    },
+    "stem": {
+      "slot": "preserve"
+    },
+    "curved-three-layer-shade-0": {
+      "slot": "primary"
+    },
+    "curved-three-layer-shade-1": {
+      "slot": "primary"
+    },
+    "curved-three-layer-shade-2": {
+      "slot": "primary"
+    },
+    "central-bulb": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c093": {
+    "trumpet-base": {
+      "slot": "primary"
+    },
+    "hemisphere-shade": {
+      "slot": "primary"
+    },
+    "shade-diffuser": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c094": {
+    "oval-base-with-hand-hole": {
+      "slot": "primary"
+    },
+    "inclined-stem": {
+      "slot": "primary"
+    },
+    "inclined-cut-cone": {
+      "slot": "primary"
+    },
+    "bulb": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c095": {
+    "weighted-round-base": {
+      "slot": "preserve"
+    },
+    "parallel-arm-0--0.012": {
+      "slot": "preserve"
+    },
+    "parallel-arm-0-0.012": {
+      "slot": "preserve"
+    },
+    "tension-spring-0": {
+      "slot": "primary"
+    },
+    "joint-0": {
+      "slot": "preserve"
+    },
+    "parallel-arm-1--0.012": {
+      "slot": "preserve"
+    },
+    "parallel-arm-1-0.012": {
+      "slot": "preserve"
+    },
+    "tension-spring-1": {
+      "slot": "primary"
+    },
+    "joint-1": {
+      "slot": "preserve"
+    },
+    "adjustable-cone-shade": {
+      "slot": "secondary"
+    },
+    "bulb": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c096": {
+    "cylindrical-pedestal": {
+      "slot": "preserve"
+    },
+    "parallel-electric-arm-0--0.018": {
+      "slot": "preserve"
+    },
+    "parallel-electric-arm-0-0.018": {
+      "slot": "preserve"
+    },
+    "counterweight-stub-0": {
+      "slot": "preserve"
+    },
+    "counterweight-0": {
+      "slot": "preserve"
+    },
+    "pivot-0": {
+      "slot": "primary"
+    },
+    "parallel-electric-arm-1--0.018": {
+      "slot": "preserve"
+    },
+    "parallel-electric-arm-1-0.018": {
+      "slot": "preserve"
+    },
+    "counterweight-stub-1": {
+      "slot": "preserve"
+    },
+    "counterweight-1": {
+      "slot": "preserve"
+    },
+    "pivot-1": {
+      "slot": "primary"
+    },
+    "angular-lamp-head": {
+      "slot": "preserve"
+    },
+    "head-diffuser": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c097": {
+    "portable-foot": {
+      "slot": "primary"
+    },
+    "stem": {
+      "slot": "primary"
+    },
+    "upper-hemisphere": {
+      "slot": "primary"
+    },
+    "opposing-lower-hemisphere": {
+      "slot": "primary"
+    },
+    "hidden-led": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c098": {
+    "continuous-lower-stand-front": {
+      "slot": "primary"
+    },
+    "continuous-lower-stand-back": {
+      "slot": "primary"
+    },
+    "continuous-lower-stand-left": {
+      "slot": "primary"
+    },
+    "continuous-lower-stand-right": {
+      "slot": "primary"
+    },
+    "steel-leg--1--1": {
+      "slot": "primary"
+    },
+    "steel-leg--1-1": {
+      "slot": "primary"
+    },
+    "steel-leg-1--1": {
+      "slot": "primary"
+    },
+    "steel-leg-1-1": {
+      "slot": "primary"
+    },
+    "container-floor": {
+      "slot": "primary"
+    },
+    "container-end--0.378": {
+      "slot": "primary"
+    },
+    "container-end-0.378": {
+      "slot": "primary"
+    },
+    "container-side--0.163": {
+      "slot": "primary"
+    },
+    "container-side-0.163": {
+      "slot": "primary"
+    },
+    "visible-soil": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-rachis": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-0--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-0--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-0-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-0-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-1--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-1--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-1-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-1-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-2--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-2--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-2-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-2-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-3--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-3--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-3-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-3-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-4--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-4--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-4-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-4-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-5--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-5--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-5-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-5-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-6--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-6--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-6-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-0-opposite-leaflet-6-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-rachis": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-0--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-0--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-0-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-0-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-1--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-1--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-1-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-1-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-2--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-2--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-2-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-2-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-3--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-3--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-3-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-3-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-4--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-4--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-4-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-4-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-5--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-5--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-5-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-5-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-6--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-6--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-6-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-1-opposite-leaflet-6-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-rachis": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-0--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-0--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-0-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-0-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-1--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-1--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-1-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-1-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-2--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-2--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-2-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-2-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-3--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-3--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-3-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-3-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-4--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-4--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-4-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-4-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-5--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-5--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-5-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-5-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-6--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-6--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-6-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-2-opposite-leaflet-6-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-rachis": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-0--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-0--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-0-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-0-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-1--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-1--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-1-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-1-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-2--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-2--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-2-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-2-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-3--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-3--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-3-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-3-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-4--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-4--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-4-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-4-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-5--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-5--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-5-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-5-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-6--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-6--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-6-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-3-opposite-leaflet-6-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-rachis": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-0--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-0--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-0-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-0-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-1--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-1--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-1-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-1-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-2--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-2--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-2-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-2-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-3--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-3--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-3-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-3-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-4--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-4--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-4-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-4-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-5--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-5--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-5-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-5-1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-6--1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-6--1-midrib": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-6-1": {
+      "slot": "preserve"
+    },
+    "ZZ-stem-4-opposite-leaflet-6-1-midrib": {
+      "slot": "preserve"
+    },
+    "trailing-pothos-vine": {
+      "slot": "preserve"
+    },
+    "pothos-heart-leaf-0": {
+      "slot": "preserve"
+    },
+    "pothos-heart-leaf-0-midrib": {
+      "slot": "preserve"
+    },
+    "pothos-heart-leaf-1": {
+      "slot": "preserve"
+    },
+    "pothos-heart-leaf-1-midrib": {
+      "slot": "preserve"
+    },
+    "pothos-heart-leaf-2": {
+      "slot": "preserve"
+    },
+    "pothos-heart-leaf-2-midrib": {
+      "slot": "preserve"
+    },
+    "pothos-heart-leaf-3": {
+      "slot": "preserve"
+    },
+    "pothos-heart-leaf-3-midrib": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c099": {
+    "hourglass-open-pot": {
+      "slot": "primary"
+    },
+    "visible-soil": {
+      "slot": "preserve"
+    },
+    "monstera-petiole-0": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-0": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-0-midrib": {
+      "slot": "preserve"
+    },
+    "monstera-petiole-1": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-1": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-1-midrib": {
+      "slot": "preserve"
+    },
+    "monstera-petiole-2": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-2": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-2-midrib": {
+      "slot": "preserve"
+    },
+    "monstera-petiole-3": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-3": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-3-midrib": {
+      "slot": "preserve"
+    },
+    "monstera-petiole-4": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-4": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-4-midrib": {
+      "slot": "preserve"
+    },
+    "monstera-petiole-5": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-5": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-5-midrib": {
+      "slot": "preserve"
+    },
+    "monstera-petiole-6": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-6": {
+      "slot": "preserve"
+    },
+    "fenestrated-monstera-leaf-6-midrib": {
+      "slot": "preserve"
+    }
+  },
+  "expansion-c100": {
+    "bau-open-ribbed-cylinder": {
+      "slot": "secondary"
+    },
+    "soil": {
+      "slot": "preserve"
+    },
+    "pressed-metal-rib-0": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-1": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-2": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-3": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-4": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-5": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-6": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-7": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-8": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-9": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-10": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-11": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-12": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-13": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-14": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-15": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-16": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-17": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-18": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-19": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-20": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-21": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-22": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-23": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-24": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-25": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-26": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-27": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-28": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-29": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-30": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-31": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-32": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-33": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-34": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-35": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-36": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-37": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-38": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-39": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-40": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-41": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-42": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-43": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-44": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-45": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-46": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-47": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-48": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-49": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-50": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-51": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-52": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-53": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-54": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-55": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-56": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-57": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-58": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-59": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-60": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-61": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-62": {
+      "slot": "secondary"
+    },
+    "pressed-metal-rib-63": {
+      "slot": "secondary"
+    },
+    "separate-stand-leg-0": {
+      "slot": "primary"
+    },
+    "separate-stand-leg-1": {
+      "slot": "primary"
+    },
+    "separate-stand-leg-2": {
+      "slot": "primary"
+    },
+    "strelitzia-petiole-0": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-0": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-0-midrib": {
+      "slot": "preserve"
+    },
+    "strelitzia-petiole-1": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-1": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-1-midrib": {
+      "slot": "preserve"
+    },
+    "strelitzia-petiole-2": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-2": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-2-midrib": {
+      "slot": "preserve"
+    },
+    "strelitzia-petiole-3": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-3": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-3-midrib": {
+      "slot": "preserve"
+    },
+    "strelitzia-petiole-4": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-4": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-4-midrib": {
+      "slot": "preserve"
+    },
+    "strelitzia-petiole-5": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-5": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-5-midrib": {
+      "slot": "preserve"
+    },
+    "strelitzia-petiole-6": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-6": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-6-midrib": {
+      "slot": "preserve"
+    },
+    "strelitzia-petiole-7": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-7": {
+      "slot": "preserve"
+    },
+    "banana-shaped-lamina-7-midrib": {
+      "slot": "preserve"
+    }
+  }
+}

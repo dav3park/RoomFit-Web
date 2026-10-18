@@ -36,3 +36,24 @@ Outputs:
 Product IDs are generated as `<variantId>-01`. The four established desk IDs
 therefore remain unchanged. The generated `sourceHash` is based on normalized,
 sorted JSON content rather than file timestamps or formatting.
+
+## 193-model catalog and installation policies
+
+The 2026-10-18 catalog retains the original 93 variants and adds C001–C100 as
+`expansion-c001`–`expansion-c100`. Import the reviewed 100-model archive with:
+
+```sh
+node scripts/importExpansionFurniture.mjs --archive /path/to/roomfit-new-100.zip
+npm run catalog:generate
+```
+
+`expansionMetadata.json` assigns service style/lifestyle tags and existing type
+codes. `placementMetadata.json` declares installation modes, role hints, source
+dimensions and authored support surfaces; the generator embeds these policies in
+both catalogs and includes them in `sourceHash`. Geometry supports mesh, profile
+and sweep parts alongside the existing primitives. Runtime and build footprint
+calculation share `sculptedFurnitureGeometry.mjs`.
+
+Models are emitted as separate JSON assets and requested only when needed.
+Failed requests can be retried without adding furniture or reloading the page.
+Glass, chrome and other protected materials retain their original appearance.

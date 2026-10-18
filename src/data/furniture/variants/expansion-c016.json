@@ -1,0 +1,415 @@
+{
+  "schemaVersion": "1.0",
+  "name": "분할 등받이 우드암 소파베드",
+  "furnitureType": "소파베드",
+  "variant": "분할 등받이 우드암 소파베드",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 2.225,
+    "depth": 0.9116109169571653,
+    "height": 0.9540763692389864
+  },
+  "materials": [
+    "woodLight",
+    "metal",
+    "fabricLight"
+  ],
+  "parts": [
+    {
+      "id": "wooden-leg--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.95,
+        0.13,
+        -0.3591945415214173
+      ],
+      "size": [
+        0.03,
+        0.03,
+        0.26
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "wooden-leg--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.95,
+        0.13,
+        0.3508054584785827
+      ],
+      "size": [
+        0.03,
+        0.03,
+        0.26
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "wooden-leg-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.95,
+        0.13,
+        -0.3591945415214173
+      ],
+      "size": [
+        0.03,
+        0.03,
+        0.26
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "wooden-leg-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.95,
+        0.13,
+        0.3508054584785827
+      ],
+      "size": [
+        0.03,
+        0.03,
+        0.26
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "bed-deck-front",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.24,
+        0.3758054584785827
+      ],
+      "size": [
+        0.022,
+        0.022,
+        1.9
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "bed-deck-back",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.24,
+        -0.3841945415214173
+      ],
+      "size": [
+        0.022,
+        0.022,
+        1.9
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "bed-deck-left",
+      "geometry": "cylinder",
+      "position": [
+        -0.95,
+        0.24,
+        -0.004194541521417322
+      ],
+      "size": [
+        0.022,
+        0.022,
+        0.76
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "bed-deck-right",
+      "geometry": "cylinder",
+      "position": [
+        0.95,
+        0.24,
+        -0.004194541521417322
+      ],
+      "size": [
+        0.022,
+        0.022,
+        0.76
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "seat--0.51",
+      "geometry": "roundedBox",
+      "position": [
+        -0.51,
+        0.39,
+        0.11580545847858267
+      ],
+      "size": [
+        1,
+        0.23,
+        0.68
+      ],
+      "material": "fabricLight",
+      "radius": 0.05,
+      "smoothness": 5
+    },
+    {
+      "id": "splitback--0.51",
+      "geometry": "roundedBox",
+      "position": [
+        -0.51,
+        0.67,
+        -0.30419454152141734
+      ],
+      "size": [
+        1,
+        0.54,
+        0.22
+      ],
+      "material": "fabricLight",
+      "radius": 0.05,
+      "smoothness": 5,
+      "rotation": [
+        -0.16,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "seat-0.51",
+      "geometry": "roundedBox",
+      "position": [
+        0.51,
+        0.39,
+        0.11580545847858267
+      ],
+      "size": [
+        1,
+        0.23,
+        0.68
+      ],
+      "material": "fabricLight",
+      "radius": 0.05,
+      "smoothness": 5
+    },
+    {
+      "id": "splitback-0.51",
+      "geometry": "roundedBox",
+      "position": [
+        0.51,
+        0.67,
+        -0.30419454152141734
+      ],
+      "size": [
+        1,
+        0.54,
+        0.22
+      ],
+      "material": "fabricLight",
+      "radius": 0.05,
+      "smoothness": 5,
+      "rotation": [
+        -0.16,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "seat-support-deck",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.26,
+        -0.004194541521417322
+      ],
+      "size": [
+        2.2,
+        0.045,
+        0.76
+      ],
+      "material": "metal",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "wood-arm-front--1.08",
+      "geometry": "roundedBox",
+      "position": [
+        -1.08,
+        0.355,
+        0.2508054584785827
+      ],
+      "size": [
+        0.04,
+        0.4701063709417263,
+        0.055
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5,
+      "rotation": [
+        -0.021273386024061227,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "wood-arm-rear--1.08",
+      "geometry": "roundedBox",
+      "position": [
+        -1.08,
+        0.38,
+        -0.30419454152141734
+      ],
+      "size": [
+        0.04,
+        0.52,
+        0.055
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "solid-arm--1.08",
+      "geometry": "roundedBox",
+      "position": [
+        -1.08,
+        0.62,
+        -0.029194541521417323
+      ],
+      "size": [
+        0.065,
+        0.05,
+        0.67
+      ],
+      "material": "woodLight",
+      "radius": 0.0245,
+      "smoothness": 5
+    },
+    {
+      "id": "wood-arm-front-1.08",
+      "geometry": "roundedBox",
+      "position": [
+        1.08,
+        0.355,
+        0.2508054584785827
+      ],
+      "size": [
+        0.04,
+        0.4701063709417263,
+        0.055
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5,
+      "rotation": [
+        -0.021273386024061227,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "wood-arm-rear-1.08",
+      "geometry": "roundedBox",
+      "position": [
+        1.08,
+        0.38,
+        -0.30419454152141734
+      ],
+      "size": [
+        0.04,
+        0.52,
+        0.055
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "solid-arm-1.08",
+      "geometry": "roundedBox",
+      "position": [
+        1.08,
+        0.62,
+        -0.029194541521417323
+      ],
+      "size": [
+        0.065,
+        0.05,
+        0.67
+      ],
+      "material": "woodLight",
+      "radius": 0.0245,
+      "smoothness": 5
+    }
+  ],
+  "purchaseUrl": "https://www.innovationliving.com/inspiration/color-splash/stylegroups",
+  "variantId": "expansion-c016",
+  "furnitureTypeCode": "SOFA_BED",
+  "styleTags": [
+    "natural",
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

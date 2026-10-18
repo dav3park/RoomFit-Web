@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0",
+  "name": "오프셋 셰이드 조명",
+  "furnitureType": "무드등",
+  "variant": "오프셋 셰이드 조명",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.38999998569488525,
+    "depth": 0.38999998569488525,
+    "height": 0.35821908712387085
+  },
+  "materials": [
+    "ceramic",
+    "screenFrame",
+    "ledDiffuser"
+  ],
+  "parts": [
+    {
+      "id": "tilted-marble-pedestal",
+      "geometry": "profile",
+      "profile": [
+        [
+          0,
+          0
+        ],
+        [
+          0.055,
+          0
+        ],
+        [
+          0.055,
+          0.25
+        ],
+        [
+          0,
+          0.25
+        ]
+      ],
+      "segments": 64,
+      "material": "ceramic",
+      "position": [
+        -0.015000000596046448,
+        0.008219096809625626,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.15
+      ]
+    },
+    {
+      "id": "broad-rounded-snoopy-shade",
+      "geometry": "profile",
+      "profile": [
+        [
+          0,
+          0.24
+        ],
+        [
+          0.18,
+          0.24
+        ],
+        [
+          0.195,
+          0.26
+        ],
+        [
+          0.19,
+          0.29
+        ],
+        [
+          0.15,
+          0.34
+        ],
+        [
+          0,
+          0.35
+        ]
+      ],
+      "segments": 64,
+      "material": "screenFrame",
+      "position": [
+        -5.960464483090178e-10,
+        0.008219096809625626,
+        0
+      ]
+    },
+    {
+      "id": "underside-diffuser",
+      "geometry": "cylinder",
+      "position": [
+        -5.960464483090178e-10,
+        0.2502190968096256,
+        0
+      ],
+      "size": [
+        0.17,
+        0.17,
+        0.0050000000000000044
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "ledDiffuser"
+    }
+  ],
+  "purchaseUrl": "https://flos.com/en/wo/snoopy/M-snoopy.html",
+  "variantId": "expansion-c090",
+  "furnitureTypeCode": "MOOD_LAMP",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

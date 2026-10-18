@@ -1,0 +1,424 @@
+{
+  "schemaVersion": "1.0",
+  "name": "하이백 패널 소파",
+  "furnitureType": "소파",
+  "variant": "하이백 패널 소파",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.765,
+    "depth": 0.8025,
+    "height": 1.545
+  },
+  "materials": [
+    "chrome",
+    "fabricDark",
+    "fabricLight",
+    "fabric"
+  ],
+  "parts": [
+    {
+      "id": "chrome-leg--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.765,
+        0.1,
+        -0.30875
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "chrome-leg--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.765,
+        0.1,
+        0.31124999999999997
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "chrome-leg-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.765,
+        0.1,
+        -0.30875
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "chrome-leg-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.765,
+        0.1,
+        0.31124999999999997
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "base-frame-front",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.2,
+        0.31124999999999997
+      ],
+      "size": [
+        0.015,
+        0.015,
+        1.53
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "base-frame-back",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.2,
+        -0.30875
+      ],
+      "size": [
+        0.015,
+        0.015,
+        1.53
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "base-frame-left",
+      "geometry": "cylinder",
+      "position": [
+        -0.765,
+        0.2,
+        0.0012499999999999734
+      ],
+      "size": [
+        0.015,
+        0.015,
+        0.62
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "base-frame-right",
+      "geometry": "cylinder",
+      "position": [
+        0.765,
+        0.2,
+        0.0012499999999999734
+      ],
+      "size": [
+        0.015,
+        0.015,
+        0.62
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "seat-deck",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.29,
+        0.0012499999999999734
+      ],
+      "size": [
+        1.65,
+        0.17,
+        0.72
+      ],
+      "material": "fabricDark",
+      "radius": 0.04,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-cushion-0",
+      "geometry": "roundedBox",
+      "position": [
+        -0.3575,
+        0.41,
+        0.06124999999999997
+      ],
+      "size": [
+        0.697,
+        0.23,
+        0.68
+      ],
+      "material": "fabricLight",
+      "radius": 0.095,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-cushion-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.35750000000000004,
+        0.41,
+        0.06124999999999997
+      ],
+      "size": [
+        0.697,
+        0.23,
+        0.68
+      ],
+      "material": "fabricLight",
+      "radius": 0.095,
+      "smoothness": 5
+    },
+    {
+      "id": "high-back-enclosure",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.93,
+        -0.35875
+      ],
+      "size": [
+        1.75,
+        1.23,
+        0.085
+      ],
+      "material": "fabricDark",
+      "radius": 0.035,
+      "smoothness": 5
+    },
+    {
+      "id": "high-side-enclosure--0.84",
+      "geometry": "roundedBox",
+      "position": [
+        -0.84,
+        0.93,
+        -0.013750000000000026
+      ],
+      "size": [
+        0.085,
+        1.23,
+        0.71
+      ],
+      "material": "fabricDark",
+      "radius": 0.035,
+      "smoothness": 5
+    },
+    {
+      "id": "high-side-enclosure-0.84",
+      "geometry": "roundedBox",
+      "position": [
+        0.84,
+        0.93,
+        -0.013750000000000026
+      ],
+      "size": [
+        0.085,
+        1.23,
+        0.71
+      ],
+      "material": "fabricDark",
+      "radius": 0.035,
+      "smoothness": 5
+    },
+    {
+      "id": "horizontal-back-padding-0.52",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.79,
+          0.52,
+          -0.309
+        ],
+        [
+          0,
+          0.52,
+          -0.305
+        ],
+        [
+          0.79,
+          0.52,
+          -0.309
+        ]
+      ],
+      "radius": 0.003,
+      "material": "fabric",
+      "position": [
+        0,
+        0,
+        0.0012499999999999734
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "horizontal-back-padding-0.82",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.79,
+          0.82,
+          -0.309
+        ],
+        [
+          0,
+          0.82,
+          -0.305
+        ],
+        [
+          0.79,
+          0.82,
+          -0.309
+        ]
+      ],
+      "radius": 0.003,
+      "material": "fabric",
+      "position": [
+        0,
+        0,
+        0.0012499999999999734
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "horizontal-back-padding-1.12",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.79,
+          1.12,
+          -0.309
+        ],
+        [
+          0,
+          1.12,
+          -0.305
+        ],
+        [
+          0.79,
+          1.12,
+          -0.309
+        ]
+      ],
+      "radius": 0.003,
+      "material": "fabric",
+      "position": [
+        0,
+        0,
+        0.0012499999999999734
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "horizontal-back-padding-1.42",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.79,
+          1.42,
+          -0.309
+        ],
+        [
+          0,
+          1.42,
+          -0.305
+        ],
+        [
+          0.79,
+          1.42,
+          -0.309
+        ]
+      ],
+      "radius": 0.003,
+      "material": "fabric",
+      "position": [
+        0,
+        0,
+        0.0012499999999999734
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    }
+  ],
+  "purchaseUrl": "https://www.vitra.com/en-au/product/details/alcove-sofa",
+  "variantId": "expansion-c059",
+  "furnitureTypeCode": "SOFA",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

@@ -6,7 +6,7 @@ import type { Furniture } from "../../../types";
 import { FurnitureMesh } from "../FurnitureMesh";
 import { RoomViewer } from "../RoomViewer";
 import { interiorViewWallIds } from "../roomViewGeometry";
-import { resolveWindowBlindPlacements } from "../windowBlindPlacement";
+import { windowInstallationCandidates,resolveFurnitureInstallations } from "../../../geometry/furnitureInstallation";
 
 describe("interiorViewWallIds", () => {
   it("hides the two camera-facing walls when a custom room has no door", () => {
@@ -75,11 +75,12 @@ describe("RoomViewer furniture layout placement", () => {
       ...furniture("desk", "desk", { width: 1.4, depth: 0.7, height: 0.72 }),
       position: { x: 0, z: -room.depth / 2 },
     };
-    const anchoredMonitor = {
+    const source = {
       ...furniture("monitor", "monitor", { width: 0.55, depth: 0.2, height: 0.4 }),
       variantId: "blind-roller",
       position: { x: 0, z: -room.depth / 2 },
     };
+    const anchoredMonitor=windowInstallationCandidates(room,source)[0];
     const furnitureItems = [desk, anchoredMonitor];
     const rendered = RoomViewer({
       room,
@@ -90,7 +91,8 @@ describe("RoomViewer furniture layout placement", () => {
     });
 
     expect(findFurnitureMesh(rendered, "monitor")?.props.layoutPosition)
-      .toEqual(resolveWindowBlindPlacements(room, furnitureItems).get("monitor")?.position);
+      .toEqual(resolveFurnitureInstallations(room, furnitureItems).get("monitor")?.position);
+    expect(resolveFurnitureInstallations(room,furnitureItems).get('monitor')?.valid).toBe(true);
   });
 });
 

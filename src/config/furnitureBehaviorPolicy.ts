@@ -83,6 +83,8 @@ const behaviorOverrides: Readonly<Record<string, Omit<FurnitureBehaviorPolicy, "
   "rug-geometric": {collisionMode: "FLOOR_OVERLAY"},
   "blind-roller": {anchorMode: "WINDOW"},
   "blind-wood": {anchorMode: "WINDOW"},
+  "curtain-blackout": {anchorMode: "WINDOW"},
+  "curtain-fabric": {anchorMode: "WINDOW"},
 };
 export const FURNITURE_BEHAVIOR_POLICIES: Readonly<Record<string, FurnitureBehaviorPolicy>> = Object.fromEntries(
   Object.entries(FURNITURE_THEME_TARGETS).map(([variantId, targets]) => [variantId, {variantId, targets, ...behaviorOverrides[variantId]}]),

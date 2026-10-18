@@ -44,7 +44,7 @@ export default function FurnitureRenderer({
         variantId={variant.variantId}
         registry={registry}
         materialPresets={materialPresets}
-        layoutPosition={[0, getFurnitureVariantLocalYOffset(item.dimensions.height), 0]}
+        layoutPosition={[0, getFurnitureVariantLocalYOffset(variant.dimensions.height*(visualScale?.[1]??1)), 0]}
         preferredColorTone={preferredColorTone}
         visualScale={visualScale}
       />

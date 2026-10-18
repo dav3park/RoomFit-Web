@@ -1,0 +1,1635 @@
+{
+  "schemaVersion": "1.0",
+  "name": "파형 슬랫 파티션",
+  "furnitureType": "파티션·양면 선반",
+  "variant": "파형 슬랫 파티션",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.822,
+    "depth": 0.3818178364789106,
+    "height": 1.485
+  },
+  "materials": [
+    "woodLight"
+  ],
+  "parts": [
+    {
+      "id": "articulated-screen-slat-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.9,
+        0.7425,
+        0.1456230589874905
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.8772151898734177,
+        0.7425,
+        0.1339256069005674
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.8544303797468354,
+        0.7425,
+        0.12079771710462657
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.8316455696202533,
+        0.7425,
+        0.10637960646363112
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-4",
+      "geometry": "cylinder",
+      "position": [
+        -0.8088607594936709,
+        0.7425,
+        0.09082527248135175
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-5",
+      "geometry": "cylinder",
+      "position": [
+        -0.7860759493670886,
+        0.7425,
+        0.07430084847897926
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-6",
+      "geometry": "cylinder",
+      "position": [
+        -0.7632911392405063,
+        0.7425,
+        0.05698282915203794
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-7",
+      "geometry": "cylinder",
+      "position": [
+        -0.740506329113924,
+        0.7425,
+        0.0390561854591372
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-8",
+      "geometry": "cylinder",
+      "position": [
+        -0.7177215189873418,
+        0.7425,
+        0.02071238897713163
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-9",
+      "geometry": "cylinder",
+      "position": [
+        -0.6949367088607595,
+        0.7425,
+        0.002147366824230065
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-10",
+      "geometry": "cylinder",
+      "position": [
+        -0.6721518987341772,
+        0.7425,
+        -0.016440591005810332
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-11",
+      "geometry": "cylinder",
+      "position": [
+        -0.6493670886075951,
+        0.7425,
+        -0.034852949546980386
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-12",
+      "geometry": "cylinder",
+      "position": [
+        -0.6265822784810127,
+        0.7425,
+        -0.0528930493808258
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-13",
+      "geometry": "cylinder",
+      "position": [
+        -0.6037974683544304,
+        0.7425,
+        -0.07036820712383221
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-14",
+      "geometry": "cylinder",
+      "position": [
+        -0.5810126582278481,
+        0.7425,
+        -0.0870917734474276
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-15",
+      "geometry": "cylinder",
+      "position": [
+        -0.5582278481012658,
+        0.7425,
+        -0.10288512664921921
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-16",
+      "geometry": "cylinder",
+      "position": [
+        -0.5354430379746836,
+        0.7425,
+        -0.11757958048245784
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-17",
+      "geometry": "cylinder",
+      "position": [
+        -0.5126582278481012,
+        0.7425,
+        -0.13101818586650896
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-18",
+      "geometry": "cylinder",
+      "position": [
+        -0.489873417721519,
+        0.7425,
+        -0.14305740723455404
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-19",
+      "geometry": "cylinder",
+      "position": [
+        -0.4670886075949367,
+        0.7425,
+        -0.1535686556137253
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-20",
+      "geometry": "cylinder",
+      "position": [
+        -0.4443037974683544,
+        0.7425,
+        -0.16243966206309057
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-21",
+      "geometry": "cylinder",
+      "position": [
+        -0.42151898734177223,
+        0.7425,
+        -0.16957567680002208
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-22",
+      "geometry": "cylinder",
+      "position": [
+        -0.3987341772151899,
+        0.7425,
+        -0.17490048120727378
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-23",
+      "geometry": "cylinder",
+      "position": [
+        -0.3759493670886076,
+        0.7425,
+        -0.17835720191168308
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-24",
+      "geometry": "cylinder",
+      "position": [
+        -0.3531645569620253,
+        0.7425,
+        -0.1799089182394553
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-25",
+      "geometry": "cylinder",
+      "position": [
+        -0.330379746835443,
+        0.7425,
+        -0.17953905655989866
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-26",
+      "geometry": "cylinder",
+      "position": [
+        -0.3075949367088608,
+        0.7425,
+        -0.17725156730568845
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-27",
+      "geometry": "cylinder",
+      "position": [
+        -0.2848101265822785,
+        0.7425,
+        -0.17307088277893568
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-28",
+      "geometry": "cylinder",
+      "position": [
+        -0.2620253164556962,
+        0.7425,
+        -0.16704165619372668
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-29",
+      "geometry": "cylinder",
+      "position": [
+        -0.2392405063291139,
+        0.7425,
+        -0.15922828474237807
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-30",
+      "geometry": "cylinder",
+      "position": [
+        -0.2164556962025316,
+        0.7425,
+        -0.1497142217794591
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-31",
+      "geometry": "cylinder",
+      "position": [
+        -0.1936708860759494,
+        0.7425,
+        -0.13860108547003233
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-32",
+      "geometry": "cylinder",
+      "position": [
+        -0.1708860759493671,
+        0.7425,
+        -0.12600757342249655
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-33",
+      "geometry": "cylinder",
+      "position": [
+        -0.1481012658227848,
+        0.7425,
+        -0.11206819489866265
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-34",
+      "geometry": "cylinder",
+      "position": [
+        -0.1253164556962025,
+        0.7425,
+        -0.09693183414212089
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-35",
+      "geometry": "cylinder",
+      "position": [
+        -0.1025316455696203,
+        0.7425,
+        -0.0807601601697572
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-36",
+      "geometry": "cylinder",
+      "position": [
+        -0.079746835443038,
+        0.7425,
+        -0.06372590001117666
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-37",
+      "geometry": "cylinder",
+      "position": [
+        -0.0569620253164557,
+        0.7425,
+        -0.04601099383928545
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-38",
+      "geometry": "cylinder",
+      "position": [
+        -0.0341772151898734,
+        0.7425,
+        -0.02780465169678139
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-39",
+      "geometry": "cylinder",
+      "position": [
+        -0.011392405063291101,
+        0.7425,
+        -0.009301332574343183
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-40",
+      "geometry": "cylinder",
+      "position": [
+        0.0113924050632912,
+        0.7425,
+        0.009301332574343265
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-41",
+      "geometry": "cylinder",
+      "position": [
+        0.0341772151898734,
+        0.7425,
+        0.02780465169678139
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-42",
+      "geometry": "cylinder",
+      "position": [
+        0.056962025316455604,
+        0.7425,
+        0.04601099383928537
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-43",
+      "geometry": "cylinder",
+      "position": [
+        0.079746835443038,
+        0.7425,
+        0.06372590001117666
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-44",
+      "geometry": "cylinder",
+      "position": [
+        0.1025316455696202,
+        0.7425,
+        0.08076016016975714
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-45",
+      "geometry": "cylinder",
+      "position": [
+        0.12531645569620262,
+        0.7425,
+        0.09693183414212098
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-46",
+      "geometry": "cylinder",
+      "position": [
+        0.1481012658227848,
+        0.7425,
+        0.11206819489866265
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-47",
+      "geometry": "cylinder",
+      "position": [
+        0.170886075949367,
+        0.7425,
+        0.12600757342249652
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-48",
+      "geometry": "cylinder",
+      "position": [
+        0.1936708860759494,
+        0.7425,
+        0.13860108547003233
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-49",
+      "geometry": "cylinder",
+      "position": [
+        0.2164556962025316,
+        0.7425,
+        0.1497142217794591
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-50",
+      "geometry": "cylinder",
+      "position": [
+        0.239240506329114,
+        0.7425,
+        0.15922828474237813
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-51",
+      "geometry": "cylinder",
+      "position": [
+        0.2620253164556962,
+        0.7425,
+        0.16704165619372668
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-52",
+      "geometry": "cylinder",
+      "position": [
+        0.2848101265822784,
+        0.7425,
+        0.17307088277893568
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-53",
+      "geometry": "cylinder",
+      "position": [
+        0.3075949367088608,
+        0.7425,
+        0.17725156730568845
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-54",
+      "geometry": "cylinder",
+      "position": [
+        0.330379746835443,
+        0.7425,
+        0.17953905655989866
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-55",
+      "geometry": "cylinder",
+      "position": [
+        0.3531645569620254,
+        0.7425,
+        0.1799089182394553
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-56",
+      "geometry": "cylinder",
+      "position": [
+        0.3759493670886076,
+        0.7425,
+        0.17835720191168308
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-57",
+      "geometry": "cylinder",
+      "position": [
+        0.39873417721518983,
+        0.7425,
+        0.1749004812072738
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-58",
+      "geometry": "cylinder",
+      "position": [
+        0.42151898734177223,
+        0.7425,
+        0.16957567680002208
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-59",
+      "geometry": "cylinder",
+      "position": [
+        0.4443037974683544,
+        0.7425,
+        0.16243966206309057
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-60",
+      "geometry": "cylinder",
+      "position": [
+        0.4670886075949368,
+        0.7425,
+        0.15356865561372526
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-61",
+      "geometry": "cylinder",
+      "position": [
+        0.489873417721519,
+        0.7425,
+        0.14305740723455404
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-62",
+      "geometry": "cylinder",
+      "position": [
+        0.5126582278481012,
+        0.7425,
+        0.13101818586650896
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-63",
+      "geometry": "cylinder",
+      "position": [
+        0.5354430379746836,
+        0.7425,
+        0.11757958048245784
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-64",
+      "geometry": "cylinder",
+      "position": [
+        0.5582278481012658,
+        0.7425,
+        0.10288512664921921
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-65",
+      "geometry": "cylinder",
+      "position": [
+        0.5810126582278482,
+        0.7425,
+        0.08709177344742747
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-66",
+      "geometry": "cylinder",
+      "position": [
+        0.6037974683544304,
+        0.7425,
+        0.07036820712383221
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-67",
+      "geometry": "cylinder",
+      "position": [
+        0.6265822784810127,
+        0.7425,
+        0.0528930493808258
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-68",
+      "geometry": "cylinder",
+      "position": [
+        0.6493670886075951,
+        0.7425,
+        0.034852949546980386
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-69",
+      "geometry": "cylinder",
+      "position": [
+        0.6721518987341772,
+        0.7425,
+        0.016440591005810332
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-70",
+      "geometry": "cylinder",
+      "position": [
+        0.6949367088607594,
+        0.7425,
+        -0.002147366824229905
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-71",
+      "geometry": "cylinder",
+      "position": [
+        0.7177215189873418,
+        0.7425,
+        -0.02071238897713163
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-72",
+      "geometry": "cylinder",
+      "position": [
+        0.740506329113924,
+        0.7425,
+        -0.0390561854591372
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-73",
+      "geometry": "cylinder",
+      "position": [
+        0.7632911392405064,
+        0.7425,
+        -0.05698282915203801
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-74",
+      "geometry": "cylinder",
+      "position": [
+        0.7860759493670886,
+        0.7425,
+        -0.07430084847897926
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-75",
+      "geometry": "cylinder",
+      "position": [
+        0.8088607594936709,
+        0.7425,
+        -0.09082527248135161
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-76",
+      "geometry": "cylinder",
+      "position": [
+        0.8316455696202533,
+        0.7425,
+        -0.10637960646363112
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-77",
+      "geometry": "cylinder",
+      "position": [
+        0.8544303797468354,
+        0.7425,
+        -0.12079771710462657
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-78",
+      "geometry": "cylinder",
+      "position": [
+        0.8772151898734178,
+        0.7425,
+        -0.13392560690056746
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "articulated-screen-slat-79",
+      "geometry": "cylinder",
+      "position": [
+        0.9,
+        0.7425,
+        -0.1456230589874905
+      ],
+      "size": [
+        0.011,
+        0.011,
+        1.485
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    }
+  ],
+  "purchaseUrl": "https://www.artek.fi/fi/tuotteet/s%C3%A4lesein%C3%A4-100",
+  "variantId": "expansion-c081",
+  "furnitureTypeCode": "PARTITION_SHELF",
+  "styleTags": [
+    "natural"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

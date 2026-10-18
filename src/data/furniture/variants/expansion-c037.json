@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "1.0",
+  "name": "와이어 서스펜션 벽선반",
+  "furnitureType": "책장/오픈 선반",
+  "variant": "와이어 서스펜션 벽선반",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.8,
+    "depth": 0.248,
+    "height": 0.966
+  },
+  "materials": [
+    "woodLight",
+    "metal"
+  ],
+  "parts": [
+    {
+      "id": "floating-shelf-0.2",
+      "geometry": "box",
+      "position": [
+        0,
+        0.010000000000000009,
+        0.013999999999999992
+      ],
+      "size": [
+        0.8,
+        0.02,
+        0.22
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "floating-shelf-0.61",
+      "geometry": "box",
+      "position": [
+        0,
+        0.42,
+        0.013999999999999992
+      ],
+      "size": [
+        0.8,
+        0.02,
+        0.22
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "suspension--0.31",
+      "geometry": "cylinder",
+      "position": [
+        -0.31,
+        0.48499999999999993,
+        -0.026000000000000002
+      ],
+      "size": [
+        0.002,
+        0.002,
+        0.9633794683301071
+      ],
+      "rotation": [
+        -0.16685516039978915,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "lower-suspension--0.31",
+      "geometry": "cylinder",
+      "position": [
+        -0.31,
+        0.21500000000000002,
+        -0.07100000000000001
+      ],
+      "size": [
+        0.002,
+        0.002,
+        0.41
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "wall-anchor--0.31",
+      "geometry": "cylinder",
+      "position": [
+        -0.31,
+        0.96,
+        -0.10600000000000001
+      ],
+      "size": [
+        0.018,
+        0.018,
+        0.01200000000000001
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "suspension-0.31",
+      "geometry": "cylinder",
+      "position": [
+        0.31,
+        0.48499999999999993,
+        -0.026000000000000002
+      ],
+      "size": [
+        0.002,
+        0.002,
+        0.9633794683301071
+      ],
+      "rotation": [
+        -0.16685516039978915,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "lower-suspension-0.31",
+      "geometry": "cylinder",
+      "position": [
+        0.31,
+        0.21500000000000002,
+        -0.07100000000000001
+      ],
+      "size": [
+        0.002,
+        0.002,
+        0.41
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "wall-anchor-0.31",
+      "geometry": "cylinder",
+      "position": [
+        0.31,
+        0.96,
+        -0.10600000000000001
+      ],
+      "size": [
+        0.018,
+        0.018,
+        0.01200000000000001
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    }
+  ],
+  "purchaseUrl": "https://woud.dk/collections/hylder-reoler",
+  "variantId": "expansion-c037",
+  "furnitureTypeCode": "BOOKSHELF",
+  "styleTags": [
+    "minimal",
+    "modern"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

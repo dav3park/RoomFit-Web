@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "1.0",
+  "name": "트레슬 프레임 테이블",
+  "furnitureType": "다용도 테이블",
+  "variant": "트레슬 프레임 테이블",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.8,
+    "depth": 0.87,
+    "height": 0.7468782091308608
+  },
+  "materials": [
+    "woodLight",
+    "paintedWhite"
+  ],
+  "parts": [
+    {
+      "id": "tabletop",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.7343782091308608,
+        0
+      ],
+      "size": [
+        1.8,
+        0.025,
+        0.87
+      ],
+      "material": "woodLight",
+      "radius": 0.01,
+      "smoothness": 5
+    },
+    {
+      "id": "tripod--1-0",
+      "geometry": "roundedBox",
+      "position": [
+        -0.535,
+        0.3673782091308608,
+        -0.145
+      ],
+      "size": [
+        0.045,
+        0.7633059674861713,
+        0.045
+      ],
+      "material": "paintedWhite",
+      "radius": 0.00675,
+      "smoothness": 5,
+      "rotation": [
+        0.38971797703139727,
+        -0.0025857562418328556,
+        -0.013101324944327414
+      ]
+    },
+    {
+      "id": "tripod--1-1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.61,
+        0.3673782091308608,
+        0.16
+      ],
+      "size": [
+        0.045,
+        0.7914771001109255,
+        0.045
+      ],
+      "material": "paintedWhite",
+      "radius": 0.00675,
+      "smoothness": 5,
+      "rotation": [
+        -0.4166344612976026,
+        0.043212220662719195,
+        -0.20374936867221163
+      ]
+    },
+    {
+      "id": "tripod--1-2",
+      "geometry": "roundedBox",
+      "position": [
+        -0.43500000000000005,
+        0.3673782091308608,
+        0.16
+      ],
+      "size": [
+        0.045,
+        0.7980827024813907,
+        0.045
+      ],
+      "material": "paintedWhite",
+      "radius": 0.00675,
+      "smoothness": 5,
+      "rotation": [
+        -0.4131281574333654,
+        -0.050672208698368866,
+        0.2406938542314186
+      ]
+    },
+    {
+      "id": "tripod-1-0",
+      "geometry": "roundedBox",
+      "position": [
+        0.535,
+        0.3673782091308608,
+        -0.145
+      ],
+      "size": [
+        0.045,
+        0.7633059674861713,
+        0.045
+      ],
+      "material": "paintedWhite",
+      "radius": 0.00675,
+      "smoothness": 5,
+      "rotation": [
+        0.38971797703139727,
+        0.0025857562418328556,
+        0.013101324944327414
+      ]
+    },
+    {
+      "id": "tripod-1-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.61,
+        0.3673782091308608,
+        0.16
+      ],
+      "size": [
+        0.045,
+        0.7914771001109255,
+        0.045
+      ],
+      "material": "paintedWhite",
+      "radius": 0.00675,
+      "smoothness": 5,
+      "rotation": [
+        -0.4166344612976026,
+        -0.043212220662719195,
+        0.20374936867221163
+      ]
+    },
+    {
+      "id": "tripod-1-2",
+      "geometry": "roundedBox",
+      "position": [
+        0.43500000000000005,
+        0.3673782091308608,
+        0.16
+      ],
+      "size": [
+        0.045,
+        0.7980827024813907,
+        0.045
+      ],
+      "material": "paintedWhite",
+      "radius": 0.00675,
+      "smoothness": 5,
+      "rotation": [
+        -0.4131281574333654,
+        0.050672208698368866,
+        -0.2406938542314186
+      ]
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/products/furniture/tables/dining-tables",
+  "variantId": "expansion-c077",
+  "furnitureTypeCode": "MULTI_TABLE",
+  "styleTags": [
+    "minimal",
+    "natural"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

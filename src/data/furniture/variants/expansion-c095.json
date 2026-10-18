@@ -1,0 +1,262 @@
+{
+  "schemaVersion": "1.0",
+  "name": "더블 암 태스크 조명",
+  "furnitureType": "무드등",
+  "variant": "더블 암 태스크 조명",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.30051322865996904,
+    "depth": 0.23,
+    "height": 0.6325
+  },
+  "materials": [
+    "chrome",
+    "metal",
+    "metalLight",
+    "ledDiffuser"
+  ],
+  "parts": [
+    {
+      "id": "weighted-round-base",
+      "geometry": "cylinder",
+      "position": [
+        -0.010559851045269297,
+        0.01,
+        0
+      ],
+      "size": [
+        0.115,
+        0.115,
+        0.02
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "parallel-arm-0--0.012",
+      "geometry": "cylinder",
+      "position": [
+        -0.0705598510452693,
+        0.20500000000000002,
+        -0.012
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.37
+      ],
+      "rotation": [
+        0,
+        0,
+        0.3302973548292537
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "parallel-arm-0-0.012",
+      "geometry": "cylinder",
+      "position": [
+        -0.0705598510452693,
+        0.20500000000000002,
+        0.012
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.37
+      ],
+      "rotation": [
+        0,
+        0,
+        0.3302973548292537
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "tension-spring-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.0705598510452693,
+        0.175,
+        0
+      ],
+      "size": [
+        0.002,
+        0.002,
+        0.2946794869005985
+      ],
+      "rotation": [
+        0,
+        0,
+        0.5578798910072483
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "joint-0",
+      "geometry": "ellipsoid",
+      "position": [
+        -0.1305598510452693,
+        0.38,
+        0
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.035
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "parallel-arm-1--0.012",
+      "geometry": "cylinder",
+      "position": [
+        -0.010559851045269297,
+        0.5,
+        -0.012
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.33941125496954283
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.7853981633974484
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "parallel-arm-1-0.012",
+      "geometry": "cylinder",
+      "position": [
+        -0.010559851045269297,
+        0.5,
+        0.012
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.33941125496954283
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.7853981633974484
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "tension-spring-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.010559851045269297,
+        0.47000000000000003,
+        0
+      ],
+      "size": [
+        0.002,
+        0.002,
+        0.24741867350707383
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.9693416199346235
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "joint-1",
+      "geometry": "ellipsoid",
+      "position": [
+        0.1094401489547307,
+        0.62,
+        0
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.035
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "adjustable-cone-shade",
+      "geometry": "profile",
+      "profile": [
+        [
+          0.012,
+          0
+        ],
+        [
+          0.06,
+          -0.07
+        ],
+        [
+          0.065,
+          -0.1
+        ],
+        [
+          0.061,
+          -0.1
+        ],
+        [
+          0.008,
+          -0.002
+        ]
+      ],
+      "segments": 64,
+      "material": "metalLight",
+      "position": [
+        0.1094401489547307,
+        0.62,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.25
+      ]
+    },
+    {
+      "id": "bulb",
+      "geometry": "ellipsoid",
+      "position": [
+        0.11944014895473071,
+        0.56,
+        0
+      ],
+      "size": [
+        0.03,
+        0.03,
+        0.03
+      ],
+      "material": "ledDiffuser"
+    }
+  ],
+  "purchaseUrl": "https://artemide.it/en/company/identity",
+  "variantId": "expansion-c095",
+  "furnitureTypeCode": "MOOD_LAMP",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

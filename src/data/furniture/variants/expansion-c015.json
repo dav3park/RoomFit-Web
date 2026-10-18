@@ -1,0 +1,319 @@
+{
+  "schemaVersion": "1.0",
+  "name": "전방 전개 소파베드",
+  "furnitureType": "소파베드",
+  "variant": "전방 전개 소파베드",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.48,
+    "depth": 0.9327613417778173,
+    "height": 0.7820437320646108
+  },
+  "materials": [
+    "metal",
+    "fabricLight",
+    "metalLight",
+    "screenFrame"
+  ],
+  "parts": [
+    {
+      "id": "folding-seat-deck",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.2364993368361968,
+        -0.01986767120158331
+      ],
+      "size": [
+        1.4,
+        0.045,
+        0.86
+      ],
+      "material": "metal",
+      "radius": 0.012,
+      "smoothness": 5
+    },
+    {
+      "id": "front-fold-mattress",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.3364993368361968,
+        0.07013232879841669
+      ],
+      "size": [
+        1.4,
+        0.21,
+        0.72
+      ],
+      "material": "fabricLight",
+      "radius": 0.06,
+      "smoothness": 5
+    },
+    {
+      "id": "rear-folded-base",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.39149933683619687,
+        -0.33986767120158334
+      ],
+      "size": [
+        1.4,
+        0.32,
+        0.2
+      ],
+      "material": "fabricLight",
+      "radius": 0.05,
+      "smoothness": 5
+    },
+    {
+      "id": "back-support-panel",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.5814993368361968,
+        -0.4098676712015833
+      ],
+      "size": [
+        1.4,
+        0.35,
+        0.065
+      ],
+      "material": "fabricLight",
+      "radius": 0.03,
+      "smoothness": 5
+    },
+    {
+      "id": "aluminium-front-leg--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.72,
+        0.1439993368361968,
+        0.39513232879841664
+      ],
+      "size": [
+        0.028,
+        0.2961840643923977,
+        0.035
+      ],
+      "material": "metalLight",
+      "radius": 0.0042,
+      "smoothness": 5,
+      "rotation": [
+        -0.38050637711236485,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "aluminium-rear-leg--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.72,
+        0.14899933683619682,
+        -0.3998676712015833
+      ],
+      "size": [
+        0.028,
+        0.30203476621077907,
+        0.035
+      ],
+      "material": "metalLight",
+      "radius": 0.0042,
+      "smoothness": 5,
+      "rotation": [
+        0.3374560692277815,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "aluminium-side-rail--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.72,
+        0.27149933683619687,
+        -0.0048676712015833234
+      ],
+      "size": [
+        0.018,
+        0.018,
+        0.69
+      ],
+      "rotation": [
+        -1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "back-cushion--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.351,
+        0.5954993368361968,
+        -0.2748676712015833
+      ],
+      "size": [
+        0.694,
+        0.35,
+        0.19
+      ],
+      "material": "fabricLight",
+      "radius": 0.055,
+      "smoothness": 5,
+      "rotation": [
+        -0.14,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "side-pivot--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.72,
+        0.28149933683619677,
+        0.3201323287984167
+      ],
+      "size": [
+        0.028,
+        0.028,
+        0.040000000000000036
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "aluminium-front-leg-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.72,
+        0.1439993368361968,
+        0.39513232879841664
+      ],
+      "size": [
+        0.028,
+        0.2961840643923977,
+        0.035
+      ],
+      "material": "metalLight",
+      "radius": 0.0042,
+      "smoothness": 5,
+      "rotation": [
+        -0.38050637711236485,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "aluminium-rear-leg-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.72,
+        0.14899933683619682,
+        -0.3998676712015833
+      ],
+      "size": [
+        0.028,
+        0.30203476621077907,
+        0.035
+      ],
+      "material": "metalLight",
+      "radius": 0.0042,
+      "smoothness": 5,
+      "rotation": [
+        0.3374560692277815,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "aluminium-side-rail-1",
+      "geometry": "cylinder",
+      "position": [
+        0.72,
+        0.27149933683619687,
+        -0.0048676712015833234
+      ],
+      "size": [
+        0.018,
+        0.018,
+        0.69
+      ],
+      "rotation": [
+        -1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "back-cushion-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.351,
+        0.5954993368361968,
+        -0.2748676712015833
+      ],
+      "size": [
+        0.694,
+        0.35,
+        0.19
+      ],
+      "material": "fabricLight",
+      "radius": 0.055,
+      "smoothness": 5,
+      "rotation": [
+        -0.14,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "side-pivot-1",
+      "geometry": "cylinder",
+      "position": [
+        0.72,
+        0.28149933683619677,
+        0.3201323287984167
+      ],
+      "size": [
+        0.028,
+        0.028,
+        0.040000000000000036
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "screenFrame"
+    }
+  ],
+  "purchaseUrl": "https://www.innovationliving.com/products/detachable-cover/product-details/cubed-140-alu-sofa-bed",
+  "variantId": "expansion-c015",
+  "furnitureTypeCode": "SOFA_BED",
+  "styleTags": [
+    "minimal",
+    "natural"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

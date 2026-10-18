@@ -1,0 +1,341 @@
+{
+  "schemaVersion": "1.0",
+  "name": "모듈 적층 협탁",
+  "furnitureType": "협탁",
+  "variant": "모듈 적층 협탁",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.436,
+    "depth": 0.358,
+    "height": 0.61
+  },
+  "materials": [
+    "woodLight",
+    "metalLight"
+  ],
+  "parts": [
+    {
+      "id": "module-0-bottom",
+      "geometry": "box",
+      "position": [
+        0,
+        0.182,
+        -0.00399999999999999
+      ],
+      "size": [
+        0.436,
+        0.016,
+        0.35
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "module-0-top",
+      "geometry": "box",
+      "position": [
+        0,
+        0.384,
+        -0.00399999999999999
+      ],
+      "size": [
+        0.436,
+        0.016,
+        0.35
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "module-0-back",
+      "geometry": "box",
+      "position": [
+        0,
+        0.283,
+        -0.174
+      ],
+      "size": [
+        0.404,
+        0.186,
+        0.01
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "module-0-side--1",
+      "geometry": "box",
+      "position": [
+        -0.21,
+        0.283,
+        -0.00399999999999999
+      ],
+      "size": [
+        0.016,
+        0.218,
+        0.35
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "module-0-side-1",
+      "geometry": "box",
+      "position": [
+        0.21,
+        0.283,
+        -0.00399999999999999
+      ],
+      "size": [
+        0.016,
+        0.218,
+        0.35
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "module-1-bottom",
+      "geometry": "box",
+      "position": [
+        0,
+        0.4,
+        -0.00399999999999999
+      ],
+      "size": [
+        0.436,
+        0.016,
+        0.35
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "module-1-top",
+      "geometry": "box",
+      "position": [
+        0,
+        0.602,
+        -0.00399999999999999
+      ],
+      "size": [
+        0.436,
+        0.016,
+        0.35
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "module-1-back",
+      "geometry": "box",
+      "position": [
+        0,
+        0.501,
+        -0.174
+      ],
+      "size": [
+        0.404,
+        0.186,
+        0.01
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "module-1-side--1",
+      "geometry": "box",
+      "position": [
+        -0.21,
+        0.501,
+        -0.00399999999999999
+      ],
+      "size": [
+        0.016,
+        0.218,
+        0.35
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "module-1-side-1",
+      "geometry": "box",
+      "position": [
+        0.21,
+        0.501,
+        -0.00399999999999999
+      ],
+      "size": [
+        0.016,
+        0.218,
+        0.35
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "podium-leg--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.195,
+        0.087,
+        -0.15399999999999997
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.174
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "podium-leg--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.195,
+        0.087,
+        0.14600000000000002
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.174
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "podium-leg-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.195,
+        0.087,
+        -0.15399999999999997
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.174
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "podium-leg-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.195,
+        0.087,
+        0.14600000000000002
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.174
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "podium-crossbar--0.15",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.16199999999999998,
+        -0.15399999999999997
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "podium-crossbar-0.15",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.16199999999999998,
+        0.14600000000000002
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.39
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metalLight"
+    },
+    {
+      "id": "module-joining-clip-0.182",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.182,
+        0.173
+      ],
+      "size": [
+        0.045,
+        0.028,
+        0.012
+      ],
+      "material": "metalLight",
+      "radius": 0.003,
+      "smoothness": 5
+    },
+    {
+      "id": "module-joining-clip-0.392",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.392,
+        0.173
+      ],
+      "size": [
+        0.045,
+        0.028,
+        0.012
+      ],
+      "material": "metalLight",
+      "radius": 0.003,
+      "smoothness": 5
+    }
+  ],
+  "purchaseUrl": "https://www.muuto.com/products/shop-by-family/stacked-storage-system/",
+  "variantId": "expansion-c021",
+  "furnitureTypeCode": "NIGHTSTAND",
+  "styleTags": [
+    "modern",
+    "minimal"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

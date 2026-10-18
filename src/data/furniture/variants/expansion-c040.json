@@ -1,0 +1,482 @@
+{
+  "schemaVersion": "1.0",
+  "name": "와이어 측판 벽선반",
+  "furnitureType": "책장/오픈 선반",
+  "variant": "와이어 측판 벽선반",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.6,
+    "depth": 0.1635,
+    "height": 0.5035000000000001
+  },
+  "materials": [
+    "paintedWhite",
+    "woodLight"
+  ],
+  "parts": [
+    {
+      "id": "wire-rail--0.295--0.1",
+      "geometry": "cylinder",
+      "position": [
+        -0.295,
+        0.2535,
+        -0.07825
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "wire-rail--0.295-0.05",
+      "geometry": "cylinder",
+      "position": [
+        -0.295,
+        0.2535,
+        0.07175000000000001
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung--0.295-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.295,
+        0.0035000000000000213,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung--0.295-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.295,
+        0.07350000000000002,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung--0.295-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.295,
+        0.14350000000000004,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung--0.295-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.295,
+        0.21350000000000005,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung--0.295-4",
+      "geometry": "cylinder",
+      "position": [
+        -0.295,
+        0.28350000000000003,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung--0.295-5",
+      "geometry": "cylinder",
+      "position": [
+        -0.295,
+        0.35350000000000004,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung--0.295-6",
+      "geometry": "cylinder",
+      "position": [
+        -0.295,
+        0.42350000000000004,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung--0.295-7",
+      "geometry": "cylinder",
+      "position": [
+        -0.295,
+        0.49350000000000005,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "wire-rail-0.295--0.1",
+      "geometry": "cylinder",
+      "position": [
+        0.295,
+        0.2535,
+        -0.07825
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "wire-rail-0.295-0.05",
+      "geometry": "cylinder",
+      "position": [
+        0.295,
+        0.2535,
+        0.07175000000000001
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung-0.295-0",
+      "geometry": "cylinder",
+      "position": [
+        0.295,
+        0.0035000000000000213,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung-0.295-1",
+      "geometry": "cylinder",
+      "position": [
+        0.295,
+        0.07350000000000002,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung-0.295-2",
+      "geometry": "cylinder",
+      "position": [
+        0.295,
+        0.14350000000000004,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung-0.295-3",
+      "geometry": "cylinder",
+      "position": [
+        0.295,
+        0.21350000000000005,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung-0.295-4",
+      "geometry": "cylinder",
+      "position": [
+        0.295,
+        0.28350000000000003,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung-0.295-5",
+      "geometry": "cylinder",
+      "position": [
+        0.295,
+        0.35350000000000004,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung-0.295-6",
+      "geometry": "cylinder",
+      "position": [
+        0.295,
+        0.42350000000000004,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "rung-0.295-7",
+      "geometry": "cylinder",
+      "position": [
+        0.295,
+        0.49350000000000005,
+        -0.003249999999999996
+      ],
+      "size": [
+        0.0035,
+        0.0035,
+        0.15000000000000002
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "shelf-0",
+      "geometry": "box",
+      "position": [
+        0,
+        0.043500000000000025,
+        0.006750000000000006
+      ],
+      "size": [
+        0.6,
+        0.019,
+        0.15
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "shelf-1",
+      "geometry": "box",
+      "position": [
+        0,
+        0.24850000000000003,
+        0.006750000000000006
+      ],
+      "size": [
+        0.6,
+        0.019,
+        0.15
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "shelf-2",
+      "geometry": "box",
+      "position": [
+        0,
+        0.45349999999999996,
+        0.006750000000000006
+      ],
+      "size": [
+        0.6,
+        0.019,
+        0.15
+      ],
+      "material": "woodLight"
+    }
+  ],
+  "purchaseUrl": "https://www.stringfurniture.com/en/series/string/pocket/original",
+  "variantId": "expansion-c040",
+  "furnitureTypeCode": "BOOKSHELF",
+  "styleTags": [
+    "modern",
+    "minimal"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

@@ -1,3 +1,4 @@
+import { beforeAll } from "vitest";
 import { describe, expect, it } from "vitest";
 import type { Furniture } from "../../../../types";
 import {
@@ -107,7 +108,7 @@ describe("furniture material palette", () => {
   });
 
   it("keeps the desk-midcentury-glass top unchanged while recoloring its wood", () => {
-    const { materialPresets } = createProductionFurnitureCatalog();
+    const { materialPresets } = loadedCatalog;
     const originalGlass = resolveMaterialPreset("glass", materialPresets);
     const brownGlass = resolveMaterialPreset("glass", materialPresets, "brown");
     const originalWood = resolveMaterialPreset("woodDark", materialPresets);
@@ -161,3 +162,6 @@ describe("furniture material palette", () => {
     }
   });
 });
+
+let loadedCatalog: Awaited<ReturnType<typeof createProductionFurnitureCatalog>>;
+beforeAll(async()=>{loadedCatalog=await createProductionFurnitureCatalog();});

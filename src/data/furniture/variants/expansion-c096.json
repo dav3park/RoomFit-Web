@@ -1,0 +1,279 @@
+{
+  "schemaVersion": "1.0",
+  "name": "카운터웨이트 암 조명",
+  "furnitureType": "무드등",
+  "variant": "카운터웨이트 암 조명",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.5608277864132318,
+    "depth": 0.11,
+    "height": 0.6720572529209519
+  },
+  "materials": [
+    "screenFrame",
+    "redPlastic",
+    "ledDiffuser"
+  ],
+  "parts": [
+    {
+      "id": "cylindrical-pedestal",
+      "geometry": "cylinder",
+      "position": [
+        0.0028861067933840523,
+        0.0587,
+        0
+      ],
+      "size": [
+        0.055,
+        0.055,
+        0.07
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "parallel-electric-arm-0--0.018",
+      "geometry": "cylinder",
+      "position": [
+        -0.07211389320661594,
+        0.2387,
+        -0.018
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.32649655434629016
+      ],
+      "rotation": [
+        0,
+        0,
+        0.477345382373672
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "parallel-electric-arm-0-0.018",
+      "geometry": "cylinder",
+      "position": [
+        -0.07211389320661594,
+        0.2387,
+        0.018
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.32649655434629016
+      ],
+      "rotation": [
+        0,
+        0,
+        0.477345382373672
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "counterweight-stub-0",
+      "geometry": "cylinder",
+      "position": [
+        0.023886106793384054,
+        0.05310000000000001,
+        0
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.09141903521696125
+      ],
+      "rotation": [
+        0,
+        0,
+        -2.6642472712161207
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "counterweight-0",
+      "geometry": "roundedBox",
+      "position": [
+        0.044886106793384055,
+        0.0125,
+        0
+      ],
+      "size": [
+        0.065,
+        0.025,
+        0.05
+      ],
+      "material": "screenFrame",
+      "radius": 0.004,
+      "smoothness": 5
+    },
+    {
+      "id": "pivot-0",
+      "geometry": "ellipsoid",
+      "position": [
+        0.0028861067933840523,
+        0.0937,
+        0
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.045
+      ],
+      "material": "redPlastic"
+    },
+    {
+      "id": "parallel-electric-arm-1--0.018",
+      "geometry": "cylinder",
+      "position": [
+        0.03288610679338405,
+        0.5237,
+        -0.018
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.4560701700396552
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.9097531579442097
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "parallel-electric-arm-1-0.018",
+      "geometry": "cylinder",
+      "position": [
+        0.03288610679338405,
+        0.5237,
+        0.018
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.4560701700396552
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.9097531579442097
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "counterweight-stub-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.19751389320661597,
+        0.3445,
+        0
+      ],
+      "size": [
+        0.004,
+        0.004,
+        0.12769964761110347
+      ],
+      "rotation": [
+        0,
+        0,
+        2.231839495645584
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "counterweight-1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.24791389320661597,
+        0.30529999999999996,
+        0
+      ],
+      "size": [
+        0.065,
+        0.025,
+        0.05
+      ],
+      "material": "screenFrame",
+      "radius": 0.004,
+      "smoothness": 5
+    },
+    {
+      "id": "pivot-1",
+      "geometry": "ellipsoid",
+      "position": [
+        -0.14711389320661594,
+        0.3837,
+        0
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.045
+      ],
+      "material": "redPlastic"
+    },
+    {
+      "id": "angular-lamp-head",
+      "geometry": "roundedBox",
+      "position": [
+        0.22788610679338406,
+        0.6437,
+        0
+      ],
+      "size": [
+        0.1,
+        0.033,
+        0.065
+      ],
+      "material": "screenFrame",
+      "radius": 0.004,
+      "smoothness": 5,
+      "rotation": [
+        0,
+        0,
+        -0.25
+      ]
+    },
+    {
+      "id": "head-diffuser",
+      "geometry": "box",
+      "position": [
+        0.22788610679338406,
+        0.6267,
+        0
+      ],
+      "size": [
+        0.06,
+        0.003,
+        0.045
+      ],
+      "material": "ledDiffuser"
+    }
+  ],
+  "purchaseUrl": "https://artemide.it/en/company/identity",
+  "variantId": "expansion-c096",
+  "furnitureTypeCode": "MOOD_LAMP",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

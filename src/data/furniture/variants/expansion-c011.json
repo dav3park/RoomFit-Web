@@ -1,0 +1,945 @@
+{
+  "schemaVersion": "1.0",
+  "name": "스핀들 헤드 침대",
+  "furnitureType": "침대",
+  "variant": "스핀들 헤드 침대",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.652,
+    "depth": 2.1519999790191653,
+    "height": 1.0404337644577026
+  },
+  "materials": [
+    "woodLight",
+    "fabricLight",
+    "paintedWhite",
+    "fabric"
+  ],
+  "parts": [
+    {
+      "id": "taper-leg--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.7649999999999999,
+        0.15,
+        -0.9639999961853029
+      ],
+      "size": [
+        0.032,
+        0.032,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "taper-leg--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.7649999999999999,
+        0.15,
+        0.9960000038146973
+      ],
+      "size": [
+        0.032,
+        0.032,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "taper-leg-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.7649999999999999,
+        0.15,
+        -0.9639999961853029
+      ],
+      "size": [
+        0.032,
+        0.032,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "taper-leg-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.7649999999999999,
+        0.15,
+        0.9960000038146973
+      ],
+      "size": [
+        0.032,
+        0.032,
+        0.3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "wood-side--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.7999999999999999,
+        0.29,
+        0.01600000381469724
+      ],
+      "size": [
+        0.05,
+        0.13,
+        2.12
+      ],
+      "material": "woodLight",
+      "radius": 0.022,
+      "smoothness": 5
+    },
+    {
+      "id": "wood-side-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.7999999999999999,
+        0.29,
+        0.01600000381469724
+      ],
+      "size": [
+        0.05,
+        0.13,
+        2.12
+      ],
+      "material": "woodLight",
+      "radius": 0.022,
+      "smoothness": 5
+    },
+    {
+      "id": "foot-board",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.29,
+        1.0060000038146972
+      ],
+      "size": [
+        1.65,
+        0.13,
+        0.05
+      ],
+      "material": "woodLight",
+      "radius": 0.022,
+      "smoothness": 5
+    },
+    {
+      "id": "head-bottom-rail",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.47,
+        -0.9839999961853028
+      ],
+      "size": [
+        0.026,
+        0.026,
+        1.65
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-post--0.7999999999999999",
+      "geometry": "roundedBox",
+      "position": [
+        -0.7999999999999999,
+        0.625,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.052,
+        0.7125307010929424,
+        0.052
+      ],
+      "material": "woodLight",
+      "radius": 0.0078,
+      "smoothness": 5,
+      "rotation": [
+        -0.08430673252620671,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "head-post-0.7999999999999999",
+      "geometry": "roundedBox",
+      "position": [
+        0.7999999999999999,
+        0.625,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.052,
+        0.7125307010929424,
+        0.052
+      ],
+      "material": "woodLight",
+      "radius": 0.0078,
+      "smoothness": 5,
+      "rotation": [
+        -0.08430673252620671,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "rounded-head-crest",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.7949999999999999,
+          0.97,
+          -1.06
+        ],
+        [
+          0,
+          1.01,
+          -1.06
+        ],
+        [
+          0.7949999999999999,
+          0.97,
+          -1.06
+        ]
+      ],
+      "radius": 0.032,
+      "material": "woodLight",
+      "position": [
+        0,
+        0,
+        0.01600000381469724
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "head-spindle-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.73,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.6387499999999999,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.5475,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.45625,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-4",
+      "geometry": "cylinder",
+      "position": [
+        -0.365,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-5",
+      "geometry": "cylinder",
+      "position": [
+        -0.27375,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-6",
+      "geometry": "cylinder",
+      "position": [
+        -0.1825,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-7",
+      "geometry": "cylinder",
+      "position": [
+        -0.09125000000000005,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-8",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-9",
+      "geometry": "cylinder",
+      "position": [
+        0.09125000000000005,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-10",
+      "geometry": "cylinder",
+      "position": [
+        0.1825,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-11",
+      "geometry": "cylinder",
+      "position": [
+        0.27374999999999994,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-12",
+      "geometry": "cylinder",
+      "position": [
+        0.365,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-13",
+      "geometry": "cylinder",
+      "position": [
+        0.45625000000000004,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-14",
+      "geometry": "cylinder",
+      "position": [
+        0.5474999999999999,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-15",
+      "geometry": "cylinder",
+      "position": [
+        0.6387499999999999,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "head-spindle-16",
+      "geometry": "cylinder",
+      "position": [
+        0.73,
+        0.733,
+        -1.0139999961853028
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.5095448949798241
+      ],
+      "rotation": [
+        -0.11802596513055971,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "mattress-slat-0",
+      "geometry": "roundedBox",
+      "position": [
+        -0.7549999999999999,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.6543333333333332,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-2",
+      "geometry": "roundedBox",
+      "position": [
+        -0.5536666666666665,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-3",
+      "geometry": "roundedBox",
+      "position": [
+        -0.45299999999999996,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-4",
+      "geometry": "roundedBox",
+      "position": [
+        -0.3523333333333333,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-5",
+      "geometry": "roundedBox",
+      "position": [
+        -0.2516666666666666,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-6",
+      "geometry": "roundedBox",
+      "position": [
+        -0.15100000000000002,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-7",
+      "geometry": "roundedBox",
+      "position": [
+        -0.05033333333333334,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-8",
+      "geometry": "roundedBox",
+      "position": [
+        0.05033333333333334,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-9",
+      "geometry": "roundedBox",
+      "position": [
+        0.15100000000000002,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-10",
+      "geometry": "roundedBox",
+      "position": [
+        0.2516666666666667,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-11",
+      "geometry": "roundedBox",
+      "position": [
+        0.3523333333333334,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-12",
+      "geometry": "roundedBox",
+      "position": [
+        0.45299999999999985,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-13",
+      "geometry": "roundedBox",
+      "position": [
+        0.5536666666666665,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-14",
+      "geometry": "roundedBox",
+      "position": [
+        0.6543333333333332,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress-slat-15",
+      "geometry": "roundedBox",
+      "position": [
+        0.7550000000000001,
+        0.325,
+        0.01600000381469724
+      ],
+      "size": [
+        0.07247999999999999,
+        0.018,
+        1.98
+      ],
+      "material": "woodLight",
+      "radius": 0.002,
+      "smoothness": 5
+    },
+    {
+      "id": "mattress",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.45999999999999996,
+        0.01600000381469724
+      ],
+      "size": [
+        1.5499999999999998,
+        0.27,
+        2
+      ],
+      "material": "fabricLight",
+      "radius": 0.055,
+      "smoothness": 5
+    },
+    {
+      "id": "sleep-pillow--0.4125",
+      "geometry": "roundedBox",
+      "position": [
+        -0.4125,
+        0.64,
+        -0.6639999961853028
+      ],
+      "size": [
+        0.715,
+        0.13,
+        0.43
+      ],
+      "material": "paintedWhite",
+      "radius": 0.06,
+      "smoothness": 5
+    },
+    {
+      "id": "sleep-pillow-0.4125",
+      "geometry": "roundedBox",
+      "position": [
+        0.4125,
+        0.64,
+        -0.6639999961853028
+      ],
+      "size": [
+        0.715,
+        0.13,
+        0.43
+      ],
+      "material": "paintedWhite",
+      "radius": 0.06,
+      "smoothness": 5
+    },
+    {
+      "id": "bed-runner",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.606,
+        0.5660000038146973
+      ],
+      "size": [
+        1.5699999999999998,
+        0.026,
+        0.68
+      ],
+      "material": "fabric",
+      "radius": 0.012,
+      "smoothness": 5
+    }
+  ],
+  "purchaseUrl": "https://inspiration.ethnicraft.com/hubfs/2.%20WEBSITE%20CATALOGUES/Commercial%20catalogue.pdf",
+  "variantId": "expansion-c011",
+  "furnitureTypeCode": "BED",
+  "styleTags": [
+    "natural",
+    "classic"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

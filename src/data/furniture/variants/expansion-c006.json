@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "1.0",
+  "name": "가로 보강 프레임 책상",
+  "furnitureType": "책상",
+  "variant": "가로 보강 프레임 책상",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.4,
+    "depth": 0.65,
+    "height": 0.74
+  },
+  "materials": [
+    "woodLight",
+    "metal",
+    "woodDark"
+  ],
+  "parts": [
+    {
+      "id": "oak-top",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.72,
+        0
+      ],
+      "size": [
+        1.4,
+        0.04,
+        0.65
+      ],
+      "material": "woodLight",
+      "radius": 0.012,
+      "smoothness": 5
+    },
+    {
+      "id": "solid-T-upright--0.53",
+      "geometry": "roundedBox",
+      "position": [
+        -0.53,
+        0.36,
+        0
+      ],
+      "size": [
+        0.065,
+        0.66,
+        0.18
+      ],
+      "material": "woodLight",
+      "radius": 0.008,
+      "smoothness": 5
+    },
+    {
+      "id": "wood-cross-foot--0.53",
+      "geometry": "roundedBox",
+      "position": [
+        -0.53,
+        0.025,
+        0
+      ],
+      "size": [
+        0.065,
+        0.05,
+        0.56
+      ],
+      "material": "woodLight",
+      "radius": 0.008,
+      "smoothness": 5
+    },
+    {
+      "id": "folded-steel-top-bracket--0.53",
+      "geometry": "roundedBox",
+      "position": [
+        -0.53,
+        0.68,
+        0
+      ],
+      "size": [
+        0.09,
+        0.04,
+        0.56
+      ],
+      "material": "metal",
+      "radius": 0.005,
+      "smoothness": 5
+    },
+    {
+      "id": "solid-T-upright-0.53",
+      "geometry": "roundedBox",
+      "position": [
+        0.53,
+        0.36,
+        0
+      ],
+      "size": [
+        0.065,
+        0.66,
+        0.18
+      ],
+      "material": "woodLight",
+      "radius": 0.008,
+      "smoothness": 5
+    },
+    {
+      "id": "wood-cross-foot-0.53",
+      "geometry": "roundedBox",
+      "position": [
+        0.53,
+        0.025,
+        0
+      ],
+      "size": [
+        0.065,
+        0.05,
+        0.56
+      ],
+      "material": "woodLight",
+      "radius": 0.008,
+      "smoothness": 5
+    },
+    {
+      "id": "folded-steel-top-bracket-0.53",
+      "geometry": "roundedBox",
+      "position": [
+        0.53,
+        0.68,
+        0
+      ],
+      "size": [
+        0.09,
+        0.04,
+        0.56
+      ],
+      "material": "metal",
+      "radius": 0.005,
+      "smoothness": 5
+    },
+    {
+      "id": "oak-central-stretcher",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.4,
+        0
+      ],
+      "size": [
+        1.08,
+        0.08,
+        0.055
+      ],
+      "material": "woodDark",
+      "radius": 0.005,
+      "smoothness": 5
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/products/furniture/tables/desks",
+  "variantId": "expansion-c006",
+  "furnitureTypeCode": "DESK",
+  "styleTags": [
+    "natural",
+    "minimal"
+  ],
+  "lifestyleTags": [
+    "WORK_STUDY"
+  ]
+}

@@ -37,6 +37,8 @@ export function buildDemoValidationReport(room:RoomLayout,state=demoOverlapHighl
     if(finding.type==='BODY_COLLISION'){
       key=`pair:${pairKey(finding.furnitureId,finding.otherFurnitureId!)}`;kind='collision';
       message='두 가구의 본체가 겹칩니다. 서로 떨어지도록 위치를 조정해 주세요.';
+    }else if(finding.type==='INSTALLATION_INVALID'){
+      key=`installation:${finding.furnitureId}`;kind='boundary';message=finding.message;
     }else if(finding.type==='OUT_OF_BOUNDS'){
       key=`boundary:${finding.furnitureId}`;kind='boundary';message='가구 본체가 방 범위를 벗어났습니다. 방 안쪽으로 옮겨 주세요.';
     }else if(finding.type==='DOOR_CLEARANCE'){

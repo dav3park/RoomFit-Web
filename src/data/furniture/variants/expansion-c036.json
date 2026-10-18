@@ -1,0 +1,341 @@
+{
+  "schemaVersion": "1.0",
+  "name": "회전 층판 조형 선반",
+  "furnitureType": "책장/오픈 선반",
+  "variant": "회전 층판 조형 선반",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.9400000000000002,
+    "depth": 0.9498473651195588,
+    "height": 1.9089999999999998
+  },
+  "materials": [
+    "redPlastic",
+    "metal"
+  ],
+  "parts": [
+    {
+      "id": "low-supporting-bridge",
+      "geometry": "box",
+      "position": [
+        -0.13000000000000003,
+        0.16,
+        -0.00863374768282582
+      ],
+      "size": [
+        0.28,
+        0.018,
+        0.24
+      ],
+      "material": "redPlastic"
+    },
+    {
+      "id": "bridge-foot--0.26",
+      "geometry": "box",
+      "position": [
+        -0.26,
+        0.0755,
+        -0.00863374768282582
+      ],
+      "size": [
+        0.018,
+        0.151,
+        0.24
+      ],
+      "material": "redPlastic"
+    },
+    {
+      "id": "bridge-foot-0",
+      "geometry": "box",
+      "position": [
+        -2.7755575615628914e-17,
+        0.0755,
+        -0.00863374768282582
+      ],
+      "size": [
+        0.018,
+        0.151,
+        0.24
+      ],
+      "material": "redPlastic"
+    },
+    {
+      "id": "single-articulation-axis",
+      "geometry": "cylinder",
+      "position": [
+        -2.7755575615628914e-17,
+        1.03,
+        -0.00863374768282582
+      ],
+      "size": [
+        0.014,
+        0.014,
+        1.74
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "rotating-plane-0",
+      "geometry": "box",
+      "position": [
+        -0.18982719142922605,
+        0.45,
+        0.12123402119803231
+      ],
+      "size": [
+        0.48000000000000004,
+        0.018,
+        0.24
+      ],
+      "material": "redPlastic",
+      "rotation": [
+        0,
+        0.6,
+        0
+      ]
+    },
+    {
+      "id": "floor-bearing-L-0",
+      "geometry": "box",
+      "position": [
+        -0.3796543828584521,
+        0.2205,
+        0.25110179007889044
+      ],
+      "size": [
+        0.018,
+        0.441,
+        0.24
+      ],
+      "material": "redPlastic",
+      "rotation": [
+        0,
+        0.6,
+        0
+      ]
+    },
+    {
+      "id": "rotating-plane-1",
+      "geometry": "box",
+      "position": [
+        0.11611460405796722,
+        0.74,
+        -0.20717190201206678
+      ],
+      "size": [
+        0.48000000000000004,
+        0.018,
+        0.24
+      ],
+      "material": "redPlastic",
+      "rotation": [
+        0,
+        -2.1,
+        0
+      ]
+    },
+    {
+      "id": "floor-bearing-L-1",
+      "geometry": "box",
+      "position": [
+        0.23222920811593448,
+        0.3655,
+        -0.40571005634130775
+      ],
+      "size": [
+        0.018,
+        0.731,
+        0.24
+      ],
+      "material": "redPlastic",
+      "rotation": [
+        0,
+        -2.1,
+        0
+      ]
+    },
+    {
+      "id": "rotating-plane-2",
+      "geometry": "box",
+      "position": [
+        0.22999999999999998,
+        1.03,
+        -0.008633747682825793
+      ],
+      "size": [
+        0.48000000000000004,
+        0.018,
+        0.24
+      ],
+      "material": "redPlastic",
+      "rotation": [
+        0,
+        3.141592653589793,
+        0
+      ]
+    },
+    {
+      "id": "floor-bearing-L-2",
+      "geometry": "box",
+      "position": [
+        0.45999999999999996,
+        0.5105000000000001,
+        -0.008633747682825765
+      ],
+      "size": [
+        0.018,
+        1.0210000000000001,
+        0.24
+      ],
+      "material": "redPlastic",
+      "rotation": [
+        0,
+        3.141592653589793,
+        0
+      ]
+    },
+    {
+      "id": "rotating-plane-3",
+      "geometry": "box",
+      "position": [
+        -0.18982719142922605,
+        1.3199999999999998,
+        -0.13850151656368395
+      ],
+      "size": [
+        0.48000000000000004,
+        0.018,
+        0.24
+      ],
+      "material": "redPlastic",
+      "rotation": [
+        0,
+        -0.6,
+        0
+      ]
+    },
+    {
+      "id": "floor-bearing-L-3",
+      "geometry": "box",
+      "position": [
+        -0.3796543828584521,
+        0.6555,
+        -0.2683692854445421
+      ],
+      "size": [
+        0.018,
+        1.311,
+        0.24
+      ],
+      "material": "redPlastic",
+      "rotation": [
+        0,
+        -0.6,
+        0
+      ]
+    },
+    {
+      "id": "rotating-plane-4",
+      "geometry": "box",
+      "position": [
+        -0.03909244286705547,
+        1.6099999999999999,
+        0.21801969021452003
+      ],
+      "size": [
+        0.48000000000000004,
+        0.018,
+        0.24
+      ],
+      "material": "redPlastic",
+      "rotation": [
+        0,
+        1.4,
+        0
+      ]
+    },
+    {
+      "id": "floor-bearing-L-4",
+      "geometry": "box",
+      "position": [
+        -0.0781848857341109,
+        0.8005,
+        0.4446731281118659
+      ],
+      "size": [
+        0.018,
+        1.601,
+        0.24
+      ],
+      "material": "redPlastic",
+      "rotation": [
+        0,
+        1.4,
+        0
+      ]
+    },
+    {
+      "id": "rotating-plane-5",
+      "geometry": "box",
+      "position": [
+        -0.23000000000000004,
+        1.9,
+        -0.00863374768282582
+      ],
+      "size": [
+        0.48000000000000004,
+        0.018,
+        0.24
+      ],
+      "material": "redPlastic",
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "floor-bearing-L-5",
+      "geometry": "box",
+      "position": [
+        -0.4600000000000001,
+        0.9455,
+        -0.00863374768282582
+      ],
+      "size": [
+        0.018,
+        1.891,
+        0.24
+      ],
+      "material": "redPlastic",
+      "rotation": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "purchaseUrl": "https://www.zanotta.com/en-us/products/furnishing-accessories/joy",
+  "variantId": "expansion-c036",
+  "furnitureTypeCode": "BOOKSHELF",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

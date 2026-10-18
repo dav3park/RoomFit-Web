@@ -101,6 +101,25 @@ export interface TubeFurniturePart extends FurniturePartBase {
   radialSegments: number;
 }
 
+export interface MeshFurniturePart extends FurniturePartBase {
+  geometry: "mesh";
+  vertices: number[];
+  indices: number[];
+}
+export interface ProfileFurniturePart extends FurniturePartBase {
+  geometry: "profile";
+  profile: Vector2Tuple[];
+  segments: number;
+}
+export interface SweepFurniturePart extends FurniturePartBase {
+  geometry: "sweep";
+  points: Vector3Tuple[];
+  radius: number;
+  segments: number;
+  radialSegments: number;
+  closed?: boolean;
+}
+
 export type FurniturePart =
   | BoxFurniturePart
   | RoundedBoxFurniturePart
@@ -110,7 +129,10 @@ export type FurniturePart =
   | EllipsoidFurniturePart
   | LeafFurniturePart
   | PlanterFurniturePart
-  | TubeFurniturePart;
+  | TubeFurniturePart
+  | MeshFurniturePart
+  | ProfileFurniturePart
+  | SweepFurniturePart;
 
 export interface FurnitureVariant {
   schemaVersion: typeof FURNITURE_VARIANT_SCHEMA_VERSION;

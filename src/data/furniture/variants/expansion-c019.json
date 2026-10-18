@@ -1,0 +1,222 @@
+{
+  "schemaVersion": "1.0",
+  "name": "벨트 쿠션 소파베드",
+  "furnitureType": "소파베드",
+  "variant": "벨트 쿠션 소파베드",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.4313654899597168,
+    "depth": 1.0327614360509283,
+    "height": 0.6778026571708919
+  },
+  "materials": [
+    "fabricDark"
+  ],
+  "parts": [
+    {
+      "id": "floor-futon",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.105,
+        0.026380718025464114
+      ],
+      "size": [
+        1.4,
+        0.21,
+        0.98
+      ],
+      "material": "fabricDark",
+      "radius": 0.095,
+      "smoothness": 5
+    },
+    {
+      "id": "rounded-back-fold",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.43,
+        -0.3536192819745359
+      ],
+      "size": [
+        1.38,
+        0.47,
+        0.28
+      ],
+      "material": "fabricDark",
+      "radius": 0.12,
+      "smoothness": 5,
+      "rotation": [
+        -0.1,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "folded-arm--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.56,
+        0.325,
+        0.026380718025464114
+      ],
+      "size": [
+        0.28,
+        0.23,
+        0.74
+      ],
+      "material": "fabricDark",
+      "radius": 0.11,
+      "smoothness": 5
+    },
+    {
+      "id": "belt-side--1",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.704,
+          0.15,
+          -0.26
+        ],
+        [
+          -0.707,
+          0.28,
+          -0.26
+        ],
+        [
+          -0.701,
+          0.38,
+          -0.24
+        ]
+      ],
+      "radius": 0.009,
+      "material": "fabricDark",
+      "position": [
+        0,
+        0,
+        -0.02361928197453589
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "folded-arm-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.56,
+        0.325,
+        0.026380718025464114
+      ],
+      "size": [
+        0.28,
+        0.23,
+        0.74
+      ],
+      "material": "fabricDark",
+      "radius": 0.11,
+      "smoothness": 5
+    },
+    {
+      "id": "belt-side-1",
+      "geometry": "sweep",
+      "points": [
+        [
+          0.704,
+          0.15,
+          -0.26
+        ],
+        [
+          0.707,
+          0.28,
+          -0.26
+        ],
+        [
+          0.701,
+          0.38,
+          -0.24
+        ]
+      ],
+      "radius": 0.009,
+      "material": "fabricDark",
+      "position": [
+        0,
+        0,
+        -0.02361928197453589
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "back-tuft--0.4",
+      "geometry": "roundedBox",
+      "position": [
+        -0.4,
+        0.43,
+        -0.20461928197453588
+      ],
+      "size": [
+        0.018,
+        0.026,
+        0.006
+      ],
+      "material": "fabricDark",
+      "radius": 0.00294,
+      "smoothness": 5
+    },
+    {
+      "id": "back-tuft-0",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.43,
+        -0.20461928197453588
+      ],
+      "size": [
+        0.018,
+        0.026,
+        0.006
+      ],
+      "material": "fabricDark",
+      "radius": 0.00294,
+      "smoothness": 5
+    },
+    {
+      "id": "back-tuft-0.4",
+      "geometry": "roundedBox",
+      "position": [
+        0.4,
+        0.43,
+        -0.20461928197453588
+      ],
+      "size": [
+        0.018,
+        0.026,
+        0.006
+      ],
+      "material": "fabricDark",
+      "radius": 0.00294,
+      "smoothness": 5
+    }
+  ],
+  "purchaseUrl": "https://karupdesign.com/en-dk/products/hippo-sofa-natural",
+  "variantId": "expansion-c019",
+  "furnitureTypeCode": "SOFA_BED",
+  "styleTags": [
+    "natural",
+    "minimal"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

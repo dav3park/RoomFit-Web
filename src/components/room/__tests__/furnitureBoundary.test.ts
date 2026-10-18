@@ -1,3 +1,4 @@
+import { beforeAll } from "vitest";
 import { describe, expect, it } from "vitest";
 
 import { createProductionFurnitureCatalog } from "../../furniture/variants/productionFurnitureCatalog";
@@ -117,9 +118,9 @@ describe("furniture boundary policy", () => {
   });
 
   it("creates and applies visual footprints for all 93 production variants", () => {
-    const catalog = createProductionFurnitureCatalog();
+    const catalog = loadedCatalog;
 
-    expect(catalog.variants).toHaveLength(93);
+    expect(catalog.variants).toHaveLength(193);
     for (const variant of catalog.variants) {
       const item = furniture({ x: 0, z: 0 }, Math.PI / 4, variant.variantId, variant.dimensions);
       const visualFootprint = resolveFurnitureLocalFootprint(item);
@@ -142,7 +143,7 @@ describe("furniture boundary policy", () => {
   });
 
   it("keeps a bed variant visual bounds outside all four wall interior faces", () => {
-    const catalog = createProductionFurnitureCatalog();
+    const catalog = loadedCatalog;
     const variant = catalog.registry.getFurnitureVariant("bed-classic-idanaes");
     const item = furniture({ x: 0, z: 0 }, 0, variant.variantId, variant.dimensions);
     const visual = resolveFurnitureLocalFootprint(item);
@@ -182,7 +183,7 @@ describe("furniture boundary policy", () => {
   );
 
   it("uses geometry bounds when parts exceed declared dimensions", () => {
-    const catalog = createProductionFurnitureCatalog();
+    const catalog = loadedCatalog;
     const variant = catalog.registry.getFurnitureVariant("plant-corner");
     const item = furniture({ x: 0, z: 0 }, 0, variant.variantId, variant.dimensions);
     const visual = resolveFurnitureLocalFootprint(item);
@@ -241,3 +242,6 @@ function furniture(
     removable: true,
   };
 }
+
+let loadedCatalog: Awaited<ReturnType<typeof createProductionFurnitureCatalog>>;
+beforeAll(async()=>{loadedCatalog=await createProductionFurnitureCatalog();});

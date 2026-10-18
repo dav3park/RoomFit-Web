@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "1.0",
+  "name": "프레임 분할 미디어장",
+  "furnitureType": "TV장/미디어 콘솔",
+  "variant": "프레임 분할 미디어장",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.8,
+    "depth": 0.45,
+    "height": 0.61
+  },
+  "materials": [
+    "woodLight",
+    "metal"
+  ],
+  "parts": [
+    {
+      "id": "projecting-horizontal-plane-0.07",
+      "geometry": "box",
+      "position": [
+        0,
+        0.05499999999999999,
+        0
+      ],
+      "size": [
+        1.8,
+        0.028,
+        0.45
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "projecting-horizontal-plane-0.32",
+      "geometry": "box",
+      "position": [
+        0,
+        0.305,
+        0
+      ],
+      "size": [
+        1.8,
+        0.028,
+        0.45
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "projecting-horizontal-plane-0.57",
+      "geometry": "box",
+      "position": [
+        0,
+        0.5549999999999999,
+        0
+      ],
+      "size": [
+        1.8,
+        0.028,
+        0.45
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "projecting-upright--0.69",
+      "geometry": "box",
+      "position": [
+        -0.69,
+        0.305,
+        0
+      ],
+      "size": [
+        0.025,
+        0.61,
+        0.39
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "projecting-upright--0.23",
+      "geometry": "box",
+      "position": [
+        -0.23,
+        0.305,
+        0
+      ],
+      "size": [
+        0.025,
+        0.61,
+        0.39
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "projecting-upright-0.23",
+      "geometry": "box",
+      "position": [
+        0.23,
+        0.305,
+        0
+      ],
+      "size": [
+        0.025,
+        0.61,
+        0.39
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "projecting-upright-0.69",
+      "geometry": "box",
+      "position": [
+        0.69,
+        0.305,
+        0
+      ],
+      "size": [
+        0.025,
+        0.61,
+        0.39
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "two-central-drawers--0.45",
+      "geometry": "roundedBox",
+      "position": [
+        -0.45,
+        0.185,
+        0.013
+      ],
+      "size": [
+        0.86,
+        0.2,
+        0.4
+      ],
+      "material": "woodLight",
+      "radius": 0.005,
+      "smoothness": 5
+    },
+    {
+      "id": "recessed-pull--0.45",
+      "geometry": "box",
+      "position": [
+        -0.45,
+        0.259,
+        0.219
+      ],
+      "size": [
+        0.15,
+        0.012,
+        0.008
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "two-central-drawers-0.45",
+      "geometry": "roundedBox",
+      "position": [
+        0.45,
+        0.185,
+        0.013
+      ],
+      "size": [
+        0.86,
+        0.2,
+        0.4
+      ],
+      "material": "woodLight",
+      "radius": 0.005,
+      "smoothness": 5
+    },
+    {
+      "id": "recessed-pull-0.45",
+      "geometry": "box",
+      "position": [
+        0.45,
+        0.259,
+        0.219
+      ],
+      "size": [
+        0.15,
+        0.012,
+        0.008
+      ],
+      "material": "metal"
+    }
+  ],
+  "purchaseUrl": "https://inspiration.ethnicraft.com/en/built-to-grow",
+  "variantId": "expansion-c073",
+  "furnitureTypeCode": "MEDIA_CONSOLE",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

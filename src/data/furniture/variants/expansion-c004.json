@@ -1,0 +1,223 @@
+{
+  "schemaVersion": "1.0",
+  "name": "T자 베이스 홈데스크",
+  "furnitureType": "책상",
+  "variant": "T자 베이스 홈데스크",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.4,
+    "depth": 0.7,
+    "height": 0.74
+  },
+  "materials": [
+    "paintedWhite",
+    "metalLight",
+    "metal"
+  ],
+  "parts": [
+    {
+      "id": "desktop",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.722,
+        0
+      ],
+      "size": [
+        1.4,
+        0.036,
+        0.7
+      ],
+      "material": "paintedWhite",
+      "radius": 0.015,
+      "smoothness": 5
+    },
+    {
+      "id": "t-foot--0.55",
+      "geometry": "roundedBox",
+      "position": [
+        -0.55,
+        0.022,
+        0
+      ],
+      "size": [
+        0.08,
+        0.044,
+        0.62
+      ],
+      "material": "paintedWhite",
+      "radius": 0.018,
+      "smoothness": 5
+    },
+    {
+      "id": "outer-column--0.55",
+      "geometry": "roundedBox",
+      "position": [
+        -0.55,
+        0.24,
+        0
+      ],
+      "size": [
+        0.07,
+        0.44,
+        0.06
+      ],
+      "material": "paintedWhite",
+      "radius": 0.008,
+      "smoothness": 5
+    },
+    {
+      "id": "inner-column--0.55",
+      "geometry": "roundedBox",
+      "position": [
+        -0.55,
+        0.53,
+        0
+      ],
+      "size": [
+        0.055,
+        0.36,
+        0.047
+      ],
+      "material": "metalLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "top-carrier--0.55",
+      "geometry": "roundedBox",
+      "position": [
+        -0.55,
+        0.699,
+        0
+      ],
+      "size": [
+        0.085,
+        0.03,
+        0.48
+      ],
+      "material": "metal",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "t-foot-0.55",
+      "geometry": "roundedBox",
+      "position": [
+        0.55,
+        0.022,
+        0
+      ],
+      "size": [
+        0.08,
+        0.044,
+        0.62
+      ],
+      "material": "paintedWhite",
+      "radius": 0.018,
+      "smoothness": 5
+    },
+    {
+      "id": "outer-column-0.55",
+      "geometry": "roundedBox",
+      "position": [
+        0.55,
+        0.24,
+        0
+      ],
+      "size": [
+        0.07,
+        0.44,
+        0.06
+      ],
+      "material": "paintedWhite",
+      "radius": 0.008,
+      "smoothness": 5
+    },
+    {
+      "id": "inner-column-0.55",
+      "geometry": "roundedBox",
+      "position": [
+        0.55,
+        0.53,
+        0
+      ],
+      "size": [
+        0.055,
+        0.36,
+        0.047
+      ],
+      "material": "metalLight",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "top-carrier-0.55",
+      "geometry": "roundedBox",
+      "position": [
+        0.55,
+        0.699,
+        0
+      ],
+      "size": [
+        0.085,
+        0.03,
+        0.48
+      ],
+      "material": "metal",
+      "radius": 0.006,
+      "smoothness": 5
+    },
+    {
+      "id": "under-top-traverse",
+      "geometry": "box",
+      "position": [
+        0,
+        0.681,
+        0
+      ],
+      "size": [
+        1.12,
+        0.045,
+        0.04
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "control-pad",
+      "geometry": "roundedBox",
+      "position": [
+        0.48,
+        0.7,
+        0.31
+      ],
+      "size": [
+        0.1,
+        0.025,
+        0.04
+      ],
+      "material": "metal",
+      "radius": 0.005,
+      "smoothness": 5
+    }
+  ],
+  "purchaseUrl": "https://www.vitra.com/en-us/product/category/desks/designer/",
+  "variantId": "expansion-c004",
+  "furnitureTypeCode": "DESK",
+  "styleTags": [
+    "modern",
+    "minimal"
+  ],
+  "lifestyleTags": [
+    "WORK_STUDY"
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "schemaVersion": "1.0",
+  "name": "양끝 조절 데이베드",
+  "furnitureType": "소파베드",
+  "variant": "양끝 조절 데이베드",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 2.08,
+    "depth": 0.8675,
+    "height": 0.9070359471456493
+  },
+  "materials": [
+    "woodLight",
+    "metal",
+    "fabricDark"
+  ],
+  "parts": [
+    {
+      "id": "oak-leg--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.89,
+        0.11,
+        -0.36624999999999996
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.22
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "oak-leg--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.89,
+        0.11,
+        0.33375
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.22
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "oak-leg-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.89,
+        0.11,
+        -0.36624999999999996
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.22
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "oak-leg-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.89,
+        0.11,
+        0.33375
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.22
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "woodLight"
+    },
+    {
+      "id": "covered-daybed-deck-front",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.235,
+        0.36375
+      ],
+      "size": [
+        0.015,
+        0.015,
+        1.88
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "covered-daybed-deck-back",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.235,
+        -0.39625
+      ],
+      "size": [
+        0.015,
+        0.015,
+        1.88
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "covered-daybed-deck-left",
+      "geometry": "cylinder",
+      "position": [
+        -0.94,
+        0.235,
+        -0.016249999999999987
+      ],
+      "size": [
+        0.015,
+        0.015,
+        0.76
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "covered-daybed-deck-right",
+      "geometry": "cylinder",
+      "position": [
+        0.94,
+        0.235,
+        -0.016249999999999987
+      ],
+      "size": [
+        0.015,
+        0.015,
+        0.76
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "central-mattress",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.35,
+        0.0037500000000000137
+      ],
+      "size": [
+        1.56,
+        0.2,
+        0.86
+      ],
+      "material": "fabricDark",
+      "radius": 0.075,
+      "smoothness": 5
+    },
+    {
+      "id": "rear-fabric-apron",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.36,
+        -0.41625
+      ],
+      "size": [
+        1.9,
+        0.24,
+        0.035
+      ],
+      "material": "fabricDark",
+      "radius": 0.017,
+      "smoothness": 5
+    },
+    {
+      "id": "raised-padded-arm--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.89,
+        0.555,
+        0.0037500000000000137
+      ],
+      "size": [
+        0.3,
+        0.24,
+        0.86
+      ],
+      "material": "fabricDark",
+      "radius": 0.1,
+      "smoothness": 5
+    },
+    {
+      "id": "fabric-side-cover--1",
+      "geometry": "roundedBox",
+      "position": [
+        -1.015,
+        0.38,
+        0.0037500000000000137
+      ],
+      "size": [
+        0.035,
+        0.33,
+        0.86
+      ],
+      "material": "fabricDark",
+      "radius": 0.016,
+      "smoothness": 5
+    },
+    {
+      "id": "back-cushion--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.386,
+        0.663,
+        -0.31625
+      ],
+      "size": [
+        0.764,
+        0.47,
+        0.17
+      ],
+      "material": "fabricDark",
+      "radius": 0.075,
+      "smoothness": 5,
+      "rotation": [
+        -0.13,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "hidden-back-support--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.58,
+        0.4775,
+        -0.39875
+      ],
+      "size": [
+        0.023,
+        0.48708315511830214,
+        0.023
+      ],
+      "material": "metal",
+      "radius": 0.00345,
+      "smoothness": 5,
+      "rotation": [
+        -0.09251862111964694,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "raised-padded-arm-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.89,
+        0.555,
+        0.0037500000000000137
+      ],
+      "size": [
+        0.3,
+        0.24,
+        0.86
+      ],
+      "material": "fabricDark",
+      "radius": 0.1,
+      "smoothness": 5
+    },
+    {
+      "id": "fabric-side-cover-1",
+      "geometry": "roundedBox",
+      "position": [
+        1.015,
+        0.38,
+        0.0037500000000000137
+      ],
+      "size": [
+        0.035,
+        0.33,
+        0.86
+      ],
+      "material": "fabricDark",
+      "radius": 0.016,
+      "smoothness": 5
+    },
+    {
+      "id": "back-cushion-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.386,
+        0.663,
+        -0.31625
+      ],
+      "size": [
+        0.764,
+        0.47,
+        0.17
+      ],
+      "material": "fabricDark",
+      "radius": 0.075,
+      "smoothness": 5,
+      "rotation": [
+        -0.13,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "hidden-back-support-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.58,
+        0.4775,
+        -0.39875
+      ],
+      "size": [
+        0.023,
+        0.48708315511830214,
+        0.023
+      ],
+      "material": "metal",
+      "radius": 0.00345,
+      "smoothness": 5,
+      "rotation": [
+        -0.09251862111964694,
+        0,
+        0
+      ]
+    }
+  ],
+  "purchaseUrl": "https://www.innovationliving.com/products/by-type/daybeds-single-double/product-details/rollo-stem-daybed-classic-with-cover",
+  "variantId": "expansion-c017",
+  "furnitureTypeCode": "SOFA_BED",
+  "styleTags": [
+    "minimal",
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

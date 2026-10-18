@@ -1,3 +1,5 @@
+import { resolveFurnitureInstallations } from './furnitureInstallation';
+import { placementPolicy } from '../config/furniturePlacementPolicy';
 import { normalizeCanonicalFurnitureType } from "../config/canonicalFurnitureType";
 import {
   BOUNDARY_EPSILON,
@@ -20,6 +22,7 @@ import type { Furniture, RoomLayout } from "../types";
  */
 
 export type LiveIssueType =
+  | "INSTALLATION_INVALID"
   | "BODY_COLLISION"
   | "OUT_OF_BOUNDS"
   | "ZONE_INTRUSION"
@@ -46,11 +49,24 @@ const SUPPORT_TYPE_BY_DEPENDENT: Readonly<Record<string, string>> = Object.freez
 
 export function computeLocalValidationIssues(
   furniture: readonly Furniture[],
-  room: Pick<RoomLayout, "width" | "depth" | "walls">,
+  room: Pick<RoomLayout, "width" | "depth" | "walls"> & Partial<RoomLayout>,
+  coordinates: 'geometry'|'render' = 'geometry',
 ): LiveValidationIssue[] {
-  const active = furniture.filter((item) => item.status !== "deleted");
+  const geometryFurniture=coordinates==='render'?furniture.map(item=>({...item,rotationY:-item.rotationY})):furniture;
+  const active = geometryFurniture.filter((item) => item.status !== "deleted");
   const physical = active.filter((item) => !isRug(item));
   const issues: LiveValidationIssue[] = [];
+  const renderItems=active.map(item=>({...item,rotationY:-item.rotationY}));
+  const installations=resolveFurnitureInstallations({id:'validation',name:'',height:room.height??3,doors:[],windows:[],furniture:[],...room},renderItems);
+  for(const item of active){const installed=installations.get(item.id);
+    if(item.variantId&&!installed?.valid)issues.push({furnitureId:item.id,type:'INSTALLATION_INVALID',severity:'ERROR',message:installed?.reason??'설치 조건을 확인해 주세요.'});
+  }
+  const verticalOverlap=(a:Furniture,b:Furniture)=>{
+    const first=installations.get(a.id)!,second=installations.get(b.id)!;
+    return first.minY<second.maxY-1e-6&&second.minY<first.maxY-1e-6;
+  };
+  const isSupportedPair=(a:Furniture,b:Furniture)=>installations.get(a.id)?.valid&&installations.get(a.id)?.supportId===b.id
+    ||installations.get(b.id)?.valid&&installations.get(b.id)?.supportId===a.id;
 
   const bodyCorners = new Map(physical.map((item) => [item.id, worldCorners(item.position, footprintOf(item))]));
 
@@ -58,7 +74,7 @@ export function computeLocalValidationIssues(
     for (let j = i + 1; j < physical.length; j++) {
       const a = physical[i];
       const b = physical[j];
-      if (isStrictStack(a, b) || isCollisionExempt(a, b)) continue;
+      if (!verticalOverlap(a,b)||isSupportedPair(a,b)||isStrictStack(a, b) || isCollisionExempt(a, b)) continue;
       if (obbOverlap(bodyCorners.get(a.id)!, bodyCorners.get(b.id)!)) {
         issues.push({
           furnitureId: a.id,
@@ -91,12 +107,13 @@ export function computeLocalValidationIssues(
   }
 
   for (const item of physical) {
+    if(['SUPPORT','WALL','WINDOW'].includes(placementPolicy(item).installation))continue;
     const zones = clearanceZonesWorld(item);
     if (zones.length === 0) continue;
     const itemCorners = bodyCorners.get(item.id)!;
     for (const other of physical) {
       if (other.id === item.id) continue;
-      if (isStrictStack(item, other) || isCollisionExempt(item, other)) continue;
+      if (!verticalOverlap(item,other)||isSupportedPair(item,other)||isStrictStack(item, other) || isCollisionExempt(item, other)) continue;
       const otherCorners = bodyCorners.get(other.id)!;
       if (obbOverlap(itemCorners, otherCorners)) continue; // already a BODY_COLLISION
       const hitZone = zones.find((zone) => obbOverlap(zone.corners, otherCorners));

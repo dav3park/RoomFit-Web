@@ -1,0 +1,351 @@
+{
+  "schemaVersion": "1.0",
+  "name": "패브릭 슬링 프레임 소파",
+  "furnitureType": "소파",
+  "variant": "패브릭 슬링 프레임 소파",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.75,
+    "depth": 0.8265979290008545,
+    "height": 0.8403100854002998
+  },
+  "materials": [
+    "chrome",
+    "fabricDark",
+    "fabricLight"
+  ],
+  "parts": [
+    {
+      "id": "tubular-base-front",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.23000152595341206,
+        0.370000005364418
+      ],
+      "size": [
+        0.015,
+        0.015,
+        1.72
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "tubular-base-back",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.23000152595341206,
+        -0.34999999463558196
+      ],
+      "size": [
+        0.015,
+        0.015,
+        1.72
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "tubular-base-left",
+      "geometry": "cylinder",
+      "position": [
+        -0.86,
+        0.23000152595341206,
+        0.01000000536441803
+      ],
+      "size": [
+        0.015,
+        0.015,
+        0.72
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "tubular-base-right",
+      "geometry": "cylinder",
+      "position": [
+        0.86,
+        0.23000152595341206,
+        0.01000000536441803
+      ],
+      "size": [
+        0.015,
+        0.015,
+        0.72
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "continuous-frame--0.86",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.86,
+          0.02,
+          0.37
+        ],
+        [
+          -0.86,
+          0.62,
+          0.37
+        ],
+        [
+          -0.86,
+          0.66,
+          0.31
+        ],
+        [
+          -0.86,
+          0.66,
+          -0.33
+        ],
+        [
+          -0.86,
+          0.62,
+          -0.39
+        ],
+        [
+          -0.86,
+          0.02,
+          -0.39
+        ]
+      ],
+      "radius": 0.015,
+      "material": "chrome",
+      "position": [
+        0,
+        -0.019998474046587944,
+        0.01000000536441803
+      ],
+      "segments": 48,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "stretched-side-sling--0.86",
+      "geometry": "roundedBox",
+      "position": [
+        -0.86,
+        0.45000152595341203,
+        0.01000000536441803
+      ],
+      "size": [
+        0.012,
+        0.3,
+        0.7
+      ],
+      "material": "fabricDark",
+      "radius": 0.005,
+      "smoothness": 5
+    },
+    {
+      "id": "continuous-frame-0.86",
+      "geometry": "sweep",
+      "points": [
+        [
+          0.86,
+          0.02,
+          0.37
+        ],
+        [
+          0.86,
+          0.62,
+          0.37
+        ],
+        [
+          0.86,
+          0.66,
+          0.31
+        ],
+        [
+          0.86,
+          0.66,
+          -0.33
+        ],
+        [
+          0.86,
+          0.62,
+          -0.39
+        ],
+        [
+          0.86,
+          0.02,
+          -0.39
+        ]
+      ],
+      "radius": 0.015,
+      "material": "chrome",
+      "position": [
+        0,
+        -0.019998474046587944,
+        0.01000000536441803
+      ],
+      "segments": 48,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "stretched-side-sling-0.86",
+      "geometry": "roundedBox",
+      "position": [
+        0.86,
+        0.45000152595341203,
+        0.01000000536441803
+      ],
+      "size": [
+        0.012,
+        0.3,
+        0.7
+      ],
+      "material": "fabricDark",
+      "radius": 0.005,
+      "smoothness": 5
+    },
+    {
+      "id": "stretched-back-sling",
+      "geometry": "box",
+      "position": [
+        0,
+        0.5300015259534121,
+        -0.35999999463558197
+      ],
+      "size": [
+        1.72,
+        0.39,
+        0.012
+      ],
+      "material": "fabricDark"
+    },
+    {
+      "id": "stretched-seat-sling",
+      "geometry": "box",
+      "position": [
+        0,
+        0.2500015259534121,
+        0.01000000536441803
+      ],
+      "size": [
+        1.72,
+        0.013,
+        0.71
+      ],
+      "material": "fabricDark"
+    },
+    {
+      "id": "seat-cushion-0",
+      "geometry": "roundedBox",
+      "position": [
+        -0.395,
+        0.36000152595341206,
+        0.07000000536441803
+      ],
+      "size": [
+        0.772,
+        0.23,
+        0.68
+      ],
+      "material": "fabricLight",
+      "radius": 0.095,
+      "smoothness": 5
+    },
+    {
+      "id": "seat-cushion-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.395,
+        0.36000152595341206,
+        0.07000000536441803
+      ],
+      "size": [
+        0.772,
+        0.23,
+        0.68
+      ],
+      "material": "fabricLight",
+      "radius": 0.095,
+      "smoothness": 5
+    },
+    {
+      "id": "loose-back--0.395",
+      "geometry": "roundedBox",
+      "position": [
+        -0.395,
+        0.600001525953412,
+        -0.259999994635582
+      ],
+      "size": [
+        0.77,
+        0.46,
+        0.18
+      ],
+      "material": "fabricLight",
+      "radius": 0.08,
+      "smoothness": 5,
+      "rotation": [
+        -0.14,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "loose-back-0.395",
+      "geometry": "roundedBox",
+      "position": [
+        0.395,
+        0.600001525953412,
+        -0.259999994635582
+      ],
+      "size": [
+        0.77,
+        0.46,
+        0.18
+      ],
+      "material": "fabricLight",
+      "radius": 0.08,
+      "smoothness": 5,
+      "rotation": [
+        -0.14,
+        0,
+        0
+      ]
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/inspiration/the-hay-sofa-collection",
+  "variantId": "expansion-c054",
+  "furnitureTypeCode": "SOFA",
+  "styleTags": [
+    "natural"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

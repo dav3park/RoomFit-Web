@@ -1,3 +1,4 @@
+import { createSculptedFurnitureGeometry } from "../../../geometry/sculptedFurnitureGeometry.mjs";
 import {
   Box3,
   BoxGeometry,
@@ -36,6 +37,10 @@ export function createFurniturePartGeometry(
   definition: FurniturePart | ValidatedFurniturePart,
 ): BufferGeometry {
   switch (definition.geometry) {
+    case "mesh":
+    case "profile":
+    case "sweep":
+      return createSculptedFurnitureGeometry(definition);
     case "box":
       return new BoxGeometry(...definition.size);
     case "roundedBox": {
@@ -140,7 +145,11 @@ export function computeFurnitureVariantBounds(variant: ValidatedFurnitureVariant
         new Quaternion().setFromEuler(new Euler(...part.rotation, "XYZ")),
         new Vector3(1, 1, 1),
       );
-      bounds.union(geometry.boundingBox.clone().applyMatrix4(transform));
+      if (["mesh", "sweep", "profile"].includes(part.geometry)) {
+        geometry.applyMatrix4(transform);
+        geometry.computeBoundingBox();
+        bounds.union(geometry.boundingBox!);
+      } else bounds.union(geometry.boundingBox.clone().applyMatrix4(transform));
     }
     geometry.dispose();
   }

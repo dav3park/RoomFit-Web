@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "1.0",
+  "name": "삼발 핸들 협탁",
+  "furnitureType": "협탁",
+  "variant": "삼발 핸들 협탁",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.38,
+    "depth": 0.38,
+    "height": 0.6408805847167969
+  },
+  "materials": [
+    "paintedWhite"
+  ],
+  "parts": [
+    {
+      "id": "tray",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.3914652157543404,
+        0
+      ],
+      "size": [
+        0.19,
+        0.19,
+        0.01200000000000001
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "raised-tray-rim",
+      "geometry": "profile",
+      "profile": [
+        [
+          0.179,
+          0.39
+        ],
+        [
+          0.19,
+          0.39
+        ],
+        [
+          0.19,
+          0.413
+        ],
+        [
+          0.181,
+          0.413
+        ],
+        [
+          0.179,
+          0.39
+        ]
+      ],
+      "segments": 64,
+      "material": "paintedWhite",
+      "position": [
+        0,
+        0.0014652157543403876,
+        0
+      ]
+    },
+    {
+      "id": "splayed-leg-0",
+      "geometry": "cylinder",
+      "position": [
+        0.1275,
+        0.1964652157543404,
+        0
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.39156736329781117
+      ],
+      "rotation": [
+        0,
+        0,
+        0.08950381835161035
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "splayed-leg-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.06374999999999997,
+        0.1964652157543404,
+        0.11041823898251593
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.39156736329781117
+      ],
+      "rotation": [
+        -0.07748676450794996,
+        0.0017332612977104037,
+        -0.04470714089234521
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "splayed-leg-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.06375000000000006,
+        0.1964652157543404,
+        -0.1104182389825159
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.39156736329781117
+      ],
+      "rotation": [
+        0.07748676450794992,
+        -0.0017332612977104046,
+        -0.04470714089234526
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "carrying-loop",
+      "geometry": "sweep",
+      "points": [
+        [
+          0,
+          0.39,
+          0
+        ],
+        [
+          0,
+          0.52,
+          0
+        ],
+        [
+          0.055,
+          0.56,
+          0
+        ],
+        [
+          0.055,
+          0.61,
+          0
+        ],
+        [
+          0,
+          0.63,
+          0
+        ],
+        [
+          -0.055,
+          0.61,
+          0
+        ],
+        [
+          -0.055,
+          0.56,
+          0
+        ],
+        [
+          0,
+          0.52,
+          0
+        ]
+      ],
+      "radius": 0.01,
+      "material": "paintedWhite",
+      "position": [
+        0,
+        0.0014652157543403876,
+        0
+      ],
+      "segments": 64,
+      "radialSegments": 10,
+      "closed": false
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/hay/furniture/tables/side-table/dlm",
+  "variantId": "expansion-c023",
+  "furnitureTypeCode": "NIGHTSTAND",
+  "styleTags": [
+    "midcentury",
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST"
+  ]
+}

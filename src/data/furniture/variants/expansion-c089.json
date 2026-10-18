@@ -1,0 +1,889 @@
+{
+  "schemaVersion": "1.0",
+  "name": "볼 리플렉터 테이블 조명",
+  "furnitureType": "무드등",
+  "variant": "볼 리플렉터 테이블 조명",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.48417943716049194,
+    "depth": 0.5017610285788683,
+    "height": 0.5733923917985686
+  },
+  "materials": [
+    "metal",
+    "glass",
+    "paintedWhite",
+    "ledDiffuser"
+  ],
+  "parts": [
+    {
+      "id": "fluted-aluminium-base",
+      "geometry": "profile",
+      "profile": [
+        [
+          0,
+          0
+        ],
+        [
+          0.09,
+          0
+        ],
+        [
+          0.09,
+          0.26
+        ],
+        [
+          0.075,
+          0.28
+        ],
+        [
+          0,
+          0.28
+        ]
+      ],
+      "segments": 64,
+      "material": "metal",
+      "position": [
+        -0.03972058743238449,
+        0,
+        -0.04848999999999999
+      ]
+    },
+    {
+      "id": "vertical-flute-0",
+      "geometry": "cylinder",
+      "position": [
+        0.05127941256761551,
+        0.135,
+        -0.04848999999999999
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-1",
+      "geometry": "cylinder",
+      "position": [
+        0.04989691809172643,
+        0.135,
+        -0.03268801583230933
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-2",
+      "geometry": "cylinder",
+      "position": [
+        0.04579144105913317,
+        0.135,
+        -0.017366166957364138
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-3",
+      "geometry": "cylinder",
+      "position": [
+        0.03908772431199943,
+        0.135,
+        -0.0029899999999999996
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-4",
+      "geometry": "cylinder",
+      "position": [
+        0.0299894568914425,
+        0.135,
+        0.01000367248147508
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-5",
+      "geometry": "cylinder",
+      "position": [
+        0.018773085049090588,
+        0.135,
+        0.021220044323827
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-6",
+      "geometry": "cylinder",
+      "position": [
+        0.005779412567615515,
+        0.135,
+        0.030318311744383916
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-7",
+      "geometry": "cylinder",
+      "position": [
+        -0.008596754389748627,
+        0.135,
+        0.03702202849151766
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-8",
+      "geometry": "cylinder",
+      "position": [
+        -0.023918603264693823,
+        0.135,
+        0.04112750552411093
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-9",
+      "geometry": "cylinder",
+      "position": [
+        -0.039720587432384484,
+        0.135,
+        0.042510000000000006
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-10",
+      "geometry": "cylinder",
+      "position": [
+        -0.05552257160007515,
+        0.135,
+        0.04112750552411093
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-11",
+      "geometry": "cylinder",
+      "position": [
+        -0.07084442047502032,
+        0.135,
+        0.03702202849151767
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-12",
+      "geometry": "cylinder",
+      "position": [
+        -0.08522058743238448,
+        0.135,
+        0.03031831174438393
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-13",
+      "geometry": "cylinder",
+      "position": [
+        -0.09821425991385957,
+        0.135,
+        0.021220044323827
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-14",
+      "geometry": "cylinder",
+      "position": [
+        -0.10943063175621148,
+        0.135,
+        0.010003672481475101
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-15",
+      "geometry": "cylinder",
+      "position": [
+        -0.11852889917676838,
+        0.135,
+        -0.002989999999999965
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-16",
+      "geometry": "cylinder",
+      "position": [
+        -0.12523261592390214,
+        0.135,
+        -0.017366166957364124
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-17",
+      "geometry": "cylinder",
+      "position": [
+        -0.1293380929564954,
+        0.135,
+        -0.03268801583230933
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-18",
+      "geometry": "cylinder",
+      "position": [
+        -0.1307205874323845,
+        0.135,
+        -0.04848999999999998
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-19",
+      "geometry": "cylinder",
+      "position": [
+        -0.12933809295649543,
+        0.135,
+        -0.06429198416769062
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-20",
+      "geometry": "cylinder",
+      "position": [
+        -0.12523261592390217,
+        0.135,
+        -0.07961383304263583
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-21",
+      "geometry": "cylinder",
+      "position": [
+        -0.1185288991767684,
+        0.135,
+        -0.09398999999999999
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-22",
+      "geometry": "cylinder",
+      "position": [
+        -0.10943063175621152,
+        0.135,
+        -0.10698367248147503
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-23",
+      "geometry": "cylinder",
+      "position": [
+        -0.09821425991385958,
+        0.135,
+        -0.11820004432382698
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-24",
+      "geometry": "cylinder",
+      "position": [
+        -0.08522058743238453,
+        0.135,
+        -0.12729831174438389
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-25",
+      "geometry": "cylinder",
+      "position": [
+        -0.07084442047502032,
+        0.135,
+        -0.13400202849151766
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-26",
+      "geometry": "cylinder",
+      "position": [
+        -0.05552257160007515,
+        0.135,
+        -0.1381075055241109
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-27",
+      "geometry": "cylinder",
+      "position": [
+        -0.039720587432384505,
+        0.135,
+        -0.13949
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-28",
+      "geometry": "cylinder",
+      "position": [
+        -0.023918603264693864,
+        0.135,
+        -0.13810750552411094
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-29",
+      "geometry": "cylinder",
+      "position": [
+        -0.008596754389748613,
+        0.135,
+        -0.13400202849151766
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-30",
+      "geometry": "cylinder",
+      "position": [
+        0.005779412567615445,
+        0.135,
+        -0.12729831174438394
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-31",
+      "geometry": "cylinder",
+      "position": [
+        0.01877308504909058,
+        0.135,
+        -0.118200044323827
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-32",
+      "geometry": "cylinder",
+      "position": [
+        0.029989456891442487,
+        0.135,
+        -0.10698367248147508
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-33",
+      "geometry": "cylinder",
+      "position": [
+        0.039087724311999444,
+        0.135,
+        -0.09398999999999996
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-34",
+      "geometry": "cylinder",
+      "position": [
+        0.04579144105913317,
+        0.135,
+        -0.07961383304263583
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "vertical-flute-35",
+      "geometry": "cylinder",
+      "position": [
+        0.04989691809172643,
+        0.135,
+        -0.06429198416769066
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.24
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "tilting-glass-bowl",
+      "geometry": "profile",
+      "profile": [
+        [
+          0.018,
+          0
+        ],
+        [
+          0.07,
+          0.008
+        ],
+        [
+          0.13,
+          0.04
+        ],
+        [
+          0.19,
+          0.095
+        ],
+        [
+          0.245,
+          0.19
+        ],
+        [
+          0.247,
+          0.2
+        ],
+        [
+          0.241,
+          0.2
+        ],
+        [
+          0.184,
+          0.1
+        ],
+        [
+          0.125,
+          0.045
+        ],
+        [
+          0.065,
+          0.015
+        ],
+        [
+          0.018,
+          0.007
+        ]
+      ],
+      "segments": 64,
+      "material": "glass",
+      "position": [
+        -0.03972058743238449,
+        0.27,
+        -0.04848999999999999
+      ],
+      "rotation": [
+        0.25,
+        0,
+        -0.2
+      ]
+    },
+    {
+      "id": "white-reflector",
+      "geometry": "cylinder",
+      "position": [
+        0.000009412567615510459,
+        0.45992,
+        6.938893903907228e-18
+      ],
+      "size": [
+        0.245,
+        0.245,
+        0.01200000000000001
+      ],
+      "rotation": [
+        0.25,
+        0,
+        -0.2
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "light-source",
+      "geometry": "ellipsoid",
+      "position": [
+        -0.03972058743238449,
+        0.29,
+        -0.04848999999999999
+      ],
+      "size": [
+        0.05,
+        0.05,
+        0.05
+      ],
+      "material": "ledDiffuser"
+    }
+  ],
+  "purchaseUrl": "https://japan.flos.com/families/",
+  "variantId": "expansion-c089",
+  "furnitureTypeCode": "MOOD_LAMP",
+  "styleTags": [
+    "midcentury"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

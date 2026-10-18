@@ -1,3 +1,5 @@
+import originalVariantIds from "../../../../data/furniture/originalVariantIds.json";
+import { beforeAll } from "vitest";
 import { CylinderGeometry, ExtrudeGeometry, Vector3 } from "three";
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
 import { describe, expect, it } from "vitest";
@@ -18,12 +20,14 @@ const BOUNDS_TOLERANCE = 0.001;
 
 describe("production furniture catalog", () => {
   it("validates and registers every generated production variant", () => {
-    const catalog = createProductionFurnitureCatalog();
+    const catalog = loadedCatalog;
     const variantIds = catalog.variants.map((variant) => variant.variantId);
 
     expect(variantIds).toEqual(PRODUCTION_FURNITURE_VARIANT_IDS);
-    expect(variantIds).toHaveLength(93);
-    expect(PRODUCTION_FURNITURE_CATALOG_METADATA.variantCount).toBe(93);
+    expect(variantIds).toHaveLength(193);
+    expect(variantIds).toEqual(expect.arrayContaining(originalVariantIds));
+    expect(variantIds).toEqual(expect.arrayContaining(Array.from({length:100},(_,i)=>`expansion-c${String(i+1).padStart(3,'0')}`)));
+    expect(PRODUCTION_FURNITURE_CATALOG_METADATA.variantCount).toBe(193);
     expect(PRODUCTION_FURNITURE_CATALOG_METADATA.sourceHash).toMatch(/^sha256:[a-f0-9]{64}$/);
     expect(new Set(variantIds).size).toBe(PRODUCTION_FURNITURE_VARIANT_IDS.length);
     for (const variantId of PRODUCTION_FURNITURE_VARIANT_IDS) {
@@ -32,7 +36,7 @@ describe("production furniture catalog", () => {
   });
 
   it("keeps part IDs and material references valid for every production variant", () => {
-    const { materialPresets, variants } = createProductionFurnitureCatalog();
+    const { materialPresets, variants } = loadedCatalog;
 
     for (const variant of variants) {
       const partIds = variant.parts.map((part) => part.id);
@@ -49,7 +53,7 @@ describe("production furniture catalog", () => {
   });
 
   it("matches declared dimensions and floor-center bounds", () => {
-    const { variants } = createProductionFurnitureCatalog();
+    const { variants } = loadedCatalog;
     const mismatches: string[] = [];
 
     for (const variant of variants) {
@@ -76,7 +80,7 @@ describe("production furniture catalog", () => {
   });
 
   it("keeps generated visual footprints identical to rendered part geometry", () => {
-    const { variants } = createProductionFurnitureCatalog();
+    const { variants } = loadedCatalog;
 
     for (const variant of variants) {
       const bounds = computeFurnitureVariantBounds(variant);
@@ -90,7 +94,7 @@ describe("production furniture catalog", () => {
   });
 
   it("audits variants whose visual geometry exceeds declared X/Z dimensions", () => {
-    const { variants } = createProductionFurnitureCatalog();
+    const { variants } = loadedCatalog;
     const exceeding = variants.flatMap((variant) => {
       const footprint = getProductionFurnitureVisualFootprint(variant.variantId)!;
       const widthExcess = footprint.maxX - footprint.minX - variant.dimensions.width;
@@ -110,7 +114,7 @@ describe("production furniture catalog", () => {
   });
 
   it("keeps all production purchase URLs on HTTPS", () => {
-    const { variants } = createProductionFurnitureCatalog();
+    const { variants } = loadedCatalog;
 
     for (const variant of variants) {
       expect(variant.purchaseUrl).not.toBeNull();
@@ -119,7 +123,7 @@ describe("production furniture catalog", () => {
   });
 
   it("creates every production part geometry without throwing", () => {
-    const { variants } = createProductionFurnitureCatalog();
+    const { variants } = loadedCatalog;
 
     for (const variant of variants) {
       for (const furniturePart of variant.parts) {
@@ -147,7 +151,7 @@ describe("production furniture catalog", () => {
   });
 
   it("preserves front and rear placement semantics for compact and storage desks", () => {
-    const { registry } = createProductionFurnitureCatalog();
+    const { registry } = loadedCatalog;
     const compact = registry.getFurnitureVariant("desk-compact");
     const storage = registry.getFurnitureVariant("desk-storage");
 
@@ -159,7 +163,7 @@ describe("production furniture catalog", () => {
   });
 
   it("builds the corner desktop on XZ with Y thickness and rear fixtures", () => {
-    const { registry } = createProductionFurnitureCatalog();
+    const { registry } = loadedCatalog;
     const corner = registry.getFurnitureVariant("desk-corner");
     const desktop = part(corner, "corner-desktop");
     const geometry = createFurniturePartGeometry(desktop);
@@ -183,7 +187,7 @@ describe("production furniture catalog", () => {
   });
 
   it("builds the midcentury glass top, Y-axis legs, and brass details", () => {
-    const { materialPresets, registry } = createProductionFurnitureCatalog();
+    const { materialPresets, registry } = loadedCatalog;
     const variant = registry.getFurnitureVariant("desk-midcentury-glass");
     const glassTopGeometry = createFurniturePartGeometry(part(variant, "glass-top"));
     const legGeometry = createFurniturePartGeometry(part(variant, "left-leg-front"));
@@ -217,3 +221,6 @@ function part(
   }
   return furniturePart;
 }
+
+let loadedCatalog: Awaited<ReturnType<typeof createProductionFurnitureCatalog>>;
+beforeAll(async()=>{loadedCatalog=await createProductionFurnitureCatalog();});

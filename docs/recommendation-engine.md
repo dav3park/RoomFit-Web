@@ -32,3 +32,14 @@ See [furniture-layout references](../design-references/furniture-layout/README.m
 ## Automatic colour choice
 
 `palette: 'auto'` does not change the furniture preservation/placement contract. After feasible spatial candidates are chosen, the engine ranks curated schemes by style, lifestyle and floor undertone and assigns a different resolved scheme to each recommendation. In preserve mode only, colour-only alternatives are legitimate when inventory/poses are fixed; moving modes continue to reject geometry duplicates regardless of colour. The stored scheme ID drives the same material roles across preview, Apply/autosave, reload and final preview. See `docs/furniture-colour-rules.md` for scheme/part rules and API boundaries.
+
+## Installation-aware variants (193-model catalog)
+
+Candidate search includes role-specific placements and a bounded selection of
+installation modes (at most eight product candidates per slot). Curtains and
+blinds attach to an actual window and respect its dimensions, orientation and
+wall thickness. Partitions prefer positions between living areas. Tabletop
+variants use an authored support surface; wall and floor/ceiling fixtures have
+separate installation checks. Complete snapshots resolve all supports before
+validation, regardless of array order. Every final proposal still passes the
+independent confirmed-condition audit and geometric/circulation validation.

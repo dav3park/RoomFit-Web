@@ -1,0 +1,446 @@
+{
+  "schemaVersion": "1.0",
+  "name": "판형 팔걸이 회전 의자",
+  "furnitureType": "책상 의자",
+  "variant": "판형 팔걸이 회전 의자",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.65459593265545,
+    "depth": 0.7108802191710117,
+    "height": 0.8692004742438892
+  },
+  "materials": [
+    "metal",
+    "screenFrame",
+    "fabricDark",
+    "woodLight"
+  ],
+  "parts": [
+    {
+      "id": "gas-lift",
+      "geometry": "cylinder",
+      "position": [
+        -0.001356345301212869,
+        0.27,
+        0.022971183826958785
+      ],
+      "size": [
+        0.025,
+        0.025,
+        0.26
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "lift-collar",
+      "geometry": "cylinder",
+      "position": [
+        -0.001356345301212869,
+        0.185,
+        0.022971183826958785
+      ],
+      "size": [
+        0.039,
+        0.039,
+        0.13
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "under-seat-mechanism",
+      "geometry": "roundedBox",
+      "position": [
+        -0.001356345301212869,
+        0.411,
+        0.022971183826958785
+      ],
+      "size": [
+        0.28,
+        0.024,
+        0.24
+      ],
+      "material": "screenFrame",
+      "radius": 0.01,
+      "smoothness": 5
+    },
+    {
+      "id": "base-spoke-0",
+      "geometry": "cylinder",
+      "position": [
+        0.14672081051325606,
+        0.11750000000000001,
+        0.0687768158594664
+      ],
+      "size": [
+        0.018,
+        0.018,
+        0.32729955698106283
+      ],
+      "rotation": [
+        0.3064306251837164,
+        -0.3821237416161185,
+        -1.7940755649636533
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "caster-0",
+      "geometry": "ellipsoid",
+      "position": [
+        0.294797966327725,
+        0.035,
+        0.11458244789197404
+      ],
+      "size": [
+        0.065,
+        0.07,
+        0.045
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "base-spoke-1",
+      "geometry": "cylinder",
+      "position": [
+        0.000838267496630686,
+        0.11750000000000001,
+        0.17795564651489257
+      ],
+      "size": [
+        0.018,
+        0.018,
+        0.32729955698106283
+      ],
+      "rotation": [
+        1.8971573924015297,
+        -0.018700247670902413,
+        -0.013413170618098512
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "caster-1",
+      "geometry": "ellipsoid",
+      "position": [
+        0.003032880294474241,
+        0.035,
+        0.33294010920282635
+      ],
+      "size": [
+        0.065,
+        0.07,
+        0.045
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "base-spoke-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.14807715581446895,
+        0.11750000000000001,
+        0.07295121746373416
+      ],
+      "size": [
+        0.018,
+        0.018,
+        0.32729955698106283
+      ],
+      "rotation": [
+        0.3402582836226479,
+        0.4149539053989865,
+        1.772654917325688
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "caster-2",
+      "geometry": "ellipsoid",
+      "position": [
+        -0.29479796632772504,
+        0.035,
+        0.12293125110050954
+      ],
+      "size": [
+        0.065,
+        0.07,
+        0.045
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "base-spoke-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.09422940585318164,
+        0.11750000000000001,
+        -0.1011239193145848
+      ],
+      "size": [
+        0.018,
+        0.018,
+        0.32729955698106283
+      ],
+      "rotation": [
+        -1.3712118617620508,
+        -0.6862074224175748,
+        0.8235245421604762
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "caster-3",
+      "geometry": "ellipsoid",
+      "position": [
+        -0.1871024664051504,
+        0.035,
+        -0.22521902245612838
+      ],
+      "size": [
+        0.065,
+        0.07,
+        0.045
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "base-spoke-4",
+      "geometry": "cylinder",
+      "position": [
+        0.08796575715169945,
+        0.11750000000000001,
+        -0.10370384138871439
+      ],
+      "size": [
+        0.018,
+        0.018,
+        0.32729955698106283
+      ],
+      "rotation": [
+        -1.4197475959946924,
+        0.6713593308556606,
+        -0.771343669288436
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "caster-4",
+      "geometry": "ellipsoid",
+      "position": [
+        0.17728785960461177,
+        0.035,
+        -0.23037886660438756
+      ],
+      "size": [
+        0.065,
+        0.07,
+        0.045
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "upholstered-seat",
+      "geometry": "roundedBox",
+      "position": [
+        -0.001356345301212869,
+        0.47,
+        0.052971183826958784
+      ],
+      "size": [
+        0.48,
+        0.085,
+        0.45
+      ],
+      "material": "fabricDark",
+      "radius": 0.04,
+      "smoothness": 5
+    },
+    {
+      "id": "upholstered-back",
+      "geometry": "roundedBox",
+      "position": [
+        -0.001356345301212869,
+        0.7,
+        -0.23702881617304122
+      ],
+      "size": [
+        0.44,
+        0.33,
+        0.09
+      ],
+      "material": "fabricDark",
+      "radius": 0.044,
+      "smoothness": 5,
+      "rotation": [
+        -0.12,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "direction-arm-support--1",
+      "geometry": "sweep",
+      "points": [
+        [
+          -0.21,
+          0.411,
+          -0.1
+        ],
+        [
+          -0.285,
+          0.46,
+          -0.2
+        ],
+        [
+          -0.285,
+          0.63,
+          -0.2
+        ],
+        [
+          -0.285,
+          0.63,
+          0.18
+        ]
+      ],
+      "radius": 0.019,
+      "material": "metal",
+      "position": [
+        -0.001356345301212869,
+        0,
+        0.022971183826958785
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "wood-arm-cap--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.28635634530121284,
+        0.655,
+        0.04297118382695879
+      ],
+      "size": [
+        0.065,
+        0.035,
+        0.37
+      ],
+      "material": "woodLight",
+      "radius": 0.016,
+      "smoothness": 5
+    },
+    {
+      "id": "direction-arm-support-1",
+      "geometry": "sweep",
+      "points": [
+        [
+          0.21,
+          0.411,
+          -0.1
+        ],
+        [
+          0.285,
+          0.46,
+          -0.2
+        ],
+        [
+          0.285,
+          0.63,
+          -0.2
+        ],
+        [
+          0.285,
+          0.63,
+          0.18
+        ]
+      ],
+      "radius": 0.019,
+      "material": "metal",
+      "position": [
+        -0.001356345301212869,
+        0,
+        0.022971183826958785
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    },
+    {
+      "id": "wood-arm-cap-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.2836436546987871,
+        0.655,
+        0.04297118382695879
+      ],
+      "size": [
+        0.065,
+        0.035,
+        0.37
+      ],
+      "material": "woodLight",
+      "radius": 0.016,
+      "smoothness": 5
+    },
+    {
+      "id": "rear-spine",
+      "geometry": "sweep",
+      "points": [
+        [
+          0,
+          0.411,
+          -0.1
+        ],
+        [
+          0,
+          0.49,
+          -0.34
+        ],
+        [
+          0,
+          0.72,
+          -0.34
+        ]
+      ],
+      "radius": 0.023,
+      "material": "metal",
+      "position": [
+        -0.001356345301212869,
+        0,
+        0.022971183826958785
+      ],
+      "segments": 32,
+      "radialSegments": 10,
+      "closed": false
+    }
+  ],
+  "purchaseUrl": "https://www.vitra.com/en-us/product/category/office-chairs",
+  "variantId": "expansion-c033",
+  "furnitureTypeCode": "DESK_CHAIR",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "WORK_STUDY"
+  ]
+}

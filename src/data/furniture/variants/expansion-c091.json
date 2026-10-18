@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "1.0",
+  "name": "구형 밸런스 테이블 조명",
+  "furnitureType": "무드등",
+  "variant": "구형 밸런스 테이블 조명",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.21000000000000002,
+    "depth": 0.2,
+    "height": 0.3811234752377721
+  },
+  "materials": [
+    "brass",
+    "opalGlass"
+  ],
+  "parts": [
+    {
+      "id": "base-cross-foot",
+      "geometry": "cylinder",
+      "position": [
+        0.02000000000000001,
+        0.005000000000000024,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.16999999999999998
+      ],
+      "rotation": [
+        0,
+        0,
+        -1.5707963267948963
+      ],
+      "material": "brass"
+    },
+    {
+      "id": "base-depth-foot",
+      "geometry": "cylinder",
+      "position": [
+        0.09500000000000001,
+        0.005000000000000024,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.15
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "brass"
+    },
+    {
+      "id": "vertical-stem",
+      "geometry": "cylinder",
+      "position": [
+        0.09500000000000001,
+        0.12900000000000003,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.248
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "brass"
+    },
+    {
+      "id": "inclined-balancing-stem",
+      "geometry": "cylinder",
+      "position": [
+        0.04500000000000001,
+        0.3155,
+        0
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.16007810593582122
+      ],
+      "rotation": [
+        0,
+        0,
+        0.6747409422235529
+      ],
+      "material": "brass"
+    },
+    {
+      "id": "opal-glass-sphere",
+      "geometry": "ellipsoid",
+      "position": [
+        -0.0049999999999999906,
+        0.15500000000000003,
+        0
+      ],
+      "size": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "material": "opalGlass"
+    }
+  ],
+  "purchaseUrl": "https://flos.com/en/wo/ic-lights-t1-low-brass-halogen/F3171059.html",
+  "variantId": "expansion-c091",
+  "furnitureTypeCode": "MOOD_LAMP",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "REST",
+    "HOBBY_LEISURE"
+  ]
+}

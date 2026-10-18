@@ -1,3 +1,4 @@
+import expansionTargets from "../data/furniture/expansionThemeTargets.json";
 import type { ThemeTarget, ThemeColorSlot } from "./furnitureBehaviorPolicy";
 
 type Role = "primary0" | "primary1" | "secondary0" | "secondary1" | "accent0" | "accent1" | "neutral0" | "neutral1" | "wood0" | "wood1" | "preserve";
@@ -9,6 +10,7 @@ function roles(groups: Partial<Record<Role, readonly string[]>>): Readonly<Recor
 }
 
 export const FURNITURE_THEME_TARGETS: Readonly<Record<string, Readonly<Record<string, ThemeTarget>>>> = {
+  ...(expansionTargets as Record<string,Record<string,ThemeTarget>>),
   "bed-classic-idanaes": roles({
     wood1: ["leg-left-head", "leg-right-head", "leg-left-foot", "leg-right-foot", "tuft-left-upper", "tuft-center-upper", "tuft-right-upper", "tuft-left-lower", "tuft-center-lower", "tuft-right-lower"],
     primary1: ["side-rail-left", "side-rail-right", "foot-rail", "pillow-left"],

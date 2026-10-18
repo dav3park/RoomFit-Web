@@ -1,5 +1,7 @@
+import { resolveFurnitureInstallations,supportFor } from '../geometry/furnitureInstallation';
+import { placementPolicy } from '../config/furniturePlacementPolicy';
 import type { Furniture, Opening, RoomLayout, Vector2D } from '../types';
-import { calculateRotatedFootprint, resolveFurnitureLocalFootprint } from '../components/room/furnitureBoundary';
+import { calculateRotatedFootprint, isFurnitureInsideRoom, resolveFurnitureLocalFootprint } from '../components/room/furnitureBoundary';
 import { normalizeCanonicalFurnitureType } from '../config/canonicalFurnitureType';
 import { clearanceZonesWorld } from '../geometry/clearance';
 import { obbOverlap, worldCorners } from '../geometry/obb';
@@ -35,20 +37,25 @@ function supported(a: PreparedFurniture, b: PreparedFurniture) {
   }
   return false;
 }
-export function createPlacementCheck(room: RoomLayout) {
+export function createPlacementCheck(room: RoomLayout, installationScope?: readonly Furniture[]) {
   const swings=room.doors.map(door=>demoDoorSwing(room,door)).filter(points=>points.length>2);
   return (entry: PreparedFurniture, placed: readonly PreparedFurniture[]): boolean => {
     const item=entry.item;
+    const installations=resolveFurnitureInstallations(room,installationScope??[...placed.map(other=>other.item),item]);
+    if(!installations.get(item.id)?.valid)return false;
     if (Object.values(item.dimensions).some(value=>!Number.isFinite(value)||value<=0) || item.dimensions.height>(room.height ?? 3)) return false;
-    if (entry.type==='curtain_blind') return room.windows.length>0;
-    if (demoPlacementReason(room,item)) return false;
-    if (blockedWindows(room, entry, placed).length) return false;
+    if(entry.type==='curtain_blind'){
+      if(!isFurnitureInsideRoom(room,item.dimensions,item.position,-item.rotationY,resolveFurnitureLocalFootprint(item)))return false;
+    }else if (demoPlacementReason(room,item)) return false;
+    if (blockedWindows(room, entry, installationScope?installationScope.filter(other=>other.id!==item.id).map(prepareFurniture):placed).length) return false;
     if (entry.type!=='rug' && swings.some(swing=>obbOverlap(swing,entry.body))) return false;
-    if (entry.openings.some(zone=>zone.some(point=>!demoFloorContains(room,point))
+    if (placementPolicy(item).installation!=='WALL'&&entry.openings.some(zone=>zone.some(point=>!demoFloorContains(room,point))
       ||crossesRoomWall(room,zone)||swings.some(swing=>obbOverlap(swing,zone)))) return false;
     for(const other of placed) {
-      if(entry.type==='rug'||other.type==='rug'||other.type==='curtain_blind') continue;
-      const exempt=supported(entry,other)||supported(other,entry);
+      if(entry.type==='rug'||other.type==='rug') continue;
+      const a=installations.get(item.id)!,b=installations.get(other.item.id)!;
+      if(a.minY>=b.maxY-1e-6||b.minY>=a.maxY-1e-6)continue;
+      const exempt=supported(entry,other)||supported(other,entry)||supportFor(item,[other.item])?.id===other.item.id||supportFor(other.item,[item])?.id===item.id;
       if(!exempt&&obbOverlap(entry.body,other.body)) return false;
       if(entry.openings.some(zone=>obbOverlap(zone,other.body))||other.openings.some(zone=>obbOverlap(zone,entry.body))) return false;
     }
@@ -62,7 +69,7 @@ export function blockedWindows(room: RoomLayout, entry: PreparedFurniture, place
   // The legacy bed renderer's headboard extends above its scan height.
   const height=entry.type==='bed'&&!entry.item.variantId&&entry.item.theme!=='gray'
     ? entry.item.dimensions.height*(entry.item.theme==='wood'?1.55:1.5) : entry.item.dimensions.height;
-  let bottom=entry.item.mountHeight??0;
+  let bottom=resolveFurnitureInstallations(room,[...((placed?.map(p=>p.item)??room.furniture).filter(item=>item.id!==entry.item.id)),entry.item]).get(entry.item.id)?.minY??entry.item.mountHeight??0;
   if(['monitor','tv'].includes(entry.type)) {
     const supports=placed??room.furniture.filter(item=>item.id!==entry.item.id).map(prepareFurniture);
     for(const other of supports) if(supported(entry,other)) bottom=Math.max(bottom,other.item.dimensions.height);
@@ -132,7 +139,7 @@ export function validateCirculation(room: RoomLayout, grid?: CirculationGrid): L
   if(!Number.isFinite(room.width)||!Number.isFinite(room.depth)||room.width<=0||room.depth<=0) return {valid:false,reasons:['방 치수가 올바르지 않습니다.'],warnings,freeArea:0,reachableCount:0};
   const {step,radius,cols,rows,points,floor}=grid??createCirculationGrid(room);
   const entries=room.furniture.filter(item=>item.status!=='deleted').map(prepareFurniture);
-  const physical=entries.filter(entry=>entry.type!=='rug'&&entry.type!=='curtain_blind'&&!entries.some(other=>supported(entry,other)&&['monitor','tv'].includes(entry.type)));
+  const physical=entries.filter(entry=>placementPolicy(entry.item).installation!=='SUPPORT'&&!(placementPolicy(entry.item).installation==='WALL'&&(placementPolicy(entry.item).mountBottom??0)>=1.9)&&entry.type!=='rug'&&entry.type!=='curtain_blind'&&!entries.some(other=>supported(entry,other)&&['monitor','tv'].includes(entry.type)));
   const free=new Uint8Array(floor.length), visited=new Uint8Array(free.length);
   const point=(id:number)=>points[id];
   let freeCount=0;
@@ -189,8 +196,10 @@ export function validateCirculation(room: RoomLayout, grid?: CirculationGrid): L
   return {valid:reasons.length===0,reasons,warnings,freeArea:freeCount*step*step,reachableCount};
 }
 export function validateRecommendationLayout(room: RoomLayout, grid?: CirculationGrid): LayoutValidation {
-  const check=createPlacementCheck(room),placed:PreparedFurniture[]=[],reasons:string[]=[];
+  const check=createPlacementCheck(room,room.furniture),placed:PreparedFurniture[]=[],reasons:string[]=[];
+  const installations=resolveFurnitureInstallations(room,room.furniture);
   for(const item of room.furniture.filter(item=>item.status!=='deleted')) {
+    const installation=installations.get(item.id);if(!installation?.valid)reasons.push(`${item.name}: ${installation?.reason??'설치 조건을 확인해 주세요.'}`);
     const entry=prepareFurniture(item);
     for (const window of blockedWindows(room,entry)) reasons.push(`${item.name}: ${window.label} 앞의 채광 공간을 가립니다.`);
     if(!check(entry,placed)) reasons.push(`${item.name}: 본체 충돌·경계·문 또는 수납 개폐 공간을 확인해 주세요.`);

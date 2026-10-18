@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "1.0",
+  "name": "후면 칸막이 홈데스크",
+  "furnitureType": "책상",
+  "variant": "후면 칸막이 홈데스크",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.99,
+    "depth": 0.7204999999999999,
+    "height": 0.8728036526347738
+  },
+  "materials": [
+    "paintedWhite",
+    "chrome",
+    "woodLight",
+    "woodDark",
+    "mustardPaint",
+    "orangeFabricDark"
+  ],
+  "parts": [
+    {
+      "id": "writing-top",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.6928036526347738,
+        0.02375
+      ],
+      "size": [
+        0.99,
+        0.025,
+        0.6729999999999999
+      ],
+      "material": "paintedWhite",
+      "radius": 0.01225,
+      "smoothness": 5
+    },
+    {
+      "id": "front-leg--0.405",
+      "geometry": "cylinder",
+      "position": [
+        -0.4293,
+        0.3428036526347739,
+        0.23875
+      ],
+      "size": [
+        0.013,
+        0.013,
+        0.6890297235968851
+      ],
+      "rotation": [
+        -0.14564794650257795,
+        0.005152136446987077,
+        -0.07059352201726701
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "rear-leg--0.405",
+      "geometry": "cylinder",
+      "position": [
+        -0.4293,
+        0.3428036526347739,
+        -0.24125
+      ],
+      "size": [
+        0.013,
+        0.013,
+        0.6890297235968851
+      ],
+      "rotation": [
+        0.14564794650257795,
+        -0.005152136446987077,
+        -0.07059352201726701
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "cross--0.405",
+      "geometry": "cylinder",
+      "position": [
+        -0.405,
+        0.6828036526347738,
+        -0.0012500000000000011
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.38
+      ],
+      "rotation": [
+        -1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "front-leg-0.405",
+      "geometry": "cylinder",
+      "position": [
+        0.4293,
+        0.3428036526347739,
+        0.23875
+      ],
+      "size": [
+        0.013,
+        0.013,
+        0.6890297235968851
+      ],
+      "rotation": [
+        -0.14564794650257795,
+        -0.005152136446987077,
+        0.07059352201726701
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "rear-leg-0.405",
+      "geometry": "cylinder",
+      "position": [
+        0.4293,
+        0.3428036526347739,
+        -0.24125
+      ],
+      "size": [
+        0.013,
+        0.013,
+        0.6890297235968851
+      ],
+      "rotation": [
+        0.14564794650257795,
+        0.005152136446987077,
+        0.07059352201726701
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "cross-0.405",
+      "geometry": "cylinder",
+      "position": [
+        0.405,
+        0.6828036526347738,
+        -0.0012500000000000011
+      ],
+      "size": [
+        0.012,
+        0.012,
+        0.38
+      ],
+      "rotation": [
+        -1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "chrome"
+    },
+    {
+      "id": "rear-pigeonhole-base",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.733803652634774,
+        -0.24125
+      ],
+      "size": [
+        0.99,
+        0.055,
+        0.23
+      ],
+      "material": "woodLight",
+      "radius": 0.007,
+      "smoothness": 5
+    },
+    {
+      "id": "rear-panel",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.8078036526347738,
+        -0.35124999999999995
+      ],
+      "size": [
+        0.99,
+        0.13,
+        0.018
+      ],
+      "material": "woodDark",
+      "radius": 0.004,
+      "smoothness": 5
+    },
+    {
+      "id": "cubicle-side--0.48",
+      "geometry": "roundedBox",
+      "position": [
+        -0.48,
+        0.8078036526347738,
+        -0.24125
+      ],
+      "size": [
+        0.018,
+        0.13,
+        0.23
+      ],
+      "material": "woodDark",
+      "radius": 0.004,
+      "smoothness": 5
+    },
+    {
+      "id": "cubicle-side--0.19",
+      "geometry": "roundedBox",
+      "position": [
+        -0.19,
+        0.8078036526347738,
+        -0.24125
+      ],
+      "size": [
+        0.018,
+        0.13,
+        0.23
+      ],
+      "material": "woodDark",
+      "radius": 0.004,
+      "smoothness": 5
+    },
+    {
+      "id": "cubicle-side-0.17",
+      "geometry": "roundedBox",
+      "position": [
+        0.17,
+        0.8078036526347738,
+        -0.24125
+      ],
+      "size": [
+        0.018,
+        0.13,
+        0.23
+      ],
+      "material": "woodDark",
+      "radius": 0.004,
+      "smoothness": 5
+    },
+    {
+      "id": "cubicle-side-0.48",
+      "geometry": "roundedBox",
+      "position": [
+        0.48,
+        0.8078036526347738,
+        -0.24125
+      ],
+      "size": [
+        0.018,
+        0.13,
+        0.23
+      ],
+      "material": "woodDark",
+      "radius": 0.004,
+      "smoothness": 5
+    },
+    {
+      "id": "ochre-front-inset",
+      "geometry": "box",
+      "position": [
+        -0.33,
+        0.7828036526347739,
+        -0.11925
+      ],
+      "size": [
+        0.27,
+        0.04,
+        0.012
+      ],
+      "material": "mustardPaint"
+    },
+    {
+      "id": "red-front-inset",
+      "geometry": "box",
+      "position": [
+        0.33,
+        0.797803652634774,
+        -0.11925
+      ],
+      "size": [
+        0.28,
+        0.075,
+        0.012
+      ],
+      "material": "orangeFabricDark"
+    }
+  ],
+  "purchaseUrl": "https://www.vitra.com/nl-nl/product/category/desks",
+  "variantId": "expansion-c002",
+  "furnitureTypeCode": "DESK",
+  "styleTags": [
+    "midcentury",
+    "modern"
+  ],
+  "lifestyleTags": [
+    "WORK_STUDY"
+  ]
+}

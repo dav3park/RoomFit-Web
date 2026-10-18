@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "1.0",
+  "name": "비대칭 사선 다리 책상",
+  "furnitureType": "책상",
+  "variant": "비대칭 사선 다리 책상",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.3,
+    "depth": 0.65,
+    "height": 0.732983082362842
+  },
+  "materials": [
+    "woodLight"
+  ],
+  "parts": [
+    {
+      "id": "linoleum-top",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.720983082362842,
+        0
+      ],
+      "size": [
+        1.3,
+        0.024,
+        0.65
+      ],
+      "material": "woodLight",
+      "radius": 0.01176,
+      "smoothness": 5
+    },
+    {
+      "id": "slanted-front--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.505,
+        0.35948308236284204,
+        0.25
+      ],
+      "size": [
+        0.045,
+        0.7140791272681201,
+        0.045
+      ],
+      "material": "woodLight",
+      "radius": 0.00675,
+      "smoothness": 5,
+      "rotation": [
+        -0.05604653197711837,
+        0.005954648225849601,
+        -0.21164090915441366
+      ]
+    },
+    {
+      "id": "slanted-back--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.505,
+        0.35948308236284204,
+        -0.185
+      ],
+      "size": [
+        0.045,
+        0.7329454277093213,
+        0.055
+      ],
+      "material": "woodLight",
+      "radius": 0.00675,
+      "smoothness": 5,
+      "rotation": [
+        0.2341430984099238,
+        -0.02433279147953232,
+        -0.20617182676733578
+      ]
+    },
+    {
+      "id": "rail--1",
+      "geometry": "roundedBox",
+      "position": [
+        -0.43,
+        0.686983082362842,
+        0.05
+      ],
+      "size": [
+        0.055,
+        0.065,
+        0.45
+      ],
+      "material": "woodLight",
+      "radius": 0.005,
+      "smoothness": 5
+    },
+    {
+      "id": "slanted-front-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.505,
+        0.35948308236284204,
+        0.25
+      ],
+      "size": [
+        0.045,
+        0.7140791272681201,
+        0.045
+      ],
+      "material": "woodLight",
+      "radius": 0.00675,
+      "smoothness": 5,
+      "rotation": [
+        -0.05604653197711837,
+        -0.005954648225849601,
+        0.21164090915441366
+      ]
+    },
+    {
+      "id": "slanted-back-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.505,
+        0.35948308236284204,
+        -0.185
+      ],
+      "size": [
+        0.045,
+        0.7329454277093213,
+        0.055
+      ],
+      "material": "woodLight",
+      "radius": 0.00675,
+      "smoothness": 5,
+      "rotation": [
+        0.2341430984099238,
+        0.02433279147953232,
+        0.20617182676733578
+      ]
+    },
+    {
+      "id": "rail-1",
+      "geometry": "roundedBox",
+      "position": [
+        0.43,
+        0.686983082362842,
+        0.05
+      ],
+      "size": [
+        0.055,
+        0.065,
+        0.45
+      ],
+      "material": "woodLight",
+      "radius": 0.005,
+      "smoothness": 5
+    },
+    {
+      "id": "rear-stretcher",
+      "geometry": "roundedBox",
+      "position": [
+        0,
+        0.6729830823628421,
+        -0.1
+      ],
+      "size": [
+        0.9,
+        0.07,
+        0.045
+      ],
+      "material": "woodLight",
+      "radius": 0.006,
+      "smoothness": 5
+    }
+  ],
+  "purchaseUrl": "https://www.hay.com/products/furniture/tables/desks",
+  "variantId": "expansion-c005",
+  "furnitureTypeCode": "DESK",
+  "styleTags": [
+    "natural",
+    "minimal"
+  ],
+  "lifestyleTags": [
+    "WORK_STUDY"
+  ]
+}

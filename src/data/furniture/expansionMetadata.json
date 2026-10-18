@@ -1,0 +1,1176 @@
+{
+  "C001": {
+    "variantId": "expansion-c001",
+    "furnitureTypeCode": "DESK",
+    "styleTags": [
+      "minimal",
+      "modern",
+      "midcentury"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C002": {
+    "variantId": "expansion-c002",
+    "furnitureTypeCode": "DESK",
+    "styleTags": [
+      "midcentury",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C003": {
+    "variantId": "expansion-c003",
+    "furnitureTypeCode": "DESK",
+    "styleTags": [
+      "minimal",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C004": {
+    "variantId": "expansion-c004",
+    "furnitureTypeCode": "DESK",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C005": {
+    "variantId": "expansion-c005",
+    "furnitureTypeCode": "DESK",
+    "styleTags": [
+      "natural",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C006": {
+    "variantId": "expansion-c006",
+    "furnitureTypeCode": "DESK",
+    "styleTags": [
+      "natural",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C007": {
+    "variantId": "expansion-c007",
+    "furnitureTypeCode": "DESK",
+    "styleTags": [
+      "midcentury",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C008": {
+    "variantId": "expansion-c008",
+    "furnitureTypeCode": "DESK",
+    "styleTags": [
+      "natural",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C009": {
+    "variantId": "expansion-c009",
+    "furnitureTypeCode": "BED",
+    "styleTags": [
+      "natural",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C010": {
+    "variantId": "expansion-c010",
+    "furnitureTypeCode": "BED",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C011": {
+    "variantId": "expansion-c011",
+    "furnitureTypeCode": "BED",
+    "styleTags": [
+      "natural",
+      "classic"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C012": {
+    "variantId": "expansion-c012",
+    "furnitureTypeCode": "BED",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C013": {
+    "variantId": "expansion-c013",
+    "furnitureTypeCode": "BED",
+    "styleTags": [
+      "natural",
+      "classic"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C014": {
+    "variantId": "expansion-c014",
+    "furnitureTypeCode": "BED",
+    "styleTags": [
+      "natural",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C015": {
+    "variantId": "expansion-c015",
+    "furnitureTypeCode": "SOFA_BED",
+    "styleTags": [
+      "minimal",
+      "natural"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C016": {
+    "variantId": "expansion-c016",
+    "furnitureTypeCode": "SOFA_BED",
+    "styleTags": [
+      "natural",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C017": {
+    "variantId": "expansion-c017",
+    "furnitureTypeCode": "SOFA_BED",
+    "styleTags": [
+      "minimal",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C018": {
+    "variantId": "expansion-c018",
+    "furnitureTypeCode": "SOFA_BED",
+    "styleTags": [
+      "minimal",
+      "natural"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C019": {
+    "variantId": "expansion-c019",
+    "furnitureTypeCode": "SOFA_BED",
+    "styleTags": [
+      "natural",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C020": {
+    "variantId": "expansion-c020",
+    "furnitureTypeCode": "NIGHTSTAND",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C021": {
+    "variantId": "expansion-c021",
+    "furnitureTypeCode": "NIGHTSTAND",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C022": {
+    "variantId": "expansion-c022",
+    "furnitureTypeCode": "NIGHTSTAND",
+    "styleTags": [
+      "minimal",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C023": {
+    "variantId": "expansion-c023",
+    "furnitureTypeCode": "NIGHTSTAND",
+    "styleTags": [
+      "midcentury",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C024": {
+    "variantId": "expansion-c024",
+    "furnitureTypeCode": "NIGHTSTAND",
+    "styleTags": [
+      "minimal",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C025": {
+    "variantId": "expansion-c025",
+    "furnitureTypeCode": "DESK_CHAIR",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C026": {
+    "variantId": "expansion-c026",
+    "furnitureTypeCode": "DESK_CHAIR",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C027": {
+    "variantId": "expansion-c027",
+    "furnitureTypeCode": "DESK_CHAIR",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C028": {
+    "variantId": "expansion-c028",
+    "furnitureTypeCode": "DESK_CHAIR",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C029": {
+    "variantId": "expansion-c029",
+    "furnitureTypeCode": "DESK_CHAIR",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C030": {
+    "variantId": "expansion-c030",
+    "furnitureTypeCode": "DESK_CHAIR",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C031": {
+    "variantId": "expansion-c031",
+    "furnitureTypeCode": "DESK_CHAIR",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C032": {
+    "variantId": "expansion-c032",
+    "furnitureTypeCode": "DESK_CHAIR",
+    "styleTags": [
+      "midcentury",
+      "classic"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C033": {
+    "variantId": "expansion-c033",
+    "furnitureTypeCode": "DESK_CHAIR",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C034": {
+    "variantId": "expansion-c034",
+    "furnitureTypeCode": "DESK_CHAIR",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "WORK_STUDY"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C035": {
+    "variantId": "expansion-c035",
+    "furnitureTypeCode": "BOOKSHELF",
+    "styleTags": [
+      "natural"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C036": {
+    "variantId": "expansion-c036",
+    "furnitureTypeCode": "BOOKSHELF",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C037": {
+    "variantId": "expansion-c037",
+    "furnitureTypeCode": "BOOKSHELF",
+    "styleTags": [
+      "minimal",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C038": {
+    "variantId": "expansion-c038",
+    "furnitureTypeCode": "BOOKSHELF",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C039": {
+    "variantId": "expansion-c039",
+    "furnitureTypeCode": "BOOKSHELF",
+    "styleTags": [
+      "minimal",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C040": {
+    "variantId": "expansion-c040",
+    "furnitureTypeCode": "BOOKSHELF",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C041": {
+    "variantId": "expansion-c041",
+    "furnitureTypeCode": "BOOKSHELF",
+    "styleTags": [
+      "natural",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C042": {
+    "variantId": "expansion-c042",
+    "furnitureTypeCode": "BOOKSHELF",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C043": {
+    "variantId": "expansion-c043",
+    "furnitureTypeCode": "BOOKSHELF",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C044": {
+    "variantId": "expansion-c044",
+    "furnitureTypeCode": "WARDROBE",
+    "styleTags": [
+      "natural",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C045": {
+    "variantId": "expansion-c045",
+    "furnitureTypeCode": "WARDROBE",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C046": {
+    "variantId": "expansion-c046",
+    "furnitureTypeCode": "DRAWER_CHEST",
+    "styleTags": [
+      "classic",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C047": {
+    "variantId": "expansion-c047",
+    "furnitureTypeCode": "DRAWER_CHEST",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C048": {
+    "variantId": "expansion-c048",
+    "furnitureTypeCode": "DRAWER_CHEST",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C049": {
+    "variantId": "expansion-c049",
+    "furnitureTypeCode": "DRAWER_CHEST",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C050": {
+    "variantId": "expansion-c050",
+    "furnitureTypeCode": "HANGER",
+    "styleTags": [
+      "natural",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C051": {
+    "variantId": "expansion-c051",
+    "furnitureTypeCode": "HANGER",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C052": {
+    "variantId": "expansion-c052",
+    "furnitureTypeCode": "HANGER",
+    "styleTags": [
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C053": {
+    "variantId": "expansion-c053",
+    "furnitureTypeCode": "HANGER",
+    "styleTags": [
+      "natural"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C054": {
+    "variantId": "expansion-c054",
+    "furnitureTypeCode": "SOFA",
+    "styleTags": [
+      "natural"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C055": {
+    "variantId": "expansion-c055",
+    "furnitureTypeCode": "SOFA",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C056": {
+    "variantId": "expansion-c056",
+    "furnitureTypeCode": "SOFA",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C057": {
+    "variantId": "expansion-c057",
+    "furnitureTypeCode": "SOFA",
+    "styleTags": [
+      "natural"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C058": {
+    "variantId": "expansion-c058",
+    "furnitureTypeCode": "SOFA",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C059": {
+    "variantId": "expansion-c059",
+    "furnitureTypeCode": "SOFA",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C060": {
+    "variantId": "expansion-c060",
+    "furnitureTypeCode": "SOFA",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C061": {
+    "variantId": "expansion-c061",
+    "furnitureTypeCode": "SOFA",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C062": {
+    "variantId": "expansion-c062",
+    "furnitureTypeCode": "SIDE_TABLE",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C063": {
+    "variantId": "expansion-c063",
+    "furnitureTypeCode": "SIDE_TABLE",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C064": {
+    "variantId": "expansion-c064",
+    "furnitureTypeCode": "SIDE_TABLE",
+    "styleTags": [
+      "natural",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C065": {
+    "variantId": "expansion-c065",
+    "furnitureTypeCode": "SIDE_TABLE",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C066": {
+    "variantId": "expansion-c066",
+    "furnitureTypeCode": "SIDE_TABLE",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C067": {
+    "variantId": "expansion-c067",
+    "furnitureTypeCode": "SIDE_TABLE",
+    "styleTags": [
+      "natural"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C068": {
+    "variantId": "expansion-c068",
+    "furnitureTypeCode": "SIDE_TABLE",
+    "styleTags": [
+      "modern",
+      "midcentury"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C069": {
+    "variantId": "expansion-c069",
+    "furnitureTypeCode": "SIDE_TABLE",
+    "styleTags": [
+      "natural"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C070": {
+    "variantId": "expansion-c070",
+    "furnitureTypeCode": "MEDIA_CONSOLE",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C071": {
+    "variantId": "expansion-c071",
+    "furnitureTypeCode": "MEDIA_CONSOLE",
+    "styleTags": [
+      "natural",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C072": {
+    "variantId": "expansion-c072",
+    "furnitureTypeCode": "MEDIA_CONSOLE",
+    "styleTags": [
+      "modern",
+      "natural"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C073": {
+    "variantId": "expansion-c073",
+    "furnitureTypeCode": "MEDIA_CONSOLE",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C074": {
+    "variantId": "expansion-c074",
+    "furnitureTypeCode": "MULTI_TABLE",
+    "styleTags": [
+      "minimal",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C075": {
+    "variantId": "expansion-c075",
+    "furnitureTypeCode": "MULTI_TABLE",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C076": {
+    "variantId": "expansion-c076",
+    "furnitureTypeCode": "MULTI_TABLE",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C077": {
+    "variantId": "expansion-c077",
+    "furnitureTypeCode": "MULTI_TABLE",
+    "styleTags": [
+      "minimal",
+      "natural"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C078": {
+    "variantId": "expansion-c078",
+    "furnitureTypeCode": "MULTI_TABLE",
+    "styleTags": [
+      "natural"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C079": {
+    "variantId": "expansion-c079",
+    "furnitureTypeCode": "MULTI_TABLE",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C080": {
+    "variantId": "expansion-c080",
+    "furnitureTypeCode": "MULTI_TABLE",
+    "styleTags": [
+      "natural",
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C081": {
+    "variantId": "expansion-c081",
+    "furnitureTypeCode": "PARTITION_SHELF",
+    "styleTags": [
+      "natural"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C082": {
+    "variantId": "expansion-c082",
+    "furnitureTypeCode": "PARTITION_SHELF",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C083": {
+    "variantId": "expansion-c083",
+    "furnitureTypeCode": "PARTITION_SHELF",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "STORAGE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C084": {
+    "variantId": "expansion-c084",
+    "furnitureTypeCode": "FULL_LENGTH_MIRROR",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C085": {
+    "variantId": "expansion-c085",
+    "furnitureTypeCode": "FULL_LENGTH_MIRROR",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C086": {
+    "variantId": "expansion-c086",
+    "furnitureTypeCode": "FULL_LENGTH_MIRROR",
+    "styleTags": [
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C087": {
+    "variantId": "expansion-c087",
+    "furnitureTypeCode": "FULL_LENGTH_MIRROR",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C088": {
+    "variantId": "expansion-c088",
+    "furnitureTypeCode": "MOOD_LAMP",
+    "styleTags": [
+      "midcentury"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C089": {
+    "variantId": "expansion-c089",
+    "furnitureTypeCode": "MOOD_LAMP",
+    "styleTags": [
+      "midcentury"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C090": {
+    "variantId": "expansion-c090",
+    "furnitureTypeCode": "MOOD_LAMP",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C091": {
+    "variantId": "expansion-c091",
+    "furnitureTypeCode": "MOOD_LAMP",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C092": {
+    "variantId": "expansion-c092",
+    "furnitureTypeCode": "MOOD_LAMP",
+    "styleTags": [
+      "classic",
+      "midcentury"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C093": {
+    "variantId": "expansion-c093",
+    "furnitureTypeCode": "MOOD_LAMP",
+    "styleTags": [
+      "midcentury"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C094": {
+    "variantId": "expansion-c094",
+    "furnitureTypeCode": "MOOD_LAMP",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C095": {
+    "variantId": "expansion-c095",
+    "furnitureTypeCode": "MOOD_LAMP",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C096": {
+    "variantId": "expansion-c096",
+    "furnitureTypeCode": "MOOD_LAMP",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C097": {
+    "variantId": "expansion-c097",
+    "furnitureTypeCode": "MOOD_LAMP",
+    "styleTags": [
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C098": {
+    "variantId": "expansion-c098",
+    "furnitureTypeCode": "PLANT",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C099": {
+    "variantId": "expansion-c099",
+    "furnitureTypeCode": "PLANT",
+    "styleTags": [
+      "modern"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  },
+  "C100": {
+    "variantId": "expansion-c100",
+    "furnitureTypeCode": "PLANT",
+    "styleTags": [
+      "modern",
+      "natural"
+    ],
+    "lifestyleTags": [
+      "REST",
+      "HOBBY_LEISURE"
+    ],
+    "tagBasis": "RoomFit curation from supplied shape/material; not a manufacturer style claim"
+  }
+}

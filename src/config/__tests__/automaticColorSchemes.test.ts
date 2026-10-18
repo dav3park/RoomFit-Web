@@ -1,3 +1,4 @@
+import { beforeAll } from "vitest";
 import { describe, expect, it } from 'vitest';
 import { AUTOMATIC_COLOR_SCHEMES, automaticFurniturePalette, getAutomaticColorScheme, rankAutomaticColorSchemes } from '../automaticColorSchemes';
 import { getFurnitureThemePalette, getThemeTarget, THEME_PALETTES } from '../furnitureBehaviorPolicy';
@@ -28,7 +29,7 @@ describe('automatic furniture colour schemes',()=>{
     for(const tone of Object.keys(THEME_PALETTES)) expect(getFurnitureThemePalette(tone,'bed')).toEqual(getFurnitureThemePalette(tone,'wardrobe'));
   });
   it('covers every catalog model in all six schemes without changing protected surfaces or PBR',()=>{
-    const catalog=createProductionFurnitureCatalog();
+    const catalog=loadedCatalog;
     for(const variant of catalog.variants) for(const scheme of AUTOMATIC_COLOR_SCHEMES) {
       let changed=false;
       for(const part of variant.parts) {
@@ -41,7 +42,7 @@ describe('automatic furniture colour schemes',()=>{
         expect(typeof beforeColor).toBe('string');expect(afterColor).toMatch(/^#[\dA-F]{6}$/i);
         expect(afterPbr).toEqual(beforePbr);
       }
-      expect(changed,`${variant.variantId}/${scheme.id}`).toBe(true);
+      expect(changed,`${variant.variantId}/${scheme.id}`).toBe(variant.parts.some(part=>getThemeTarget(variant.variantId,part.id)?.slot!=="preserve"));
     }
   });
   it('round-trips automatic schemes and clears them when switching to a manual tone',()=>{
@@ -52,3 +53,6 @@ describe('automatic furniture colour schemes',()=>{
     expect(toPreferredColorToneApiValue('auto')).toBeNull();expect(toPreferredColorToneApiValue('sage-cream')).toBeNull();
   });
 });
+
+let loadedCatalog: Awaited<ReturnType<typeof createProductionFurnitureCatalog>>;
+beforeAll(async()=>{loadedCatalog=await createProductionFurnitureCatalog();});

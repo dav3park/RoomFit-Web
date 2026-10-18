@@ -1,3 +1,4 @@
+import { assertSculptedFurniturePart } from "../src/geometry/sculptedFurnitureGeometry.mjs";
 import { createHash } from "node:crypto";
 import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -6,7 +7,7 @@ import { computeVariantVisualFootprint } from "./furnitureVisualFootprint.mjs";
 
 const WEB_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CATALOG_SCHEMA_VERSION = "1.0";
-const CATALOG_VERSION = "2026-07-18.2";
+const CATALOG_VERSION = "2026-10-18.1";
 const LEGACY_DESK_ORDER = [
   "desk-compact",
   "desk-storage",
@@ -85,6 +86,7 @@ const TYPE_ALIASES = Object.freeze({
 });
 
 const SUPPORTED_GEOMETRIES = new Set([
+  "mesh", "sweep", "profile",
   "box",
   "roundedBox",
   "cylinder",
@@ -101,6 +103,7 @@ const sourceRoot = path.resolve(WEB_ROOT, args.source ?? "src/data/furniture");
 const backendRoot = path.resolve(WEB_ROOT, args.backendRoot ?? "../RoomFit-Backend");
 const sourceVariants = await resolveVariantDirectory(sourceRoot);
 const sourceMaterials = path.join(sourceRoot, "materials.json");
+const placementMetadata=await readJson(path.join(WEB_ROOT,"src/data/furniture/placementMetadata.json"));
 
 const materialsDocument = await readJson(sourceMaterials);
 validateMaterials(materialsDocument);
@@ -128,6 +131,7 @@ const sortedDocuments = [...documents].sort(compareVariants);
 const sourceHash = createHash("sha256")
   .update(stableStringify({
     materials: materialsDocument,
+    placement: placementMetadata,
     variants: [...documents]
       .sort((left, right) => left.document.variantId.localeCompare(right.document.variantId))
       .map(({ document }) => document),
@@ -163,6 +167,7 @@ const catalog = {
       requiredClearance: { front, side },
       renderCapability: "VARIANT_JSON",
       variantPath: `variants/${fileName}`,
+      placement: {...placementMetadata.defaults[CANONICAL_TYPE_BY_CODE[document.furnitureTypeCode]], ...placementMetadata.overrides[document.variantId]},
     };
   }),
 };
@@ -221,13 +226,15 @@ function validateVariant(fileName, document, materialIds, variantIds, productIds
   if (typeof document.variantId !== "string" || document.variantId.length === 0) {
     throw new Error(`${fileName}: missing variantId`);
   }
-  if (!variantIds.add(document.variantId)) {
+  if (variantIds.has(document.variantId)) {
     throw new Error(`${fileName}: duplicate variantId ${document.variantId}`);
   }
+  variantIds.add(document.variantId);
   const productId = `${document.variantId}-01`;
-  if (!productIds.add(productId)) {
+  if (productIds.has(productId)) {
     throw new Error(`${fileName}: duplicate productId ${productId}`);
   }
+  productIds.add(productId);
   if (!Object.hasOwn(CANONICAL_TYPE_BY_CODE, document.furnitureTypeCode)) {
     throw new Error(`${fileName}: unsupported furnitureTypeCode ${document.furnitureTypeCode}`);
   }
@@ -250,12 +257,14 @@ function validateVariant(fileName, document, materialIds, variantIds, productIds
     if (!isRecord(part) || typeof part.id !== "string" || part.id.length === 0) {
       throw new Error(`${fileName}: invalid part id`);
     }
-    if (!partIds.add(part.id)) {
+    if (partIds.has(part.id)) {
       throw new Error(`${fileName}: duplicate part id ${part.id}`);
     }
+    partIds.add(part.id);
     if (!SUPPORTED_GEOMETRIES.has(part.geometry)) {
       throw new Error(`${fileName}: unsupported geometry ${part.geometry}`);
     }
+    if (["mesh", "sweep", "profile"].includes(part.geometry)) assertSculptedFurniturePart(part);
     if (!document.materials.includes(part.material) || !materialIds.has(part.material)) {
       throw new Error(`${fileName}: unresolved material ${part.material} in part ${part.id}`);
     }

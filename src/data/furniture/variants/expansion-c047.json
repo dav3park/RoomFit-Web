@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "1.0",
+  "name": "세로 이동 서랍장",
+  "furnitureType": "서랍장",
+  "variant": "세로 이동 서랍장",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 0.35400000000000004,
+    "depth": 0.443,
+    "height": 0.765
+  },
+  "materials": [
+    "metal",
+    "screenFrame",
+    "gentianBlueMetal"
+  ],
+  "parts": [
+    {
+      "id": "fork--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.145,
+        0.0625,
+        -0.1865
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.05499999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "wheel--1--1",
+      "geometry": "ellipsoid",
+      "position": [
+        -0.145,
+        0.035,
+        -0.1865
+      ],
+      "size": [
+        0.045,
+        0.07,
+        0.07
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "fork--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.145,
+        0.0625,
+        0.15350000000000003
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.05499999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "wheel--1-1",
+      "geometry": "ellipsoid",
+      "position": [
+        -0.145,
+        0.035,
+        0.15350000000000003
+      ],
+      "size": [
+        0.045,
+        0.07,
+        0.07
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "fork-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.145,
+        0.0625,
+        -0.1865
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.05499999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "wheel-1--1",
+      "geometry": "ellipsoid",
+      "position": [
+        0.145,
+        0.035,
+        -0.1865
+      ],
+      "size": [
+        0.045,
+        0.07,
+        0.07
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "fork-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.145,
+        0.0625,
+        0.15350000000000003
+      ],
+      "size": [
+        0.01,
+        0.01,
+        0.05499999999999999
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "wheel-1-1",
+      "geometry": "ellipsoid",
+      "position": [
+        0.145,
+        0.035,
+        0.15350000000000003
+      ],
+      "size": [
+        0.045,
+        0.07,
+        0.07
+      ],
+      "material": "screenFrame"
+    },
+    {
+      "id": "bottom",
+      "geometry": "box",
+      "position": [
+        0,
+        0.09,
+        -0.016499999999999987
+      ],
+      "size": [
+        0.354,
+        0.024,
+        0.4
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "tray-floor",
+      "geometry": "box",
+      "position": [
+        0,
+        0.63,
+        -0.016499999999999987
+      ],
+      "size": [
+        0.354,
+        0.019,
+        0.4
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "rear",
+      "geometry": "box",
+      "position": [
+        0,
+        0.425,
+        -0.2065
+      ],
+      "size": [
+        0.354,
+        0.68,
+        0.02
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "open-tray-side--0.167",
+      "geometry": "box",
+      "position": [
+        -0.167,
+        0.425,
+        -0.016499999999999987
+      ],
+      "size": [
+        0.02,
+        0.68,
+        0.4
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "open-tray-side-0.167",
+      "geometry": "box",
+      "position": [
+        0.167,
+        0.425,
+        -0.016499999999999987
+      ],
+      "size": [
+        0.02,
+        0.68,
+        0.4
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "lower-door",
+      "geometry": "box",
+      "position": [
+        0,
+        0.28,
+        0.1915
+      ],
+      "size": [
+        0.308,
+        0.34,
+        0.02
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "single-drawer",
+      "geometry": "box",
+      "position": [
+        0,
+        0.535,
+        0.1915
+      ],
+      "size": [
+        0.308,
+        0.15,
+        0.02
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "door-knob",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.37,
+        0.2125
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.017999999999999988
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    },
+    {
+      "id": "drawer-knob",
+      "geometry": "cylinder",
+      "position": [
+        0,
+        0.55,
+        0.2125
+      ],
+      "size": [
+        0.005,
+        0.005,
+        0.017999999999999988
+      ],
+      "rotation": [
+        1.5707963267948963,
+        0,
+        0
+      ],
+      "material": "gentianBlueMetal"
+    }
+  ],
+  "purchaseUrl": "https://www.montanafurniture.com/sv/serier/montana-selection",
+  "variantId": "expansion-c047",
+  "furnitureTypeCode": "DRAWER_CHEST",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

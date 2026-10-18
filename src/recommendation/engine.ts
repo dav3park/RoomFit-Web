@@ -1,3 +1,6 @@
+import { placementPolicy } from '../config/furniturePlacementPolicy';
+import { windowInstallationCandidates } from '../geometry/furnitureInstallation';
+import { rolePlacementCandidates,rolePlacementScore } from './rolePlacement';
 import type { ConsultationAudit } from './consultationAudit';
 import { isCanonicalFurnitureType } from '../config/canonicalFurnitureType';
 import catalog from '../data/furniture/catalog.json';
@@ -74,10 +77,8 @@ function sameSize(product:Product,item:Furniture) {
 }
 function candidates(slot:Slot,options:RecommendationOptions,attempt:number,random:()=>number) {
   if(options.mode==='rearrange'&&slot.original) return [{item:structuredClone(slot.original),score:0,warning:''}];
-  if(slot.type==='curtain_blind'&&slot.original) return [{item:structuredClone(slot.original),score:0,warning:`${slot.original.name}: 창에 설치된 가구는 기존 설치 위치와 상품을 유지합니다.`}];
   const products=catalog.products.filter(product=>product.furnitureType===slot.type
     && (!options.keepSizes||!slot.original||sameSize(product,slot.original))
-    && !product.variantId.includes('tabletop')
     && !(product.variantId==='bed-loft-desk'&&options.constraints?.excludedTypes.includes('desk')));
   const matchingStyle=products.filter(product=>product.styleTags.includes(options.style));
   const eligible=options.constraints?.strictStyle?matchingStyle:matchingStyle.length?matchingStyle:products;
@@ -85,7 +86,12 @@ function candidates(slot:Slot,options:RecommendationOptions,attempt:number,rando
   // Retain compact fallbacks from the same style pool for constrained rooms.
   const selected=[...sampleWeighted(eligible,4,product=>1+tagScore(product,options),random),
     ...eligible.slice().sort((a,b)=>a.dimensions.width*a.dimensions.depth-b.dimensions.width*b.dimensions.depth).slice(0,2)];
-  const unique=[...new Map(selected.map(product=>[product.productId,product])).values()];
+  const modes=new Set<string>();
+  for(const product of eligible.slice().sort((a,b)=>tagScore(b,options)-tagScore(a,options))) {
+    const mode=placementPolicy(productFurniture(product,'candidate')).installation;
+    if(!modes.has(mode)){modes.add(mode);selected.push(product);}
+  }
+  const unique=[...new Map(selected.map(product=>[product.productId,product])).values()].slice(0,8);
   if(unique.length>1&&options.mode==='preserve') { const shift=attempt%unique.length; unique.push(...unique.splice(0,shift)); }
   const result=unique.map(product=>({item:productFurniture(product,slot.id),score:tagScore(product,options),warning:product.styleTags.includes(options.style)?'':`${product.label}: 선택한 스타일과 완전히 일치하지 않습니다.`}));
   if(slot.original&&(!options.constraints?.strictStyle||slot.original.styleTags?.includes(options.style))) result.push({item:structuredClone(slot.original),score:(slot.original.styleTags?.includes(options.style)?3:0),warning:options.mode==='preserve'?`${slot.original.name}: 위치·크기 조건에 맞는 대체 상품 대신 기존 가구를 유지했습니다.`:!products.length?`${slot.original.name}: 같은 크기의 대체 상품이 없어 기존 가구를 유지합니다.`:''});
@@ -148,7 +154,7 @@ function satisfiesConstraints(room:RoomLayout,options:RecommendationOptions) {
 function positionScore(item:Furniture,placed:readonly PreparedFurniture[],room:RoomLayout,attempt:number) {
   const type=furnitureType(item),center=floorCentroid(room),local=resolveFurnitureLocalFootprint(item);
   const back=worldPosition(item,0,local.minZ),wall=nearestWall(room,back);
-  let score=-(wall?.distance??0)*(['bed','sofa_bed'].includes(type)?14:6);
+  let score=rolePlacementScore(room,item,placed.map(entry=>entry.item))-(wall?.distance??0)*(['bed','sofa_bed'].includes(type)?14:6);
   if(['bed','sofa_bed','sofa'].includes(type)&&wall) score+=wall.wall.id===room.walls[attempt%room.walls.length]?.id?18:0;
   const front=worldPosition(item,0,local.maxZ+.5);
   if(!demoFloorContains(room,front)) score-=20;
@@ -171,10 +177,13 @@ function positionScore(item:Furniture,placed:readonly PreparedFurniture[],room:R
   return score;
 }
 function poses(item:Furniture,placed:readonly PreparedFurniture[],room:RoomLayout,attempt:number) {
-  if(furnitureType(item)==='curtain_blind') return [item];
+  const policy=placementPolicy(item);
+  if(policy.installation==='WINDOW')return windowInstallationCandidates(room,item);
+  const roles=rolePlacementCandidates(room,item,placed.map(entry=>entry.item));
+  if(policy.installation==='SUPPORT')return roles;
   const supporters=placed.filter(entry=>entry.type===supportType[item.sourceType??'']);
   if(supporters.length) return supporters.map(entry=>({...item,position:{...entry.item.position},rotationY:entry.item.rotationY}));
-  const result:Furniture[]=[...relatedPoses(item,placed.map(entry=>entry.item)),...wallPoses(item,room)];
+  const result:Furniture[]=[...roles,...relatedPoses(item,placed.map(entry=>entry.item)),...wallPoses(item,room)];
   if(furnitureType(item)==='desk_chair'&&placed.some(entry=>entry.type==='desk')) return result.filter(pose=>functionalPlacement(pose,placed.map(entry=>entry.item)));
   for(let r=0;r<4;r++) {
     const rotationY=(r+attempt%4)%4*Math.PI/2;
@@ -199,6 +208,7 @@ function solve(room:RoomLayout,slots:Slot[],locked:Furniture[],options:Recommend
   let beam:PartialLayout[]=[{items:locked.map(prepareFurniture),score:0,tagScore:0,warnings:[]}];
   const ordered=slots.slice().sort((a,b)=>Number(a.type in supportType)-Number(b.type in supportType)
     || Number(a.type==='desk_chair')-Number(b.type==='desk_chair')||Number(b.required)-Number(a.required)
+    || Number(['mood_lamp','plant','partition_shelf','rug','nightstand','side_table'].includes(a.type))-Number(['mood_lamp','plant','partition_shelf','rug','nightstand','side_table'].includes(b.type))
     || priority(a.type)-priority(b.type));
   for(const slot of ordered) {
     const expanded:PartialLayout[]=[];
@@ -211,6 +221,7 @@ function solve(room:RoomLayout,slots:Slot[],locked:Furniture[],options:Recommend
         const scored=choices.map(item=>({item,score:positionScore(item,partial.items,room,attempt)})).sort((a,b)=>b.score-a.score);
         let accepted=0;const poseGroups=new Set<string>();
         for(const {item} of scored) {
+          if(options.keepSizes&&slot.original&&!(['width','depth','height'] as const).every(axis=>Math.abs(item.dimensions[axis]-slot.original!.dimensions[axis])<.001))continue;
           const entry=prepareFurniture(item);
           if(!check(entry,partial.items)||!functionalPlacement(item,partial.items.map(entry=>entry.item))) continue;
           const poseGroup=`${nearestWall(room,item.position)?.wall.id}:${Math.round(item.rotationY/(Math.PI/2))}:${Math.floor(item.position.x/1.2)},${Math.floor(item.position.z/1.2)}`;

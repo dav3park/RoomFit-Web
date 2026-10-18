@@ -1,0 +1,1413 @@
+[
+  {
+    "group": "text",
+    "attempt": 1,
+    "status": 200,
+    "elapsedMs": 8591,
+    "description": "식물이 많은 따뜻한 분위기에서 공부를 하고 싶어. 그래서 책상하고 책장도 필요해. 옷은 없어서 옷장은 필요 없어",
+    "revision": "42ef35f5-566c-471e-be2a-15ae2962fa3d",
+    "body": {
+      "success": true,
+      "data": {
+        "revision": "42ef35f5-566c-471e-be2a-15ae2962fa3d",
+        "source": "LLM",
+        "summary": "공부를 위한 책상과 책장을 두고, 식물이 많은 따뜻한 분위기를 내추럴 스타일로 제안합니다. 옷장은 제외합니다.",
+        "requirements": [
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "화분 3개(원룸 기준 제안)로 식물을 많이 두는 구성을 제안합니다.",
+            "source": "INFERENCE",
+            "evidence": "‘식물이 많은’ 요청을 원룸 기준 수량으로 제안합니다.",
+            "imageIndex": null,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "STYLE",
+            "value": "natural",
+            "description": "따뜻한 분위기를 내추럴 스타일로 해석합니다.",
+            "source": "INFERENCE",
+            "evidence": "따뜻한 분위기는 내추럴 스타일로 해석할 수 있습니다.",
+            "imageIndex": null,
+            "priority": "PREFERRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "PURPOSE",
+            "value": "업무 / 공부",
+            "description": "공부 목적을 반영합니다.",
+            "source": "USER_TEXT",
+            "evidence": "공부를 하고 싶어",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책상 1개가 필요합니다.",
+            "source": "USER_TEXT",
+            "evidence": "책상하고",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책장 1개가 필요합니다.",
+            "source": "USER_TEXT",
+            "evidence": "책장도 필요해",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "옷장은 제외합니다.",
+            "source": "USER_TEXT",
+            "evidence": "옷장은 필요 없어",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          }
+        ],
+        "questions": [],
+        "preparation": {
+          "revision": "42ef35f5-566c-471e-be2a-15ae2962fa3d",
+          "conditions": [
+            {
+              "id": "0",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "plant",
+                  "count": 3
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "1",
+              "effects": [
+                {
+                  "kind": "STYLE",
+                  "value": "natural",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "2",
+              "effects": [
+                {
+                  "kind": "PURPOSE",
+                  "value": "업무 / 공부",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "3",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "desk",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "4",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "bookshelf",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "5",
+              "effects": [
+                {
+                  "kind": "EXCLUDE_TYPE",
+                  "value": "wardrobe",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            }
+          ]
+        }
+      },
+      "error": null
+    }
+  },
+  {
+    "group": "text",
+    "attempt": 2,
+    "status": 200,
+    "elapsedMs": 8185,
+    "description": "식물이 많은 따뜻한 분위기에서 공부를 하고 싶어. 그래서 책상하고 책장도 필요해. 옷은 없어서 옷장은 필요 없어",
+    "revision": "be1b2a60-aed6-4e20-b60c-7d9ba9d0ee95",
+    "body": {
+      "success": true,
+      "data": {
+        "revision": "be1b2a60-aed6-4e20-b60c-7d9ba9d0ee95",
+        "source": "LLM",
+        "summary": "공부 목적의 내추럴 스타일 공간을 선호하며, 화분 3개(원룸 기준 제안), 책상 1개와 책장 1개를 요청하고 옷장은 제외합니다.",
+        "requirements": [
+          {
+            "kind": "PURPOSE",
+            "value": "업무 / 공부",
+            "description": "공부를 위한 공간을 원합니다.",
+            "source": "USER_TEXT",
+            "evidence": "공부를 하고 싶어",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "화분 3개(원룸 기준 제안)입니다.",
+            "source": "INFERENCE",
+            "evidence": "‘식물이 많은’ 요청을 원룸 기준 수량으로 제안합니다.",
+            "imageIndex": null,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "STYLE",
+            "value": "natural",
+            "description": "내추럴 스타일(따뜻한 분위기로 해석)입니다.",
+            "source": "INFERENCE",
+            "evidence": "‘따뜻한 분위기’를 내추럴 스타일 선호로 해석합니다.",
+            "imageIndex": null,
+            "priority": "PREFERRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책상 1개가 필요합니다.",
+            "source": "USER_TEXT",
+            "evidence": "책상하고",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책장 1개가 필요합니다.",
+            "source": "USER_TEXT",
+            "evidence": "책장도 필요해",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "옷장을 제외합니다.",
+            "source": "USER_TEXT",
+            "evidence": "옷장은 필요 없어",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          }
+        ],
+        "questions": [],
+        "preparation": {
+          "revision": "be1b2a60-aed6-4e20-b60c-7d9ba9d0ee95",
+          "conditions": [
+            {
+              "id": "0",
+              "effects": [
+                {
+                  "kind": "PURPOSE",
+                  "value": "업무 / 공부",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "1",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "plant",
+                  "count": 3
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "2",
+              "effects": [
+                {
+                  "kind": "STYLE",
+                  "value": "natural",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "3",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "desk",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "4",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "bookshelf",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "5",
+              "effects": [
+                {
+                  "kind": "EXCLUDE_TYPE",
+                  "value": "wardrobe",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            }
+          ]
+        }
+      },
+      "error": null
+    }
+  },
+  {
+    "group": "text",
+    "attempt": 3,
+    "status": 200,
+    "elapsedMs": 7314,
+    "description": "식물이 많은 따뜻한 분위기에서 공부를 하고 싶어. 그래서 책상하고 책장도 필요해. 옷은 없어서 옷장은 필요 없어",
+    "revision": "46a47ea0-761b-4033-9cc3-e14f668cab6c",
+    "body": {
+      "success": true,
+      "data": {
+        "revision": "46a47ea0-761b-4033-9cc3-e14f668cab6c",
+        "source": "LLM",
+        "summary": "공부 목적의 따뜻한 내추럴 분위기를 선호하며, 식물 3개(원룸 기준 제안), 책상 1개, 책장 1개를 제안하고 옷장은 제외합니다.",
+        "requirements": [
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "화분 3개(원룸 기준 제안)입니다.",
+            "source": "INFERENCE",
+            "evidence": "‘많은’ 식물 표현을 원룸 기준 수량으로 제안합니다.",
+            "imageIndex": null,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "STYLE",
+            "value": "natural",
+            "description": "내추럴 스타일(따뜻한 분위기로 해석)입니다.",
+            "source": "INFERENCE",
+            "evidence": "따뜻한 분위기를 내추럴 스타일 선호로 해석합니다.",
+            "imageIndex": null,
+            "priority": "PREFERRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "PURPOSE",
+            "value": "업무 / 공부",
+            "description": "공부 목적입니다.",
+            "source": "USER_TEXT",
+            "evidence": "공부를 하고 싶어",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책상 1개가 필요합니다.",
+            "source": "USER_TEXT",
+            "evidence": "책상하고",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책장 1개가 필요합니다.",
+            "source": "USER_TEXT",
+            "evidence": "책장도 필요해",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "옷장은 제외합니다.",
+            "source": "USER_TEXT",
+            "evidence": "옷장은 필요 없어",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          }
+        ],
+        "questions": [],
+        "preparation": {
+          "revision": "46a47ea0-761b-4033-9cc3-e14f668cab6c",
+          "conditions": [
+            {
+              "id": "0",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "plant",
+                  "count": 3
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "1",
+              "effects": [
+                {
+                  "kind": "STYLE",
+                  "value": "natural",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "2",
+              "effects": [
+                {
+                  "kind": "PURPOSE",
+                  "value": "업무 / 공부",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "3",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "desk",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "4",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "bookshelf",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "5",
+              "effects": [
+                {
+                  "kind": "EXCLUDE_TYPE",
+                  "value": "wardrobe",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            }
+          ]
+        }
+      },
+      "error": null
+    }
+  },
+  {
+    "group": "image",
+    "attempt": 1,
+    "status": 200,
+    "elapsedMs": 17623,
+    "description": "사진처럼 꾸며줘.",
+    "revision": "894c9a91-3b53-4a5c-b3d7-f4a3819d69b4",
+    "body": {
+      "success": true,
+      "data": {
+        "revision": "894c9a91-3b53-4a5c-b3d7-f4a3819d69b4",
+        "source": "LLM",
+        "summary": "참고 사진의 미니멀한 분위기와 베이지 색감, 침대·책상·책장·조명을 반영한 배치 제안입니다.",
+        "requirements": [
+          {
+            "kind": "STYLE",
+            "value": "minimal",
+            "description": "사진의 절제된 가구 배치에 가까운 미니멀 스타일입니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "밝은 벽과 단순한 가구 배치",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "PALETTE",
+            "value": "beige",
+            "description": "사진처럼 베이지와 밝은 목재가 어우러진 색감입니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "베이지색 벽과 밝은 나무 바닥",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "사진처럼 침대 1개를 두는 구성입니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "왼쪽의 침대",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "사진처럼 책상 1개를 두는 구성입니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "안쪽 벽 앞의 책상",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "사진처럼 책상 의자 1개를 두는 구성입니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "책상 앞의 회전 의자",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "사진처럼 커튼 1개를 두는 구성입니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "창가의 회색 커튼",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "사진처럼 책장 1개를 두는 구성입니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "오른쪽의 개방형 선반",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "사진처럼 무드 조명 1개를 두는 구성입니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "오른쪽의 스탠드 조명",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          }
+        ],
+        "questions": [],
+        "preparation": {
+          "revision": "894c9a91-3b53-4a5c-b3d7-f4a3819d69b4",
+          "conditions": [
+            {
+              "id": "0",
+              "effects": [
+                {
+                  "kind": "STYLE",
+                  "value": "minimal",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "1",
+              "effects": [
+                {
+                  "kind": "PALETTE",
+                  "value": "beige",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "2",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "bed",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "3",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "desk",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "4",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "desk_chair",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "5",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "curtain_blind",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "6",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "bookshelf",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "7",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "mood_lamp",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            }
+          ]
+        }
+      },
+      "error": null
+    }
+  },
+  {
+    "group": "image",
+    "attempt": 2,
+    "status": 200,
+    "elapsedMs": 20020,
+    "description": "사진처럼 꾸며줘.",
+    "revision": "7978a2bd-1b66-423f-a3a7-91cfde03ec53",
+    "body": {
+      "success": true,
+      "data": {
+        "revision": "7978a2bd-1b66-423f-a3a7-91cfde03ec53",
+        "source": "LLM",
+        "summary": "사진의 내추럴한 우드톤과 베이지 색감, 침대·책상 중심의 가구 구성을 선호사항으로 반영합니다.",
+        "requirements": [
+          {
+            "kind": "STYLE",
+            "value": "natural",
+            "description": "내추럴 스타일을 선호합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "원목 가구와 따뜻한 우드톤이 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "PALETTE",
+            "value": "beige",
+            "description": "베이지 팔레트를 선호합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "밝은 베이지와 우드톤 중심의 색감입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "침대 1개 구성을 선호합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "침대가 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책상 1개 구성을 선호합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "책상과 의자가 놓여 있습니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책상 의자 1개 구성을 선호합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "책상 앞에 의자가 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "커튼·블라인드 1개 구성을 선호합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "창가에 긴 커튼이 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책장 1개 구성을 선호합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "오픈형 선반이 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "무드 조명 1개 구성을 선호합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "바닥에 세워 둔 조명이 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "식물 1개 구성을 선호합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "낮은 탁자 위에 작은 식물이 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          }
+        ],
+        "questions": [],
+        "preparation": {
+          "revision": "7978a2bd-1b66-423f-a3a7-91cfde03ec53",
+          "conditions": [
+            {
+              "id": "0",
+              "effects": [
+                {
+                  "kind": "STYLE",
+                  "value": "natural",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "1",
+              "effects": [
+                {
+                  "kind": "PALETTE",
+                  "value": "beige",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "2",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "bed",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "3",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "desk",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "4",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "desk_chair",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "5",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "curtain_blind",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "6",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "bookshelf",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "7",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "mood_lamp",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "8",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "plant",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            }
+          ]
+        }
+      },
+      "error": null
+    }
+  },
+  {
+    "group": "image",
+    "attempt": 3,
+    "status": 200,
+    "elapsedMs": 11633,
+    "description": "사진처럼 꾸며줘.",
+    "revision": "3b65643a-3746-4b17-a4b4-1dbe257021da",
+    "body": {
+      "success": true,
+      "data": {
+        "revision": "3b65643a-3746-4b17-a4b4-1dbe257021da",
+        "source": "LLM",
+        "summary": "사진의 내추럴 스타일과 브라운 계열 색상, 침대·책상·책상의자·커튼·책장·무드등 구성을 참고합니다.",
+        "requirements": [
+          {
+            "kind": "STYLE",
+            "value": "natural",
+            "description": "내추럴 스타일을 참고합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "따뜻한 원목 바닥과 차분한 가구가 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "PALETTE",
+            "value": "brown",
+            "description": "브라운 계열 색상을 참고합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "원목 바닥과 브라운 가구가 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "침대 1개를 참고합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "사진에 침대가 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책상 1개를 참고합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "사진에 책상이 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책상의자 1개를 참고합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "사진에 책상의자가 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "커튼·블라인드 1개를 참고합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "사진에 바닥까지 내려오는 커튼이 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책장 1개를 참고합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "사진 오른쪽에 작은 선반장이 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "무드등 1개를 참고합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "사진 오른쪽에 바닥 조명이 보입니다.",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          }
+        ],
+        "questions": [],
+        "preparation": {
+          "revision": "3b65643a-3746-4b17-a4b4-1dbe257021da",
+          "conditions": [
+            {
+              "id": "0",
+              "effects": [
+                {
+                  "kind": "STYLE",
+                  "value": "natural",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "1",
+              "effects": [
+                {
+                  "kind": "PALETTE",
+                  "value": "brown",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "2",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "bed",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "3",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "desk",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "4",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "desk_chair",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "5",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "curtain_blind",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "6",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "bookshelf",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "7",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "mood_lamp",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            }
+          ]
+        }
+      },
+      "error": null
+    }
+  },
+  {
+    "group": "mixed",
+    "attempt": 1,
+    "status": 200,
+    "elapsedMs": 10520,
+    "description": "사진 같은 분위기로 꾸미되 책장 1개와 식물 2개를 넣어줘. 옷장은 제외해줘.",
+    "revision": "6b3fa6bd-5126-463f-b445-e1a6a2b2b287",
+    "body": {
+      "success": true,
+      "data": {
+        "revision": "6b3fa6bd-5126-463f-b445-e1a6a2b2b287",
+        "source": "LLM",
+        "summary": "참고 이미지의 차분한 원목 분위기를 반영하고 책장 1개와 식물 2개를 배치하며 옷장은 제외합니다.",
+        "requirements": [
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "참고 이미지의 원목과 차분한 중성색 분위기를 반영합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "밝은 벽, 원목 바닥과 절제된 가구",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책장 1개를 배치합니다.",
+            "source": "USER_TEXT",
+            "evidence": "책장 1개",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "식물 2개를 배치합니다.",
+            "source": "USER_TEXT",
+            "evidence": "식물 2개",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "옷장을 제외합니다.",
+            "source": "USER_TEXT",
+            "evidence": "옷장은 제외해줘",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          }
+        ],
+        "questions": [],
+        "preparation": {
+          "revision": "6b3fa6bd-5126-463f-b445-e1a6a2b2b287",
+          "conditions": [
+            {
+              "id": "0",
+              "effects": [
+                {
+                  "kind": "STYLE",
+                  "value": "natural",
+                  "count": 0
+                },
+                {
+                  "kind": "PALETTE",
+                  "value": "beige",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "1",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "bookshelf",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "2",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "plant",
+                  "count": 2
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "3",
+              "effects": [
+                {
+                  "kind": "EXCLUDE_TYPE",
+                  "value": "wardrobe",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            }
+          ]
+        }
+      },
+      "error": null
+    }
+  },
+  {
+    "group": "mixed",
+    "attempt": 2,
+    "status": 200,
+    "elapsedMs": 10706,
+    "description": "사진 같은 분위기로 꾸미되 책장 1개와 식물 2개를 넣어줘. 옷장은 제외해줘.",
+    "revision": "0299f066-8043-4e32-b6d0-c3bb588d0143",
+    "body": {
+      "success": true,
+      "data": {
+        "revision": "0299f066-8043-4e32-b6d0-c3bb588d0143",
+        "source": "LLM",
+        "summary": "사진의 따뜻하고 단정한 분위기를 참고하고, 책장 1개와 식물 2개를 배치하며 옷장은 제외합니다.",
+        "requirements": [
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "사진의 따뜻한 목재와 단정한 분위기를 반영한 내추럴 스타일과 브라운 계열 선호입니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "따뜻한 목재 바닥과 가구, 차분한 중성색의 실내",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책장 1개를 배치합니다.",
+            "source": "USER_TEXT",
+            "evidence": "책장 1개",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "식물 2개를 배치합니다.",
+            "source": "USER_TEXT",
+            "evidence": "식물 2개",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "옷장을 제외합니다.",
+            "source": "USER_TEXT",
+            "evidence": "옷장은 제외해줘",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          }
+        ],
+        "questions": [],
+        "preparation": {
+          "revision": "0299f066-8043-4e32-b6d0-c3bb588d0143",
+          "conditions": [
+            {
+              "id": "0",
+              "effects": [
+                {
+                  "kind": "STYLE",
+                  "value": "natural",
+                  "count": 0
+                },
+                {
+                  "kind": "PALETTE",
+                  "value": "brown",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "1",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "bookshelf",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "2",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "plant",
+                  "count": 2
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "3",
+              "effects": [
+                {
+                  "kind": "EXCLUDE_TYPE",
+                  "value": "wardrobe",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            }
+          ]
+        }
+      },
+      "error": null
+    }
+  },
+  {
+    "group": "mixed",
+    "attempt": 3,
+    "status": 200,
+    "elapsedMs": 13438,
+    "description": "사진 같은 분위기로 꾸미되 책장 1개와 식물 2개를 넣어줘. 옷장은 제외해줘.",
+    "revision": "e82ed08b-1f86-48d9-afc4-d7bc0797dcd2",
+    "body": {
+      "success": true,
+      "data": {
+        "revision": "e82ed08b-1f86-48d9-afc4-d7bc0797dcd2",
+        "source": "LLM",
+        "summary": "사진의 미니멀한 분위기와 베이지 팔레트를 참고하고, 책장 1개와 식물 2개를 배치하며 옷장은 제외합니다.",
+        "requirements": [
+          {
+            "kind": "STYLE",
+            "value": "minimal",
+            "description": "사진의 간결하고 정돈된 분위기를 참고하는 미니멀 스타일을 제안합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "간결하게 배치된 가구와 여백이 있는 실내",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "PALETTE",
+            "value": "beige",
+            "description": "사진의 따뜻한 원목과 중성색에 맞춰 베이지 팔레트를 제안합니다.",
+            "source": "REFERENCE_IMAGE",
+            "evidence": "밝은 원목 바닥과 베이지·회색 계열의 실내",
+            "imageIndex": 1,
+            "priority": "PREFERRED",
+            "support": "SUPPORTED"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "책장 1개를 배치합니다.",
+            "source": "USER_TEXT",
+            "evidence": "책장 1개",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "식물 2개를 배치합니다.",
+            "source": "USER_TEXT",
+            "evidence": "식물 2개",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          },
+          {
+            "kind": "OTHER",
+            "value": "",
+            "description": "옷장을 제외합니다.",
+            "source": "USER_TEXT",
+            "evidence": "옷장은 제외해줘",
+            "imageIndex": null,
+            "priority": "REQUIRED",
+            "support": "NEEDS_ENGINE_SUPPORT"
+          }
+        ],
+        "questions": [],
+        "preparation": {
+          "revision": "e82ed08b-1f86-48d9-afc4-d7bc0797dcd2",
+          "conditions": [
+            {
+              "id": "0",
+              "effects": [
+                {
+                  "kind": "STYLE",
+                  "value": "minimal",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "1",
+              "effects": [
+                {
+                  "kind": "PALETTE",
+                  "value": "beige",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "2",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "bookshelf",
+                  "count": 1
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "3",
+              "effects": [
+                {
+                  "kind": "REQUIRE_TYPE",
+                  "value": "plant",
+                  "count": 2
+                }
+              ],
+              "unresolved": []
+            },
+            {
+              "id": "4",
+              "effects": [
+                {
+                  "kind": "EXCLUDE_TYPE",
+                  "value": "wardrobe",
+                  "count": 0
+                }
+              ],
+              "unresolved": []
+            }
+          ]
+        }
+      },
+      "error": null
+    }
+  }
+]

@@ -1,0 +1,2157 @@
+{
+  "schemaVersion": "1.0",
+  "name": "타공 전면 미디어장",
+  "furnitureType": "TV장/미디어 콘솔",
+  "variant": "타공 전면 미디어장",
+  "units": "meter",
+  "coordinateSystem": {
+    "origin": "floor-center",
+    "axes": {
+      "x": "right",
+      "y": "up",
+      "z": "front"
+    }
+  },
+  "rotationUnit": "radian",
+  "dimensions": {
+    "width": 1.393,
+    "depth": 0.4,
+    "height": 0.484
+  },
+  "materials": [
+    "metal",
+    "paintedWhite",
+    "fabricDark"
+  ],
+  "parts": [
+    {
+      "id": "octave-foot--1--1",
+      "geometry": "cylinder",
+      "position": [
+        -0.565,
+        0.065,
+        -0.14500000000000002
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.13
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "octave-foot--1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.565,
+        0.065,
+        0.125
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.13
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "octave-foot-1--1",
+      "geometry": "cylinder",
+      "position": [
+        0.565,
+        0.065,
+        -0.14500000000000002
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.13
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "octave-foot-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.565,
+        0.065,
+        0.125
+      ],
+      "size": [
+        0.009,
+        0.009,
+        0.13
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "bottom",
+      "geometry": "box",
+      "position": [
+        0,
+        0.14500000000000002,
+        -0.009999999999999995
+      ],
+      "size": [
+        1.393,
+        0.03,
+        0.38
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "top",
+      "geometry": "box",
+      "position": [
+        0,
+        0.469,
+        -0.009999999999999995
+      ],
+      "size": [
+        1.393,
+        0.03,
+        0.38
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "left",
+      "geometry": "box",
+      "position": [
+        -0.6815,
+        0.307,
+        -0.009999999999999995
+      ],
+      "size": [
+        0.03,
+        0.354,
+        0.38
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "right",
+      "geometry": "box",
+      "position": [
+        0.6815,
+        0.307,
+        -0.009999999999999995
+      ],
+      "size": [
+        0.03,
+        0.354,
+        0.38
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "back",
+      "geometry": "box",
+      "position": [
+        0,
+        0.307,
+        -0.191
+      ],
+      "size": [
+        1.333,
+        0.294,
+        0.018
+      ],
+      "material": "paintedWhite"
+    },
+    {
+      "id": "acoustic-door--0.45",
+      "geometry": "box",
+      "position": [
+        -0.45,
+        0.307,
+        0.188
+      ],
+      "size": [
+        0.45,
+        0.3,
+        0.015
+      ],
+      "material": "fabricDark"
+    },
+    {
+      "id": "perforation--0.45-0-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.63,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-0-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.63,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-0-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.63,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-0-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.63,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-1-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.578,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.578,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-1-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.578,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-1-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.578,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-2-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.526,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-2-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.526,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-2-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.526,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-2-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.526,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-3-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.474,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-3-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.474,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-3-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.474,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-3-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.474,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-4-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.42200000000000004,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-4-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.42200000000000004,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-4-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.42200000000000004,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-4-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.42200000000000004,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-5-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.37,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-5-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.37,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-5-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.37,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-5-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.37,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-6-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.318,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-6-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.318,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-6-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.318,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-6-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.318,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-7-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.266,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-7-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.266,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-7-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.266,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation--0.45-7-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.266,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "acoustic-door-0",
+      "geometry": "box",
+      "position": [
+        0,
+        0.307,
+        0.188
+      ],
+      "size": [
+        0.45,
+        0.3,
+        0.015
+      ],
+      "material": "fabricDark"
+    },
+    {
+      "id": "perforation-0-0-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.18,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-0-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.18,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-0-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.18,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-0-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.18,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-1-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.128,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-1-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.128,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-1-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.128,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-1-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.128,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-2-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.076,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-2-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.076,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-2-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.076,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-2-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.076,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-3-0",
+      "geometry": "cylinder",
+      "position": [
+        -0.023999999999999994,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-3-1",
+      "geometry": "cylinder",
+      "position": [
+        -0.023999999999999994,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-3-2",
+      "geometry": "cylinder",
+      "position": [
+        -0.023999999999999994,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-3-3",
+      "geometry": "cylinder",
+      "position": [
+        -0.023999999999999994,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-4-0",
+      "geometry": "cylinder",
+      "position": [
+        0.027999999999999997,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-4-1",
+      "geometry": "cylinder",
+      "position": [
+        0.027999999999999997,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-4-2",
+      "geometry": "cylinder",
+      "position": [
+        0.027999999999999997,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-4-3",
+      "geometry": "cylinder",
+      "position": [
+        0.027999999999999997,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-5-0",
+      "geometry": "cylinder",
+      "position": [
+        0.08000000000000002,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-5-1",
+      "geometry": "cylinder",
+      "position": [
+        0.08000000000000002,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-5-2",
+      "geometry": "cylinder",
+      "position": [
+        0.08000000000000002,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-5-3",
+      "geometry": "cylinder",
+      "position": [
+        0.08000000000000002,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-6-0",
+      "geometry": "cylinder",
+      "position": [
+        0.132,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-6-1",
+      "geometry": "cylinder",
+      "position": [
+        0.132,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-6-2",
+      "geometry": "cylinder",
+      "position": [
+        0.132,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-6-3",
+      "geometry": "cylinder",
+      "position": [
+        0.132,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-7-0",
+      "geometry": "cylinder",
+      "position": [
+        0.184,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-7-1",
+      "geometry": "cylinder",
+      "position": [
+        0.184,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-7-2",
+      "geometry": "cylinder",
+      "position": [
+        0.184,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0-7-3",
+      "geometry": "cylinder",
+      "position": [
+        0.184,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "acoustic-door-0.45",
+      "geometry": "box",
+      "position": [
+        0.45,
+        0.307,
+        0.188
+      ],
+      "size": [
+        0.45,
+        0.3,
+        0.015
+      ],
+      "material": "fabricDark"
+    },
+    {
+      "id": "perforation-0.45-0-0",
+      "geometry": "cylinder",
+      "position": [
+        0.27,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-0-1",
+      "geometry": "cylinder",
+      "position": [
+        0.27,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-0-2",
+      "geometry": "cylinder",
+      "position": [
+        0.27,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-0-3",
+      "geometry": "cylinder",
+      "position": [
+        0.27,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-1-0",
+      "geometry": "cylinder",
+      "position": [
+        0.322,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-1-1",
+      "geometry": "cylinder",
+      "position": [
+        0.322,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-1-2",
+      "geometry": "cylinder",
+      "position": [
+        0.322,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-1-3",
+      "geometry": "cylinder",
+      "position": [
+        0.322,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-2-0",
+      "geometry": "cylinder",
+      "position": [
+        0.374,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-2-1",
+      "geometry": "cylinder",
+      "position": [
+        0.374,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-2-2",
+      "geometry": "cylinder",
+      "position": [
+        0.374,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-2-3",
+      "geometry": "cylinder",
+      "position": [
+        0.374,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-3-0",
+      "geometry": "cylinder",
+      "position": [
+        0.42600000000000005,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-3-1",
+      "geometry": "cylinder",
+      "position": [
+        0.42600000000000005,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-3-2",
+      "geometry": "cylinder",
+      "position": [
+        0.42600000000000005,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-3-3",
+      "geometry": "cylinder",
+      "position": [
+        0.42600000000000005,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-4-0",
+      "geometry": "cylinder",
+      "position": [
+        0.478,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-4-1",
+      "geometry": "cylinder",
+      "position": [
+        0.478,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-4-2",
+      "geometry": "cylinder",
+      "position": [
+        0.478,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-4-3",
+      "geometry": "cylinder",
+      "position": [
+        0.478,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-5-0",
+      "geometry": "cylinder",
+      "position": [
+        0.53,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-5-1",
+      "geometry": "cylinder",
+      "position": [
+        0.53,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-5-2",
+      "geometry": "cylinder",
+      "position": [
+        0.53,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-5-3",
+      "geometry": "cylinder",
+      "position": [
+        0.53,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-6-0",
+      "geometry": "cylinder",
+      "position": [
+        0.5820000000000001,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-6-1",
+      "geometry": "cylinder",
+      "position": [
+        0.5820000000000001,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-6-2",
+      "geometry": "cylinder",
+      "position": [
+        0.5820000000000001,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-6-3",
+      "geometry": "cylinder",
+      "position": [
+        0.5820000000000001,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-7-0",
+      "geometry": "cylinder",
+      "position": [
+        0.634,
+        0.2,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-7-1",
+      "geometry": "cylinder",
+      "position": [
+        0.634,
+        0.266,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-7-2",
+      "geometry": "cylinder",
+      "position": [
+        0.634,
+        0.332,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    },
+    {
+      "id": "perforation-0.45-7-3",
+      "geometry": "cylinder",
+      "position": [
+        0.634,
+        0.398,
+        0.197
+      ],
+      "size": [
+        0.003,
+        0.003,
+        0.0010000000000000009
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "material": "metal"
+    }
+  ],
+  "purchaseUrl": "https://www.montanafurniture.com/sv/serier/montana-selection",
+  "variantId": "expansion-c070",
+  "furnitureTypeCode": "MEDIA_CONSOLE",
+  "styleTags": [
+    "modern"
+  ],
+  "lifestyleTags": [
+    "STORAGE"
+  ]
+}

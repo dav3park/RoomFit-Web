@@ -256,6 +256,7 @@
 
 .design-consultation-conditions { list-style: none; padding: 0; margin: 20px 0; }
 .design-consultation-conditions > li { padding: 16px 0; border-top: 1px solid #eeeeee; }
+.design-consultation-condition-options { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .design-consultation-include { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; }
 .design-consultation-include input { width: 18px; height: 18px; }
 .design-consultation-conditions .demo-field { margin-top: 12px; }

@@ -48,13 +48,15 @@ export default function DesignConsultationPanel({ draft }: { draft: ReturnType<t
       <p className="demo-help">잘못 이해한 내용은 수정하거나 선택을 해제해 주세요. 사진에서 읽은 취향과 AI의 추정도 직접 확인해 주세요.</p>
       <ul className="design-consultation-conditions" aria-label="해석된 조건">
         {draft.selections.map((item, index) => <li key={index}>
-          <label className="design-consultation-include"><input type="checkbox" checked={item.included} disabled={draft.confirmed}
-            onChange={event => draft.includeCondition(index, event.target.checked)} />조건 {index + 1} 포함</label>
+          <div className="design-consultation-condition-options">
+            <label className="design-consultation-include"><input type="checkbox" checked={item.included} disabled={draft.confirmed}
+              onChange={event => draft.includeCondition(index, event.target.checked)} />조건 {index + 1} 포함</label>
+            <label className="design-consultation-include"><input type="checkbox" checked={item.priority === 'REQUIRED'} disabled={draft.confirmed}
+              aria-label={`조건 ${index + 1}은 꼭 지키기`} onChange={event => draft.changePriority(index, event.target.checked ? 'REQUIRED' : 'PREFERRED')} />꼭 지키기</label>
+          </div>
           <p className="demo-help">{sourceLabels[item.source]}{item.imageIndex ? ` · 사진 ${item.imageIndex}` : ''}</p>
           <label className="demo-field">조건 {index + 1} 내용<textarea value={item.description} maxLength={300} disabled={draft.confirmed}
             aria-invalid={item.included && !item.description.trim()} onChange={event => draft.changeCondition(index, event.target.value)} /></label>
-          <label className="design-consultation-include"><input type="checkbox" checked={item.priority === 'REQUIRED'} disabled={draft.confirmed}
-            onChange={event => draft.changePriority(index, event.target.checked ? 'REQUIRED' : 'PREFERRED')} />조건 {index + 1}은 꼭 지키기</label>
           {item.evidence && <p className="demo-help">근거: {item.evidence}</p>}
           <span className="demo-badge">{supportLabels[item.support]}</span>
         </li>)}

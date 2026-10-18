@@ -30,7 +30,7 @@ describe('design consultation reference images', () => {
       naturalWidth = 100; naturalHeight = 100;
       decode() { return ++decoded === 2 ? Promise.reject(new Error('corrupt')) : Promise.resolve(); }
     });
-    await expect(prepareDesignImages([png(), png()])).rejects.toThrow('사진을 열 수 없어요');
+    await expect(prepareDesignImages([png(), png()])).rejects.toThrow('사진을 열 수 없습니다');
     expect(revoke).toHaveBeenCalledTimes(2);
   });
   it('rejects excessive decoded dimensions and releases the preview', async () => {

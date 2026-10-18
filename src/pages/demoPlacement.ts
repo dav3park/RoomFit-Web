@@ -1,5 +1,5 @@
 import { Plane, Raycaster, Vector2, Vector3, type Camera } from 'three';
-import { computeLocalValidationIssues } from '../geometry/liveValidation';
+import { computeLocalValidationIssues, type LiveValidationIssue } from '../geometry/liveValidation';
 import { calculateRotatedFootprint, resolveFurnitureLocalFootprint } from '../components/room/furnitureBoundary';
 import { isWindowAnchoredFurniture } from '../components/room/windowBlindPlacement';
 import { clearanceZonesWorld } from '../geometry/clearance';
@@ -96,6 +96,8 @@ function demoGeometryItem(item: Furniture): Furniture {
   return {...item, rotationY: -item.rotationY};
 }
 
+export interface DemoLayoutFinding extends LiveValidationIssue { opening?: boolean; boundary?: boolean; doorId?: string }
+
 export type DemoSpaceStatus = 'clear' | 'warning' | 'blocked';
 export const DEMO_SPACE_COLORS: Record<DemoSpaceStatus, string> = {
   clear: '#1677e8', warning: '#f59e0b', blocked: '#ef4444',
@@ -111,6 +113,7 @@ export function demoZoneIsOpening(item: Furniture, side: string): boolean {
 
 /** One local display policy for existing, added and preview furniture. Never rejects a drop. */
 export function demoOverlapHighlights(room: RoomLayout) {
+  const findings: DemoLayoutFinding[] = [];
   const bodies = new Set<string>();
   const clearance = new Map<string, Set<string>>();
   const doors = new Set<string>();
@@ -128,7 +131,9 @@ export function demoOverlapHighlights(room: RoomLayout) {
     if (!reasons.get(id)!.includes(reason)) reasons.get(id)!.push(reason);
   };
   const markZone = (item: Furniture, side: string, reason: string, otherId?: string) => {
-    const level = demoZoneIsOpening(item, side) ? 'blocked' : 'warning';
+    const opening = demoZoneIsOpening(item, side);
+    const level = opening ? 'blocked' : 'warning';
+    findings.push({type:'ZONE_INTRUSION', furnitureId:item.id, otherFurnitureId:otherId, zoneSide:side as LiveValidationIssue['zoneSide'], severity:opening?'ERROR':'WARNING', opening, boundary:!otherId, message:reason});
     if (!clearance.has(item.id)) clearance.set(item.id,new Set());
     clearance.get(item.id)!.add(side);
     if (!zoneStatus.has(item.id)) zoneStatus.set(item.id, new Map());
@@ -140,6 +145,7 @@ export function demoOverlapHighlights(room: RoomLayout) {
   const issues = computeLocalValidationIssues(room.furniture.map(demoGeometryItem),room);
   for (const issue of issues) {
     if (issue.type === 'BODY_COLLISION' || issue.type === 'OUT_OF_BOUNDS') {
+      findings.push(issue);
       bodies.add(issue.furnitureId);
       markItem(issue.furnitureId, 'blocked', issue.message);
       if (issue.otherFurnitureId) {
@@ -173,9 +179,10 @@ export function demoOverlapHighlights(room: RoomLayout) {
     const swing=demoDoorSwing(room,door);
     if (!swing.length) continue;
     for (const item of physical) if (obbOverlap(swing,corners.get(item.id)!)) {
+      findings.push({type:'DOOR_CLEARANCE', furnitureId:item.id, doorId:door.id, severity:'ERROR', message:'문 개폐 공간 침범 (근사치)'});
       doors.add(door.id);
       markItem(item.id,'blocked',`${door.label || '문'}: 90° 개폐 공간 침범 (안쪽 열림 가정)`);
     }
   }
-  return {bodies,clearance,doors,status,zoneStatus,reasons};
+  return {bodies,clearance,doors,status,zoneStatus,reasons,findings};
 }

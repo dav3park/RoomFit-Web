@@ -10,11 +10,11 @@ export interface DesignReferenceImage {
 }
 
 export function designImageBatchError(files: readonly File[], existingCount: number): string | null {
-  if (files.length + existingCount > DESIGN_IMAGE_LIMIT) return '사진은 최대 3장까지 첨부할 수 있어요. 기존 사진을 삭제한 뒤 다시 추가해 주세요.';
+  if (files.length + existingCount > DESIGN_IMAGE_LIMIT) return '사진은 최대 3장까지 첨부할 수 있습니다. 기존 사진을 삭제한 뒤 다시 추가해 주세요.';
   for (const file of files) {
-    if (!DESIGN_IMAGE_ACCEPT.split(',').includes(file.type)) return 'JPG, PNG, WebP 사진만 첨부할 수 있어요. 지원하는 형식으로 저장한 뒤 다시 추가해 주세요.';
-    if (!file.size) return '내용이 없는 파일이에요. 다른 사진을 선택해 주세요.';
-    if (file.size > DESIGN_IMAGE_MAX_BYTES) return '사진 한 장은 5 MB 이하여야 해요. 용량을 줄인 뒤 다시 추가해 주세요.';
+    if (!DESIGN_IMAGE_ACCEPT.split(',').includes(file.type)) return 'JPG, PNG, WebP 사진만 첨부할 수 있습니다. 지원하는 형식으로 저장한 뒤 다시 추가해 주세요.';
+    if (!file.size) return '내용이 없는 파일입니다. 다른 사진을 선택해 주세요.';
+    if (file.size > DESIGN_IMAGE_MAX_BYTES) return '사진 한 장은 5 MB 이하여야 합니다. 용량을 줄인 뒤 다시 추가해 주세요.';
   }
   return null;
 }
@@ -25,7 +25,7 @@ export async function validateDesignImageContent(file: File): Promise<void> {
   const jpeg = bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255;
   const webp = String.fromCharCode(...bytes.slice(0, 4)) === 'RIFF' && String.fromCharCode(...bytes.slice(8, 12)) === 'WEBP';
   if (!(file.type === 'image/png' && png || file.type === 'image/jpeg' && jpeg || file.type === 'image/webp' && webp)) {
-    throw new Error('사진 형식을 확인할 수 없어요. 정상적인 JPG, PNG, WebP 파일을 선택해 주세요.');
+    throw new Error('사진 형식을 확인할 수 없습니다. 정상적인 JPG, PNG, WebP 파일을 선택해 주세요.');
   }
 }
 
@@ -42,9 +42,9 @@ export async function prepareDesignImages(files: readonly File[]): Promise<Desig
       images.push(image);
       const preview = new Image();
       preview.src = image.url;
-      await preview.decode().catch(() => { throw new Error('사진을 열 수 없어요. 다른 사진을 선택하거나 다시 저장한 뒤 추가해 주세요.'); });
+      await preview.decode().catch(() => { throw new Error('사진을 열 수 없습니다. 다른 사진을 선택하거나 다시 저장한 뒤 추가해 주세요.'); });
       if (!preview.naturalWidth || !preview.naturalHeight || preview.naturalWidth * preview.naturalHeight > 25_000_000) {
-        throw new Error('사진 해상도가 너무 커요. 2,500만 화소 이하로 줄인 뒤 다시 추가해 주세요.');
+        throw new Error('사진 해상도가 너무 큽니다. 2,500만 화소 이하로 줄인 뒤 다시 추가해 주세요.');
       }
     }
     return images;

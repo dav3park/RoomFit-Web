@@ -60,18 +60,18 @@ export function compileConsultation(selections:readonly ConsultationSelection[],
       if(tags[effect.kind])tags[effect.kind].add(effect.value);
       if(effect.kind==='STYLE'&&input.priority==='REQUIRED')strictStyle=true;
       if(effect.kind==='REQUIRE_TYPE'){
-        if(counts[effect.value]!==undefined&&counts[effect.value]!==effect.count)blockers.push(`${typeLabel(effect.value)}: 요청한 가구 개수가 서로 달라요. 한 가지 개수로 정리해 주세요.`);
+        if(counts[effect.value]!==undefined&&counts[effect.value]!==effect.count)blockers.push(`${typeLabel(effect.value)}: 요청한 가구 개수가 서로 다릅니다. 한 가지 개수로 정리해 주세요.`);
         counts[effect.value]=effect.count;
       }
       if(effect.kind==='EXCLUDE_TYPE')excluded.add(effect.value);
       if(effect.kind==='KEEP_ITEM')keep.add(effect.value);
     }
   }
-  for(const [kind,label] of [['PURPOSE','생활 목적'],['STYLE','스타일'],['PALETTE','색감']])if(tags[kind].size>1)blockers.push(`${label}을 한 가지로 정리해 주세요. 서로 다른 요청을 임의로 선택하지 않았어요.`);
-  for(const type of excluded)if(counts[type])blockers.push(`${typeLabel(type)}: 포함과 제외가 함께 선택되어 있어요.`);
+  for(const [kind,label] of [['PURPOSE','생활 목적'],['STYLE','스타일'],['PALETTE','색감']])if(tags[kind].size>1)blockers.push(`${label}을 한 가지로 정리해 주세요. 서로 다른 요청을 임의로 선택하지 않았습니다.`);
+  for(const type of excluded)if(counts[type])blockers.push(`${typeLabel(type)}: 포함과 제외가 함께 선택되어 있습니다.`);
   const locked=room.furniture.filter(item=>item.status!=='deleted'&&(item.recommendationLocked||keep.has(item.id)));
-  for(const item of locked)if(excluded.has(furnitureType(item))||(excluded.has('desk')&&isLoftDeskFurniture(item)))blockers.push(`${item.name}: 유지·고정 조건과 제외 조건이 충돌해요.`);
-  for(const [type,count] of Object.entries(counts))if(locked.filter(item=>furnitureType(item)===type).length>count)blockers.push(`${typeLabel(type)}: 고정된 가구가 요청한 개수보다 많아요.`);
+  for(const item of locked)if(excluded.has(furnitureType(item))||(excluded.has('desk')&&isLoftDeskFurniture(item)))blockers.push(`${item.name}: 유지·고정 조건과 제외 조건이 충돌합니다.`);
+  for(const [type,count] of Object.entries(counts))if(locked.filter(item=>furnitureType(item)===type).length>count)blockers.push(`${typeLabel(type)}: 고정된 가구가 요청한 개수보다 많습니다.`);
   if(!reflected.length)blockers.push('추천에 반영할 조건을 구체적으로 적어 주세요.');
   const purpose=([...tags.PURPOSE][0]??'휴식') as RecommendationOptions['purpose'];
   const style=([...tags.STYLE][0]??'natural') as RecommendationOptions['style'];

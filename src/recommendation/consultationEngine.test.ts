@@ -1,6 +1,7 @@
 import {describe,it,expect} from 'vitest';
 import {generateRecommendations,type RecommendationOptions} from './engine';
 import {validateRecommendationLayout,furnitureType} from './layoutValidation';
+import {auditConsultationProposal} from './consultationAudit';
 import catalog from '../data/furniture/catalog.json';
 import {DEMO_ROOMS} from '../pages/workspaceDemoState';
 const room=structuredClone(DEMO_ROOMS.find(room=>room.width>5)!);
@@ -13,6 +14,16 @@ describe('consultation engine constraints',()=>{
    for(const [type,count]of Object.entries(options.constraints!.counts))expect(proposal.room.furniture.filter(item=>item.sourceType===type)).toHaveLength(count);
    expect(proposal.room.furniture.some(item=>item.sourceType==='wardrobe')).toBe(false);
    expect(validateRecommendationLayout(proposal.room).valid).toBe(true);
+  }
+ },30000);
+ it('honors studio proposals for multiple large items and a small storage count',()=>{
+  const proposed={...options,purpose:'휴식' as const,constraints:{counts:{sofa:2,bookshelf:1},excludedTypes:['wardrobe'],keepIds:[],strictStyle:false}};
+  const result=generateRecommendations(room,proposed);
+  expect(result.proposals.length).toBeGreaterThan(0);
+  for(const candidate of result.proposals){
+   expect(auditConsultationProposal(candidate.room,proposed,room).valid).toBe(true);
+   expect(candidate.room.furniture.filter(item=>item.sourceType==='sofa')).toHaveLength(2);
+   expect(candidate.room.furniture.filter(item=>item.sourceType==='bookshelf')).toHaveLength(1);
   }
  },30000);
  it('keeps an explicitly preserved item unchanged without mutating the source',()=>{

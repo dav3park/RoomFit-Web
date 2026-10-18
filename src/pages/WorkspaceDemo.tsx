@@ -5,7 +5,7 @@ import { consultationErrorMessage, consultationFurniture, resolveConsultationPre
 import { getAutomaticColorScheme } from '../config/automaticColorSchemes';
 import { useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiList, FiBox, FiCheck, FiHome, FiRotateCw, FiTrash2, FiSliders, FiLock, FiUnlock, FiX, FiMessageSquare } from 'react-icons/fi';
+import { FiList, FiBox, FiCheck, FiHome, FiRotateCw, FiTrash2, FiSliders, FiLock, FiUnlock, FiX, FiMessageSquare, FiAlertCircle } from 'react-icons/fi';
 import Button from '../components/ui/Button';
 import DemoFurnitureCard from './DemoFurnitureCard';
 import DemoSceneTools from './DemoSceneTools';
@@ -14,7 +14,8 @@ import RoomViewer from '../components/room/RoomViewer';
 import { moveFurnitureInsideRoom, rotateFurnitureInsideRoom } from '../components/room/furnitureBoundary';
 import { FURNITURE_SELECTION_ITEMS, FURNITURE_SELECTION_CATEGORIES } from '../config/furnitureSelectionCatalog';
 import { PREFERRED_COLOR_TONE_OPTIONS, type PreferredColorToneId } from '../config/preferredColorTone';
-import { computeLocalValidationIssues } from '../geometry/liveValidation';
+import {buildDemoValidationReport} from './demoValidation';
+import DemoValidationPanel from './DemoValidationPanel';
 import type { Furniture, RoomLayout, Vector2D } from '../types';
 import { addDemoProduct, resizeDemoFurniture, furnitureDimensionRangeMm, readDemoDraft, copyDemoRoom, DEMO_PRODUCTS, DEMO_ROOMS, type DemoProduct } from './workspaceDemoState';
 import minimal from '../assets/styles/minimal.png';
@@ -97,8 +98,10 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   }, []);
   const displayedRoom = candidate ?? room;
   const selected = room.furniture.find(item => item.id === selectedId);
-  const issues = computeLocalValidationIssues(displayedRoom.furniture, displayedRoom);
   const spaceRules = demoOverlapHighlights(displayedRoom);
+  const issues = spaceRules.findings;
+  const validationReport = buildDemoValidationReport(displayedRoom,spaceRules);
+  const hasValidationIssues = validationReport.items.length > 0;
   const products = DEMO_PRODUCTS.filter(product => {
     const meta = FURNITURE_SELECTION_ITEMS.find(item => item.canonicalType === product.furnitureType);
     return (category === '전체' || meta?.category === category) && product.label.includes(search.trim());
@@ -275,7 +278,8 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
     {!service && <div className="demo-disclaimer">로컬 샘플 배치입니다. AI 디자인 상담에서 분석을 요청할 때만 사진·설명을 전송하며, 배치는 서버에 저장하지 않습니다.</div>}
     <div className={`demo-workspace ${panelOpen ? '' : 'demo-panel-collapsed'} ${selected && !candidate ? 'demo-has-selection' : ''}`}>
       <section className="demo-tools" aria-label="작업 도구">
-        <div className="demo-tool-buttons">{tools.map(({ id, label, icon: Icon }) => <button key={id} ref={tool === id ? panelToggle : undefined} title={label} aria-label={label} aria-pressed={tool === id && panelOpen} aria-controls="demo-tool-panel" onClick={() => { setPanelOpen(tool !== id || !panelOpen); setTool(id); }}><Icon aria-hidden="true" /><span>{label}</span></button>)}</div>
+        <div className="demo-tool-buttons">{tools.map(({ id, label, icon: Icon }) => <button key={id} ref={tool === id ? panelToggle : undefined} title={label} aria-label={label} aria-describedby={id==='results'&&hasValidationIssues?'demo-validation-status':undefined} aria-pressed={tool === id && panelOpen} aria-controls="demo-tool-panel" onClick={() => { setPanelOpen(tool !== id || !panelOpen); setTool(id); }}><Icon aria-hidden="true" /><span>{label}</span>{id==='results'&&hasValidationIssues&&<FiAlertCircle className="demo-validation-alert" aria-hidden="true" />}</button>)}</div>
+        <p id="demo-validation-status" className="sr-only" role="status">{hasValidationIssues?'표시 중인 배치에 확인할 문제가 있습니다.':'표시 중인 배치에 확인할 문제가 없습니다.'}</p>
 
       </section>
       {panelOpen && <aside id="demo-tool-panel" className="demo-tool-panel" aria-label={tools.find(item => item.id === tool)!.label}>
@@ -300,18 +304,11 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
           {tool === 'consultation' && <DesignConsultationPanel draft={consultationDraft} onGenerate={()=>void generateConsultation()} preparing={preparing} generating={generating&&!!consultationReport} busy={busy}
             report={consultationReport} preparationError={consultationError} onCancel={()=>{stopGeneration();setNotice('추천 생성을 취소했습니다. 현재 배치는 유지됩니다.');}} />}
           {tool === 'results' && <>
-            <section className="demo-inspector-section">
-              <h2>배치 검증 <span className="demo-badge">현재 배치</span></h2>
-              <p className="demo-help">{candidate ? '미리보기' : '현재 배치'}의 충돌·경계·사용 여유 공간을 확인합니다.</p>
-              <div className="demo-checks">
-                <span>가구 충돌</span><strong>{issues.some(item => item.type === 'BODY_COLLISION') ? '확인 필요' : '없음'}</strong>
-                <span>방 경계</span><strong>{issues.some(item => item.type === 'OUT_OF_BOUNDS') ? '확인 필요' : '범위 내'}</strong>
-                <span>사용 여유 공간</span><strong>{[...spaceRules.status.values()].some(status => status !== 'clear') ? '확인 필요' : '침범 없음'}</strong>
-              </div>
-              {issues.length > 0 && <details><summary>이슈 {issues.length}개 보기</summary><ul className="demo-issues">{issues.map((item, index) => <li key={index}>{displayedRoom.furniture.find(furniture => furniture.id === item.furnitureId)?.name}: {item.message}</li>)}</ul></details>}
-              <ul className="demo-issues">{[...spaceRules.reasons].map(([id, reasons]) => <li key={id}>{displayedRoom.furniture.find(item => item.id === id)?.name}: {reasons.join(' · ')}</li>)}</ul>
-              <p className="demo-help">문·수납 개폐는 근사치로 판정합니다. 실제 개폐 방식·통로 연결·배치 점수는 미검증입니다.</p>
-            </section>
+            <DemoValidationPanel report={validationReport} preview={!!candidate} selectedId={selectedId} onSelect={candidate?undefined:id=>{
+              setSelectedId(id);
+              if(window.innerWidth<=760)setPanelOpen(false);
+              stage.current?.querySelector<HTMLElement>('.demo-viewer')?.focus({preventScroll:true});
+            }} />
             {service ? <section className="demo-inspector-section">
               <h2>자동 저장</h2>
               <p className="demo-save-state">{saveError ? '자동 저장 실패' : '현재 배치 자동 저장'}</p>

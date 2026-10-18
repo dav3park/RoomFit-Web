@@ -34,7 +34,7 @@ export function useDesignConsultationDraft(getRoom: () => RoomLayout, onConditio
 
   async function addImages(files: File[]) {
     if (!files.length) return;
-    if (reading.current) { setError('사진을 읽고 있어요. 완료된 뒤 다시 붙여넣어 주세요.'); return; }
+    if (reading.current) { setError('사진을 읽고 있습니다. 완료된 뒤 다시 붙여넣어 주세요.'); return; }
     const message = designImageBatchError(files, attachments.current.length);
     if (message) { setError(message); return; }
     invalidateAnalysis();
@@ -45,7 +45,7 @@ export function useDesignConsultationDraft(getRoom: () => RoomLayout, onConditio
       if (request !== sequence.current) { releaseDesignImages(next); return; }
       attachments.current = [...attachments.current, ...next]; setImages(attachments.current);
     } catch (cause) {
-      if (request === sequence.current) setError(cause instanceof Error ? cause.message : '사진을 읽지 못했어요. 다시 추가해 주세요.');
+      if (request === sequence.current) setError(cause instanceof Error ? cause.message : '사진을 읽지 못했습니다. 다시 추가해 주세요.');
     } finally {
       if (request === sequence.current) { reading.current = false; setProcessing(false); }
     }

@@ -22,8 +22,8 @@ export function auditConsultationProposal(room:RoomLayout,options:Recommendation
     const product=catalog.products.find(product=>product.productId===item.productId);
     const variant=catalog.products.find(product=>product.variantId===item.variantId);
     const actual=product??variant;
-    if(actual&&(actual.furnitureType!==furnitureType(item)||(product&&item.variantId&&product.variantId!==item.variantId)))issues.push(`${item.name}: 상품 정보와 실제 가구 종류가 일치하지 않아요.`);
-    if(!actual&&!original.furniture.some(old=>old.id===item.id))issues.push(`${item.name}: 카탈로그에서 상품을 확인하지 못했어요.`);
+    if(actual&&(actual.furnitureType!==furnitureType(item)||(product&&item.variantId&&product.variantId!==item.variantId)))issues.push(`${item.name}: 상품 정보와 실제 가구 종류가 일치하지 않습니다.`);
+    if(!actual&&!original.furniture.some(old=>old.id===item.id))issues.push(`${item.name}: 카탈로그에서 상품을 확인하지 못했습니다.`);
     const styles=actual?.styleTags??original.furniture.find(old=>old.id===item.id)?.styleTags??[];
     if(!styles.includes(options.style))styleMismatch=true;
     const type=actual?.furnitureType??furnitureType(item),name=actual?.label??item.name;
@@ -47,9 +47,9 @@ export function auditConsultationProposal(room:RoomLayout,options:Recommendation
         &&(['width','depth','height']as const).every(axis=>before.dimensions[axis]===after.dimensions[axis]);
       checks.push({label:`${before?.name??'선택한 가구'} 유지`,expected:1,actual:Number(same),passed:same});
     }
-    if(constraints.strictStyle&&styleMismatch)issues.push('필수 인테리어 스타일과 맞지 않는 가구가 있어요.');
+    if(constraints.strictStyle&&styleMismatch)issues.push('필수 인테리어 스타일과 맞지 않는 가구가 있습니다.');
   }
-  if(options.palette==='auto'?!getAutomaticColorScheme(room.appliedColorSchemeId):getLayoutAppliedPreferredColorTone(room)!==options.palette)issues.push('요청한 색감이 적용되지 않았어요.');
-  checks.filter(check=>!check.passed).forEach(check=>issues.push(`${check.label}: 요청 ${check.expected}개, 결과 ${check.actual}개로 일치하지 않아요.`));
+  if(options.palette==='auto'?!getAutomaticColorScheme(room.appliedColorSchemeId):getLayoutAppliedPreferredColorTone(room)!==options.palette)issues.push('요청한 색감이 적용되지 않았습니다.');
+  checks.filter(check=>!check.passed).forEach(check=>issues.push(`${check.label}: 요청 ${check.expected}개, 결과 ${check.actual}개로 일치하지 않습니다.`));
   return {valid:issues.length===0,checks,inventory:[...groups.values()],issues};
 }

@@ -234,10 +234,13 @@
 
 .design-consultation { min-width: 0; }
 .design-consultation:focus-visible { outline: 2px solid #111111; outline-offset: 3px; }
-.design-consultation-steps { display: flex; flex-wrap: wrap; gap: 6px 12px; margin: 0; padding: 0 0 16px; border-bottom: 1px solid #eeeeee; list-style-position: inside; color: #666666; font-size: 12px; }
-.design-consultation-steps [aria-current="step"] { color: #111111; font-weight: 700; }
+.design-consultation-steps { display: flex; gap: 8px; margin: 0; padding: 0 0 16px; border-bottom: 1px solid #eeeeee; list-style: none; color: #666666; font-size: 12px; }
+.design-consultation-steps li { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.design-consultation-steps svg { width: 14px; height: 14px; flex-shrink: 0; }
+.design-consultation-steps [aria-current="step"] span { color: #111111; font-weight: 700; }
 .design-consultation .demo-field { margin-top: 24px; margin-bottom: 0; }
-.design-consultation textarea { min-height: 140px; font-size: 16px; line-height: 1.65; }
+.design-consultation .demo-field textarea { min-height: 112px; font-size: 14px; font-weight: 400; line-height: 1.6; }
+.design-consultation .demo-field textarea::placeholder { color: #666666; }
 .workspace-demo .design-consultation-count { margin-top: 8px; margin-bottom: 24px; }
 .design-consultation-upload { display: flex; width: 100%; flex-direction: column; align-items: center; gap: 8px; padding: 20px 12px; border: 1px dashed #777777; border-radius: 8px; background: #fbfbfb; text-align: center; }
 .design-consultation-upload:hover:not(:disabled) { border-color: #111111; background: #eeeeee; }
@@ -260,5 +263,28 @@
 .design-consultation-include { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; }
 .design-consultation-include input { width: 18px; height: 18px; }
 .design-consultation-conditions .demo-field { margin-top: 12px; }
-.design-consultation-conditions textarea { min-height: 88px; }
+.design-consultation .design-consultation-conditions textarea { min-height: 72px; }
 .design-consultation-conditions textarea[aria-invalid="true"] { border-color: #b42318; }
+
+.design-consultation-questions { margin: 20px 0; padding: 16px; border: 1px solid #e5e5e5; border-radius: 8px; background: #fbfbfb; }
+.workspace-demo .design-consultation-questions h3 { display: flex; align-items: flex-start; gap: 8px; font-size: 16px; line-height: 1.5; margin-bottom: 8px; }
+.design-consultation-questions h3 svg { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; }
+.design-consultation-questions p { font-size: 12px; line-height: 1.65; color: #555555; }
+.design-consultation-questions ul { margin: 12px 0 16px; padding-left: 20px; font-size: 14px; font-weight: 600; line-height: 1.6; overflow-wrap: anywhere; }
+.design-consultation-questions li + li { margin-top: 8px; }
+@media (max-width: 760px) {
+  .design-consultation .demo-field textarea { font-size: 16px; }
+}
+
+.demo-tool-buttons .demo-validation-alert { position: absolute; top: -3px; right: -3px; width: 18px; height: 18px; color: #b42318; background: white; border-radius: 999px; pointer-events: none; }
+.demo-validation-group { margin-top: 24px; }
+.demo-validation-group h3 { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.demo-validation-group h3 > span { font-size: 12px; font-weight: 600; color: #666666; }
+.demo-validation-items { list-style: none; padding: 0; margin: 0; }
+.demo-validation-items > li { border-top: 1px solid #eeeeee; padding: 16px 0; }
+.demo-validation-pair { margin: 8px 0; font-size: 14px; font-weight: 700; line-height: 1.5; overflow-wrap: anywhere; }
+.demo-validation-pair button { text-align: left; text-decoration: underline; text-underline-offset: 3px; border-radius: 4px; }
+.demo-validation-pair button:hover { color: #666666; }
+.demo-validation-pair button[aria-pressed="true"] { text-decoration-thickness: 2px; }
+.demo-validation-items p { color: #555555; font-size: 12px; line-height: 1.65; overflow-wrap: anywhere; }
+.demo-validation-items p + p { margin-top: 6px; }

@@ -1,4 +1,4 @@
-import { resolveFurnitureInstallations,supportFor,windowFurnitureInsideRoom,furnitureFootprintInsideFloor,localPoint } from '../geometry/furnitureInstallation';
+import { resolveFurnitureInstallations,supportFor,windowFurnitureInsideRoom,localPoint } from '../geometry/furnitureInstallation';
 import { placementPolicy } from '../config/furniturePlacementPolicy';
 import { isFixtureFurniture, isImmovableFixture, normalizeFixtureType } from '../config/fixtureType';
 import type { Furniture, Opening, RoomLayout, Vector2D } from '../types';
@@ -43,19 +43,20 @@ function supported(a: PreparedFurniture, b: PreparedFurniture) {
 export function createPlacementCheck(room: RoomLayout, installationScope?: readonly Furniture[]) {
   const swings=room.doors.map(door=>demoDoorSwing(room,door)).filter(points=>points.length>2);
   return (entry: PreparedFurniture, placed: readonly PreparedFurniture[]): boolean => {
-    const item=entry.item;
+    const item=entry.item,fixed=isImmovableFixture(item);
     const installations=resolveFurnitureInstallations(room,installationScope??[...placed.map(other=>other.item),item]);
     if(!installations.get(item.id)?.valid)return false;
     if (Object.values(item.dimensions).some(value=>!Number.isFinite(value)||value<=0) || item.dimensions.height>(room.height ?? 3)) return false;
-    if(entry.type==='curtain_blind'){
-      if(!windowFurnitureInsideRoom(room,item))return false;
-    }else if(isImmovableFixture(item)) {
-      if(!furnitureFootprintInsideFloor(room,item))return false;
-    }else if (demoPlacementReason(room,item)||!isFurnitureInsideRoom(room,item.dimensions,item.position,-item.rotationY,resolveFurnitureLocalFootprint(item))) return false;
-    if (blockedWindows(room, entry, installationScope?installationScope.filter(other=>other.id!==item.id).map(prepareFurniture):placed).length) return false;
-    if (entry.type!=='rug' && swings.some(swing=>obbOverlap(swing,entry.body))) return false;
-    if (placementPolicy(item).installation!=='WALL'&&entry.openings.some(zone=>zone.some(point=>!demoFloorContains(room,point))
-      ||crossesRoomWall(room,zone)||swings.some(swing=>obbOverlap(swing,zone)))) return false;
+    // Existing built-ins are room context; new furniture still respects their bodies and usable paths.
+    if(!fixed){
+      if(entry.type==='curtain_blind'){
+        if(!windowFurnitureInsideRoom(room,item))return false;
+      }else if (demoPlacementReason(room,item)||!isFurnitureInsideRoom(room,item.dimensions,item.position,-item.rotationY,resolveFurnitureLocalFootprint(item))) return false;
+      if (blockedWindows(room, entry, installationScope?installationScope.filter(other=>other.id!==item.id).map(prepareFurniture):placed).length) return false;
+      if (entry.type!=='rug' && swings.some(swing=>obbOverlap(swing,entry.body))) return false;
+      if (placementPolicy(item).installation!=='WALL'&&entry.openings.some(zone=>zone.some(point=>!demoFloorContains(room,point))
+        ||crossesRoomWall(room,zone)||swings.some(swing=>obbOverlap(swing,zone)))) return false;
+    }
     for(const other of placed) {
       if(isImmovableFixture(item)&&isImmovableFixture(other.item))continue;
       if(entry.type==='rug'||other.type==='rug') continue;
@@ -63,7 +64,7 @@ export function createPlacementCheck(room: RoomLayout, installationScope?: reado
       if(a.minY>=b.maxY-1e-6||b.minY>=a.maxY-1e-6)continue;
       const exempt=supported(entry,other)||supported(other,entry)||supportFor(item,[other.item])?.id===other.item.id||supportFor(other.item,[item])?.id===item.id;
       if(!exempt&&obbOverlap(entry.body,other.body)) return false;
-      if(entry.openings.some(zone=>obbOverlap(zone,other.body))||other.openings.some(zone=>obbOverlap(zone,entry.body))) return false;
+      if(!fixed&&entry.openings.some(zone=>obbOverlap(zone,other.body))||!isImmovableFixture(other.item)&&other.openings.some(zone=>obbOverlap(zone,entry.body))) return false;
     }
     return true;
   };
@@ -164,7 +165,11 @@ export function createCirculationGrid(room: RoomLayout, requestedStep?:number): 
 export function validateCirculation(room: RoomLayout, grid?: CirculationGrid): LayoutValidation {
   const warnings: string[]=[],reasons: string[]=[];
   if(!Number.isFinite(room.width)||!Number.isFinite(room.depth)||room.width<=0||room.depth<=0) return {valid:false,reasons:['방 치수가 올바르지 않습니다.'],warnings,freeArea:0,reachableCount:0};
-  const {step,radius,cols,rows,points,floor}=grid??createCirculationGrid(room);
+  if(!grid){
+    const initial=createCirculationGrid(room),result=validateCirculation(room,initial);
+    return result.valid||initial.step<=.05?result:validateCirculation(room,createCirculationGrid(room,.05));
+  }
+  const {step,radius,cols,rows,points,floor}=grid;
   const entries=room.furniture.filter(item=>item.status!=='deleted').map(prepareFurniture);
   const physical=entries.filter(entry=>placementPolicy(entry.item).installation!=='SUPPORT'&&!(placementPolicy(entry.item).installation==='WALL'&&(placementPolicy(entry.item).mountBottom??0)>=1.9)&&entry.type!=='rug'&&entry.type!=='curtain_blind'&&!entries.some(other=>supported(entry,other)&&['monitor','tv'].includes(entry.type)));
   const free=new Uint8Array(floor.length), visited=new Uint8Array(free.length);
@@ -253,7 +258,7 @@ export function validateRecommendationLayout(room: RoomLayout, grid?: Circulatio
   for(const item of room.furniture.filter(item=>item.status!=='deleted')) {
     const installation=installations.get(item.id);if(!installation?.valid)reasons.push(`${item.name}: ${installation?.reason??'설치 조건을 확인해 주세요.'}`);
     const entry=prepareFurniture(item);
-    for (const window of blockedWindows(room,entry)) reasons.push(`${item.name}: ${window.label} 앞의 채광 공간을 가립니다.`);
+    if(!isImmovableFixture(item))for (const window of blockedWindows(room,entry)) reasons.push(`${item.name}: ${window.label} 앞의 채광 공간을 가립니다.`);
     if(!check(entry,placed)) reasons.push(`${item.name}: 본체 충돌·경계·문 또는 수납 개폐 공간을 확인해 주세요.`);
     placed.push(entry);
   }

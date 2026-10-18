@@ -130,7 +130,7 @@ function baseSlots(room:RoomLayout,options:RecommendationOptions,random:()=>numb
     .filter(slot=>!lockedTypes.includes(slot.type)).map((slot,index)=>({...slot,id:`recommend-${room.id}-${index}-${slot.type}`}));
 }
 function isLocked(item:Furniture,options:RecommendationOptions) {
-  return !!item.recommendationLocked||!!options.constraints?.keepIds.includes(item.id);
+  return isFixtureFurniture(item)||!!item.recommendationLocked||!!options.constraints?.keepIds.includes(item.id);
 }
 function makeSlots(room:RoomLayout,options:RecommendationOptions,random:()=>number):Slot[] {
   let slots=baseSlots(room,options,random);
@@ -228,6 +228,7 @@ function solve(room:RoomLayout,slots:Slot[],locked:Furniture[],options:Recommend
     || Number(['mood_lamp','plant','partition_shelf','rug','nightstand','side_table'].includes(a.type))-Number(['mood_lamp','plant','partition_shelf','rug','nightstand','side_table'].includes(b.type))
     || priority(a.type)-priority(b.type));
   for(const slot of ordered) {
+    const label=FURNITURE_SELECTION_ITEMS.find(item=>item.canonicalType===slot.type)?.name??slot.type;
     const expanded:PartialLayout[]=[];
     const productCandidates=candidates(slot,options,attempt,random,compact);
     for(const partial of beam) {
@@ -255,7 +256,7 @@ function solve(room:RoomLayout,slots:Slot[],locked:Furniture[],options:Recommend
         // Extras follow the anchor layouts; do not multiply the beam for every decorative product.
         if(!slot.required&&(accepted||examined>64))break;
       }
-      if(!slot.required) expanded.push({...partial,score:partial.score-8,warnings:[...partial.warnings,`${({bookshelf:'책장',wardrobe:'옷장',nightstand:'협탁',plant:'화분',hanger:'행거'} as Record<string,string>)[slot.type]??slot.type}: 공간·통로 확보를 위해 추가하지 않았습니다.`]});
+      if(!slot.required) expanded.push({...partial,score:partial.score-8,warnings:[...partial.warnings,`${label}: 공간·통로 확보를 위해 추가하지 않았습니다.`]});
     }
     const unique=new Map<string,PartialLayout>();
     for(const partial of expanded.sort((a,b)=>b.score-a.score)) {
@@ -265,7 +266,6 @@ function solve(room:RoomLayout,slots:Slot[],locked:Furniture[],options:Recommend
     }
     beam=[...unique.values()];
     if(!beam.length) {
-      const label=FURNITURE_SELECTION_ITEMS.find(item=>item.canonicalType===slot.type)?.name??slot.type;
       failures.add(`${label}: 다른 가구와의 간격·설치 조건·통로를 함께 만족하는 위치를 찾지 못했습니다.`);
       break;
     }
@@ -283,7 +283,7 @@ export function generateRecommendations(input:RoomLayout,requested:Recommendatio
   if(active.some(item=>![item.position.x,item.position.z,item.rotationY,...Object.values(item.dimensions)].every(Number.isFinite))) return {proposals:[],messages:['가구 위치와 크기를 확인해 주세요.']};
   if(active.length>MAX_ACTIVE_FURNITURE) return {proposals:[],messages:[`가구는 최대 ${MAX_ACTIVE_FURNITURE}개까지 추천할 수 있습니다.`]};
   if(!validConstraints(room,options))return {proposals:[],messages:['요청한 가구 종류·개수와 유지·제외·스타일 조건이 서로 충돌하거나 허용 범위를 벗어났습니다. 조건을 확인해 주세요.']};
-  const grid=createCirculationGrid(room);
+  let grid=createCirculationGrid(room);
   const locked=active.filter(item=>isLocked(item,options));
   const slots=makeSlots(room,options,random);
   const windowCount=slots.filter(slot=>slot.required&&slot.type==='curtain_blind').length+locked.filter(item=>furnitureType(item)==='curtain_blind').length;
@@ -292,10 +292,16 @@ export function generateRecommendations(input:RoomLayout,requested:Recommendatio
   if(!slots.length&&!locked.length) return {proposals:[],messages:['유지할 가구가 없습니다. 새로운 디자인을 선택해 주세요.']};
   const proposals:RecommendationProposal[]=[],pool:RecommendationProposal[]=[],failures=new Set<string>();
   let compactRecovery=false;
-  for(const compact of [false,true]) {
+  for(let pass=0;pass<3;pass++) {
+    const compact=pass>0;
     if(compact&&(pool.length||options.mode!=='new'||options.keepTypes||options.keepSizes))break;
+    if(pass===2){
+      if(grid.step<=.05)break;
+      // Retry narrow but valid passages at finer resolution without reducing their 60 cm width.
+      grid=createCirculationGrid(room,.05);
+    }
     const requestedTypes=Object.keys(options.constraints?.counts??{});
-    const trialSlots=compact?slots.filter(slot=>slot.required).map(slot=>({...slot,
+    const trialSlots=compact?slots.map(slot=>({...slot,
       required:requestedTypes.includes(slot.type)||requestedTypes.some(type=>supportType[type]===slot.type)})):slots;
     for(let strategy=0;strategy<strategies.length;strategy++) {
       const valid:RecommendationProposal[]=[],seen=new Set<string>();

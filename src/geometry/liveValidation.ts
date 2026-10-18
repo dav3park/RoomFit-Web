@@ -1,4 +1,4 @@
-import { resolveFurnitureInstallations,windowFurnitureInsideRoom,furnitureFootprintInsideFloor } from './furnitureInstallation';
+import { resolveFurnitureInstallations,windowFurnitureInsideRoom } from './furnitureInstallation';
 import { placementPolicy } from '../config/furniturePlacementPolicy';
 import { normalizeCanonicalFurnitureType } from "../config/canonicalFurnitureType";
 import {
@@ -77,9 +77,10 @@ export function computeLocalValidationIssues(
       const b = physical[j];
       if (!verticalOverlap(a,b)||isSupportedPair(a,b)||isStrictStack(a, b) || isCollisionExempt(a, b)) continue;
       if (obbOverlap(bodyCorners.get(a.id)!, bodyCorners.get(b.id)!)) {
+        const [owner,other]=isImmovableFixture(a)?[b,a]:[a,b];
         issues.push({
-          furnitureId: a.id,
-          otherFurnitureId: b.id,
+          furnitureId: owner.id,
+          otherFurnitureId: other.id,
           type: "BODY_COLLISION",
           severity: "ERROR",
           message: "가구가 서로 겹칩니다.",
@@ -89,8 +90,8 @@ export function computeLocalValidationIssues(
   }
 
   for (const item of active) {
-    const inside = isImmovableFixture(item)
-      ? furnitureFootprintInsideFloor(room,{...item,rotationY:-item.rotationY}) : placementPolicy(item).installation==='WINDOW'
+    if(isImmovableFixture(item))continue;
+    const inside = placementPolicy(item).installation==='WINDOW'
       ? windowFurnitureInsideRoom(room,{...item,rotationY:-item.rotationY}) : isFurnitureInsideRoom(
       room,
       item.dimensions,
@@ -110,7 +111,7 @@ export function computeLocalValidationIssues(
   }
 
   for (const item of physical) {
-    if(['SUPPORT','WALL','WINDOW'].includes(placementPolicy(item).installation))continue;
+    if(isImmovableFixture(item)||['SUPPORT','WALL','WINDOW'].includes(placementPolicy(item).installation))continue;
     const zones = clearanceZonesWorld(item);
     if (zones.length === 0) continue;
     const itemCorners = bodyCorners.get(item.id)!;

@@ -1,0 +1,486 @@
+{
+  "roomId": 105,
+  "name": "현재 업로드 회귀 방",
+  "room": {
+    "width": 4.84,
+    "depth": 3.5,
+    "height": 2.29,
+    "unit": "meter"
+  },
+  "walls": [
+    {
+      "id": "E0BD2D46-676D-4DDD-9E29-32AA5891A5C5",
+      "start": {
+        "x": 4.84,
+        "z": 3.47
+      },
+      "end": {
+        "x": 0.03,
+        "z": 3.47
+      },
+      "height": 2.29,
+      "thickness": 0.0
+    },
+    {
+      "id": "478F0B40-02B2-458D-9DE2-C1E7531AED9D",
+      "start": {
+        "x": 0.03,
+        "z": 3.47
+      },
+      "end": {
+        "x": 0.03,
+        "z": 1.47
+      },
+      "height": 2.29,
+      "thickness": 0.0
+    },
+    {
+      "id": "95CA87CE-7134-4B19-ADDC-517DA4FF28DE",
+      "start": {
+        "x": 0.03,
+        "z": 1.47
+      },
+      "end": {
+        "x": 1.48,
+        "z": 1.47
+      },
+      "height": 2.29,
+      "thickness": 0.0
+    },
+    {
+      "id": "1B8E2225-48D5-4EBE-83B6-AD9270DCD663",
+      "start": {
+        "x": 1.48,
+        "z": 1.47
+      },
+      "end": {
+        "x": 1.48,
+        "z": 0.04
+      },
+      "height": 2.29,
+      "thickness": 0.0
+    },
+    {
+      "id": "5987A7D6-9584-4222-9B3E-F425637C3D2A",
+      "start": {
+        "x": 1.48,
+        "z": 0.04
+      },
+      "end": {
+        "x": 4.84,
+        "z": 0.04
+      },
+      "height": 2.29,
+      "thickness": 0.0
+    },
+    {
+      "id": "4C543653-8005-487C-8A2C-4815A3987628",
+      "start": {
+        "x": 4.84,
+        "z": 0.04
+      },
+      "end": {
+        "x": 4.84,
+        "z": 3.47
+      },
+      "height": 2.29,
+      "thickness": 0.0
+    }
+  ],
+  "openings": [
+    {
+      "id": "6E651794-524E-4E22-943D-FEE456900F56",
+      "type": "door",
+      "wall": "1B8E2225-48D5-4EBE-83B6-AD9270DCD663",
+      "offset": 0.99,
+      "width": 0.73,
+      "height": 2.11,
+      "sillHeight": null
+    },
+    {
+      "id": "20A17AF5-800C-4184-A3E3-C8673A9A8B9E",
+      "type": "door",
+      "wall": "478F0B40-02B2-458D-9DE2-C1E7531AED9D",
+      "offset": 0.46,
+      "width": 0.81,
+      "height": 1.97,
+      "sillHeight": null
+    },
+    {
+      "id": "1CB04C4B-92B2-412B-8724-A9DB9E7A24AD",
+      "type": "window",
+      "wall": "4C543653-8005-487C-8A2C-4815A3987628",
+      "offset": 1.6,
+      "width": 1.99,
+      "height": 1.79,
+      "sillHeight": 0.47
+    }
+  ],
+  "furniture": [
+    {
+      "id": "scan-current-0",
+      "type": "stove",
+      "label": "가스레인지",
+      "width": 0.65,
+      "depth": 0.53,
+      "height": 0.05,
+      "position": {
+        "x": 0.35,
+        "z": 1.74
+      },
+      "rotation": 0.0,
+      "status": "EXISTING",
+      "productId": null,
+      "variantId": null,
+      "styleTags": [],
+      "mount": "WALL",
+      "elevation": 0.87
+    },
+    {
+      "id": "scan-current-1",
+      "type": "sink",
+      "label": "싱크대",
+      "width": 0.52,
+      "depth": 0.42,
+      "height": 0.2,
+      "position": {
+        "x": 1.09,
+        "z": 1.78
+      },
+      "rotation": 0.0,
+      "status": "EXISTING",
+      "productId": null,
+      "variantId": null,
+      "styleTags": [],
+      "mount": "WALL",
+      "elevation": 0.67
+    },
+    {
+      "id": "scan-current-2",
+      "type": "base_cabinet",
+      "label": "하부장",
+      "width": 1.47,
+      "depth": 0.58,
+      "height": 0.87,
+      "position": {
+        "x": 0.76,
+        "z": 1.76
+      },
+      "rotation": 0.0,
+      "status": "EXISTING",
+      "productId": null,
+      "variantId": null,
+      "styleTags": [],
+      "mount": null,
+      "elevation": null
+    },
+    {
+      "id": "scan-current-3",
+      "type": "upper_cabinet",
+      "label": "상부장",
+      "width": 1.32,
+      "depth": 0.38,
+      "height": 0.81,
+      "position": {
+        "x": 0.69,
+        "z": 1.66
+      },
+      "rotation": 0.0,
+      "status": "EXISTING",
+      "productId": null,
+      "variantId": null,
+      "styleTags": [],
+      "mount": "WALL",
+      "elevation": 1.44
+    },
+    {
+      "id": "scan-current-4",
+      "type": "multi_table",
+      "label": "테이블",
+      "width": 0.89,
+      "depth": 0.58,
+      "height": 0.39,
+      "position": {
+        "x": 2.92,
+        "z": 1.66
+      },
+      "rotation": 0.0,
+      "status": "EXISTING",
+      "productId": null,
+      "variantId": null,
+      "styleTags": [],
+      "mount": null,
+      "elevation": null
+    },
+    {
+      "id": "scan-current-5",
+      "type": "desk_chair",
+      "label": "의자",
+      "width": 0.51,
+      "depth": 0.54,
+      "height": 0.75,
+      "position": {
+        "x": 2.79,
+        "z": 0.63
+      },
+      "rotation": 180.0,
+      "status": "EXISTING",
+      "productId": null,
+      "variantId": null,
+      "styleTags": [],
+      "mount": null,
+      "elevation": null
+    },
+    {
+      "id": "scan-current-6",
+      "type": "wardrobe",
+      "label": "옷장",
+      "width": 1.03,
+      "depth": 0.61,
+      "height": 1.89,
+      "position": {
+        "x": 4.295,
+        "z": 3.1450000000000005
+      },
+      "rotation": 180.0,
+      "status": "EXISTING",
+      "productId": null,
+      "variantId": null,
+      "styleTags": [],
+      "mount": null,
+      "elevation": null
+    },
+    {
+      "id": "scan-current-7",
+      "type": "refrigerator",
+      "label": "냉장고",
+      "width": 0.56,
+      "depth": 0.63,
+      "height": 1.15,
+      "position": {
+        "x": 1.2600000000000002,
+        "z": 3.105
+      },
+      "rotation": 180.0,
+      "status": "EXISTING",
+      "productId": null,
+      "variantId": null,
+      "styleTags": [],
+      "mount": null,
+      "elevation": null
+    },
+    {
+      "id": "scan-current-8",
+      "type": "wardrobe",
+      "label": "옷장",
+      "width": 0.98,
+      "depth": 0.59,
+      "height": 1.73,
+      "position": {
+        "x": 2.87,
+        "z": 3.1350000000000002
+      },
+      "rotation": 180.0,
+      "status": "EXISTING",
+      "productId": null,
+      "variantId": null,
+      "styleTags": [],
+      "mount": null,
+      "elevation": null
+    },
+    {
+      "id": "scan-current-9",
+      "type": "desk",
+      "label": "책상",
+      "width": 1.18,
+      "depth": 0.67,
+      "height": 0.73,
+      "position": {
+        "x": 2.77,
+        "z": 0.425
+      },
+      "rotation": 0.0,
+      "status": "EXISTING",
+      "productId": null,
+      "variantId": null,
+      "styleTags": [],
+      "mount": null,
+      "elevation": null
+    },
+    {
+      "id": "scan-current-10",
+      "type": "bed",
+      "label": "침대",
+      "width": 1.2,
+      "depth": 2.12,
+      "height": 0.56,
+      "position": {
+        "x": 4.180000000000001,
+        "z": 1.1500000000000001
+      },
+      "rotation": 0.0,
+      "status": "EXISTING",
+      "productId": null,
+      "variantId": null,
+      "styleTags": [],
+      "mount": null,
+      "elevation": null
+    }
+  ],
+  "source": "ROOMPLAN",
+  "createdAt": "2026-10-18T14:29:34.653505",
+  "importStatus": "ACCEPTED_WITH_WARNINGS",
+  "importWarnings": [
+    {
+      "code": "ZERO_WALL_THICKNESS_ACCEPTED",
+      "entityId": "E0BD2D46-676D-4DDD-9E29-32AA5891A5C5",
+      "furnitureType": null,
+      "message": "RoomPlan이 보고한 wall thickness=0 값을 원본 그대로 유지했습니다.",
+      "adjustmentMeters": null,
+      "originalPosition": null,
+      "normalizedPosition": null,
+      "originalRotation": null,
+      "normalizedRotation": null
+    },
+    {
+      "code": "ZERO_WALL_THICKNESS_ACCEPTED",
+      "entityId": "478F0B40-02B2-458D-9DE2-C1E7531AED9D",
+      "furnitureType": null,
+      "message": "RoomPlan이 보고한 wall thickness=0 값을 원본 그대로 유지했습니다.",
+      "adjustmentMeters": null,
+      "originalPosition": null,
+      "normalizedPosition": null,
+      "originalRotation": null,
+      "normalizedRotation": null
+    },
+    {
+      "code": "ZERO_WALL_THICKNESS_ACCEPTED",
+      "entityId": "95CA87CE-7134-4B19-ADDC-517DA4FF28DE",
+      "furnitureType": null,
+      "message": "RoomPlan이 보고한 wall thickness=0 값을 원본 그대로 유지했습니다.",
+      "adjustmentMeters": null,
+      "originalPosition": null,
+      "normalizedPosition": null,
+      "originalRotation": null,
+      "normalizedRotation": null
+    },
+    {
+      "code": "ZERO_WALL_THICKNESS_ACCEPTED",
+      "entityId": "1B8E2225-48D5-4EBE-83B6-AD9270DCD663",
+      "furnitureType": null,
+      "message": "RoomPlan이 보고한 wall thickness=0 값을 원본 그대로 유지했습니다.",
+      "adjustmentMeters": null,
+      "originalPosition": null,
+      "normalizedPosition": null,
+      "originalRotation": null,
+      "normalizedRotation": null
+    },
+    {
+      "code": "ZERO_WALL_THICKNESS_ACCEPTED",
+      "entityId": "5987A7D6-9584-4222-9B3E-F425637C3D2A",
+      "furnitureType": null,
+      "message": "RoomPlan이 보고한 wall thickness=0 값을 원본 그대로 유지했습니다.",
+      "adjustmentMeters": null,
+      "originalPosition": null,
+      "normalizedPosition": null,
+      "originalRotation": null,
+      "normalizedRotation": null
+    },
+    {
+      "code": "ZERO_WALL_THICKNESS_ACCEPTED",
+      "entityId": "4C543653-8005-487C-8A2C-4815A3987628",
+      "furnitureType": null,
+      "message": "RoomPlan이 보고한 wall thickness=0 값을 원본 그대로 유지했습니다.",
+      "adjustmentMeters": null,
+      "originalPosition": null,
+      "normalizedPosition": null,
+      "originalRotation": null,
+      "normalizedRotation": null
+    },
+    {
+      "code": "FURNITURE_REPOSITIONED",
+      "entityId": "03DA1B10-7319-445B-8995-94389379CCD4",
+      "furnitureType": "wardrobe",
+      "message": "RoomPlan 가구가 다른 가구와 겹치거나 방 밖으로 나와 가장 가까운 위치로 옮겼습니다.",
+      "adjustmentMeters": 0.03535533905932725,
+      "originalPosition": {
+        "x": 4.32,
+        "z": 3.17
+      },
+      "normalizedPosition": {
+        "x": 4.295,
+        "z": 3.1450000000000005
+      },
+      "originalRotation": 180.0,
+      "normalizedRotation": 180.0
+    },
+    {
+      "code": "FURNITURE_REPOSITIONED",
+      "entityId": "ADC1C22E-CF34-43E3-9711-1BB7E95C2698",
+      "furnitureType": "refrigerator",
+      "message": "RoomPlan 가구가 다른 가구와 겹치거나 방 밖으로 나와 가장 가까운 위치로 옮겼습니다.",
+      "adjustmentMeters": 0.05852349955359821,
+      "originalPosition": {
+        "x": 1.28,
+        "z": 3.16
+      },
+      "normalizedPosition": {
+        "x": 1.2600000000000002,
+        "z": 3.105
+      },
+      "originalRotation": 180.0,
+      "normalizedRotation": 180.0
+    },
+    {
+      "code": "FURNITURE_REPOSITIONED",
+      "entityId": "7AF79A25-66BC-43E7-B610-46F5D31D8918",
+      "furnitureType": "wardrobe",
+      "message": "RoomPlan 가구가 다른 가구와 겹치거나 방 밖으로 나와 가장 가까운 위치로 옮겼습니다.",
+      "adjustmentMeters": 0.04499999999999993,
+      "originalPosition": {
+        "x": 2.87,
+        "z": 3.18
+      },
+      "normalizedPosition": {
+        "x": 2.87,
+        "z": 3.1350000000000002
+      },
+      "originalRotation": 180.0,
+      "normalizedRotation": 180.0
+    },
+    {
+      "code": "FURNITURE_REPOSITIONED",
+      "entityId": "D5943DDB-257C-4C47-A4EE-1BFFC76E3C52",
+      "furnitureType": "desk",
+      "message": "RoomPlan 가구가 다른 가구와 겹치거나 방 밖으로 나와 가장 가까운 위치로 옮겼습니다.",
+      "adjustmentMeters": 0.049244289008980514,
+      "originalPosition": {
+        "x": 2.79,
+        "z": 0.38
+      },
+      "normalizedPosition": {
+        "x": 2.77,
+        "z": 0.425
+      },
+      "originalRotation": 0.0,
+      "normalizedRotation": 0.0
+    },
+    {
+      "code": "FURNITURE_REPOSITIONED",
+      "entityId": "7CBEFB5C-B0A8-4EB2-AEE2-20A6926B99EC",
+      "furnitureType": "bed",
+      "message": "RoomPlan 가구가 다른 가구와 겹치거나 방 밖으로 나와 가장 가까운 위치로 옮겼습니다.",
+      "adjustmentMeters": 0.07071067811865465,
+      "originalPosition": {
+        "x": 4.23,
+        "z": 1.1
+      },
+      "normalizedPosition": {
+        "x": 4.180000000000001,
+        "z": 1.1500000000000001
+      },
+      "originalRotation": 0.0,
+      "normalizedRotation": 0.0
+    }
+  ]
+}

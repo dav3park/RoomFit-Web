@@ -75,7 +75,7 @@ describe('recommendation engine',()=>{
  },30000);
  it('reports missing door data and no feasible layout',()=>{
   expect(validateCirculation({...room,doors:[]}).warnings.join()).toContain('문 정보');
-  expect(generateRecommendations({...room,width:1,depth:1,doors:[],walls:[]},options).proposals).toHaveLength(0);
+  expect(generateRecommendations({...room,width:1,depth:1,doors:[],walls:[]},{...options,constraints:{counts:{bed:1},excludedTypes:[],keepIds:[],strictStyle:false}}).proposals).toHaveLength(0);
   expect(generateRecommendations({...room,width:0},options).proposals).toHaveLength(0);
   for(const seed of [NaN,Infinity,-1,1.5,2**32])expect(generateRecommendations(room,{...options,seed}).proposals).toHaveLength(0);
  });

@@ -5,6 +5,7 @@ import { isWindowAnchoredFurniture } from '../components/room/windowBlindPlaceme
 import { clearanceZonesWorld } from '../geometry/clearance';
 import { obbOverlap, worldCorners } from '../geometry/obb';
 import { normalizeCanonicalFurnitureType } from '../config/canonicalFurnitureType';
+import { isImmovableFixture } from '../config/fixtureType';
 import type { Furniture, RoomLayout, Vector2D } from '../types';
 
 // RoomViewer's scene group is translated down by 1m; its floor is world y=-1.
@@ -121,16 +122,19 @@ export function demoOverlapHighlights(room: RoomLayout) {
   const zoneStatus = new Map<string, Map<string, DemoSpaceStatus>>();
   const reasons = new Map<string, string[]>();
   const active = room.furniture.filter(item => item.status !== 'deleted');
+  const fixedIds=new Set(active.filter(isImmovableFixture).map(item=>item.id));
   const physical = active.filter(item => normalizeCanonicalFurnitureType(item.sourceType ?? item.category) !== 'rug');
   const corners = new Map(physical.map(item => [item.id, worldCorners(item.position, calculateRotatedFootprint(item.dimensions,-item.rotationY,resolveFurnitureLocalFootprint(item)))]));
   const rank = {clear: 0, warning: 1, blocked: 2};
   active.forEach(item => status.set(item.id, 'clear'));
   const markItem = (id: string, level: DemoSpaceStatus, reason: string) => {
+    if(fixedIds.has(id))return;
     if (rank[level] > rank[status.get(id) ?? 'clear']) status.set(id, level);
     if (!reasons.has(id)) reasons.set(id, []);
     if (!reasons.get(id)!.includes(reason)) reasons.get(id)!.push(reason);
   };
   const markZone = (item: Furniture, side: string, reason: string, otherId?: string) => {
+    if(fixedIds.has(item.id))return;
     const opening = demoZoneIsOpening(item, side);
     const level = opening ? 'blocked' : 'warning';
     findings.push({type:'ZONE_INTRUSION', furnitureId:item.id, otherFurnitureId:otherId, zoneSide:side as LiveValidationIssue['zoneSide'], severity:opening?'ERROR':'WARNING', opening, boundary:!otherId, message:reason});
@@ -149,7 +153,7 @@ export function demoOverlapHighlights(room: RoomLayout) {
       bodies.add(issue.furnitureId);
       markItem(issue.furnitureId, 'blocked', issue.message);
       if (issue.otherFurnitureId) {
-        bodies.add(issue.otherFurnitureId);
+        if(!fixedIds.has(issue.otherFurnitureId))bodies.add(issue.otherFurnitureId);
         markItem(issue.otherFurnitureId, 'blocked', issue.message);
       }
     }
@@ -168,7 +172,7 @@ export function demoOverlapHighlights(room: RoomLayout) {
     }
   }
   // A wall can obstruct clearance even when the furniture body fits inside the room.
-  for (const item of physical) for (const zone of clearanceZonesWorld(demoGeometryItem(item))) {
+  for (const item of physical.filter(item=>!fixedIds.has(item.id))) for (const zone of clearanceZonesWorld(demoGeometryItem(item))) {
     const center = zone.corners.reduce((p,c) => ({x:p.x+c.x/zone.corners.length,z:p.z+c.z/zone.corners.length}), {x:0,z:0});
     // Test slightly inset vertices so touching a wall alone is not an intrusion.
     const outside = zone.corners.some(p => !demoFloorContains(room,{x:p.x+(center.x-p.x)*1e-6,z:p.z+(center.z-p.z)*1e-6}));
@@ -178,7 +182,7 @@ export function demoOverlapHighlights(room: RoomLayout) {
   for (const door of room.doors) {
     const swing=demoDoorSwing(room,door);
     if (!swing.length) continue;
-    for (const item of physical) if (obbOverlap(swing,corners.get(item.id)!)) {
+    for (const item of physical) if (!fixedIds.has(item.id)&&obbOverlap(swing,corners.get(item.id)!)) {
       findings.push({type:'DOOR_CLEARANCE', furnitureId:item.id, doorId:door.id, severity:'ERROR', message:'문 개폐 공간 침범 (근사치)'});
       doors.add(door.id);
       markItem(item.id,'blocked',`${door.label || '문'}: 90° 개폐 공간 침범 (안쪽 열림 가정)`);

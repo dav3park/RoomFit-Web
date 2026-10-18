@@ -32,6 +32,8 @@ interface RoomViewerProps {
   onBeginMoveFurniture?: (id: string) => void;
   onEndMoveFurniture?: (id: string) => void;
   onRotateFurniture?: (id: string) => void;
+  /** 충돌·여유 공간 경고를 바닥에 표시한다. 홈 쇼룸처럼 보기 전용 화면은 끈다. 기본 켜짐. */
+  showValidationIssues?: boolean;
   /** 카메라와 방 사이에 있는 벽(문 제외)을 반투명하게 보여준다. 기본 켜짐. */
   fadeOccludingWalls?: boolean;
   alignCameraToEntrance?: boolean;
@@ -49,6 +51,7 @@ export function RoomViewer({
   onEndMoveFurniture,
   onRotateFurniture,
   fadeOccludingWalls = true,
+  showValidationIssues = true,
   alignCameraToEntrance = false,
   showEditingHelpers = false,
   preferredColorTone,
@@ -70,7 +73,7 @@ export function RoomViewer({
   // Recomputed from the furniture list alone on every render — including
   // every drag tick — so a collision/clearance problem shows up as a
   // red/orange floor decal instantly, before any server round-trip.
-  const liveIssues = computeLocalValidationIssues(furniture, room, "render");
+  const liveIssues = showValidationIssues ? computeLocalValidationIssues(furniture, room, "render") : [];
 
   return (
     <div className="viewer-shell">

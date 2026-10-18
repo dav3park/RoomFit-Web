@@ -232,6 +232,7 @@
 
 .recommendation-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
 
+@font-face { font-family: 'RoomFit Consultation'; src: url('../assets/fonts/Pretendard-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
 .design-consultation { min-width: 0; }
 .design-consultation:focus-visible { outline: 2px solid #111111; outline-offset: 3px; }
 .design-consultation-steps { display: flex; gap: 8px; margin: 0; padding: 0 0 16px; border-bottom: 1px solid #eeeeee; list-style: none; color: #666666; font-size: 12px; }
@@ -239,7 +240,7 @@
 .design-consultation-steps svg { width: 14px; height: 14px; flex-shrink: 0; }
 .design-consultation-steps [aria-current="step"] span { color: #111111; font-weight: 700; }
 .design-consultation .demo-field { margin-top: 24px; margin-bottom: 0; }
-.design-consultation .demo-field textarea { min-height: 112px; font-size: 14px; font-weight: 400; line-height: 1.6; }
+.design-consultation .demo-field textarea { min-height: 112px; padding: 12px; font-family: 'RoomFit Consultation', 'Pretendard', system-ui, sans-serif; font-size: 14px; font-weight: 400; line-height: 1.7; letter-spacing: -.01em; color: #141414; }
 .design-consultation .demo-field textarea::placeholder { color: #666666; }
 .workspace-demo .design-consultation-count { margin-top: 8px; margin-bottom: 24px; }
 .design-consultation-upload { display: flex; width: 100%; flex-direction: column; align-items: center; gap: 8px; padding: 20px 12px; border: 1px dashed #777777; border-radius: 8px; background: #fbfbfb; text-align: center; }

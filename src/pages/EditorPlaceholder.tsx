@@ -196,7 +196,7 @@ export default function EditorPlaceholder() {
     : null;
   const [selectedFurnitureId, setSelectedFurnitureId] = useState<string | null>(null);
   const [feedback, setFeedback] = useState("");
-  const [hideEntranceWalls, setHideEntranceWalls] = useState(false);
+  const [fadeOccludingWalls, setFadeOccludingWalls] = useState(true);
   const [isRecommending, setIsRecommending] = useState(false);
   const [isPreparingCatalog, setIsPreparingCatalog] = useState(false);
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
@@ -756,11 +756,11 @@ export default function EditorPlaceholder() {
             <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-[#dfdfdf] bg-white px-3 py-2 text-sm font-extrabold text-[#333333] transition-colors hover:bg-[#f6f6f6]">
               <input
                 type="checkbox"
-                checked={hideEntranceWalls}
-                onChange={(event) => setHideEntranceWalls(event.target.checked)}
+                checked={fadeOccludingWalls}
+                onChange={(event) => setFadeOccludingWalls(event.target.checked)}
                 className="h-4 w-4 accent-[#111111]"
               />
-              내부 보기
+              벽 투명하게
             </label>
           </div>
 
@@ -814,7 +814,7 @@ export default function EditorPlaceholder() {
               onMoveFurniture={handleMoveFurniture}
               onBeginMoveFurniture={handleBeginMoveFurniture}
               onEndMoveFurniture={handleEndMoveFurniture}
-              hideEntranceWalls={hideEntranceWalls}
+              fadeOccludingWalls={fadeOccludingWalls}
               alignCameraToEntrance
               showEditingHelpers
               preferredColorTone={preferredColorTone}

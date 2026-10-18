@@ -81,7 +81,7 @@ export default function ManageFurniture() {
   // Starts true (not false) so the very first render already shows/captures
   // the interior view, without an initial exterior-view render needing to be
   // undone by an effect right after mount.
-  const [hideEntranceWalls, setHideEntranceWalls] = useState(true);
+  const [fadeOccludingWalls, setFadeOccludingWalls] = useState(true);
   const viewerContainerRef = useRef<HTMLDivElement>(null);
   const [panelWidth, setPanelWidth] = useState(320);
   const [isResizing, setIsResizing] = useState(false);
@@ -301,17 +301,17 @@ export default function ManageFurniture() {
   };
 
   const handleToggleInteriorView = (checked: boolean) => {
-    setHideEntranceWalls(checked);
+    setFadeOccludingWalls(checked);
 
     if (checked) {
       captureInteriorThumbnail();
     }
   };
 
-  // Relying on the user remembering to manually flip "내부 보기" made this
+  // Relying on the user remembering to manually flip "벽 투명하게" made this
   // easy to skip entirely — a room could go all the way to /layout-confirm
   // still showing no real thumbnail on /rooms. Capturing once, right when
-  // this room is first opened here (hideEntranceWalls already starts true —
+  // this room is first opened here (fadeOccludingWalls already starts true —
   // see its useState above), means every room gets a real thumbnail before
   // confirming even happens, not just the ones someone happened to click the
   // checkbox for.
@@ -337,11 +337,11 @@ export default function ManageFurniture() {
             <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-[#dfdfdf] bg-white px-3 py-2 text-sm font-extrabold text-[#333333] transition-colors hover:bg-[#f6f6f6]">
               <input
                 type="checkbox"
-                checked={hideEntranceWalls}
+                checked={fadeOccludingWalls}
                 onChange={(event) => handleToggleInteriorView(event.target.checked)}
                 className="h-4 w-4 accent-[#111111]"
               />
-              내부 보기
+              벽 투명하게
             </label>
           </div>
 
@@ -366,7 +366,7 @@ export default function ManageFurniture() {
               onSelectFurniture={setSelectedFurnitureId}
               onMoveFurniture={moveFurniture}
               onEndMoveFurniture={persistMovedFurniture}
-              hideEntranceWalls={hideEntranceWalls}
+              fadeOccludingWalls={fadeOccludingWalls}
               alignCameraToEntrance
               showEditingHelpers
               preferredColorTone={preferredColorTone}

@@ -1,7 +1,7 @@
 import { getLayoutAppliedColorScheme } from '../../config/appliedColorTone';
 import { ContactShadows, OrbitControls } from "@react-three/drei";
-import { Canvas, useThree } from "@react-three/fiber";
-import { useLayoutEffect, useRef, type ReactNode } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import * as THREE from "three";
 import { FurnitureMesh } from "./FurnitureMesh";
 import Door from "./Door";
@@ -9,7 +9,9 @@ import Floor from "./Floor";
 import Lighting from "./Lighting";
 import Wall from "./Wall";
 import Window from "./Window";
-import { entranceViewCamera, interiorViewWallIds } from "./roomViewGeometry";
+import { entranceViewCamera } from "./roomViewGeometry";
+import FadeGroup from "./FadeGroup";
+import { occludingWallIds, wallOutwardNormals } from "./occludingWalls";
 import { resolveFurnitureInstallations } from "../../geometry/furnitureInstallation";
 import { placementPolicy } from "../../config/furniturePlacementPolicy";
 import { computeLocalValidationIssues } from "../../geometry/liveValidation";
@@ -30,7 +32,8 @@ interface RoomViewerProps {
   onBeginMoveFurniture?: (id: string) => void;
   onEndMoveFurniture?: (id: string) => void;
   onRotateFurniture?: (id: string) => void;
-  hideEntranceWalls?: boolean;
+  /** 카메라와 방 사이에 있는 벽(문 제외)을 반투명하게 보여준다. 기본 켜짐. */
+  fadeOccludingWalls?: boolean;
   alignCameraToEntrance?: boolean;
   showEditingHelpers?: boolean;
   preferredColorTone?: FurnitureColorThemeId | null;
@@ -45,7 +48,7 @@ export function RoomViewer({
   onBeginMoveFurniture,
   onEndMoveFurniture,
   onRotateFurniture,
-  hideEntranceWalls = false,
+  fadeOccludingWalls = true,
   alignCameraToEntrance = false,
   showEditingHelpers = false,
   preferredColorTone,
@@ -105,8 +108,7 @@ export function RoomViewer({
 
           <RoomShell
             room={room}
-            hideEntranceWalls={hideEntranceWalls}
-            cameraPosition={activeCamera.position}
+            fadeOccludingWalls={fadeOccludingWalls}
           />
 
           {visibleFurniture.map((item) => {
@@ -267,34 +269,58 @@ function FitOrthographicCamera({
   return <orthographicCamera ref={cameraRef} near={0.1} far={100} />;
 }
 
+// 반투명 벽의 불투명도. 방 모양은 읽히되 안쪽 가구가 가리지 않을 정도.
+const OCCLUDING_WALL_OPACITY = 0.2;
+
 function RoomShell({
   room,
-  hideEntranceWalls,
-  cameraPosition,
+  fadeOccludingWalls,
 }: {
   room: RoomLayout;
-  hideEntranceWalls: boolean;
-  cameraPosition: { x: number; z: number };
+  fadeOccludingWalls: boolean;
 }) {
-  const hiddenWallIds = hideEntranceWalls
-    ? interiorViewWallIds(room, cameraPosition)
-    : new Set<string>();
-  // Keep the door leaf visible in interior mode even when its entrance wall is hidden.
-  const visibleDoors = room.doors;
-  const visibleWindows = room.windows.filter((opening) => !opening.wallId || !hiddenWallIds.has(opening.wallId));
+  const wallFacings = useMemo(() => wallOutwardNormals(room), [room]);
+  const [fadedWallIds, setFadedWallIds] = useState<ReadonlySet<string>>(() => new Set());
+  const fadedRef = useRef(fadedWallIds);
+  const viewDirection = useMemo(() => new THREE.Vector3(), []);
+
+  // 카메라가 돌 때마다(OrbitControls) 가리는 벽이 바뀐다. 계산은 매 프레임 하되 집합이 바뀔 때만
+  // 다시 렌더링한다.
+  useFrame(({ camera }) => {
+    const next = fadeOccludingWalls
+      ? occludingWallIds(wallFacings, { x: -camera.getWorldDirection(viewDirection).x, z: -viewDirection.z }, fadedRef.current)
+      : new Set<string>();
+    if (next !== fadedRef.current && (next.size > 0 || fadedRef.current.size > 0)) {
+      fadedRef.current = next;
+      setFadedWallIds(next);
+    }
+  });
 
   return (
     <group>
       <Floor room={room} />
 
-      {room.walls.map((wall) => (
-        hiddenWallIds.has(wall.id) ? null : <Wall key={wall.id} wall={wall} doors={visibleDoors} windows={visibleWindows} />
-      ))}
+      {room.walls.map((wall) => {
+        const faded = fadedWallIds.has(wall.id);
+        // 반투명 벽의 창문도 같이 흐리게 한다 — 안 그러면 유리만 공중에 떠 보인다. 문은 입구가
+        // 읽히도록 항상 불투명하게 둔다.
+        const wallWindows = room.windows.filter((opening) => opening.wallId === wall.id);
+        return (
+          <FadeGroup key={wall.id} opacity={faded ? OCCLUDING_WALL_OPACITY : 1}>
+            <Wall wall={wall} doors={room.doors} windows={room.windows} />
+            {wallWindows.map((opening) => (
+              <Window key={opening.id} opening={opening} wallHeight={room.height ?? 2.4} />
+            ))}
+          </FadeGroup>
+        );
+      })}
 
-      {visibleWindows.map((opening) => (
-        <Window key={opening.id} opening={opening} wallHeight={room.height ?? 2.4} />
-      ))}
-      {visibleDoors.map((opening) => (
+      {room.windows
+        .filter((opening) => !opening.wallId || !room.walls.some((wall) => wall.id === opening.wallId))
+        .map((opening) => (
+          <Window key={opening.id} opening={opening} wallHeight={room.height ?? 2.4} />
+        ))}
+      {room.doors.map((opening) => (
         <Door key={opening.id} opening={opening} wallThickness={wallThicknessFor(opening.wallId, room.walls)} />
       ))}
     </group>

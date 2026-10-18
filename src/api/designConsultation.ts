@@ -103,6 +103,7 @@ export function consultationErrorMessage(error: unknown): string {
     const messages: Record<string, string> = {
       CONSULTATION_NOT_CONFIGURED: 'AI 디자인 상담 서버 연결이 아직 설정되지 않았습니다. 입력은 유지됩니다.',
       CONSULTATION_RATE_LIMITED: '분석 요청이 많습니다. 잠시 후 다시 시도해 주세요.',
+      CONSULTATION_RESPONSE_INVALID: 'AI 분석 결과를 확인하지 못했습니다. 입력은 유지됩니다. 다시 분석해 주세요.',
       CONSULTATION_UPLOAD_TOO_LARGE: '첨부 용량이 너무 큽니다. 사진을 줄인 뒤 다시 시도해 주세요.',
       INVALID_CONSULTATION_IMAGE: '첨부 사진을 읽지 못했습니다. 다른 사진으로 다시 시도해 주세요.',
     };

@@ -257,8 +257,9 @@
 .design-consultation-description { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; line-height: 1.65; margin: 16px 0; }
 .workspace-demo .design-consultation-note { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eeeeee; }
 
-.design-consultation-conditions { list-style: none; padding: 0; margin: 20px 0; }
+.design-consultation-conditions { list-style: none; padding: 0; margin: 20px 0 0; }
 .design-consultation-conditions > li { padding: 16px 0; border-top: 1px solid #eeeeee; }
+.design-consultation-conditions > li:last-child { padding-bottom: 0; }
 .design-consultation-condition-options { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .design-consultation-include { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; }
 .design-consultation-include input { width: 18px; height: 18px; }

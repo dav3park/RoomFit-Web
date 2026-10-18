@@ -33,6 +33,14 @@ describe('design consultation analysis boundary', () => {
     const error = { isAxiosError: true, response: { data: { error: { code: 'CONSULTATION_FAILED', message: 'secret-key', requestId: 'req-123' } } } };
     expect(consultationErrorMessage(error)).toContain('req-123'); expect(consultationErrorMessage(error)).not.toContain('secret');
   });
+  it('explains invalid AI results without blaming the server connection', () => {
+    const error = { isAxiosError: true, response: { data: { error: { code: 'CONSULTATION_RESPONSE_INVALID', message: 'private provider content', requestId: 'req-invalid' } } } };
+    const message=consultationErrorMessage(error);
+    expect(message).toContain('AI 분석 결과');
+    expect(message).toContain('입력은 유지');
+    expect(message).not.toContain('서버 연결');
+    expect(message).not.toContain('private');
+  });
 });
 
 describe('confirmed consultation preparation transport',()=>{

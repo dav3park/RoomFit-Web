@@ -319,8 +319,10 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
             <section className="demo-section"><h3>라이프스타일</h3><div className="demo-choice-grid">{purposes.map(item => <button key={item} className="demo-choice" aria-pressed={purpose === item} onClick={() => updateInput(() => setPurpose(item))}>{item}</button>)}</div></section>
             <section className="demo-section"><h3>선호하는 색감</h3><div className="demo-palette"><button aria-label="선택 안 함 · 자동 색 조합" aria-pressed={palette==='auto'} onClick={()=>updateInput(()=>setPalette('auto'))}><span className="demo-palette-auto">자동</span>선택 안 함</button>{PREFERRED_COLOR_TONE_OPTIONS.map(item => <button key={item.id} aria-label={item.label} aria-pressed={palette === item.id} onClick={() => updateInput(() => setPalette(item.id))}><span style={{ background: item.colors.length > 1 ? `linear-gradient(135deg, ${item.colors[0]} 50%, ${item.colors[1]} 50%)` : item.colors[0] }} />{item.label}</button>)}</div><p className="demo-help">{palette==='auto'?'스타일·라이프스타일·바닥색에 맞는 색 조합을 추천안마다 제안합니다.':'선택한 색감을 가구의 재질과 부위에 나눠 적용합니다.'}</p></section>
             <section className="demo-section"><h3>인테리어 스타일</h3><p className="demo-help">이미지 선택이 추천 스타일 선택으로 연결됩니다.</p><div className="demo-style-grid">{styles.map(item => <button key={item.id} aria-label={item.title} aria-pressed={style === item.id} onClick={() => updateInput(() => setStyle(item.id))}><img src={item.image} alt={item.title} /><span>{item.title}</span>{style === item.id && <FiCheck aria-hidden="true" />}</button>)}</div></section>
-            <Button onClick={generate} disabled={generating || busy} className="w-full">{generating ? '배치 계산 중…' : '추천 생성'}</Button>
-            {generating && <button className="demo-outline" onClick={()=>{stopGeneration();setNotice('추천 생성을 취소했습니다. 현재 배치는 유지됩니다.');}}>계산 취소</button>}
+            <div className="recommendation-actions">
+              <Button onClick={generate} disabled={generating || busy} className="w-full">{generating ? '배치 계산 중…' : '추천 생성'}</Button>
+              {generating && <button className="demo-outline" onClick={()=>{stopGeneration();setNotice('추천 생성을 취소했습니다. 현재 배치는 유지됩니다.');}}>계산 취소</button>}
+            </div>
             <p className="demo-help">창문 가림·문과 수납 개폐·60 cm 통로를 확인하고, 가구 묶음·채광·균형을 비교합니다. 창턱 높이가 없으면 화면의 추정 높이를 사용하며 실제 개폐 방식은 다를 수 있습니다.</p>
             {recommendations && <section ref={recommendationResults} tabIndex={-1} className="demo-section" aria-label="추천안 비교">
               <h3>추천안 비교</h3>

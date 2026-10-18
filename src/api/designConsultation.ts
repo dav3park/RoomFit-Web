@@ -1,4 +1,4 @@
-import type { PreparedConsultation } from '../recommendation/consultation';
+import { validatePreparedConsultation, type PreparedConsultation } from '../recommendation/consultation';
 import { apiClient } from './client';
 import { isAxiosError } from 'axios';
 import type { DesignReferenceImage } from '../config/designConsultationImages';
@@ -22,8 +22,9 @@ export interface ConsultationAnalysis {
   summary: string;
   requirements: ConsultationRequirement[];
   questions: string[];
+  preparation?: PreparedConsultation | null;
 }
-export interface ConsultationSelection extends ConsultationRequirement { included: boolean }
+export interface ConsultationSelection extends ConsultationRequirement { included: boolean; preparedDescription?: string }
 
 export function consultationFurniture(room: RoomLayout) {
   return room.furniture.filter(item => item.status !== 'deleted').map(item => ({ id: item.id, name: item.name, type: item.sourceType ?? item.category }));
@@ -77,6 +78,10 @@ export function validateConsultationAnalysis(value: unknown, revision: string, d
       || (item.kind === 'KEEP_FURNITURE' && (item.source !== 'USER_TEXT' || (item.value && !furniture.some(original => original.id === item.value))))) return fail();
   }
   if (data.questions.some(question => typeof question !== 'string' || !question.trim() || question.length > 300)) return fail();
+  if(data.preparation){
+    if(data.preparation.revision!==revision)return fail();
+    validatePreparedConsultation(data.preparation,data.requirements.map((_,index)=>String(index)),furniture.map(item=>item.id));
+  }
   return data;
 }
 
@@ -84,7 +89,7 @@ export async function analyzeDesignConsultation(description: string, images: rea
   furniture: ReturnType<typeof consultationFurniture>, signal: AbortSignal): Promise<ConsultationAnalysis> {
   const revision = crypto.randomUUID();
   const form = new FormData();
-  form.append('brief', new Blob([JSON.stringify({ revision, description, furniture })], { type: 'application/json' }));
+  form.append('brief', new Blob([JSON.stringify({ revision, description, furniture, recommendationReady: true })], { type: 'application/json' }));
   for (const [index, image] of images.entries()) form.append('images', await consultationPhoto(image, signal), `reference-${index + 1}.jpg`);
   signal.throwIfAborted();
   const response = await apiClient.post<{ success: boolean; data: unknown }>('/api/design-consultation/analyze', form, { signal, timeout: 70_000 });
@@ -115,4 +120,21 @@ export async function prepareDesignConsultation(selections:readonly Consultation
   const response=await apiClient.post<{success:boolean;data:PreparedConsultation}>('/api/design-consultation/prepare',{revision,conditions,furniture},{signal,timeout:70_000});
   if(!response.data.success||response.data.data?.revision!==revision)throw new Error('조건을 추천 설정으로 정리하지 못했습니다. 다시 시도해 주세요.');
   return response.data.data;
+}
+
+export async function resolveConsultationPreparation(selections:readonly ConsultationSelection[],cached:PreparedConsultation|null|undefined,
+  furniture:ReturnType<typeof consultationFurniture>,signal:AbortSignal):Promise<PreparedConsultation> {
+  signal.throwIfAborted();
+  if(!cached)return prepareDesignConsultation(selections,furniture,signal);
+  const included=selections.flatMap((item,index)=>item.included?[{...item,id:String(index)}]:[]);
+  const dirty=new Set(included.filter(item=>!cached.conditions.some(condition=>condition.id===item.id)
+    ||item.source==='USER_EDIT'&&item.preparedDescription!==item.description).map(item=>item.id));
+  let fresh:PreparedConsultation|null=null;
+  if(dirty.size){
+    fresh=await prepareDesignConsultation(selections.map((item,index)=>({...item,included:item.included&&dirty.has(String(index))})),furniture,signal);
+    validatePreparedConsultation(fresh,[...dirty],furniture.map(item=>item.id));
+  }
+  const result={revision:cached.revision,conditions:included.map(item=>(dirty.has(item.id)?fresh:cached)!.conditions.find(condition=>condition.id===item.id)!)};
+  validatePreparedConsultation(result,included.map(item=>item.id),furniture.map(item=>item.id));
+  return result;
 }

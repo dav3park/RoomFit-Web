@@ -19,10 +19,29 @@ export interface CompiledConsultation {
 const typeLabel=(type:string)=>FURNITURE_SELECTION_ITEMS.find(item=>item.canonicalType===type)?.name??type;
 const values:Record<string,readonly string[]>={PURPOSE:['휴식','업무 / 공부','취미 / 여가','수납'],STYLE:['minimal','natural','modern','classic','midcentury'],PALETTE:['auto','ivory','beige','gray','brown','green','blue','pink','black']};
 
+export function validatePreparedConsultation(plan:PreparedConsultation,ids:readonly string[],furnitureIds:readonly string[]):void {
+  const fail=()=>{throw new Error('조건을 추천 설정으로 정리하지 못했습니다. 다시 시도해 주세요.');};
+  if(!plan||typeof plan.revision!=='string'||!plan.revision||!Array.isArray(plan.conditions)||plan.conditions.length!==ids.length)fail();
+  const seen=new Set<string>();
+  for(const item of plan.conditions){
+    if(!item||!ids.includes(item.id)||seen.has(item.id)||!Array.isArray(item.effects)||item.effects.length>8||!Array.isArray(item.unresolved)||item.unresolved.length>4
+      ||!item.effects.length&&!item.unresolved.length||item.unresolved.some(text=>typeof text!=='string'||!text.trim()||text.length>300))fail();
+    seen.add(item.id);
+    for(const effect of item.effects){
+      if(!effect||typeof effect.value!=='string'||effect.value.length>128||!Number.isInteger(effect.count)||(effect.kind==='REQUIRE_TYPE'?effect.count<1||effect.count>24:effect.count!==0))fail();
+      if(values[effect.kind]){if(!values[effect.kind].includes(effect.value))fail();}
+      else if(effect.kind==='REQUIRE_TYPE'||effect.kind==='EXCLUDE_TYPE'){if(!isCanonicalFurnitureType(effect.value))fail();}
+      else if(effect.kind==='KEEP_ITEM'){if(!furnitureIds.includes(effect.value))fail();}
+      else fail();
+    }
+  }
+}
+
 export function compileConsultation(selections:readonly ConsultationSelection[],plan:PreparedConsultation,room:RoomLayout):CompiledConsultation {
   const fail=()=>{throw new Error('조건을 추천 설정으로 정리하지 못했습니다. 입력은 유지됩니다. 다시 시도해 주세요.');};
   const inputs=selections.flatMap((item,index)=>item.included?[{...item,id:String(index)}]:[]);
-  if(!plan||!Array.isArray(plan.conditions)||plan.conditions.length!==inputs.length||!inputs.length) return fail();
+  if(!inputs.length)return fail();
+  validatePreparedConsultation(plan,inputs.map(item=>item.id),room.furniture.filter(item=>item.status!=='deleted').map(item=>item.id));
   const reflected:string[]=[],omitted:string[]=[],blockers:string[]=[],seen=new Set<string>();
   const tags:Record<string,Set<string>>={PURPOSE:new Set(),STYLE:new Set(),PALETTE:new Set()};
   const counts:Record<string,number>={},excluded=new Set<string>(),keep=new Set<string>();
@@ -32,14 +51,6 @@ export function compileConsultation(selections:readonly ConsultationSelection[],
     const input=inputs.find(item=>item.id===condition.id);
     if(!input||!Array.isArray(condition.effects)||condition.effects.length>8||!Array.isArray(condition.unresolved)||condition.unresolved.length>4
       ||(!condition.effects.length&&!condition.unresolved.length)||condition.unresolved.some(text=>typeof text!=='string'||!text.trim()||text.length>300))return fail();
-    for(const effect of condition.effects){
-      if(!effect||typeof effect.value!=='string'||effect.value.length>128||!Number.isInteger(effect.count)
-        ||(effect.kind==='REQUIRE_TYPE'?effect.count<1||effect.count>24:effect.count!==0))return fail();
-      if(values[effect.kind]){if(!values[effect.kind].includes(effect.value))return fail();}
-      else if(effect.kind==='REQUIRE_TYPE'||effect.kind==='EXCLUDE_TYPE'){if(!isCanonicalFurnitureType(effect.value))return fail();}
-      else if(effect.kind==='KEEP_ITEM'){if(!room.furniture.some(item=>item.status!=='deleted'&&item.id===effect.value))return fail();}
-      else return fail();
-    }
     if(condition.unresolved.length){
       (input.priority==='REQUIRED'?blockers:omitted).push(`${input.description} — ${condition.unresolved.join(' ')}`);
       continue;

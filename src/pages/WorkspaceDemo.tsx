@@ -1,6 +1,7 @@
 import { getActiveRequestClientId } from '../config/clientScope';
+import { auditConsultationProposal } from '../recommendation/consultationAudit';
 import { compileConsultation, type CompiledConsultation } from '../recommendation/consultation';
-import { consultationErrorMessage, consultationFurniture, prepareDesignConsultation } from '../api/designConsultation';
+import { consultationErrorMessage, consultationFurniture, resolveConsultationPreparation } from '../api/designConsultation';
 import { getAutomaticColorScheme } from '../config/automaticColorSchemes';
 import { useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -189,9 +190,10 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
     preparationRef.current=abort;setPreparing(true);
     const current=()=>preparationRef.current===abort&&!abort.signal.aborted&&latestRoom.current===base&&getActiveRequestClientId()===clientId;
     try {
-      const prepared=await prepareDesignConsultation(consultationDraft.selections,consultationFurniture(base),abort.signal);
+      const prepared=await resolveConsultationPreparation(consultationDraft.selections,consultationDraft.preparation,consultationFurniture(base),abort.signal);
       if(!current())return;
       const compiled=compileConsultation(consultationDraft.selections,prepared,base);
+      consultationDraft.rememberPreparation(prepared);
       setConsultationReport(compiled);
       preparationRef.current=null;setPreparing(false);
       if(compiled.options)runGeneration(compiled.options);
@@ -201,6 +203,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   function runGeneration(options:RecommendationOptions) {
     stopGeneration(); cancelPlacement(); setCandidate(null); setRecommendations(null); setSelectedId(null); setGenerating(true);
     setNotice('상품 태그를 비교하고, 문·수납 개폐와 60 cm 이동 통로를 확인하고 있습니다.');
+    const original=copyDemoRoom(latestRoom.current);
     try {
       const worker = new Worker(new URL('../recommendation/worker.ts', import.meta.url), {type:'module'});
       workerRef.current = worker;
@@ -208,13 +211,19 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
         if(workerRef.current !== worker) return;
         stopGeneration();
         if(event.data.result) {
-          setRecommendations(event.data.result);
-          setCandidate(event.data.result.proposals[0]?.room ?? null);
-          setNotice(event.data.result.proposals.length ? `추천안 ${event.data.result.proposals.length}개를 찾았습니다. 적용 전까지 현재 배치는 유지됩니다.` : '조건을 만족하는 추천안을 찾지 못했습니다. 현재 배치를 유지합니다.');
+          const result=event.data.result;
+          if(options.constraints){
+            const audited=result.proposals.map(proposal=>({...proposal,consultationAudit:auditConsultationProposal(proposal.room,options,original)}));
+            result.proposals=audited.filter(proposal=>proposal.consultationAudit.valid);
+            result.messages=[...result.messages,...new Set(audited.filter(proposal=>!proposal.consultationAudit.valid).flatMap(proposal=>proposal.consultationAudit.issues))];
+          }
+          setRecommendations(result);
+          setCandidate(result.proposals[0]?.room ?? null);
+          setNotice(result.proposals.length ? `추천안 ${result.proposals.length}개를 찾았습니다. 적용 전까지 현재 배치는 유지됩니다.` : '조건을 만족하는 추천안을 찾지 못했습니다. 현재 배치를 유지합니다.');
         } else setNotice(event.data.error ?? '추천을 생성하지 못했습니다. 현재 배치는 유지됩니다.');
       };
       worker.onerror = () => { if(workerRef.current === worker) {stopGeneration(); setNotice('추천 생성에 실패했습니다. 현재 배치는 유지됩니다. 다시 시도해 주세요.');} };
-      worker.postMessage({room:copyDemoRoom(latestRoom.current),options:{...options,seed:crypto.getRandomValues(new Uint32Array(1))[0]}});
+      worker.postMessage({room:original,options:{...options,seed:crypto.getRandomValues(new Uint32Array(1))[0]}});
     } catch {stopGeneration(); setNotice('추천 계산을 시작하지 못했습니다. 현재 배치는 유지됩니다. 다시 시도해 주세요.');}
   }
   async function serviceAction(action: 'choose' | 'next') {
@@ -353,9 +362,18 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
                   <RecommendationThumbnail room={proposal.room} /><RecommendationColourSwatches schemeId={proposal.room.appliedColorSchemeId} /><strong>{index+1}. {proposal.title}</strong>
                   {proposal.features.map(feature=><span key={feature}>{feature}</span>)}<span>사용 위치까지 통로 연결 확인</span>
                 </button>
+                {proposal.consultationAudit&&<details><summary>가구 구성·조건 확인</summary>
+                  <ul className="demo-issues">{proposal.consultationAudit.inventory.map(item=><li key={`${item.type}:${item.name}`}>{item.label} · {item.name} {item.count}개</li>)}</ul>
+                  <ul className="demo-issues">{proposal.consultationAudit.checks.map((check,i)=><li key={i}>{check.label}: 요청 {check.expected}개 · 결과 {check.actual}개 · 확인 완료</li>)}</ul>
+                </details>}
                 {!!proposal.validation.warnings.length && <details><summary>주의사항 {proposal.validation.warnings.length}개</summary><ul className="demo-issues">{proposal.validation.warnings.map(warning=><li key={warning}>{warning}</li>)}</ul></details>}
               </div>)}
-              {candidate && <><p className="demo-help">미리보기 중입니다. 적용하면 현재 배치가 자동 저장됩니다.</p><div className="recommendation-actions"><Button className="w-full" onClick={()=>{const next=copyDemoRoom(candidate);changeRoom(next);setAppliedPalette(getLayoutAppliedPreferredColorTone(next));setSelectedId(null);setNotice('선택한 추천안을 적용하고 자동 저장했습니다. 이어서 직접 편집할 수 있습니다.');}}>이 추천안 적용</Button><button className="demo-outline" onClick={()=>{setCandidate(null);setNotice('현재 편집 배치로 돌아왔습니다. 추천안을 다시 눌러 비교할 수 있습니다.');}}>현재 배치로 돌아가기</button></div></>}
+              {candidate && <><p className="demo-help">미리보기 중입니다. 적용하면 현재 배치가 자동 저장됩니다.</p><div className="recommendation-actions"><Button className="w-full" onClick={()=>{
+                if(consultationReport?.options){
+                  const audit=auditConsultationProposal(candidate,consultationReport.options,latestRoom.current);
+                  if(!audit.valid){setCandidate(null);setRecommendations(null);setConsultationError(`조건 확인에 실패해 적용하지 않았어요. ${audit.issues.join(' ')}`);return;}
+                }
+                const next=copyDemoRoom(candidate);changeRoom(next);setAppliedPalette(getLayoutAppliedPreferredColorTone(next));setSelectedId(null);setNotice('선택한 추천안을 적용하고 자동 저장했습니다. 이어서 직접 편집할 수 있습니다.');}}>이 추천안 적용</Button><button className="demo-outline" onClick={()=>{setCandidate(null);setNotice('현재 편집 배치로 돌아왔습니다. 추천안을 다시 눌러 비교할 수 있습니다.');}}>현재 배치로 돌아가기</button></div></>}
             </section>}
 
         </div>

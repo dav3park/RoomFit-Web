@@ -105,6 +105,6 @@ export default function DesignConsultationPanel({ draft, onGenerate, onCancel, p
         {draft.pending && <button type="button" className="demo-outline" onClick={draft.cancel}>분석 취소</button>}
       </>}
     </div>
-    <p className="demo-help design-consultation-note">취향 분석 시 사진·설명·현재 가구 목록을, 추천 준비 시 확인한 조건·가구 목록을 OpenAI에 전달합니다. RoomFit에 별도 저장하지 않으며, 새로고침하거나 작업실을 나가면 입력과 확인한 조건이 사라져요. 현재 배치는 바뀌지 않습니다.</p>
+    <p className="demo-help design-consultation-note">취향 분석 시 사진·설명·현재 가구 목록을 OpenAI에 전달합니다. 확인한 조건은 그대로 추천에 사용하며, 내용을 수정하면 수정한 조건·가구 목록만 다시 전달합니다. RoomFit에 별도 저장하지 않으며, 새로고침하거나 작업실을 나가면 입력과 확인한 조건이 사라져요. 현재 배치는 바뀌지 않습니다.</p>
   </section>;
 }

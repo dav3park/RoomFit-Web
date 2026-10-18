@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { DESIGN_DESCRIPTION_LIMIT, designImageBatchError, prepareDesignImages, releaseDesignImages, type DesignReferenceImage } from '../../config/designConsultationImages';
 import { analyzeDesignConsultation, consultationErrorMessage, consultationFurniture, type ConsultationAnalysis, type ConsultationSelection } from '../../api/designConsultation';
 import { getActiveRequestClientId } from '../../config/clientScope';
+import type { PreparedConsultation } from '../../recommendation/consultation';
 import type { RoomLayout } from '../../types';
 
 // Attachments and confirmed conditions belong to this workspace, never room autosave.
@@ -12,6 +13,7 @@ export function useDesignConsultationDraft(getRoom: () => RoomLayout, onConditio
   const [pending, setPending] = useState(false);
   const [analysis, setAnalysis] = useState<ConsultationAnalysis | null>(null);
   const [selections, setSelections] = useState<ConsultationSelection[]>([]);
+  const [preparation, setPreparation] = useState<PreparedConsultation | null>(null);
   const [confirmed, setConfirmed] = useState(false);
   const [error, setError] = useState('');
   const attachments = useRef<DesignReferenceImage[]>([]);
@@ -27,7 +29,7 @@ export function useDesignConsultationDraft(getRoom: () => RoomLayout, onConditio
   function invalidateAnalysis() {
     onConditionsChange();
     analysisSequence.current++; controller.current?.abort(); controller.current = null;
-    setPending(false); setAnalysis(null); setSelections([]); setConfirmed(false);
+    setPending(false); setPreparation(null); setAnalysis(null); setSelections([]); setConfirmed(false);
   }
 
   async function addImages(files: File[]) {
@@ -59,7 +61,8 @@ export function useDesignConsultationDraft(getRoom: () => RoomLayout, onConditio
     try {
       const result = await analyzeDesignConsultation(description.trim(), attachments.current, consultationFurniture(base), abort.signal);
       if (!current()) return;
-      setAnalysis(result); setSelections(result.requirements.map(item => ({ ...item, included: true })));
+      setAnalysis(result); setPreparation(result.preparation ?? null);
+      setSelections(result.requirements.map(item => ({ ...item, included: true, preparedDescription: result.preparation ? item.description : undefined })));
     } catch (cause) {
       if (current()) setError(consultationErrorMessage(cause));
     } finally {
@@ -75,7 +78,11 @@ export function useDesignConsultationDraft(getRoom: () => RoomLayout, onConditio
   }
 
   return {
-    description, images, processing, pending, error, analysis, selections, confirmed, addImages, reset, analyze, invalidateAnalysis,
+    description, images, processing, pending, error, analysis, selections, confirmed, preparation,
+    rememberPreparation(plan: PreparedConsultation) {
+      setPreparation(previous => ({...plan, conditions: [...(previous?.conditions.filter(old => !plan.conditions.some(item => item.id === old.id)) ?? []), ...plan.conditions]}));
+      setSelections(items => items.map((item,index) => plan.conditions.some(condition => condition.id === String(index)) ? { ...item, preparedDescription: item.description } : item));
+    }, addImages, reset, analyze, invalidateAnalysis,
     setDescription(value: string) { invalidateAnalysis(); setDescription(value.slice(0, DESIGN_DESCRIPTION_LIMIT)); setError(''); },
     removeImage(id: string) {
       invalidateAnalysis(); releaseDesignImages(attachments.current.filter(image => image.id === id));

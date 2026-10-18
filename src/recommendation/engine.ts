@@ -1,3 +1,4 @@
+import type { ConsultationAudit } from './consultationAudit';
 import { isCanonicalFurnitureType } from '../config/canonicalFurnitureType';
 import catalog from '../data/furniture/catalog.json';
 import type { Furniture, RoomLayout } from '../types';
@@ -37,6 +38,7 @@ export interface RecommendationProposal {
   matchedStyle: number;
   changedFurniture: number;
   movedFurniture: number;
+  consultationAudit?: ConsultationAudit;
 }
 export interface RecommendationResult { proposals: RecommendationProposal[]; messages: string[]; seed?: number }
 type Product = (typeof catalog.products)[number];

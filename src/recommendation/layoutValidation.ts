@@ -1,7 +1,7 @@
 import { resolveFurnitureInstallations,supportFor,windowFurnitureInsideRoom } from '../geometry/furnitureInstallation';
 import { placementPolicy } from '../config/furniturePlacementPolicy';
 import type { Furniture, Opening, RoomLayout, Vector2D } from '../types';
-import { calculateRotatedFootprint, resolveFurnitureLocalFootprint } from '../components/room/furnitureBoundary';
+import { calculateRotatedFootprint, isFurnitureInsideRoom, resolveFurnitureLocalFootprint } from '../components/room/furnitureBoundary';
 import { normalizeCanonicalFurnitureType } from '../config/canonicalFurnitureType';
 import { clearanceZonesWorld } from '../geometry/clearance';
 import { obbOverlap, worldCorners } from '../geometry/obb';
@@ -46,7 +46,7 @@ export function createPlacementCheck(room: RoomLayout, installationScope?: reado
     if (Object.values(item.dimensions).some(value=>!Number.isFinite(value)||value<=0) || item.dimensions.height>(room.height ?? 3)) return false;
     if(entry.type==='curtain_blind'){
       if(!windowFurnitureInsideRoom(room,item))return false;
-    }else if (demoPlacementReason(room,item)) return false;
+    }else if (demoPlacementReason(room,item)||!isFurnitureInsideRoom(room,item.dimensions,item.position,-item.rotationY,resolveFurnitureLocalFootprint(item))) return false;
     if (blockedWindows(room, entry, installationScope?installationScope.filter(other=>other.id!==item.id).map(prepareFurniture):placed).length) return false;
     if (entry.type!=='rug' && swings.some(swing=>obbOverlap(swing,entry.body))) return false;
     if (placementPolicy(item).installation!=='WALL'&&entry.openings.some(zone=>zone.some(point=>!demoFloorContains(room,point))
@@ -99,6 +99,11 @@ function pointSegmentDistance(p: Vector2D,a: Vector2D,b: Vector2D) {
   const dx=b.x-a.x,dz=b.z-a.z;
   const t=Math.max(0,Math.min(1,((p.x-a.x)*dx+(p.z-a.z)*dz)/(dx*dx+dz*dz||1)));
   return Math.hypot(p.x-a.x-t*dx,p.z-a.z-t*dz);
+}
+function segmentDistance(a:Vector2D,b:Vector2D,c:Vector2D,d:Vector2D) {
+  const cross=(p:Vector2D,q:Vector2D,r:Vector2D)=>(q.x-p.x)*(r.z-p.z)-(q.z-p.z)*(r.x-p.x);
+  if(cross(a,b,c)*cross(a,b,d)<0&&cross(c,d,a)*cross(c,d,b)<0)return 0;
+  return Math.min(pointSegmentDistance(a,c,d),pointSegmentDistance(b,c,d),pointSegmentDistance(c,a,b),pointSegmentDistance(d,a,b));
 }
 function distanceToBody(point: Vector2D,item: Furniture) {
   const dx=point.x-item.position.x,dz=point.z-item.position.z,c=Math.cos(item.rotationY),s=Math.sin(item.rotationY);
@@ -165,6 +170,22 @@ export function validateCirculation(room: RoomLayout, grid?: CirculationGrid): L
       const depth=dx*inward.x+dz*inward.z,lateral=Math.abs(dx*along.x+dz*along.z);
       if(depth<MIN_PASSAGE_WIDTH/2||depth>.8||lateral>Math.max(step/2,door.dimensions.width/2-MIN_PASSAGE_WIDTH/2)) continue;
       if(depth+lateral<bestDistance) {best=id;bestDistance=depth+lateral;}
+    }
+    // A scanned doorway can fall between grid columns. Connect its exact centre
+    // to the grid with a swept 60 cm corridor instead of widening the doorway.
+    if(best<0) {
+      const personRadius=MIN_PASSAGE_WIDTH/2;
+      const start={x:door.position.x+inward.x*personRadius,z:door.position.z+inward.z*personRadius};
+      if(!demoFloorContains(room,start))return -1;
+      for(let id=0;id<free.length;id++)if(free[id]) {
+        const p=point(id),dx=p.x-door.position.x,dz=p.z-door.position.z;
+        const depth=dx*inward.x+dz*inward.z,lateral=Math.abs(dx*along.x+dz*along.z);
+        if(depth<personRadius||depth>.8||lateral>door.dimensions.width/2||depth+lateral>=bestDistance)continue;
+        if(room.walls.some(wall=>segmentDistance(start,p,wall.start,wall.end)<personRadius-1e-6)
+          ||physical.some(entry=>distanceToBody(start,entry.item)<personRadius-1e-6
+            ||entry.body.some((corner,i)=>segmentDistance(start,p,corner,entry.body[(i+1)%entry.body.length])<personRadius-1e-6)))continue;
+        best=id;bestDistance=depth+lateral;
+      }
     }
     return best;
   });

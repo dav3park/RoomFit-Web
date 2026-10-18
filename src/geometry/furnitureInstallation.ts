@@ -91,7 +91,7 @@ export function resolveFurnitureInstallations(room:RoomLayout,items:readonly Fur
     const back={x:item.position.x-Math.sin(item.rotationY)*item.dimensions.depth/2,z:item.position.z-Math.cos(item.rotationY)*item.dimensions.depth/2};
     const t=((back.x-wall.start.x)*dx+(back.z-wall.start.z)*dz)/(len*len);
     return t>=0&&t<=1&&Math.abs((back.x-wall.start.x)*dz-(back.z-wall.start.z)*dx)/len<.16;}):Math.min(Math.abs(back.x+room.width/2),Math.abs(back.x-room.width/2),Math.abs(back.z+room.depth/2),Math.abs(back.z-room.depth/2))<.16;
-   if(!near)reason='벽에 설치할 위치가 필요합니다.';
+   if(!near&&item.mount!=='WALL')reason='벽에 설치할 위치가 필요합니다.';
   }else if(p.installation==='WINDOW'){
    const opening=room.windows.filter(w=>!usedWindows.has(w.id)).slice().sort((a,b)=>distance(a.position,item.position)-distance(b.position,item.position)||a.id.localeCompare(b.id)).find(w=>{
     const t=windowTarget(room,item,w);

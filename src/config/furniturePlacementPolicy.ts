@@ -22,5 +22,7 @@ export function getFurniturePlacementPolicy(variantId?:string|null,canonicalType
  policies.set(key,policy);return policy;
 }
 export function placementPolicy(item:Furniture):FurniturePlacementPolicy {
+ // 스캔된 벽걸이(상부장·TV)는 카탈로그 policy 대신 스캔 높이를 쓴다 — 백엔드 FurnitureInstallationPolicy와 동일.
+ if(item.mount==='WALL'&&item.elevation!==undefined)return {canonicalType:item.sourceType,installation:'WALL',roles:[],mountBottom:item.elevation};
  return getFurniturePlacementPolicy(item.variantId,item.sourceType??item.category);
 }

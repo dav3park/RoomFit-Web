@@ -5,6 +5,7 @@ import Bed from "./Bed";
 import Bookshelf from "./Bookshelf";
 import Chair from "./Chair";
 import FloatingShelf from "./FloatingShelf";
+import Fixture from "./Fixture";
 import Lamp from "./Lamp";
 import MidCenturyCollectorFurniture from "./MidCenturyCollectorFurniture";
 import ModelFurniture from "./ModelFurniture";
@@ -63,6 +64,10 @@ export default function FurnitureRenderer({
 
   if (name.includes("plant") || renderedItem.name.includes("화병")) {
     return <Plant item={renderedItem} colors={colors} />;
+  }
+
+  if (renderedItem.category === "fixture") {
+    return <Fixture item={renderedItem} colors={colors} />;
   }
 
   if (renderedItem.id.startsWith("collector-") || renderedItem.id.startsWith("studio-")) {

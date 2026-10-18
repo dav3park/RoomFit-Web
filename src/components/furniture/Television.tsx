@@ -23,7 +23,8 @@ export default function Television({ item, colors }: FurnitureRenderProps) {
   const { width, height, depth } = item.dimensions;
   const bezelDepth = Math.max(0.025, depth * 0.5);
   const screenInset = 0.05;
-  const standClearance = Math.min(0.36, height * 0.5);
+  // 스캔된 벽걸이 TV(mount=WALL)는 이미 제 높이에 떠 있고 height가 패널 높이 그 자체다.
+  const standClearance = item.mount === "WALL" ? 0 : Math.min(0.36, height * 0.5);
   const panelHeight = height - standClearance - height * 0.05;
   const panelCenterY = -height / 2 + standClearance + panelHeight / 2;
 

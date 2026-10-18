@@ -7,6 +7,8 @@ export type FurnitureCategory =
   | "cabinet"
   | "rug"
   | "lighting"
+  // 싱크대·냉장고·상부장 같은 고정설비 — 이동/삭제 불가, 추천 엔진도 건드리지 않는다.
+  | "fixture"
   | "unsupported";
 
 export type FurnitureStatus = "existing" | "recommended" | "user_modified" | "deleted";
@@ -55,6 +57,10 @@ export interface Furniture {
   status: FurnitureStatus;
   removable: boolean;
   mountHeight?: number;
+  /** 백엔드 mount. "WALL"이면 바닥에서 `elevation`(m)만큼 떠 있는 벽걸이(상부장·벽걸이 TV 등). */
+  mount?: "FLOOR" | "WALL";
+  /** 바닥에서 가구 밑면까지 높이(m). mount가 "WALL"일 때만 의미가 있다. */
+  elevation?: number;
   // Set by a demo scenario restyle (see config/scenarios.ts) for pieces that
   // have a frame/leg element rendered separately from `color`/`material`
   // (Bed/Table/Chair). Undefined means "기본" — the original hardcoded

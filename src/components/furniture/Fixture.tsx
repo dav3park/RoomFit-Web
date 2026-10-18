@@ -26,6 +26,18 @@ export default function Fixture({ item }: FurnitureRenderProps) {
     </RoundedBox>
   );
 
+  // 조리대에 박힌 싱크대·가스레인지(mount=WALL로 떠 있음)는 아래 하부장이 몸체라 윗면만 그린다.
+  if (item.mount === "WALL" && (type === "sink" || type === "stove")) {
+    return (
+      <mesh position={[0, height / 2 - 0.004, 0]}>
+        <boxGeometry args={[width, 0.008, depth]} />
+        {type === "sink"
+          ? <Material type="metal" color={METAL} roughness={0.25} metalness={0.8} />
+          : <Material type="glass" color={DARK} roughness={0.2} />}
+      </mesh>
+    );
+  }
+
   switch (type) {
     case "sink":
       return (
@@ -90,6 +102,17 @@ export default function Fixture({ item }: FurnitureRenderProps) {
               <Material type="metal" color={METAL} />
             </mesh>
           )}
+        </group>
+      );
+    case "base_cabinet":
+      return (
+        <group>
+          {shell("#ece8e1")}
+          {/* 조리대 상판 */}
+          <mesh position={[0, height / 2 + 0.012, 0]} castShadow>
+            <boxGeometry args={[width + 0.02, 0.025, depth + 0.02]} />
+            <Material type="white" color={COUNTER} roughness={0.35} />
+          </mesh>
         </group>
       );
     case "upper_cabinet":

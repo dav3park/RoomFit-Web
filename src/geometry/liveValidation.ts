@@ -10,6 +10,7 @@ import {
 import { clearanceZonesWorld } from "./clearance";
 import { obbOverlap, worldCorners } from "./obb";
 import type { Furniture, RoomLayout } from "../types";
+import { isImmovableFixture } from "../config/fixtureType";
 
 /**
  * Client-side mirror of the backend's per-furniture `ValidationIssue` (Java) —
@@ -156,11 +157,13 @@ function isStrictStack(first: Furniture, second: Furniture): boolean {
 
 /**
  * Full exemption (backend mirror: `FurnitureSupportPolicy#isCollisionExempt`)
- * for a desk/desk_chair pair — a chair pushed under a desk usually only
+ * for two immovable fixtures, or a desk/desk_chair pair — a chair pushed under a desk usually only
  * partially overlaps it (unlike `isStrictStack`'s center-in-footprint test),
  * so any overlap between the pair, body or zone, is ignored entirely.
  */
 function isCollisionExempt(first: Furniture, second: Furniture): boolean {
+  // 하부장과 거기 박힌 싱크대·가스레인지처럼 붙박이 설비끼리는 원래 한 덩어리라 겹쳐도 충돌이 아니다.
+  if (isImmovableFixture(first) && isImmovableFixture(second)) return true;
   const firstType = normalizeCanonicalFurnitureType(first.sourceType ?? first.category);
   const secondType = normalizeCanonicalFurnitureType(second.sourceType ?? second.category);
   return (firstType === "desk" && secondType === "desk_chair")

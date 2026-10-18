@@ -21,7 +21,7 @@ import { captureCanvasThumbnail, saveRoomThumbnail } from "../config/roomThumbna
 import { sampleRoomLayouts } from "../mock/interiorPlacementMock";
 import { sampleRoom } from "../mock/sampleRoom";
 import type { Furniture, RoomLayout, Size3D, Vector2D } from "../types";
-import { isFixtureFurniture } from "../config/fixtureType";
+import { isFixtureFurniture, isImmovableFixture } from "../config/fixtureType";
 
 const MANAGED_FURNITURE_SAVE_ERROR = "가구 배치를 저장하지 못했습니다. 편집 내용은 이 브라우저에 유지됩니다.";
 
@@ -460,8 +460,10 @@ export function FurnitureRow({
   // product concept) — this only ever hides the stepper in the rare case an
   // item does resolve to one, as a safety net, not something the common case
   // should need.
-  const fixed = isFixtureFurniture(item);
-  const canResize = Boolean(onResize) && !fixed && !resolveFurnitureVariant(item.variantId);
+  const fixed = isImmovableFixture(item);
+  // 냉장고처럼 상품이 아닌 가전은 옮기거나 지울 수는 있지만 카탈로그 크기 조절 대상은 아니다.
+  const appliance = isFixtureFurniture(item);
+  const canResize = Boolean(onResize) && !appliance && !resolveFurnitureVariant(item.variantId);
 
   return (
     <div className={`rounded-lg border p-2 transition-colors ${selected ? "border-[#111111] bg-[#fafafa]" : "border-transparent"}`}>

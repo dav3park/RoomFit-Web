@@ -94,7 +94,7 @@ export function captureCanvasThumbnail(
     let maxY = 0;
 
     // Every-other-pixel sampling is plenty precise for a bounding box and
-    // keeps this fast — it only runs once, right when "내부 보기" is toggled.
+    // keeps this fast — it only runs once, right when "벽 투명하게" is toggled on.
     for (let y = 0; y < canvas.height; y += 2) {
       for (let x = 0; x < canvas.width; x += 2) {
         if (data[(y * canvas.width + x) * 4 + 3] > alphaThreshold) {

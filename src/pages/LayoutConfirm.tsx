@@ -198,7 +198,7 @@ export default function LayoutConfirm() {
         createAppliedRoomPreferences(readCurrentPreferences(), preferredColorTone),
       );
 
-    // /manage-furniture also captures a thumbnail (its "내부 보기" toggle),
+    // /manage-furniture also captures a thumbnail (its "벽 투명하게" toggle),
     // but that happens early in the flow, before /preference's style pick or
     // /editor's "AI 추천 생성" — so it can only ever be the room's raw,
     // pre-scenario furniture, and never updates again after that. This
@@ -279,8 +279,6 @@ export default function LayoutConfirm() {
                 selectedFurnitureId={null}
                 onSelectFurniture={() => undefined}
                 onMoveFurniture={() => undefined}
-                hideEntranceWalls
-                alignCameraToEntrance
                 preferredColorTone={preferredColorTone}
               />
             </div>

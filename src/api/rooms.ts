@@ -3,7 +3,7 @@ import { isAxiosError } from "axios";
 import { apiClient } from "./client";
 import type { Furniture, FurnitureCategory, FurnitureStatus, Opening, RoomLayout, Vector2D, WallSegment } from "../types";
 import { normalizeCanonicalFurnitureType } from "../config/canonicalFurnitureType";
-import { FIXTURE_LABELS, normalizeFixtureType } from "../config/fixtureType";
+import { FIXTURE_LABELS, isImmovableFixture, normalizeFixtureType } from "../config/fixtureType";
 import {
   clampFurniturePositionToRoom,
   resolveFurnitureLocalFootprint,
@@ -761,6 +761,7 @@ function toFurniture(
   const normalizedItem = normalizeBackendFurnitureApiItem(item);
   const category = toFurnitureCategory(normalizedItem.type);
   const fixtureType = normalizeFixtureType(normalizedItem.type);
+  const immovable = isImmovableFixture({ category, sourceType: normalizedItem.type });
   const canonicalType = fixtureType ?? normalizeCanonicalFurnitureType(normalizedItem.type);
   // `storage` is the one legacy Backend type that is intentionally accepted
   // outside the generated canonical catalog. Keep it as the persistence type:
@@ -798,13 +799,14 @@ function toFurniture(
       metalness: materialType === "metal" ? 0.8 : 0,
     },
     status: toFurnitureStatus(item.status),
-    // 고정설비는 지울 수 없고, 추천 엔진도 위치·크기를 바꾸지 않는다.
-    removable: fixtureType === null,
+    // 붙박이 설비는 지울 수 없다. 냉장고 같은 가전은 사용자가 옮기거나 지울 수 있지만, 상품이 아니라서
+    // 추천 엔진은 위치·크기를 바꾸지 않는다(recommendationLocked).
+    removable: !immovable,
     ...(fixtureType ? { recommendationLocked: true } : {}),
     ...(wallMounted ? { mount: "WALL" as const, elevation: item.elevation as number } : {}),
   };
-  // 고정설비는 스캔 위치가 사실이라 화면 쪽에서 다시 clamp하지 않는다.
-  if (fixtureType) return furniture;
+  // 붙박이 설비는 스캔 위치가 사실이라 화면 쪽에서 다시 clamp하지 않는다.
+  if (immovable) return furniture;
   const position = clampFurniturePositionToRoom(
     { width: roomWidth, depth: roomDepth, walls },
     furniture.dimensions,

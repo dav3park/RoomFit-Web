@@ -17,7 +17,7 @@ import { placementPolicy } from "../../config/furniturePlacementPolicy";
 import { computeLocalValidationIssues } from "../../geometry/liveValidation";
 import type { Furniture, RoomLayout, Vector2D, WallSegment } from "../../types";
 import type { FurnitureColorThemeId } from "../../config/furnitureBehaviorPolicy";
-import { isFixtureFurniture } from "../../config/fixtureType";
+import { isImmovableFixture } from "../../config/fixtureType";
 
 interface RoomViewerProps {
   directDrag?: boolean;
@@ -113,8 +113,8 @@ export function RoomViewer({
 
           {visibleFurniture.map((item) => {
             const installation=installations.get(item.id);
-            // 창문 부착형과 고정설비(싱크대·상부장 등)는 끌어서 옮길 수 없다.
-            const anchored=placementPolicy(item).installation==='WINDOW'||isFixtureFurniture(item);
+            // 창문 부착형과 붙박이 설비(싱크대·상부장 등)는 끌어서 옮길 수 없다. 냉장고는 옮길 수 있다.
+            const anchored=placementPolicy(item).installation==='WINDOW'||isImmovableFixture(item);
             const itemIssues = liveIssues.filter((issue) => issue.furnitureId === item.id);
             const bodySeverity = itemIssues.some((issue) => issue.severity === "ERROR") ? "ERROR" : null;
             const warningZoneSides = itemIssues

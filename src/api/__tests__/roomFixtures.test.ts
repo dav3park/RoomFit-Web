@@ -64,4 +64,33 @@ describe("RoomPlan fixtures", () => {
     expect(request.furniture[0]).not.toHaveProperty("mount");
     expect(request.furniture[1]).toMatchObject({ type: "upper_cabinet", mount: "WALL", elevation: 1.45 });
   });
+
+  it("does not flag a sink set into the base cabinet as a collision", () => {
+    // 개수대가 조리대 안으로 파여 있어 싱크대 밑면(0.64)이 하부장 윗면(0.86)보다 낮다.
+    const layout = applyBackendFurnitureToLayout(room, [
+      scanned({ id: "base-1", type: "base_cabinet", label: "하부장", width: 1.4, depth: 0.65, height: 0.86,
+        position: { x: 1.0, z: 0.34 } }),
+      scanned({ id: "sink-2", type: "sink", width: 0.5, depth: 0.4, height: 0.22,
+        position: { x: 1.3, z: 0.34 }, mount: "WALL", elevation: 0.64 }),
+      scanned({ id: "stove-1", type: "stove", label: "가스레인지", width: 0.7, depth: 0.5, height: 0.05,
+        position: { x: 0.6, z: 0.34 }, mount: "WALL", elevation: 0.86 }),
+    ]);
+    const issues = computeLocalValidationIssues(layout.furniture, layout, "render")
+      .filter((issue) => issue.type === "BODY_COLLISION" || issue.type === "ZONE_INTRUSION");
+    expect(issues).toEqual([]);
+  });
+
+  it("treats the refrigerator as a movable, removable appliance that still collides", () => {
+    const layout = applyBackendFurnitureToLayout(room, [
+      scanned({ id: "base-1", type: "base_cabinet", label: "하부장", width: 1.4, depth: 0.65, height: 0.86,
+        position: { x: 1.0, z: 0.34 } }),
+      scanned({ id: "fridge-1", type: "refrigerator", label: "냉장고", width: 0.6, depth: 0.6, height: 1.1,
+        position: { x: 1.5, z: 0.34 } }),
+    ]);
+    const fridge = layout.furniture.find((item) => item.id === "fridge-1")!;
+    expect(fridge).toMatchObject({ category: "fixture", removable: true, recommendationLocked: true });
+    const collisions = computeLocalValidationIssues(layout.furniture, layout, "render")
+      .filter((issue) => issue.type === "BODY_COLLISION");
+    expect(collisions).toHaveLength(1);
+  });
 });

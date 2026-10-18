@@ -4,6 +4,7 @@ import type { Furniture } from "../types";
 // 1:1로 맞춘 별도 타입이다 — 값은 업로드/조회 JSON의 furniture.type 그대로.
 export const FIXTURE_TYPES = [
   "upper_cabinet",
+  "base_cabinet",
   "sink",
   "stove",
   "oven",
@@ -20,6 +21,7 @@ export type FixtureType = (typeof FIXTURE_TYPES)[number];
 
 export const FIXTURE_LABELS: Readonly<Record<FixtureType, string>> = {
   upper_cabinet: "상부장",
+  base_cabinet: "하부장",
   sink: "싱크대",
   stove: "가스레인지",
   oven: "오븐",

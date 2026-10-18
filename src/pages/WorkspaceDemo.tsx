@@ -19,7 +19,7 @@ import modern from '../assets/styles/modern.png';
 import classic from '../assets/styles/classic.png';
 import midcentury from '../assets/styles/midcentury.png';
 import './workspaceDemo.css';
-import type { RecommendationPalette, RecommendationMode, RecommendationPurpose, RecommendationStyle, RecommendationResult } from '../recommendation/engine';
+import type { RecommendationPalette, RecommendationPurpose, RecommendationStyle, RecommendationResult } from '../recommendation/engine';
 import RecommendationThumbnail from '../recommendation/RecommendationThumbnail';
 import { MAX_ACTIVE_FURNITURE } from '../config/furnitureAdditionPolicy';
 import { getFurnitureSelectionBlockReason } from '../config/furnitureSelectionPolicy';
@@ -30,7 +30,6 @@ import { useWorkspaceFeedback } from '../components/editor/useWorkspaceFeedback'
 const tools = [{ id: 'room', label: '방 · 스캔 보정', icon: FiHome }, { id: 'furniture', label: '가구 탐색', icon: FiBox }, { id: 'ai', label: '추천', icon: FiSliders }, { id: 'results', label: '검증 · 결과', icon: FiList }] as const;
 const styles = [{ id: 'minimal', title: '미니멀', image: minimal }, { id: 'natural', title: '내추럴', image: natural }, { id: 'modern', title: '모던', image: modern }, { id: 'classic', title: '클래식', image: classic }, { id: 'midcentury', title: '미드센추리', image: midcentury }] as const;
 const purposes = ['휴식', '업무 / 공부', '취미 / 여가', '수납'] as const;
-const modes = [{id:'preserve',label:'현재 배치 유지',description:'종류·개수·위치·방향을 유지하고 취향에 맞는 상품과 색감으로 바꿉니다. 크기가 달라지면 다시 검증합니다.'},{id:'rearrange',label:'가구 재배치',description:'기존 모델·크기·개수를 유지하며 위치와 방향만 바꿉니다. 라이프스타일은 공간 구성에, 색감은 가구에 적용됩니다. 스타일에 따른 상품 교체는 하지 않습니다.'},{id:'new',label:'새로운 디자인',description:'생활 목적에 필요한 가구를 새로 고르고 배치합니다.'}] as const;
 const axes = [{ id: 'width', label: '가로' }, { id: 'depth', label: '세로' }] as const;
 
 interface WorkspaceService {
@@ -58,7 +57,6 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
   const [purpose, setPurpose] = useState<RecommendationPurpose>('휴식');
   const [palette, setPalette] = useState<RecommendationPalette>(() => getLayoutAppliedColorScheme(service?.initialRoom??room)?'auto':(service ? resolveRoomLayoutPreferredColorTone(service.initialRoom) : getLayoutAppliedPreferredColorTone(room)) ?? 'auto');
   const [style, setStyle] = useState<RecommendationStyle>('natural');
-  const [mode, setMode] = useState<RecommendationMode>('preserve');
   const [keepTypes, setKeepTypes] = useState(true);
   const [keepSizes, setKeepSizes] = useState(false);
   const [generating, setGenerating] = useState(false);
@@ -196,7 +194,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
         } else setNotice(event.data.error ?? '추천을 생성하지 못했습니다. 현재 배치는 유지됩니다.');
       };
       worker.onerror = () => { if(workerRef.current === worker) {stopGeneration(); setNotice('추천 생성에 실패했습니다. 현재 배치는 유지됩니다. 다시 시도해 주세요.');} };
-      worker.postMessage({room:copyDemoRoom(latestRoom.current),options:{purpose,style,palette,mode,keepTypes,keepSizes}});
+      worker.postMessage({room:copyDemoRoom(latestRoom.current),options:{purpose,style,palette,mode:'new',keepTypes,keepSizes}});
     } catch {stopGeneration(); setNotice('추천 계산을 시작하지 못했습니다. 현재 배치는 유지됩니다. 다시 시도해 주세요.');}
   }
   async function serviceAction(action: 'choose' | 'next') {
@@ -301,9 +299,21 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
           </>}
           {tool === 'ai' && <>
             <p className="demo-help">취향과 유지할 조건을 골라 최대 3개의 배치를 비교하세요. 적용하기 전에는 현재 배치를 바꾸지 않습니다.</p>
-            <section className="demo-section"><h3>추천 방식</h3><div className="recommendation-modes">{modes.map(item=><button key={item.id} className="demo-choice" aria-pressed={mode===item.id} onClick={()=>updateInput(()=>{setMode(item.id);setKeepTypes(item.id!=='new');setKeepSizes(item.id==='rearrange');})}>{item.label}</button>)}</div><p className="demo-help">{modes.find(item=>item.id===mode)!.description}</p>
-              <label className="recommendation-condition"><input type="checkbox" checked={keepTypes} disabled={mode!=='new'} onChange={event=>updateInput(()=>{setKeepTypes(event.target.checked);if(!event.target.checked)setKeepSizes(false);})} />기존 가구 종류·개수 유지</label>
-              <label className="recommendation-condition"><input type="checkbox" checked={keepSizes} disabled={mode==='rearrange'||!keepTypes} onChange={event=>updateInput(()=>setKeepSizes(event.target.checked))} />기존 가구 크기 유지</label>
+            <section className="demo-section" aria-labelledby="recommendation-conditions-title">
+              <h3 id="recommendation-conditions-title">유지할 조건</h3>
+              <div className="recommendation-conditions">
+                <label className="recommendation-condition">
+                  <input type="checkbox" checked={keepTypes} aria-labelledby="keep-types-title" aria-describedby="keep-types-description"
+                    onChange={event=>updateInput(()=>{setKeepTypes(event.target.checked);if(!event.target.checked)setKeepSizes(false);})} />
+                  <span><strong id="keep-types-title">기존 가구 종류·개수 유지</strong><span id="keep-types-description">현재 가구의 종류와 개수를 유지해 추천해요.</span></span>
+                </label>
+                <label className="recommendation-condition">
+                  <input type="checkbox" checked={keepSizes} disabled={!keepTypes} aria-labelledby="keep-sizes-title" aria-describedby="keep-sizes-description"
+                    onChange={event=>updateInput(()=>setKeepSizes(event.target.checked))} />
+                  <span><strong id="keep-sizes-title">기존 가구 크기 유지</strong><span id="keep-sizes-description">{keepTypes?'가로·세로·높이를 현재 크기로 유지해요.':'종류·개수 유지를 먼저 선택해 주세요.'}</span></span>
+                </label>
+              </div>
+              <p className="demo-help">선택한 조건을 지키며 상품과 배치를 새로 추천해요.</p>
               <p className="demo-help">가구 도구막대의 자물쇠로 상품·위치·크기를 고정할 수 있어요. 선택한 색감은 고정 가구에도 적용됩니다.</p>
             </section>
             <section className="demo-section"><h3>라이프스타일</h3><div className="demo-choice-grid">{purposes.map(item => <button key={item} className="demo-choice" aria-pressed={purpose === item} onClick={() => updateInput(() => setPurpose(item))}>{item}</button>)}</div></section>

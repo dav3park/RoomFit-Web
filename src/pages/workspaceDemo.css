@@ -219,8 +219,14 @@
 .demo-save-error { color: #b42318; font-size: 12px; line-height: 1.5; }
 .demo-toolbar-sizes .demo-dimension-value input { font-size: 11px; }
 .demo-toolbar-sizes .demo-dimension:last-child .demo-dimension-error { left: auto; right: 0; }
-.recommendation-modes { display: grid; gap: 8px; }
-.recommendation-condition { display: flex; align-items: center; gap: 8px; margin: 12px 0; font-size: 12px; }
+.recommendation-conditions { display: grid; gap: 10px; margin-bottom: 12px; }
+.recommendation-condition { display: flex; align-items: flex-start; gap: 10px; border: 1px solid #e5e5e5; border-radius: 12px; padding: 12px; background: white; cursor: pointer; }
+.recommendation-condition:has(input:checked) { border-color: #111111; background: #eeeeee; }
+.recommendation-condition:has(input:disabled) { background: #fbfbfb; cursor: not-allowed; }
+.recommendation-condition input { flex: 0 0 auto; width: 18px; height: 18px; margin: 1px 0 0; cursor: inherit; }
+.recommendation-condition > span { display: grid; min-width: 0; gap: 6px; }
+.recommendation-condition strong { font-size: 12px; line-height: 1.5; }
+.recommendation-condition span span { color: #555555; font-size: 12px; line-height: 1.5; }
 .recommendation-proposal { padding: 12px 0; border-top: 1px solid #eeeeee; }
 .recommendation-preview { display: flex; width: 100%; flex-direction: column; gap: 6px; text-align: left; border: 1px solid #e5e5e5; border-radius: 12px; padding: 12px; background: white; }
 .recommendation-preview[aria-pressed=true] { border-color: #111111; background: #eeeeee; }

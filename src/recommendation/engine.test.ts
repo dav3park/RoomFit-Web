@@ -26,6 +26,18 @@ describe('recommendation engine',()=>{
   const rearranged=generateRecommendations(initial,{...options,mode:'rearrange',keepTypes:true,keepSizes:true});expect(rearranged.proposals.length).toBeGreaterThan(0);
   for(const p of rearranged.proposals){expect(p.room.furniture.length).toBe(initial.furniture.length);for(const old of initial.furniture)expect(p.room.furniture.find(item=>item.id===old.id)!.dimensions).toEqual(old.dimensions);}
  },30000);
+ it.each([false,true])('new recommendations retain type/count and optionally dimensions (keepSizes=%s)',keepSizes=>{
+  const initial=generateRecommendations(room,options).proposals[0].room;
+  const before=structuredClone(initial);
+  const result=generateRecommendations(initial,{...options,mode:'new',keepTypes:true,keepSizes});
+  expect(result.proposals.length).toBeGreaterThan(0);
+  for(const proposal of result.proposals){
+   expect(proposal.room.furniture.map(item=>item.id).sort()).toEqual(initial.furniture.map(item=>item.id).sort());
+   for(const old of initial.furniture){const next=proposal.room.furniture.find(item=>item.id===old.id)!;expect(next.sourceType).toBe(old.sourceType);if(keepSizes)expect(next.dimensions).toEqual(old.dimensions);}
+   expect(validateRecommendationLayout(proposal.room).valid).toBe(true);
+  }
+  expect(initial).toEqual(before);
+ },30000);
  it('rejects disconnected use positions even without body collisions',()=>{const split={...room,furniture:[box('divider',0,0,5.8,.3),box('far table',0,-1.8,1,.6)]};expect(validateCirculation(split).valid).toBe(false);});
  it('validates a concave floor and rejects furniture outside it',()=>{
   const vertices=[{x:-3,z:-3},{x:3,z:-3},{x:3,z:0},{x:0,z:0},{x:0,z:3},{x:-3,z:3}];

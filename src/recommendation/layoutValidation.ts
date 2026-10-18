@@ -1,5 +1,6 @@
-import { resolveFurnitureInstallations,supportFor,windowFurnitureInsideRoom } from '../geometry/furnitureInstallation';
+import { resolveFurnitureInstallations,supportFor,windowFurnitureInsideRoom,furnitureFootprintInsideFloor,localPoint } from '../geometry/furnitureInstallation';
 import { placementPolicy } from '../config/furniturePlacementPolicy';
+import { isFixtureFurniture, isImmovableFixture, normalizeFixtureType } from '../config/fixtureType';
 import type { Furniture, Opening, RoomLayout, Vector2D } from '../types';
 import { calculateRotatedFootprint, isFurnitureInsideRoom, resolveFurnitureLocalFootprint } from '../components/room/furnitureBoundary';
 import { normalizeCanonicalFurnitureType } from '../config/canonicalFurnitureType';
@@ -15,6 +16,8 @@ export interface LayoutValidation { valid: boolean; reasons: string[]; warnings:
 export function furnitureType(item: Furniture): string {
   const canonical = normalizeCanonicalFurnitureType(item.sourceType ?? item.category);
   if (canonical) return canonical;
+  const fixture=normalizeFixtureType(item.sourceType);
+  if(fixture)return fixture;
   if (item.category === 'cabinet') return /서랍/.test(item.name) ? 'drawer_chest' : /책장|선반/.test(item.name) ? 'bookshelf' : 'wardrobe';
   return item.category;
 }
@@ -46,12 +49,15 @@ export function createPlacementCheck(room: RoomLayout, installationScope?: reado
     if (Object.values(item.dimensions).some(value=>!Number.isFinite(value)||value<=0) || item.dimensions.height>(room.height ?? 3)) return false;
     if(entry.type==='curtain_blind'){
       if(!windowFurnitureInsideRoom(room,item))return false;
+    }else if(isImmovableFixture(item)) {
+      if(!furnitureFootprintInsideFloor(room,item))return false;
     }else if (demoPlacementReason(room,item)||!isFurnitureInsideRoom(room,item.dimensions,item.position,-item.rotationY,resolveFurnitureLocalFootprint(item))) return false;
     if (blockedWindows(room, entry, installationScope?installationScope.filter(other=>other.id!==item.id).map(prepareFurniture):placed).length) return false;
     if (entry.type!=='rug' && swings.some(swing=>obbOverlap(swing,entry.body))) return false;
     if (placementPolicy(item).installation!=='WALL'&&entry.openings.some(zone=>zone.some(point=>!demoFloorContains(room,point))
       ||crossesRoomWall(room,zone)||swings.some(swing=>obbOverlap(swing,zone)))) return false;
     for(const other of placed) {
+      if(isImmovableFixture(item)&&isImmovableFixture(other.item))continue;
       if(entry.type==='rug'||other.type==='rug') continue;
       const a=installations.get(item.id)!,b=installations.get(other.item.id)!;
       if(a.minY>=b.maxY-1e-6||b.minY>=a.maxY-1e-6)continue;
@@ -126,8 +132,9 @@ export interface CirculationGrid {
   points: Vector2D[]; floor: Uint8Array;
 }
 /** Reuse wall/floor erosion across all proposals for the same room. */
-export function createCirculationGrid(room: RoomLayout): CirculationGrid {
-  const step=Math.max(.15,room.width/100,room.depth/100),radius=MIN_PASSAGE_WIDTH/2+step/Math.SQRT2;
+export function createCirculationGrid(room: RoomLayout, requestedStep?:number): CirculationGrid {
+  const step=requestedStep===undefined?Math.max(.15,room.width/100,room.depth/100):Math.max(requestedStep,room.width/200,room.depth/200);
+  const radius=MIN_PASSAGE_WIDTH/2+step/Math.SQRT2;
   const cols=Math.ceil(room.width/step),rows=Math.ceil(room.depth/step),floor=new Uint8Array(cols*rows);
   const directions=Array.from({length:8},(_,i)=>({x:Math.cos(i*Math.PI/4)*radius,z:Math.sin(i*Math.PI/4)*radius}));
   const points=Array.from({length:floor.length},(_,id)=>({x:-room.width/2+(id%cols+.5)*step,z:-room.depth/2+(Math.floor(id/cols)+.5)*step}));
@@ -136,7 +143,22 @@ export function createCirculationGrid(room: RoomLayout): CirculationGrid {
     if(demoFloorContains(room,p)&&directions.every(d=>demoFloorContains(room,{x:p.x+d.x,z:p.z+d.z}))
       &&room.walls.every(wall=>pointSegmentDistance(p,wall.start,wall.end)>=radius)) floor[id]=1;
   }
-  return {step,radius,cols,rows,points,floor};
+  const grid:CirculationGrid={step,radius,cols,rows,points,floor};
+  const fixtures=room.furniture.filter(item=>item.status!=='deleted'&&isFixtureFurniture(item));
+  // Refine only when the existing scan is disconnected at coarse resolution.
+  // The person radius remains 30 cm; fixed appliances are never moved to create a path.
+  if(requestedStep===undefined&&fixtures.length) {
+    const baseline={...room,furniture:fixtures};
+    if(!validateCirculation(baseline,grid).valid) {
+      let refined=grid;
+      for(const precision of [.05,.025]) {
+        refined=createCirculationGrid(room,precision);
+        if(validateCirculation(baseline,refined).valid)break;
+      }
+      return refined;
+    }
+  }
+  return grid;
 }
 /** Conservative person-radius grid, flood-filled from the entrance. */
 export function validateCirculation(room: RoomLayout, grid?: CirculationGrid): LayoutValidation {
@@ -205,7 +227,16 @@ export function validateCirculation(room: RoomLayout, grid?: CirculationGrid): L
   };
   let reachableCount=0;
   for(const entry of physical) {
-    let targets=accessPoints(entry,radius+step);
+    if(entry.type==='upper_cabinet'&&placementPolicy(entry.item).installation==='WALL')continue;
+    let frontExtension=0;
+    if(['sink','stove'].includes(entry.type)) {
+      // Built-in bowls/hobs are used from the counter front, not from inside its deeper footprint.
+      const front=resolveFurnitureLocalFootprint(entry.item).maxZ;
+      for(const counter of physical.filter(other=>other.type==='base_cabinet'&&Math.cos(other.item.rotationY-entry.item.rotationY)>.99&&entry.body.every(p=>distanceToBody(p,other.item)<=.03))) {
+        frontExtension=Math.max(frontExtension,...counter.body.map(p=>localPoint(entry.item,p).z-front));
+      }
+    }
+    let targets=accessPoints(entry,radius+step+frontExtension);
     if(entry.type==='desk') {
       const chairs=physical.filter(other=>other.type==='desk_chair'&&supported(other,entry));
       targets=targets.concat(chairs.flatMap(chair=>accessPoints(chair,radius+step)));

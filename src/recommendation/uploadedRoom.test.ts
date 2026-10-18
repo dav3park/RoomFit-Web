@@ -29,8 +29,8 @@ describe('uploaded concave studio',()=>{
    for(const p of result.proposals){expect(validateRecommendationLayout(p.room).valid).toBe(true);expect(computeLocalValidationIssues(p.room.furniture,p.room,'render').filter(i=>i.severity==='ERROR')).toEqual([]);}
   }
  },60000);
- it('falls back to compact furniture and fewer extras in a small studio',()=>{
-  const result=generateRecommendations(tiny,options);
+ it('keeps an explicitly requested bed when compact furniture is needed',()=>{
+  const result=generateRecommendations(tiny,{...options,constraints:{counts:{bed:1},excludedTypes:[],keepIds:[],strictStyle:false}});
   expect(result.proposals.length,JSON.stringify(result.messages)).toBeGreaterThan(0);
   for(const p of result.proposals){expect(p.room.furniture.some(item=>item.sourceType==='bed')).toBe(true);expect(validateRecommendationLayout(p.room).valid).toBe(true);}
   expect(result.messages.join(' ')).toContain('작은');

@@ -159,13 +159,13 @@ function validConstraints(room:RoomLayout,options:RecommendationOptions) {
     if(active.filter(item=>isLocked(item,options)&&furnitureType(item)===type).length>count)return false;
   }
   return !active.some(item=>isLocked(item,options)&&((isLoftDeskFurniture(item)&&constraints.excludedTypes.includes('desk'))||constraints.excludedTypes.includes(furnitureType(item))
-    ||constraints.strictStyle&&!item.styleTags?.includes(options.style)));
+    ||constraints.strictStyle&&!isFixtureFurniture(item)&&!item.styleTags?.includes(options.style)));
 }
 function satisfiesConstraints(room:RoomLayout,options:RecommendationOptions) {
   const constraints=options.constraints;if(!constraints)return true;
   return !room.furniture.some(item=>constraints.excludedTypes.includes(furnitureType(item))||(isLoftDeskFurniture(item)&&constraints.excludedTypes.includes('desk')))
     &&Object.entries(constraints.counts).every(([type,count])=>room.furniture.filter(item=>furnitureType(item)===type).length===count)
-    &&(!constraints.strictStyle||room.furniture.every(item=>item.styleTags?.includes(options.style)));
+    &&(!constraints.strictStyle||room.furniture.every(item=>isFixtureFurniture(item)||item.styleTags?.includes(options.style)));
 }
 function positionScore(item:Furniture,placed:readonly PreparedFurniture[],room:RoomLayout,attempt:number) {
   const type=furnitureType(item),center=floorCentroid(room),local=resolveFurnitureLocalFootprint(item);
@@ -294,7 +294,9 @@ export function generateRecommendations(input:RoomLayout,requested:Recommendatio
   let compactRecovery=false;
   for(const compact of [false,true]) {
     if(compact&&(pool.length||options.mode!=='new'||options.keepTypes||options.keepSizes))break;
-    const trialSlots=compact?slots.filter(slot=>slot.required):slots;
+    const requestedTypes=Object.keys(options.constraints?.counts??{});
+    const trialSlots=compact?slots.filter(slot=>slot.required).map(slot=>({...slot,
+      required:requestedTypes.includes(slot.type)||requestedTypes.some(type=>supportType[type]===slot.type)})):slots;
     for(let strategy=0;strategy<strategies.length;strategy++) {
       const valid:RecommendationProposal[]=[],seen=new Set<string>();
       for(let attempt=0;attempt<(options.mode==='preserve'?1:2);attempt++) {
@@ -302,7 +304,7 @@ export function generateRecommendations(input:RoomLayout,requested:Recommendatio
         for(const partial of solved) {
           const next=withAppliedPreferredColorTone({...room,furniture:partial.items.map(entry=>entry.item)},options.palette);
           const key=signature(next);if(seen.has(key)) continue;seen.add(key);
-          if(next.furniture.length>MAX_ACTIVE_FURNITURE||!satisfiesConstraints(next,options)) continue;
+          if((compact&&!next.furniture.some(item=>!isFixtureFurniture(item)))||next.furniture.length>MAX_ACTIVE_FURNITURE||!satisfiesConstraints(next,options)) continue;
           const validation=validateRecommendationLayout(next,grid);
           if(!validation.valid) {validation.reasons.forEach(reason=>failures.add(reason));continue;}
           validation.warnings=[...new Set([...validation.warnings,...partial.warnings])];
@@ -346,6 +348,6 @@ export function generateRecommendations(input:RoomLayout,requested:Recommendatio
   const recovery=options.constraints?'‘조건 다시 수정’에서 가구 개수나 포함할 조건을 조정해 주세요.':options.keepTypes?'종류·개수 유지 또는 크기 유지 조건과 가구 자물쇠 고정을 확인해 주세요.':'가구 자물쇠 고정을 확인하거나 다른 스타일로 다시 시도해 주세요.';
   const messages=proposals.length===0?[`현재 방 크기와 선택한 조건으로 배치를 찾지 못했습니다. ${recovery}`,...[...failures].slice(0,3)]:
     proposals.length<3?[`현재 조건에서 서로 다른 추천안 ${proposals.length}개를 찾았습니다. 조건을 임의로 해제하지 않았습니다.`]:[];
-  if(compactRecovery)messages.unshift('공간에 맞춰 자동 추가 가구를 줄이고 작은 상품을 우선해 추천했습니다. 선택한 스타일과 다른 상품은 주의사항에서 확인할 수 있습니다.');
+  if(compactRecovery)messages.unshift('공간에 맞춰 자동 기본 구성의 종류·개수 기준을 풀고 작은 가구로 추천했습니다. 선택한 스타일과 다른 상품은 주의사항에서 확인할 수 있습니다.');
   return {proposals,messages,seed};
 }

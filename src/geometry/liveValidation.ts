@@ -1,4 +1,4 @@
-import { resolveFurnitureInstallations,windowFurnitureInsideRoom } from './furnitureInstallation';
+import { resolveFurnitureInstallations,windowFurnitureInsideRoom,furnitureFootprintInsideFloor } from './furnitureInstallation';
 import { placementPolicy } from '../config/furniturePlacementPolicy';
 import { normalizeCanonicalFurnitureType } from "../config/canonicalFurnitureType";
 import {
@@ -89,7 +89,8 @@ export function computeLocalValidationIssues(
   }
 
   for (const item of active) {
-    const inside = placementPolicy(item).installation==='WINDOW'
+    const inside = isImmovableFixture(item)
+      ? furnitureFootprintInsideFloor(room,{...item,rotationY:-item.rotationY}) : placementPolicy(item).installation==='WINDOW'
       ? windowFurnitureInsideRoom(room,{...item,rotationY:-item.rotationY}) : isFurnitureInsideRoom(
       room,
       item.dimensions,

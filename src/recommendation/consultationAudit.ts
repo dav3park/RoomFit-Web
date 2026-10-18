@@ -1,3 +1,4 @@
+import { isFixtureFurniture } from '../config/fixtureType';
 import { getLayoutAppliedPreferredColorTone } from '../config/appliedColorTone';
 import catalog from '../data/furniture/catalog.json';
 import { FURNITURE_SELECTION_ITEMS } from '../config/furnitureSelectionCatalog';
@@ -25,7 +26,7 @@ export function auditConsultationProposal(room:RoomLayout,options:Recommendation
     if(actual&&(actual.furnitureType!==furnitureType(item)||(product&&item.variantId&&product.variantId!==item.variantId)))issues.push(`${item.name}: 상품 정보와 실제 가구 종류가 일치하지 않습니다.`);
     if(!actual&&!original.furniture.some(old=>old.id===item.id))issues.push(`${item.name}: 카탈로그에서 상품을 확인하지 못했습니다.`);
     const styles=actual?.styleTags??original.furniture.find(old=>old.id===item.id)?.styleTags??[];
-    if(!styles.includes(options.style))styleMismatch=true;
+    if(!isFixtureFurniture(item)&&!styles.includes(options.style))styleMismatch=true;
     const type=actual?.furnitureType??furnitureType(item),name=actual?.label??item.name;
     const key=`${type}:${name}`,group=groups.get(key);
     if(group)group.count++;else groups.set(key,{name,type,label:label(type),count:1});

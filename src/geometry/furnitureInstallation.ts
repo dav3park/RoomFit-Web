@@ -62,11 +62,17 @@ function windowTarget(room:RoomLayout,item:Furniture,opening:Opening) {
  return {position:{x:opening.position.x+frame.inward.x*offset+frame.along.x*shift,z:opening.position.z+frame.inward.z*offset+frame.along.z*shift},rotationY:frame.rotationY,
   dimensions:{width,depth:item.dimensions.depth,height},bottom:policy.windowTreatment==='BLIND'?bottom:0};
 }
-/** Installed treatments may meet a side wall; floor furniture's extra inset is not an installation gap. */
-export function windowFurnitureInsideRoom(room:Pick<RoomLayout,'width'|'depth'|'walls'>,item:Furniture):boolean {
+/** Installed items may meet a wall; their scanned footprint must still stay on the actual floor. */
+export function furnitureFootprintInsideFloor(room:Pick<RoomLayout,'width'|'depth'|'walls'>,item:Furniture):boolean {
  const footprint=calculateRotatedFootprint(item.dimensions,-item.rotationY,resolveFurnitureLocalFootprint(item));
- return footprint.corners.every(p=>floorContains(room,{x:item.position.x+p.x*(1-1e-7),z:item.position.z+p.z*(1-1e-7)}));
+ const corners=footprint.corners.map(p=>({x:item.position.x+p.x*(1-1e-7),z:item.position.z+p.z*(1-1e-7)}));
+ const cross=(a:Vector2D,b:Vector2D,c:Vector2D)=>(b.x-a.x)*(c.z-a.z)-(b.z-a.z)*(c.x-a.x);
+ return floorContains(room,item.position)&&corners.every(p=>floorContains(room,p))&&!corners.some((a,i)=>{
+  const b=corners[(i+1)%corners.length];
+  return room.walls.some(({start:c,end:d})=>cross(a,b,c)*cross(a,b,d)<-1e-10&&cross(c,d,a)*cross(c,d,b)<-1e-10);
+ });
 }
+export const windowFurnitureInsideRoom=furnitureFootprintInsideFloor;
 export function windowInstallationCandidates(room:RoomLayout,item:Furniture):Furniture[] {
  return room.windows.slice().sort((a,b)=>distance(a.position,item.position)-distance(b.position,item.position)||a.id.localeCompare(b.id)).slice(0,4).flatMap(opening=>{
   const target=windowTarget(room,item,opening),source=placementPolicy(item).sourceDimensions??item.dimensions;

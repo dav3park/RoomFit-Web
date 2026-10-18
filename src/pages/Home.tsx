@@ -1,65 +1,44 @@
-import { FiArrowRight, FiCpu, FiEdit3, FiHome } from "react-icons/fi";
+import { FiArrowRight, FiCheckCircle, FiShoppingBag, FiSmartphone } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 import Button from "../components/ui/Button";
-import { sampleRoom } from "../mock/sampleRoom";
+import { homePreviewRoom } from "../mock/homePreviewRoom";
 import RoomViewer from "../components/room/RoomViewer";
 import { beginNewRoomSetup } from "../config/roomSetupSession";
 
-
 const features = [
   {
-    icon: FiHome,
-    title: "3D 공간 미리보기",
-    description: "생성하는 3D로 먼저\n내 공간을 확인하세요.",
+    icon: FiSmartphone,
+    title: "스캔 한 번으로 시작",
+    description: "RoomFit Scan 앱으로 찍은 내 방을\n지금 배치 그대로 불러와요.",
   },
   {
-    icon: FiCpu,
-    title: "AI 맞춤 추천",
-    description: "당신의 취향과 라이프스타일을\n분석해 제안해드려요.",
+    icon: FiCheckCircle,
+    title: "실제로 들어가는 배치",
+    description: "가구 충돌과 여닫는 공간을 확인한\n배치만 추천해요.",
   },
   {
-    icon: FiEdit3,
-    title: "간편한 편집",
-    description: "드래그 앤 드롭으로 자유롭게\n수정할 수 있어요.",
+    icon: FiShoppingBag,
+    title: "바로 살 수 있는 가구",
+    description: "실제 판매 상품으로 배치하고\n쇼핑 리스트로 모아드려요.",
   },
 ];
-
-const homePreviewRoom = {
-  ...sampleRoom,
-  camera: {
-    ...sampleRoom.camera,
-    type: "orthographic" as const,
-    position: {
-      x: -6.4,
-      y: 5.2,
-      z: 6.2,
-    },
-    target: {
-      x: 0.15,
-      y: 0.7,
-      z: -0.1,
-    },
-    zoom: 82,
-  },
-};
 
 export function Home() {
   const navigate = useNavigate();
   return (
-    <main className="min-h-screen bg-[#fbfbfb] text-[#141414]">
-
-      <section className="ml-20 grid min-h-135 items-center gap-8 px-5 py-10 sm:px-8 lg:grid-cols-[0.88fr_1.12fr] lg:px-12 lg:py-14">        
+    <main className="min-h-screen break-keep bg-[#fbfbfb] text-[#141414]">
+      <section className="mx-auto grid min-h-135 max-w-300 items-center gap-8 px-5 py-10 sm:px-8 lg:grid-cols-[0.88fr_1.12fr] lg:px-12 lg:py-14">
         <div className="max-w-130">
-          <h1 className="flex flex-col gap-3 text-[34px] font-bold leading-[1.2] tracking-normal text-[#111111] sm:text-[44px] lg:text-[50px]">
-            <span className="whitespace-nowrap">당신만의 공간,</span>
-            <span className="whitespace-nowrap">AI가 완성해드립니다</span>
+          {/* 왼쪽 위 로고(ROOMFIT)와 같은 굵기로, 크기만 키운 워드마크 */}
+          <h1 className="text-[56px] font-bold leading-none tracking-[0.01em] text-[#181818] sm:text-[68px] lg:text-[76px]">
+            RoomFit
           </h1>
 
-          <p className="mt-7 text-base font-medium leading-[1.6] text-[#747474] sm:text-lg">
-            원하는 스타일과 라이프스타일을 입력하면
+          <p className="mt-6 text-lg font-medium leading-[1.6] text-[#333333] sm:text-xl">
+            스캔 한 번으로 시작하는,
             <br />
-            AI가 최적의 인테리어를 제안해드려요.
+            내 방에 실제로 들어가는 가구 배치 서비스
           </p>
 
           <Button
@@ -81,41 +60,22 @@ export function Home() {
             selectedFurnitureId={null}
             onSelectFurniture={() => undefined}
             onMoveFurniture={() => undefined}
+            showValidationIssues={false}
           />
         </div>
       </section>
 
-      <section>
-        <div className="flex px-35 py-9">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-
-            return (
-              <div
-                key={feature.title}
-                className={`flex-1 ${
-                  index === 0
-                    ? "flex justify-start"
-                    : index === 1
-                    ? "flex justify-center"
-                    : "flex justify-end"
-                }`}
-              >
-                <article className="flex items-center gap-5">
-                  <Icon className="h-10 w-10 shrink-0 stroke-[1.6] text-[#111111]" />
-
-                  <div>
-                    <h3 className="text-base font-bold text-[#161616]">
-                      {feature.title}
-                    </h3>
-                    <p className="mt-2 whitespace-pre-line text-sm leading-normal text-[#777777]">
-                      {feature.description}
-                    </p>
-                  </div>
-                </article>
+      <section className="mx-auto max-w-300 px-5 pb-14 sm:px-8 lg:px-12">
+        <div className="grid gap-8 border-t border-[#ececec] pt-10 md:grid-cols-3">
+          {features.map(({ icon: Icon, title, description }) => (
+            <article key={title} className="flex items-center gap-5">
+              <Icon className="h-10 w-10 shrink-0 stroke-[1.6] text-[#111111]" />
+              <div>
+                <h3 className="text-base font-bold text-[#161616]">{title}</h3>
+                <p className="mt-2 whitespace-pre-line text-sm leading-normal text-[#777777]">{description}</p>
               </div>
-            );
-          })}
+            </article>
+          ))}
         </div>
       </section>
     </main>

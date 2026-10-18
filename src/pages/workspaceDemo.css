@@ -83,13 +83,6 @@
 .demo-preview-actions p { font-size: 12px; margin-top: 6px; color: #666666; }
 .demo-inspector { grid-column: 3; grid-row: 1 / 3; border-left: 1px solid #e8e8e8; overflow-y: auto; min-width: 0; padding: 0 20px; background: white; }
 .demo-inspector-section { padding: 24px 0; border-bottom: 1px solid #eeeeee; }
-.workspace-feedback-result h3 { margin-top: 16px; }
-.workspace-feedback-targets { display: grid; gap: 8px; }
-.workspace-feedback-targets button { display: flex; flex-direction: column; gap: 4px; text-align: left; overflow-wrap: anywhere; }
-.workspace-feedback .demo-issues { overflow-wrap: anywhere; }
-.workspace-feedback-targets span { color: #666666; font-size: 12px; }
-.workspace-feedback textarea { font-size: 16px; }
-.workspace-feedback :is(button, textarea, summary):focus-visible { outline: 2px solid #111111; outline-offset: 3px; }
 .demo-selected-name { display: block; margin-top: 16px; font-size: 14px; }
 .workspace-demo .demo-empty { padding: 18px 0; font-size: 12px; line-height: 1.65; color: #666666; }
 .demo-edit-actions { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -238,3 +231,33 @@
 .recommendation-colour-swatches i { width: 24px; height: 18px; border: 1px solid #dddddd; border-radius: 4px; }
 
 .recommendation-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+
+.design-consultation { min-width: 0; }
+.design-consultation:focus-visible { outline: 2px solid #111111; outline-offset: 3px; }
+.design-consultation-steps { display: flex; flex-wrap: wrap; gap: 6px 12px; margin: 0; padding: 0 0 16px; border-bottom: 1px solid #eeeeee; list-style-position: inside; color: #666666; font-size: 12px; }
+.design-consultation-steps [aria-current="step"] { color: #111111; font-weight: 700; }
+.design-consultation .demo-field { margin-top: 24px; margin-bottom: 0; }
+.design-consultation textarea { min-height: 140px; font-size: 16px; line-height: 1.65; }
+.workspace-demo .design-consultation-count { margin-top: 8px; margin-bottom: 24px; }
+.design-consultation-upload { display: flex; width: 100%; flex-direction: column; align-items: center; gap: 8px; padding: 20px 12px; border: 1px dashed #777777; border-radius: 8px; background: #fbfbfb; text-align: center; }
+.design-consultation-upload:hover:not(:disabled) { border-color: #111111; background: #eeeeee; }
+.design-consultation-upload > svg { width: 24px; height: 24px; }
+.design-consultation-upload > span { font-size: 12px; color: #666666; }
+.design-consultation-images { list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 10px; }
+.design-consultation-images li { display: flex; align-items: center; gap: 10px; min-width: 0; padding-bottom: 10px; border-bottom: 1px solid #eeeeee; }
+.design-consultation-images img { width: 64px; height: 64px; border-radius: 8px; object-fit: contain; background: #fbfbfb; flex-shrink: 0; }
+.design-consultation-images li > div { display: grid; gap: 6px; min-width: 0; flex: 1; font-size: 12px; }
+.design-consultation-images strong { overflow-wrap: anywhere; }
+.design-consultation-images span { color: #666666; }
+.design-consultation-images button { flex-shrink: 0; }
+.design-consultation-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.design-consultation-description { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; line-height: 1.65; margin: 16px 0; }
+.workspace-demo .design-consultation-note { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eeeeee; }
+
+.design-consultation-conditions { list-style: none; padding: 0; margin: 20px 0; }
+.design-consultation-conditions > li { padding: 16px 0; border-top: 1px solid #eeeeee; }
+.design-consultation-include { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; }
+.design-consultation-include input { width: 18px; height: 18px; }
+.design-consultation-conditions .demo-field { margin-top: 12px; }
+.design-consultation-conditions textarea { min-height: 88px; }
+.design-consultation-conditions textarea[aria-invalid="true"] { border-color: #b42318; }

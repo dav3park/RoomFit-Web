@@ -43,7 +43,6 @@ export default function Workspace() {
   if (!room || !backendRoomId) return <main className="workspace-demo"><header className="demo-header"><a href="/" className="demo-logo">ROOMFIT</a></header><div className="p-8" role={error ? 'alert' : 'status'}>{error || '선택한 공간을 불러오는 중…'}{error && <button className="demo-outline" onClick={() => { setError(''); setRetry(value => value + 1); }}>다시 시도</button>}</div></main>;
   return <WorkspaceDemo key={room.id} service={{
     initialRoom: room,
-    backendRoomId,
     onSave: next => save(next),
     onNext: async next => {
       await save(next);

@@ -9,6 +9,7 @@ import { PREFERRED_COLOR_TONE_OPTIONS, type PreferredColorToneId } from '../conf
 import { withAppliedPreferredColorTone, withAppliedColorScheme } from '../config/appliedColorTone';
 import { isLoftDeskFurniture, getFurnitureSelectionBlockReason } from '../config/furnitureSelectionPolicy';
 import { MAX_ACTIVE_FURNITURE } from '../config/furnitureAdditionPolicy';
+import { FURNITURE_SELECTION_ITEMS } from '../config/furnitureSelectionCatalog';
 import { calculateRotatedFootprint, resolveFurnitureLocalFootprint } from '../components/room/furnitureBoundary';
 import { designScore, designFeatures, functionalPlacement, layoutDistance, nearestWall, relatedPoses, wallPoses, worldPosition, floorCentroid, localPosition } from './designGuidelines';
 import { demoFloorContains } from '../pages/demoPlacement';
@@ -108,8 +109,21 @@ function baseSlots(room:RoomLayout,options:RecommendationOptions,random:()=>numb
     options.purpose==='취미 / 여가'?['bookshelf','plant','mood_lamp','rug','side_table']:
     options.purpose==='수납'?['bookshelf','hanger','partition_shelf','full_length_mirror']:['nightstand','plant','mood_lamp','rug','bookshelf'];
   const lockedTypes=active.filter(item=>isLocked(item,options)).map(furnitureType);
-  const optional=sampleWeighted(optionalTypes.filter(type=>!lockedTypes.includes(type)&&catalog.products.some(product=>product.furnitureType===type&&product.styleTags.includes(options.style))),2,
-    type=>1+Number(catalog.products.some(product=>product.furnitureType===type&&product.lifestyleTags.includes(lifestyle[options.purpose]))),random);
+  const area=room.walls.length>=3?Math.abs(room.walls.reduce((sum,w)=>sum+w.start.x*w.end.z-w.end.x*w.start.z,0))/2:room.width*room.depth;
+  const layered=options.style!=='minimal';
+  const living=options.purpose==='휴식'||options.purpose==='취미 / 여가';
+  const contextual=layered?[
+    ...(living&&sleeping&&area>=20?['sofa',...(options.constraints?.counts.multi_table?[]:['side_table'])]:[]),
+    ...(room.windows.length?['curtain_blind']:[]),
+    ...(sleeping&&area>=20?['partition_shelf']:[]),
+  ]:[];
+  const target=layered?(area<16?7:area<24?9:11):types.length+2;
+  const available=[...new Set([...contextual,...optionalTypes,...(layered?['rug','plant','mood_lamp','nightstand','bookshelf','full_length_mirror']:[])])]
+    .filter(type=>!types.includes(type)&&!lockedTypes.includes(type)&&catalog.products.some(product=>product.furnitureType===type&&product.styleTags.includes(options.style)));
+  const priorityTypes=contextual.filter(type=>available.includes(type));
+  const count=Math.max(0,target-types.length-active.filter(item=>isLocked(item,options)).length);
+  const optional=[...priorityTypes.slice(0,count),...sampleWeighted(available.filter(type=>!priorityTypes.includes(type)),Math.max(0,count-priorityTypes.length),
+    type=>1+Number(catalog.products.some(product=>product.furnitureType===type&&product.lifestyleTags.includes(lifestyle[options.purpose]))),random)];
   return [...types.map(type=>({type,required:true})),...optional.map(type=>({type,required:false}))]
     .filter(slot=>!lockedTypes.includes(slot.type)).map((slot,index)=>({...slot,id:`recommend-${room.id}-${index}-${slot.type}`}));
 }
@@ -203,10 +217,11 @@ function poses(item:Furniture,placed:readonly PreparedFurniture[],room:RoomLayou
 function signature(room:RoomLayout) {
   return room.furniture.map(item=>`${item.id}:${item.productId}:${item.position.x.toFixed(2)},${item.position.z.toFixed(2)}:${item.rotationY.toFixed(2)}`).sort().join('|');
 }
-function solve(room:RoomLayout,slots:Slot[],locked:Furniture[],options:RecommendationOptions,attempt:number,strategy:number,grid:CirculationGrid,random:()=>number):PartialLayout[] {
+function solve(room:RoomLayout,slots:Slot[],locked:Furniture[],options:RecommendationOptions,attempt:number,strategy:number,grid:CirculationGrid,random:()=>number,failures:Set<string>):PartialLayout[] {
   const check=createPlacementCheck(room);
   let beam:PartialLayout[]=[{items:locked.map(prepareFurniture),score:0,tagScore:0,warnings:[]}];
-  const ordered=slots.slice().sort((a,b)=>Number(a.type in supportType)-Number(b.type in supportType)
+  const ordered=slots.slice().sort((a,b)=>Number(b.type==='curtain_blind')-Number(a.type==='curtain_blind')
+    ||Number(a.type in supportType)-Number(b.type in supportType)
     || Number(a.type==='desk_chair')-Number(b.type==='desk_chair')||Number(b.required)-Number(a.required)
     || Number(['mood_lamp','plant','partition_shelf','rug','nightstand','side_table'].includes(a.type))-Number(['mood_lamp','plant','partition_shelf','rug','nightstand','side_table'].includes(b.type))
     || priority(a.type)-priority(b.type));
@@ -214,6 +229,7 @@ function solve(room:RoomLayout,slots:Slot[],locked:Furniture[],options:Recommend
     const expanded:PartialLayout[]=[];
     const productCandidates=candidates(slot,options,attempt,random);
     for(const partial of beam) {
+      let examined=0;
       for(const candidate of productCandidates) {
         if(candidate.item.dimensions.height>(room.height??3)) continue;
         if(getFurnitureSelectionBlockReason(candidate.item.variantId==='bed-loft-desk'?'bed-loft-desk':slot.type,[],{...room,furniture:partial.items.map(entry=>entry.item)})) continue;
@@ -221,17 +237,21 @@ function solve(room:RoomLayout,slots:Slot[],locked:Furniture[],options:Recommend
         const scored=choices.map(item=>({item,score:positionScore(item,partial.items,room,attempt)})).sort((a,b)=>b.score-a.score);
         let accepted=0;const poseGroups=new Set<string>();
         for(const {item} of scored) {
+          if(!slot.required&&++examined>64)break;
           if(options.keepSizes&&slot.original&&!(['width','depth','height'] as const).every(axis=>Math.abs(item.dimensions[axis]-slot.original!.dimensions[axis])<.001))continue;
           const entry=prepareFurniture(item);
           if(!check(entry,partial.items)||!functionalPlacement(item,partial.items.map(entry=>entry.item))) continue;
           const poseGroup=`${nearestWall(room,item.position)?.wall.id}:${Math.round(item.rotationY/(Math.PI/2))}:${Math.floor(item.position.x/1.2)},${Math.floor(item.position.z/1.2)}`;
           if(options.mode!=='preserve'&&poseGroups.has(poseGroup)) continue;
-          if(!validateCirculation({...room,furniture:[...partial.items.map(other=>other.item),item]},grid).valid) continue;
+          const installation=placementPolicy(item).installation;
+          if(!['WINDOW','SUPPORT','FLOOR_OVERLAY'].includes(installation)&&!validateCirculation({...room,furniture:[...partial.items.map(other=>other.item),item]},grid).valid) continue;
           const items=[...partial.items,entry],tagScore=partial.tagScore+candidate.score*strategies[strategy].tag;
           poseGroups.add(poseGroup);
           expanded.push({items,tagScore,score:tagScore+designScore(items.map(entry=>entry.item),room,strategy)+random()*2,warnings:[...partial.warnings,...(candidate.warning?[candidate.warning]:[])]});
-          if(++accepted>=4) break;
+          if(++accepted>=(slot.required?4:1)) break;
         }
+        // Extras follow the anchor layouts; do not multiply the beam for every decorative product.
+        if(!slot.required&&(accepted||examined>64))break;
       }
       if(!slot.required) expanded.push({...partial,score:partial.score-8,warnings:[...partial.warnings,`${({bookshelf:'책장',wardrobe:'옷장',nightstand:'협탁',plant:'화분',hanger:'행거'} as Record<string,string>)[slot.type]??slot.type}: 공간·통로 확보를 위해 추가하지 않았습니다.`]});
     }
@@ -242,7 +262,11 @@ function solve(room:RoomLayout,slots:Slot[],locked:Furniture[],options:Recommend
       if(unique.size>=8) break;
     }
     beam=[...unique.values()];
-    if(!beam.length) break;
+    if(!beam.length) {
+      const label=FURNITURE_SELECTION_ITEMS.find(item=>item.canonicalType===slot.type)?.name??slot.type;
+      failures.add(`${label}: 다른 가구와의 간격·설치 조건·통로를 함께 만족하는 위치를 찾지 못했습니다.`);
+      break;
+    }
   }
   return beam;
 }
@@ -260,13 +284,15 @@ export function generateRecommendations(input:RoomLayout,requested:Recommendatio
   const grid=createCirculationGrid(room);
   const locked=active.filter(item=>isLocked(item,options));
   const slots=makeSlots(room,options,random);
+  const windowCount=slots.filter(slot=>slot.required&&slot.type==='curtain_blind').length+locked.filter(item=>furnitureType(item)==='curtain_blind').length;
+  if(windowCount>room.windows.length)return {proposals:[],messages:[`창문 ${room.windows.length}개에 요청한 커튼·블라인드 ${windowCount}개를 모두 설치할 수 없습니다. 창문마다 한 개씩 설치할 수 있으므로 개수 또는 창문 정보를 확인해 주세요.`]};
   if(slots.filter(slot=>slot.required).length+locked.length>MAX_ACTIVE_FURNITURE||slots.some(slot=>options.constraints?.excludedTypes.includes(slot.type)))return {proposals:[],messages:['필요한 가구 개수가 한도를 넘거나 가구의 받침 역할을 하는 가구가 제외되어 있습니다. 조건을 확인해 주세요.']};
   if(!slots.length&&!locked.length) return {proposals:[],messages:['유지할 가구가 없습니다. 새로운 디자인을 선택해 주세요.']};
   const proposals:RecommendationProposal[]=[],pool:RecommendationProposal[]=[],failures=new Set<string>();
   for(let strategy=0;strategy<strategies.length;strategy++) {
     const valid:RecommendationProposal[]=[],seen=new Set<string>();
     for(let attempt=0;attempt<(options.mode==='preserve'?1:2);attempt++) {
-      const solved=solve(room,slots,locked,options,strategy*2+attempt,strategy,grid,random);
+      const solved=solve(room,slots,locked,options,strategy*2+attempt,strategy,grid,random,failures);
       for(const partial of solved) {
         const next=withAppliedPreferredColorTone({...room,furniture:partial.items.map(entry=>entry.item)},options.palette);
         const key=signature(next);if(seen.has(key)) continue;seen.add(key);
@@ -309,7 +335,8 @@ export function generateRecommendations(input:RoomLayout,requested:Recommendatio
       if(options.mode==='preserve') proposal.title=`색 조합 ${index+1} · ${scheme.label}`;
     });
   }
-  const messages=proposals.length===0?['조건을 만족하는 배치를 찾지 못했습니다. 가구 고정·크기 유지 조건을 줄이거나 새로운 디자인을 선택해 주세요.',...[...failures].slice(0,3)]:
+  const recovery=options.constraints?'‘조건 다시 수정’에서 가구 개수나 포함할 조건을 조정해 주세요.':options.keepTypes?'종류·개수 유지 또는 크기 유지 조건과 가구 자물쇠 고정을 확인해 주세요.':'가구 자물쇠 고정을 확인하거나 다른 스타일로 다시 시도해 주세요.';
+  const messages=proposals.length===0?[`현재 방 크기와 선택한 조건으로 배치를 찾지 못했습니다. ${recovery}`,...[...failures].slice(0,3)]:
     proposals.length<3?[`현재 조건에서 서로 다른 추천안 ${proposals.length}개를 찾았습니다. 조건을 임의로 해제하지 않았습니다.`]:[];
   return {proposals,messages,seed};
 }

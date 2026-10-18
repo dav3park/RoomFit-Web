@@ -6,11 +6,14 @@ describe('lazy furniture models',()=>{
   expect(productionFurnitureRegistry.hasFurnitureVariant('lamp-floor')).toBe(false);
  });
  it('shares an in-flight import and loads only the requested model',async()=>{
+  const fetch=vi.spyOn(globalThis,'fetch');
   const first=loadProductionFurnitureVariant('desk-compact');
   expect(loadProductionFurnitureVariant('desk-compact')).toBe(first);
   expect((await first).variantId).toBe('desk-compact');
   expect(getProductionFurnitureVariantState('desk-compact')).toBe('ready');
   expect(getLoadedFurnitureVariant('lamp-floor')).toBeNull();
+  expect(fetch.mock.calls[0][1]?.cache).toBe('default');
+  fetch.mockRestore();
  });
  it('rejects unknown models without silently supplying a different furniture model',async()=>{
   await expect(loadProductionFurnitureVariant('not-a-catalog-model')).rejects.toThrow();
@@ -21,6 +24,7 @@ describe('lazy furniture models',()=>{
   expect(getProductionFurnitureVariantState('expansion-c003')).toBe('error');
   retryProductionFurnitureVariant('expansion-c003');
   expect((await loadProductionFurnitureVariant('expansion-c003')).variantId).toBe('expansion-c003');
+  expect(fetch.mock.calls[1][1]?.cache).toBe('reload');
   expect(getProductionFurnitureVariantState('expansion-c003')).toBe('ready');
   fetch.mockRestore();
  });

@@ -9,7 +9,7 @@ describe('independent consultation result audit',()=>{
   const room=generateRecommendations(DEMO_ROOMS[0],options).proposals[0].room;
   const result=auditConsultationProposal(room,options,DEMO_ROOMS[0]);
   expect(result.valid).toBe(true);expect(result.checks.some(check=>check.label.includes('옷장')&&check.actual===0&&check.expected===0)).toBe(true);
-  expect(result.inventory.some(item=>item.type==='bookshelf'&&item.name.includes('책장'))).toBe(true);
+  expect(result.inventory.some(item=>item.type==='bookshelf'&&catalog.products.some(product=>product.furnitureType==='bookshelf'&&product.label===item.name))).toBe(true);
  });
  it('rejects a wardrobe disguised as a bookshelf and a valid-looking broken count',()=>{
   const room=generateRecommendations(DEMO_ROOMS[0],options).proposals[0].room;

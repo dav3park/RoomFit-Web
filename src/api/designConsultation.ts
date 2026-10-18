@@ -31,7 +31,11 @@ export function consultationFurniture(room: RoomLayout) {
 }
 
 // Send a bounded image without EXIF; keep the original attachment for preview and retries.
+const preparedPhotos = new WeakMap<File, Blob>();
 export async function consultationPhoto(image: DesignReferenceImage, signal: AbortSignal): Promise<Blob> {
+  signal.throwIfAborted();
+  const prepared = preparedPhotos.get(image.file);
+  if (prepared) return prepared;
   const photo = new Image(); photo.src = image.url; await photo.decode();
   signal.throwIfAborted();
   const canvas = document.createElement('canvas');
@@ -45,7 +49,7 @@ export async function consultationPhoto(image: DesignReferenceImage, signal: Abo
     context.drawImage(photo, 0, 0, canvas.width, canvas.height);
     const blob = await new Promise<Blob | null>(resolve => canvas.toBlob(resolve, 'image/jpeg', .8));
     signal.throwIfAborted();
-    if (blob && blob.size <= 256 * 1024) return blob;
+    if (blob && blob.size <= 256 * 1024) { preparedPhotos.set(image.file, blob); return blob; }
     canvas.width = Math.max(1, Math.round(canvas.width * .75)); canvas.height = Math.max(1, Math.round(canvas.height * .75));
   }
   throw new Error('사진 용량을 줄이지 못했습니다. 더 작은 사진으로 다시 시도해 주세요.');
@@ -90,7 +94,8 @@ export async function analyzeDesignConsultation(description: string, images: rea
   const revision = crypto.randomUUID();
   const form = new FormData();
   form.append('brief', new Blob([JSON.stringify({ revision, description, furniture, recommendationReady: true })], { type: 'application/json' }));
-  for (const [index, image] of images.entries()) form.append('images', await consultationPhoto(image, signal), `reference-${index + 1}.jpg`);
+  const photos = await Promise.all(images.map(image => consultationPhoto(image, signal)));
+  for (const [index, photo] of photos.entries()) form.append('images', photo, `reference-${index + 1}.jpg`);
   signal.throwIfAborted();
   const response = await apiClient.post<{ success: boolean; data: unknown }>('/api/design-consultation/analyze', form, { signal, timeout: 70_000 });
   if (!response.data.success) throw new Error('취향 분석을 완료하지 못했습니다. 잠시 후 다시 시도해 주세요.');

@@ -20,7 +20,8 @@ export function rolePlacementCandidates(_room:RoomLayout,item:Furniture,placed:r
   const work=placed.filter(other=>['desk','sofa'].includes(other.sourceType??''));let pairs=0;
   for(const a of sleeping)for(const b of work){if(pairs++>=4)break;
    const dx=b.position.x-a.position.x,dz=b.position.z-a.position.z,r=Math.atan2(-dx,-dz);
-   for(const t of [.45,.55])result.push({...item,position:{x:a.position.x+dx*t,z:a.position.z+dz*t},rotationY:r});
+   const length=Math.hypot(dx,dz)||1;
+   for(const t of [.45,.55])for(const shift of [0,-.45,.45])result.push({...item,position:{x:a.position.x+dx*t-dz/length*shift,z:a.position.z+dz*t+dx/length*shift},rotationY:r});
   }
  }
  if(policy.roles.includes('coffee'))for(const host of seating.slice(0,3))result.push({...item,position:worldPosition(host,0,host.dimensions.depth/2+item.dimensions.depth/2+.35),rotationY:host.rotationY});
@@ -31,6 +32,7 @@ export function rolePlacementCandidates(_room:RoomLayout,item:Furniture,placed:r
 export function rolePlacementScore(room:RoomLayout,item:Furniture,placed:readonly Furniture[]):number {
  const candidates=rolePlacementCandidates(room,item,placed),roles=placementPolicy(item).roles;
  if(!candidates.length)return 0;
- const nearest=Math.min(...candidates.map(p=>Math.hypot(p.position.x-item.position.x,p.position.z-item.position.z)));
+ const nearest=Math.min(...candidates.map(p=>Math.hypot(p.position.x-item.position.x,p.position.z-item.position.z)
+  +(roles.includes('divider')?Math.abs(Math.sin(p.rotationY-item.rotationY))*1.5:0)));
  return Math.max(-15,(roles.includes('divider')?28:15)-nearest*16);
 }

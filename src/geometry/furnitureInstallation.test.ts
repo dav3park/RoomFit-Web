@@ -9,6 +9,26 @@ const room:RoomLayout={id:'installation',name:'원룸',width:6,depth:6,height:2.
  {id:'s',start:{x:3,z:3},end:{x:-3,z:3}},{id:'w',start:{x:-3,z:3},end:{x:-3,z:-3}}],doors:[],windows:[],furniture:[]};
 function item(variant:string,id=variant):Furniture {const p=catalog.products.find(p=>p.variantId===variant)!;return {id,name:p.label,sourceType:p.furnitureType,variantId:variant,productId:p.productId,category:'cabinet',dimensions:{...p.dimensions},position:{x:0,z:0},rotationY:0,color:'#fff',material:'wood',status:'recommended',removable:true};}
 describe('furniture installation',()=>{
+ it('uses rectangular bounds for preview rooms with only two visible walls',()=>{
+  const r={...room,walls:room.walls.slice(0,2),windows:[{id:'window',label:'창문',wallId:'n',position:{x:0,z:-3},rotationY:0,dimensions:{width:2,depth:.1,height:1.2},sillHeight:.9}]};
+  const [curtain]=windowInstallationCandidates(r,item('curtain-fabric'));
+  expect(curtain.position.z).toBeGreaterThan(-3);
+  expect(validateRecommendationLayout({...r,furniture:[curtain]}).valid).toBe(true);
+  const outside={...curtain,position:{x:-4,z:curtain.position.z}};
+  expect(computeLocalValidationIssues([outside],r,'render').some(issue=>issue.type==='OUT_OF_BOUNDS')).toBe(true);
+ });
+ it('fits window treatments at a wall corner without requiring floor-furniture clearance',()=>{
+  const r={...room,windows:[{id:'corner',label:'창문',wallId:'n',position:{x:-2,z:-3},rotationY:0,dimensions:{width:2,depth:.1,height:1.2},sillHeight:.9}]};
+  for(const variant of ['curtain-fabric','blind-wood']){
+   const [installed]=windowInstallationCandidates(r,item(variant));
+   expect(installed).toBeDefined();
+   expect(installed.dimensions.width).toBeCloseTo(variant==='curtain-fabric'?2.1:2);
+   expect(validateRecommendationLayout({...r,furniture:[installed]}).valid,variant).toBe(true);
+   expect(computeLocalValidationIssues([installed],r,'render').filter(issue=>issue.severity==='ERROR'),variant).toEqual([]);
+   const outside={...installed,position:{...installed.position,x:-3}};
+   expect(computeLocalValidationIssues([outside],r,'render').some(issue=>issue.type==='OUT_OF_BOUNDS')).toBe(true);
+  }
+ });
  it('uses the authored desktop surface instead of overall furniture height',()=>{
   const desk=item('desk-compact'),lamp=item('lamp-table');
   const result=resolveFurnitureInstallations(room,[desk,lamp]).get(lamp.id)!;

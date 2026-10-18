@@ -1,5 +1,5 @@
 import { placementPolicy } from '../config/furniturePlacementPolicy';
-import { resolveFurnitureLocalFootprint } from '../components/room/furnitureBoundary';
+import { calculateRotatedFootprint, resolveFurnitureLocalFootprint } from '../components/room/furnitureBoundary';
 import { windowCenterY } from '../components/room/openingLayout';
 import { normalizeCanonicalFurnitureType } from '../config/canonicalFurnitureType';
 import type { Furniture,Opening,RoomLayout,Vector2D } from '../types';
@@ -13,7 +13,7 @@ export function localPoint(item:Furniture,p:Vector2D) {
  return {x:dx*c-dz*s,z:dx*s+dz*c};
 }
 export function floorContains(room:Pick<RoomLayout,'width'|'depth'|'walls'>,p:Vector2D):boolean {
- if(!room.walls.length)return Math.abs(p.x)<=room.width/2+1e-6&&Math.abs(p.z)<=room.depth/2+1e-6;
+ if(room.walls.length<3)return Math.abs(p.x)<=room.width/2+1e-6&&Math.abs(p.z)<=room.depth/2+1e-6;
  let inside=false;
  for(const wall of room.walls){const a=wall.start,b=wall.end;
   if((a.z>p.z)!==(b.z>p.z)&&p.x<(b.x-a.x)*(p.z-a.z)/(b.z-a.z)+a.x)inside=!inside;
@@ -54,9 +54,18 @@ function windowTarget(room:RoomLayout,item:Furniture,opening:Opening) {
  const policy=placementPolicy(item),frame=openingFrame(room,opening),wallHeight=room.height??2.4;
  const bottom=windowCenterY(opening.dimensions.height,wallHeight,opening.sillHeight)-opening.dimensions.height/2;
  const height=policy.windowTreatment==='BLIND'?opening.dimensions.height:Math.min(wallHeight,bottom+opening.dimensions.height+.1);
- const width=opening.dimensions.width+(policy.windowTreatment==='BLIND'?0:.2),offset=item.dimensions.depth/2+(frame.wall?.thickness??.12)/2+.03;
- return {position:{x:opening.position.x+frame.inward.x*offset,z:opening.position.z+frame.inward.z*offset},rotationY:frame.rotationY,
+ const length=frame.wall?distance(frame.wall.start,frame.wall.end):Infinity;
+ const center=frame.wall?(opening.position.x-frame.wall.start.x)*frame.along.x+(opening.position.z-frame.wall.start.z)*frame.along.z:Infinity;
+ const left=policy.windowTreatment==='BLIND'?0:frame.wall?Math.min(.1,Math.max(0,center-opening.dimensions.width/2)):.1;
+ const right=policy.windowTreatment==='BLIND'?0:frame.wall?Math.min(.1,Math.max(0,length-center-opening.dimensions.width/2)):.1;
+ const width=opening.dimensions.width+left+right,shift=(right-left)/2,offset=item.dimensions.depth/2+(frame.wall?.thickness??.12)/2+.03;
+ return {position:{x:opening.position.x+frame.inward.x*offset+frame.along.x*shift,z:opening.position.z+frame.inward.z*offset+frame.along.z*shift},rotationY:frame.rotationY,
   dimensions:{width,depth:item.dimensions.depth,height},bottom:policy.windowTreatment==='BLIND'?bottom:0};
+}
+/** Installed treatments may meet a side wall; floor furniture's extra inset is not an installation gap. */
+export function windowFurnitureInsideRoom(room:Pick<RoomLayout,'width'|'depth'|'walls'>,item:Furniture):boolean {
+ const footprint=calculateRotatedFootprint(item.dimensions,-item.rotationY,resolveFurnitureLocalFootprint(item));
+ return footprint.corners.every(p=>floorContains(room,{x:item.position.x+p.x*(1-1e-7),z:item.position.z+p.z*(1-1e-7)}));
 }
 export function windowInstallationCandidates(room:RoomLayout,item:Furniture):Furniture[] {
  return room.windows.slice().sort((a,b)=>distance(a.position,item.position)-distance(b.position,item.position)||a.id.localeCompare(b.id)).slice(0,4).flatMap(opening=>{

@@ -1,7 +1,7 @@
-import { resolveFurnitureInstallations,supportFor } from '../geometry/furnitureInstallation';
+import { resolveFurnitureInstallations,supportFor,windowFurnitureInsideRoom } from '../geometry/furnitureInstallation';
 import { placementPolicy } from '../config/furniturePlacementPolicy';
 import type { Furniture, Opening, RoomLayout, Vector2D } from '../types';
-import { calculateRotatedFootprint, isFurnitureInsideRoom, resolveFurnitureLocalFootprint } from '../components/room/furnitureBoundary';
+import { calculateRotatedFootprint, resolveFurnitureLocalFootprint } from '../components/room/furnitureBoundary';
 import { normalizeCanonicalFurnitureType } from '../config/canonicalFurnitureType';
 import { clearanceZonesWorld } from '../geometry/clearance';
 import { obbOverlap, worldCorners } from '../geometry/obb';
@@ -45,7 +45,7 @@ export function createPlacementCheck(room: RoomLayout, installationScope?: reado
     if(!installations.get(item.id)?.valid)return false;
     if (Object.values(item.dimensions).some(value=>!Number.isFinite(value)||value<=0) || item.dimensions.height>(room.height ?? 3)) return false;
     if(entry.type==='curtain_blind'){
-      if(!isFurnitureInsideRoom(room,item.dimensions,item.position,-item.rotationY,resolveFurnitureLocalFootprint(item)))return false;
+      if(!windowFurnitureInsideRoom(room,item))return false;
     }else if (demoPlacementReason(room,item)) return false;
     if (blockedWindows(room, entry, installationScope?installationScope.filter(other=>other.id!==item.id).map(prepareFurniture):placed).length) return false;
     if (entry.type!=='rug' && swings.some(swing=>obbOverlap(swing,entry.body))) return false;

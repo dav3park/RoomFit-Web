@@ -13,6 +13,11 @@ describe('purpose-specific placement',()=>{
  it('does not invent separation when only one living area exists',()=>{
   expect(rolePlacementCandidates(room,item('divider','partition_shelf'),[item('bed','bed')])).toEqual([]);
  });
+ it('prefers a divider across the two areas rather than along their connecting path',()=>{
+  const hosts=[item('bed','bed',-2,0),item('desk','desk',2,0)],divider=item('divider','partition_shelf');
+  const candidate=rolePlacementCandidates(room,divider,hosts)[0];
+  expect(rolePlacementScore(room,candidate,hosts)).toBeGreaterThan(rolePlacementScore(room,{...candidate,rotationY:candidate.rotationY+Math.PI/2},hosts));
+ });
  it('places coffee tables in front of a sofa and rugs inside the living group',()=>{
   const sofa=item('sofa','sofa',0,1);sofa.dimensions.depth=1;
   const table={...item('coffee','side_table'),variantId:'side-table-coffee'};

@@ -57,6 +57,7 @@ export const productionFurnitureRegistry=new FurnitureVariantRegistry();
 const productsById=new Map(generatedCatalog.products.map(product=>[product.variantId,product]));
 const requests=new Map<string,Promise<ValidatedFurnitureVariant>>();
 const states=new Map<string,'loading'|'ready'|'error'>();
+const reloads=new Set<string>();
 const listeners=new Set<()=>void>();
 const notify=()=>{for(const listener of listeners)listener();};
 export function subscribeFurnitureModels(listener:()=>void){listeners.add(listener);return ()=>{listeners.delete(listener);};}
@@ -66,14 +67,14 @@ export function getLoadedFurnitureVariant(id:string):ValidatedFurnitureVariant|n
  return productionFurnitureRegistry.hasFurnitureVariant(id)?productionFurnitureRegistry.getFurnitureVariant(id):null;
 }
 export function retryProductionFurnitureVariant(id:string):void {
- if(states.get(id)!=='error')return;requests.delete(id);states.delete(id);notify();
+ if(states.get(id)!=='error')return;requests.delete(id);states.delete(id);reloads.add(id);notify();
 }
 export function loadProductionFurnitureVariant(id:string):Promise<ValidatedFurnitureVariant> {
  const pending=requests.get(id);if(pending)return pending;
  const product=productsById.get(id),asset=product?variantAssets[`../../../data/furniture/${product.variantPath}`]:undefined;
  if(!product||!asset)return Promise.reject(new Error(`Unknown furniture model: ${id}`));
  states.set(id,'loading');
- const request=fetch(asset,{cache:'no-cache',signal:AbortSignal.timeout(20_000)}).then(async response=>{
+ const request=fetch(asset,{cache:reloads.delete(id)?'reload':'default',signal:AbortSignal.timeout(20_000)}).then(async response=>{
   if(!response.ok)throw new Error(`Furniture model request failed: ${response.status}`);
   return response.json() as Promise<unknown>;
  }).then(document=>{

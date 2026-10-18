@@ -110,7 +110,7 @@ export default function DesignConsultationPanel({ draft, onGenerate, onCancel, p
     <div role="status" aria-live="polite" aria-atomic="true">
       {draft.processing && <p className="demo-help">첨부한 사진을 확인하고 있습니다.</p>}
       {draft.pending && <p className="demo-help">사진과 설명에서 취향·필수 조건을 분석하고 있습니다. 현재 배치는 바뀌지 않습니다.</p>}
-      {draft.confirmed && <p className="demo-help">확인한 조건으로 추천안을 생성할 수 있습니다. 적용하기 전까지 현재 배치는 바뀌지 않습니다.</p>}
+      {draft.confirmed && <p className="demo-help">조건 확인이 완료됐습니다. 배치 가능 여부는 추천 생성 시 확인합니다. 적용하기 전까지 현재 배치는 바뀌지 않습니다.</p>}
     </div>
     {preparationError && <p className="demo-save-error" role="alert">{preparationError}</p>}
     {report && <div className="demo-section">

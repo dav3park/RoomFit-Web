@@ -149,6 +149,7 @@ export function layoutDistance(a: RoomLayout, b: RoomLayout): number {
 export function designFeatures(room: RoomLayout): string[] {
   const items=room.furniture.map(prepareFurniture),features:string[]=[];
   if(room.windows.length) features.push('창 앞 높은 가구 배제');
+  if(items.some(entry=>entry.type==='curtain_blind'))features.push('창문에 맞춘 커튼·블라인드');
   if(items.some(entry=>entry.type==='desk')&&items.some(entry=>entry.type==='desk_chair')) features.push('책상·의자 사용 공간 연결');
   const anchorWalls=new Set(items.filter(entry=>['bed','sofa','desk','wardrobe','bookshelf'].includes(entry.type)).map(entry=>nearestWall(room,entry.item.position)?.wall.id));
   if(anchorWalls.size>1) features.push('여러 벽에 생활 영역 분산');

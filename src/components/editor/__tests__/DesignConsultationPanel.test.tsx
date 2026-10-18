@@ -11,6 +11,12 @@ const draft={description:'수납장 필요',images:[],processing:false,pending:f
 } as unknown as ReturnType<typeof useDesignConsultationDraft>;
 const render=(value=draft,report:CompiledConsultation|null=null)=>renderToStaticMarkup(<DesignConsultationPanel draft={value} report={report} preparationError="" preparing={false} generating={false} busy={false} onGenerate={vi.fn()} onCancel={vi.fn()} />);
 describe('consultation review flow',()=>{
+  it('distinguishes confirmed conditions from finding a feasible layout',()=>{
+    const confirmed=render({...draft,confirmed:true});
+    expect(confirmed).toContain('조건 확인이 완료됐습니다.');
+    expect(confirmed).toContain('배치 가능 여부는 추천 생성 시 확인합니다.');
+    expect(confirmed).not.toContain('추천안을 생성할 수 있습니다');
+  });
   it('places actionable clarification before the editable condition list',()=>{
     const markup=render();
     expect(markup.indexOf('조건을 더 구체화해 주세요')).toBeGreaterThan(-1);

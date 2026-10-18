@@ -322,7 +322,7 @@ export default function WorkspaceDemo({service}: {service?: WorkspaceService}) {
                 </button>
                 {!!proposal.validation.warnings.length && <details><summary>주의사항 {proposal.validation.warnings.length}개</summary><ul className="demo-issues">{proposal.validation.warnings.map(warning=><li key={warning}>{warning}</li>)}</ul></details>}
               </div>)}
-              {candidate && <><p className="demo-help">미리보기 중입니다. 적용하면 현재 배치가 자동 저장됩니다.</p><Button className="w-full" onClick={()=>{const next=copyDemoRoom(candidate);changeRoom(next);setAppliedPalette(getLayoutAppliedPreferredColorTone(next));setSelectedId(null);setNotice('선택한 추천안을 적용하고 자동 저장했습니다. 이어서 직접 편집할 수 있습니다.');}}>이 추천안 적용</Button><button className="demo-outline" onClick={()=>{setCandidate(null);setNotice('현재 편집 배치로 돌아왔습니다. 추천안을 다시 눌러 비교할 수 있습니다.');}}>현재 배치로 돌아가기</button></>}
+              {candidate && <><p className="demo-help">미리보기 중입니다. 적용하면 현재 배치가 자동 저장됩니다.</p><div className="recommendation-actions"><Button className="w-full" onClick={()=>{const next=copyDemoRoom(candidate);changeRoom(next);setAppliedPalette(getLayoutAppliedPreferredColorTone(next));setSelectedId(null);setNotice('선택한 추천안을 적용하고 자동 저장했습니다. 이어서 직접 편집할 수 있습니다.');}}>이 추천안 적용</Button><button className="demo-outline" onClick={()=>{setCandidate(null);setNotice('현재 편집 배치로 돌아왔습니다. 추천안을 다시 눌러 비교할 수 있습니다.');}}>현재 배치로 돌아가기</button></div></>}
             </section>}
 
           </>}

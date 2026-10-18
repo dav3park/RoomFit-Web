@@ -230,3 +230,5 @@
 .demo-palette .demo-palette-auto { display: grid; place-items: center; color: #111111; background: #ffffff; }
 .recommendation-preview .recommendation-colour-swatches { display: flex; gap: 4px; }
 .recommendation-colour-swatches i { width: 24px; height: 18px; border: 1px solid #dddddd; border-radius: 4px; }
+
+.recommendation-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
